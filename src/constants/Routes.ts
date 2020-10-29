@@ -1,8 +1,8 @@
 import { RouteObject } from '../types/index';
 import Config from 'lib/config';
 
-import Home from 'pages/Home';
-import Styleguide from 'pages/Styleguide';
+import Home from 'containers/home';
+import Styleguide from 'pages/styleguide';
 
 const RouteMap: Record<string, RouteObject> = {
   HOME: {
