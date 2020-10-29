@@ -1,0 +1,32 @@
+//TODO: Add actual fonts and sizing when they have been finalized.
+
+$sans-serif: 'Arial', sans-serif;
+$serif: 'Times', serif;
+
+.sans-serif {
+  font-family: $sans-serif;
+}
+
+.serif {
+  font-family: $serif;
+}
+
+.text-style--heading-1 {
+  font-family: $sans-serif;
+  font-size: 9.375rem;
+  letter-spacing: 0.103125rem;
+}
+
+.text-style--meta-sm {
+  font-family: $sans-serif;
+  font-size: 1.125rem;
+  letter-spacing: 0.0275rem;
+  line-height: 1.35rem;
+}
+
+.text-style--meta-xs {
+  font-family: $sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.0275rem;
+  line-height: 1.205625rem;
+}
