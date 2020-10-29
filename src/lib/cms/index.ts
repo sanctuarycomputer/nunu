@@ -7,4 +7,4 @@ export const Pages = {
   },
 };
 
-export { HomePage } from './types';
+export { HomePage, Image, ImageCrop, ImageDimensions, KnowledgeArea } from './types';

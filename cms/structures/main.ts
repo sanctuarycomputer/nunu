@@ -7,4 +7,6 @@ export default () =>
       S.documentTypeListItem('homePage')
         .title('Home Page')
         .child(S.document().title('Home Page').schemaType('homePage').documentId('_homePage')),
+      S.divider(),
+      S.documentTypeListItem('knowledgeArea'),
     ]);
