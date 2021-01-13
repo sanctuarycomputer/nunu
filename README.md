@@ -31,15 +31,14 @@ Here are the major frameworks, programming languages, software and libraries we 
 
 #### Dev
 
-- [React](https://reactjs.org/)
-- [Sanity.io](https://www.sanity.io/)
+- [Liquid](https://shopify.github.io/liquid/)
 - [Basement CSS](https://basement.sanctuary.computer/)
 - Shopify Bookings
 
 #### Design
 
 We are using [Figma](https://www.figma.com) for our design comps.
-[Here](https://www.figma.com/file/eZqowMWKoITGsLcqNbuVBO/XXXI-2.0?node-id=169%3A269) is the link to the design files. If you need access, please contact Maria or Jacob at XXIX.
+[Here](https://www.figma.com/file/eZqowMWKoITGsLcqNbuVBO/XXXI-2.0?node-id=169%3A269) is the link to the design files. If you need access, please contact XXIX.
 
 <!-- GETTING STARTED -->
 
@@ -83,14 +82,6 @@ yarn install
 
 ```sh
 yarn start
-```
-
-To spin up the CMS, navigate to `cms` and follow these steps:
-
-1. Spin up the CMS
-
-```sh
-sanity start
 ```
 
 ### VSCode Extensions
