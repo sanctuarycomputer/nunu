@@ -1,12 +1,19 @@
-// Serif
+@font-face {
+  font-family: "ITCGaramondLight";
+  font-style: normal;
+  font-weight: 300;
+  src: url('{{ "itc-garamond-light.eot" | asset_url }}');
+  src: url('{{ "itc-garamond-light.woff2" | asset_url }}') format("woff2"),
+    url('{{ "itc-garamond-light.woff" | asset_url }}') format("woff"),
+    url('{{ "itc-garamond-light.svg#svgFontName" | asset_url }}') format("svg");
+}
 
-// Sans-Serif
 @font-face {
   font-family: "GTZirkonLight";
   font-style: normal;
-  font-weight: 400;
-  src: url('{{ "gtzirkonlight.eot" | asset_url }}');
-  src: url('{{ "gtzirkonlight.woff2" | asset_url }}') format("woff2"),
-    url('{{ "gtzirkonlight.woff" | asset_url }}') format("woff"),
-    url('{{ "gtzirkonlight.svg#svgFontName" | asset_url }}') format("svg");
+  font-weight: 300;
+  src: url('{{ "gt-zirkon-light.eot" | asset_url }}');
+  src: url('{{ "gt-zirkon-light.woff2" | asset_url }}') format("woff2"),
+    url('{{ "gt-zirkon-light.woff" | asset_url }}') format("woff"),
+    url('{{ "gt-zirkon-light.svg#svgFontName" | asset_url }}') format("svg");
 }
