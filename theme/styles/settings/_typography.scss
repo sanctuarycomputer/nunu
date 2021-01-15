@@ -1,0 +1,81 @@
+/** Families */
+.serif {
+  font-family: $itc-garamond;
+}
+
+.sans-serif {
+  font-family: $gt-zirkon;
+}
+
+/** Sizes */
+.serif-xl, .serif-md, .serif-xs {
+  font-family: $itc-garamond;
+  font-weight: 300;
+}
+
+.sans-mega, .sans-xxl, .sans-md, .sans-sm, .sans-xs, .sans-xxs {
+  font-family: $gt-zirkon;
+  font-weight: 300;
+}
+
+.serif-xl {
+  font-size: 4.6875rem;
+}
+
+.serif-md {
+  font-size: 2.5rem;
+  line-height: 2.625rem;
+}
+
+.serif-xs {
+  font-size: 1.125rem;
+  line-height: 1.35rem;
+  letter-spacing: 0.0275rem;
+}
+
+.sans-mega {
+  font-size: 9.375rem;
+  line-height: 8.4375rem;
+}
+
+.sans-xxl {
+  font-size: 6.25rem;
+  line-height: 5.625rem;
+}
+
+.sans-lg {
+  font-size: 3.125rem;
+  line-height: 2.8125rem;
+
+  @include media('md-up') {
+    font-size: 4.0625rem;
+    line-height: 3.65625rem;
+  }
+}
+
+.sans-md {
+  font-size: 1.875rem;
+  line-height: 1.6875rem;
+
+  @include media('md-up') {
+    font-size: 3.125rem;
+    line-height: 2.8125rem;
+  }
+}
+
+.sans-sm {
+  font-size: 1.875rem;
+  line-height: 1.6875rem;
+}
+
+.sans-xs {
+  font-size: 1rem;
+  line-height: 1.171875rem;
+  letter-spacing: 0.0275rem;
+}
+
+.sans-xxs {
+  font-size: 0.75rem;
+  line-height: 0.83125rem;
+  letter-spacing: 0.0275rem;
+}

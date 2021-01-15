@@ -1,22 +1,12 @@
 {
   "compilerOptions": {
+    "module": "commonjs",
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react",
-    "baseUrl": "src/",
-    "noUnusedLocals": true
+    "lib": ["es2015", "dom"],
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "outDir": "./theme/assets",
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src"]
 }

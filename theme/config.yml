@@ -1,0 +1,15 @@
+development:
+  password: ${PASSWORD}
+  theme_id: ${DEVELOPMENT_THEME_ID}
+  store: ${STORE_DOMAIN}
+  ignore_files:
+    - config/settings_data.json
+    - scripts/**/*
+production:
+  password: ${PASSWORD}
+  theme_id: ${PRODUCTION_THEME_ID}
+  store: ${STORE_DOMAIN}
+  readonly: true
+  ignore_files:
+    - config/settings_data.json
+    - scripts/**/*
