@@ -84,6 +84,26 @@ yarn install
 yarn start
 ```
 
+### Development
+
+**NOTE:** If you're currently running `theme watch` from a different feature, **please kill that process before following the below steps!**
+
+1. Create a feature branch in Git (`feature/843-product-grid`)
+2. Login to the Shopify Admin, navigate to `Online Store -> Themes` and duplicate a theme. Name it the same as your branch name, click Customize and grab its ID from the URL bar.
+3. Set that ID in your `theme/.env` file as `DEVELOPMENT_THEME_ID`.
+4. Run `yarn deploy` to ensure your theme is now in sync with the compiled assets.
+5. You're now ready to develop! Run `yarn watch`, and changes to the local files will be compiled and sync'd to your new theme.
+6. In order to preview your development theme, head to the Shopify Admin, find your theme, and under `Actions` click `Preview`.
+
+### Deployment
+
+**NOTE:** The following process will ensure we never overwrite the production theme accidentally.
+
+1. Preview the theme you would like to set live
+2. Under `Actions`, click `Duplicate`.
+3. Rename the duplicated theme `Production #{n+1}` (the live theme should be `Production #{n}`)
+4. Under `Actions`, click `Publish`.
+
 ### VSCode Extensions
 
 We highly recommend using VSCode for this project and adding the following extensions:
