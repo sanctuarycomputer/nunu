@@ -1,0 +1,24 @@
+{% comment %} TO-DO: Remove Type Design placeholder {% endcomment %}
+{% assign product_media = current_product.media | first %}
+{% if current_product.available == false %}
+  {% assign availability_text = 'Sold Out' %}
+{% endif %}
+
+<a class="ProductGridItem color-white text-decoration-none" href="{{ current_product.url }}" aria-label="{{ 'snippets.product_grid_item.product_btn.aria_label' | t }}" >
+  <div class="bg-color-black p_625">
+    <div class="flex justify-between">
+      <span class="ProductGridItem__title serif-xs uppercase">{{current_product.title}}</span>
+      <span class="ProductGridItem__price serif-xs uppercase">{{current_product.price | money_without_trailing_zeros }}</span>
+    </div>
+    <span class="ProductGridItem__vendor sans-xs uppercase">{{current_product.vendor}}</span>
+    <img class="ProductGridItem__image w100 h100" src="{{ product_media.src | img_url: 'x265' }}" alt="{{ product_media.alt | escape }}">
+    <div class="sans-xxs uppercase flex justify-between">
+      <span class="flex items-center">
+        <span class="dot mr_25"></span>
+        <span>{{ current_product.type }}</span>
+      </span>
+      <span class="radius-xs border-white p_25">Type Design</span>
+    </div>
+  </div>
+  
+</a>

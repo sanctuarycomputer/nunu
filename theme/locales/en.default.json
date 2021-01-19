@@ -37,6 +37,11 @@
           "text": "Instagram"
         }
       }
+    },
+    "product_grid_item": {
+      "product_btn": {
+        "aria_label": "Navigate to the product page."
+      }
     }
   }
 }
