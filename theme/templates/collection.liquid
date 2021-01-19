@@ -1,13 +1,5 @@
-{% paginate collection.products by 2 %}
-  <h1>{{ collection.title }}</h1>
+<div class="Collection">
   {% for product in collection.products %}
-    {% for product in collection.products %}
-      {% render 'product-grid-item', current_product: product %}
-    {% endfor %}
-  {% else %}
-    <p>no matches</p>
+    {% render 'product-grid-item', current_product: product %}
   {% endfor %}
-  {% if paginate.pages > 1 %}
-    {{ paginate | default_pagination }}
-  {% endif %}
-{% endpaginate %}
+</div>

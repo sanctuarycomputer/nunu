@@ -1,4 +1,7 @@
 {% render 'home-header' %}
+<div class="">
   {% for product in collections.frontpage.products %}
     {% render 'product-grid-item', current_product: product %}  
 {% endfor %}
+
+</div>
