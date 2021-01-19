@@ -19,8 +19,13 @@
 }
 
 .serif-xl {
-  font-size: 4.6875rem;
-  line-height: 4.6875rem;
+  font-size: 2.5rem;
+  line-height: 2.625rem;
+
+  @include media('md-up') {
+    font-size: 4.6875rem;
+    line-height: 4.6875rem;
+  }
 }
 
 .serif-md {
