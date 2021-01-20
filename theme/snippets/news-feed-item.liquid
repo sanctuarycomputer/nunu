@@ -1,10 +1,10 @@
-<div class="NewsFeed__row flex items-center border-bottom-black py1_25 md:p_75">
+<div class="NewsFeedItem overflow-hidden overflow-x-scroll flex items-center border-bottom-black py1_25 md:p_75">
   <div class="flex items-center justify-center col-1 md:pr2_5">
-    <img class="NewsFeed__image fit-contain w100 h100" src="{{ image_src }}" alt="{{ image_alt }}"/>
+    <img class="NewsFeedItem__image fit-contain w100 h100" src="{{ image_src }}" alt="{{ image_alt }}"/>
   </div>
 
-  <div class="NewsFeed__text-row flex justify-between col-11">
+  <div class="NewsFeedItem__text-row flex justify-between col-11">
     <span class="pr1">{{ text }}</span>
-    <a class="sans-xs" href="{{ button_link }}" aria-label="Navigate to {{ button_label }}">{{ button_label }}</a>
+    <a class="sans-xs hover-lighten-black" href="{{ button_link }}" aria-label="Navigate to {{ button_label }}">{{ button_label }}</a>
   </div>
 </div>
