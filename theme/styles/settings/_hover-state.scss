@@ -8,7 +8,7 @@
 
     .hover-lighten-#{$name} {
       &:hover {
-        color: lighten($color, 20%);
+        color: lighten($color, 25%);
       }
     }
 

@@ -1,5 +1,9 @@
 {% render 'home-header' %}
-<div class="">
+
+{% comment %} if collections metafield featured product is true, show the style featured product. else show the default. {% endcomment %}
+
+
+<div class="grid">
   {% for product in collections.frontpage.products %}
     {% render 'product-grid-item', current_product: product %}  
 {% endfor %}

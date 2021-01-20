@@ -1,3 +1,22 @@
 .ProductGridItem {
+  // &::before {
+  //   content: "";
+  //   display: block;
+  //   height: 0;
+  //   width: 0;
+  //   padding-bottom: calc(480/499 * 100%);
+  // }
 
+  &__image {
+    width: 50%;
+    height: 16.5625rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+
+    @include media('md-up') {
+      height: 18rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
 }
