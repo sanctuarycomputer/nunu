@@ -1,12 +1,13 @@
 {% render 'home-header' %}
 
-{% comment %} if collections metafield featured product is true, show the style featured product. else show the default. {% endcomment %}
+{% assign show_featured_product = collections.frontpage.metafields.accentuate.show_featured_product %}
 
-
-<div class="grid">
+{% if show_featured_product %}
+  <div class="grid grid--style-featured-product">
+    {% else %}
+    <div class="grid">
+{% endif %}
   {% for product in collections.frontpage.products %}
-    {% render 'product-grid-item', current_product: product %}  
+    {% render 'product-grid-item', current_product: product, show_featured_product: show_featured_product %}  
   {% endfor %}
 </div>
-
-<!-- collection.metafields.accentuate.show_featured_product -->
