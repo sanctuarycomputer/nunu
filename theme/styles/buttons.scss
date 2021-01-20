@@ -17,10 +17,10 @@
   text-decoration: none;
 }
 
-// .hover--style-rounded-border {
-//   border: 1px solid red;
+.hover--style-rounded-border {
+  @extend %transition;
 
-//   &:hover {
-//     border-radius: 0.5rem;
-//   }
-// }
+  &:hover {
+    border-radius: 0.5rem;
+  }
+}

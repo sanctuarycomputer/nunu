@@ -1,22 +1,26 @@
 .ProductGridItem {
-  // &::before {
-  //   content: "";
-  //   display: block;
-  //   height: 0;
-  //   width: 0;
-  //   padding-bottom: calc(480/499 * 100%);
-  // }
+  display: grid;
+
+  &::before {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    padding-bottom: calc(480/499 * 100%);
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  &__inner-container {
+    grid-area: 1 / 1 / 2 / 2;
+    width: 100%
+  }
 
   &__image {
-    width: 50%;
-    height: 16.5625rem;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    width: 60%;
+    max-height: 14rem;
 
-    @include media('md-up') {
-      height: 18rem;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
+    @include media('lg-up') {
+      max-height: 16.75rem;
     }
   }
 }

@@ -29,8 +29,14 @@
 }
 
 .serif-md {
-  font-size: 2.5rem;
-  line-height: 2.625rem;
+  font-size: 1.125rem;
+  line-height: 1.35rem;
+  letter-spacing: 0.0275rem;
+
+  @include media('md-up') {
+    font-size: 2.5rem;
+    line-height: 2.625rem;
+  }
 }
 
 .serif-xs {
