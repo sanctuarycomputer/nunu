@@ -11,7 +11,8 @@ $transition: $transition-duration-short $transition-cubic-bezier;
   transition: all $transition-duration-shortest $transition-cubic-bezier;
 }
 
-.transition-shorter {
+.transition-shorter,
+%transition-shorter {
   transition: all $transition-duration-shorter $transition-cubic-bezier;
 }
 

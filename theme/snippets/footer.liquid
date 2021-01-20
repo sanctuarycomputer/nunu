@@ -1,0 +1,24 @@
+
+  <footer class="Footer w100 serif-xl">
+    <p class="px_625 md:px1_25">
+      Contact us if you’d like to teach a workshop, propose an event, feature a product or get involved in any other way. You can also sign up for 
+      {% if shop.metafields.accentuate.newsletter %}
+        <a href="{{ shop.metafields.accentuate.newsletter }}" class="text-decoration-none color-black" target="_blank" rel="noreferrer noopener" aria-label="{{ 'snippets.footer.social_links.newsletter_link.aria_label' | t }}">
+          <span class="Footer__button button--style-primary">{{ 'snippets.footer.social_links.newsletter_link.text' | t }}</span>
+        </a>
+      {% endif %}
+      and follow us on 
+      {% if shop.metafields.accentuate.instagram %}
+        <a href="{{ shop.metafields.accentuate.instagram }}" class="text-decoration-none color-black" target="_blank" rel="noreferrer noopener" aria-label="{{ 'snippets.footer.social_links.instagram_link.aria_label' | t }}">
+          <span class="Footer__button button--style-primary">{{ 'snippets.footer.social_links.instagram_link.text' | t }}</span>
+        </a>
+      {% endif %}
+      and
+      {% if shop.metafields.accentuate.twitter %} 
+        <a href="{{ shop.metafields.accentuate.twitter }}" class="text-decoration-none color-black" target="_blank" rel="noreferrer noopener" aria-label="{{ 'snippets.footer.social_links.twitter_link.aria_label' | t }}">
+          <span class="Footer__button button--style-primary">{{ 'snippets.footer.social_links.twitter_link.text' | t }}</span>
+        </a>
+      {% endif %}
+      to stay up to date.
+    </p>
+  </footer>
