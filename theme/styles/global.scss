@@ -9,9 +9,27 @@
   }
 }
 
+.site-margin-x {
+  margin-left: $site-padding-x-mobile;
+  margin-right: $site-padding-x-mobile;
+
+  @include media('md-up') {
+    margin-left: $site-padding-x-desktop;
+    margin-right: $site-padding-x-desktop;
+  }
+}
+
 //* Borders */
 .border-white {
   border: 1px solid color('white');
+}
+
+.border-top-black {
+  border-top: 1px solid color('black');
+}
+
+.border-bottom-black {
+  border-bottom: 1px solid color('black');
 }
 
 .dot {

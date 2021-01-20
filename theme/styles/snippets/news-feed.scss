@@ -1,0 +1,42 @@
+.NewsFeed {
+
+  &__inner-container {
+    overflow-x: scroll;
+
+    > :last-child {
+      border-bottom: 0;
+    }  
+  }
+  
+  &__image {
+    width: 3.4375rem;
+    height: 3.4375rem;
+
+    @include media('md-up') {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+
+  &__row {
+    min-width: 55rem;
+    overflow: hidden;
+    overflow-x: scroll;
+    font-family: $itc-garamond;
+    font-size: 1.125rem;
+    line-height: 1.35rem;
+    letter-spacing: 0.0275rem;
+  
+    @include media('md-up') {
+      font-size: 3.125rem;
+      line-height: 2.8125rem;
+    }
+
+    a {
+      @include media('md-up') {
+        font-size: 1.875rem;
+        line-height: 1.6875rem;
+      }
+    }
+  }
+}
