@@ -1,5 +1,4 @@
-<h1 class="serif-xl">Nunu</h1>
-
+{% render 'home-header' %}
 {% for product in collections.frontpage.products %}
   <div>
     <a href="{{ product.url | within: collection }}">{{ product.title }}</a>

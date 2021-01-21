@@ -6,6 +6,22 @@
     }
   },
   "snippets": {
+    "home_header": { 
+      "links": {
+        "offerings_link": {
+          "aria_label": "View Offerings",
+          "text": "Offerings"
+        },
+        "knowledge_link": {
+          "aria_label": "View our repository for shared knowledge",
+          "text": "Knowledge"
+        },
+        "learn_more_link": {
+          "aria_label": "Navigate to our About page to learn more.",
+          "text": "Learn more"
+        }
+      }
+    },
     "footer": {
       "social_links": {
         "newsletter_link": {
