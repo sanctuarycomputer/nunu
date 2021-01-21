@@ -1,8 +1,7 @@
 .NewsFeed {
 
   &__inner-container {
-    overflow-x: scroll;
-
+    
     > :last-child {
       border-bottom: 0;
     }  
