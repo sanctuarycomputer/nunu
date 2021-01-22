@@ -1,4 +1,5 @@
-.button--style-primary {
+.button--style-primary,
+%button--style-primary {
   @extend %transition-shorter;
   border-radius: 0.625rem;
   border: 1px solid color('black');

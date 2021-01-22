@@ -1,0 +1,98 @@
+.Page {
+  // &--style-black {
+  //   color: color('white');
+  //   background-color: color('black');
+  // }
+
+  h1, h2, h3, p, ol, ul {
+    font-family: $itc-garamond;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    padding-bottom: 3.125rem;
+  }
+
+  h2 {
+    @extend %serif-xl;
+
+    a {
+      @extend %button--style-primary;
+      font-family: $gt-zirkon;
+      font-size: 2.5rem;
+      line-height: 2.625rem;
+  
+      @include media('md-up') {
+        font-size: 4.0625rem;
+        line-height: 3.65625rem;
+      }
+    }
+  }
+  
+  h3, p, ol, ul {
+    @extend %serif-md;
+  }
+
+  h4, h5 {
+    font-family: $gt-zirkon;
+  }
+
+  h4 {
+    @extend %sans-md;
+    text-transform: uppercase;
+  }
+
+  h5 {
+    @extend %sans-sm;
+  }
+
+  p, ol, ul {
+    margin-bottom: 2rem;
+    
+    @include media('md-up') {
+      margin-bottom: 5.625rem;
+    }
+  }
+
+  ol {
+    margin: 2rem;
+    margin-right: 0;
+  }
+
+  ul {
+    margin: 2rem;
+    margin-right: 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-top: 1px solid color('black');
+    border-bottom: 1px solid color('black');
+
+    tr {
+      &:not(last-of-type) {
+        border-bottom: 1px solid color('black');
+      }
+
+      td {
+        padding: 1.6875rem 0;
+        vertical-align: middle;
+
+        &:first-child {
+          font-family: $itc-garamond;
+          @extend %serif-lg;
+        }
+
+        &:last-child {
+          font-family: $gt-zirkon;
+          @extend %sans-sm;
+        }
+      }
+    }
+  }
+
+  &__content {
+    @include media('md-up') {
+      margin-top: 5.625rem;
+    }
+  }
+}
