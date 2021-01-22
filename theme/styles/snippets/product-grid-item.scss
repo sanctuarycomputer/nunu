@@ -22,22 +22,18 @@
 
     @include media('xs-up') {
       max-height: 22rem;
-      padding: 1rem 0;
     }
 
     @include media('md-up') {
       max-height: 11rem;
-      padding: 1rem 0;
     }
 
     @include media('lg-up') {
       max-height: 14rem;
-      padding: 1rem 0;
     }
 
     @include media('xl-up') {
       max-height: 17rem;
-      padding: 1rem 0;
     }
   }
 }

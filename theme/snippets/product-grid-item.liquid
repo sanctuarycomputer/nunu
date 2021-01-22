@@ -21,7 +21,7 @@
     {% endif %}
 
     <div class="ProductGridItem__image-container flex items-center justify-center absolute t0 r0 h100 w100">
-      <img class="ProductGridItem__image w100 h100 fit-contain" src="{{ product_media.src | img_url: 'x265' }}" alt="{{ product_media.alt | escape }}">
+      <img class="ProductGridItem__image w100 h100 fit-contain xs:py1" src="{{ product_media.src | img_url: 'x265' }}" alt="{{ product_media.alt | escape }}">
     </div>
 
     <div class="ProductGridItem__details absolute r0 b0 p_625 sans-xxs uppercase flex justify-between w100">
