@@ -25,15 +25,20 @@
 //* Product Grid */
 .grid {
   display: grid;
-    padding-left: 0.125rem;
-    padding-right: 0.125rem;
-    gap: 0.125rem;
-    grid-template-columns: 1fr;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  gap: 0.125rem;
+  grid-template-columns: 1fr;
 
-    @include media('md-up') {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  @include media('md-up') {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
+  &--style-related-products {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
   &--style-featured-product {
     @include media('lg-up') {
       > :first-child {
