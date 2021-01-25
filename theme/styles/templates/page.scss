@@ -76,20 +76,21 @@
     white-space: nowrap;
     border-collapse: collapse;
     border-top: 1px solid color('black');
+    border-bottom: 1px solid color('black');
 
     tr {
-      &:not(last-of-type) {
+      &:not(:last-of-type) {
         border-bottom: 1px solid color('black');
       }
 
       td {
-        min-width: calc(50vw - 1.25rem);
+        min-width: calc(50vw - #{$site-padding-x-mobile-double});
         vertical-align: middle;
         padding: 1.25rem 0;
 
         @include media('md-up') {
           padding: 1.6875rem 0;
-          min-width: calc(50vw - 2.5rem);
+          min-width: calc(50vw - #{$site-padding-x-desktop-double});
         }
 
         &:first-child {
@@ -160,7 +161,7 @@
       border-bottom: 1px solid color('white');
   
       tr {
-        &:not(last-of-type) {
+        &:not(:last-of-type) {
           border-bottom: 1px solid color('white');
         }
       }
