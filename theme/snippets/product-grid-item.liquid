@@ -1,0 +1,35 @@
+{% comment %} TO-DO: Remove Type Design "Knowledge Area" placeholder {% endcomment %}
+{% assign product_media = current_product.media | first %}
+
+<a class="ProductGridItem bg-color-black color-white text-decoration-none hover--style-rounded-border relative p_625" href="{{ current_product.url }}" aria-label="{{ 'snippets.product_grid_item.product_btn.aria_label' | t }}" >
+  <div class="ProductGridItem__inner-container bg-color-black h100">
+
+    {% if current_product.metafields.accentuate.featured_product_text and current_product.metafields.accentuate.is_featured_product and show_featured_product %}
+      <span class="flex flex-col uppercase">
+        <span class="color-yellow serif-md">
+          {{ current_product.metafields.accentuate.featured_product_text }}
+        </span>
+      <span class="ProductGridItem__title serif-md color-white">{{current_product.title}}</span>
+      <span class="ProductGridItem__vendor sans-xs">{{current_product.vendor}}</span>
+      </span>
+    {% else %}
+      <div class="flex justify-between">
+        <span class="ProductGridItem__title serif-xs uppercase">{{current_product.title}}</span>
+        <span class="ProductGridItem__price serif-xs uppercase">{{current_product.price | money_without_trailing_zeros }}</span>
+      </div>
+      <span class="ProductGridItem__vendor sans-xs uppercase">{{current_product.vendor}}</span>
+    {% endif %}
+
+    <div class="ProductGridItem__image-container flex items-center justify-center absolute t0 r0 h100 w100">
+      <img class="ProductGridItem__image w100 h100 fit-contain xs:py1" src="{{ product_media.src | img_url: 'x265' }}" alt="{{ product_media.alt | escape }}">
+    </div>
+
+    <div class="ProductGridItem__details absolute r0 b0 p_625 sans-xxs uppercase flex justify-between w100">
+      <span class="flex items-center">
+        <span class="dot mr_25"></span>
+        <span>{{ current_product.type }}</span>
+      </span>
+      <span class="radius-xs border-white p_25">Type Design</span>
+    </div>
+  </div>
+</a>

@@ -1,3 +1,4 @@
+//* Global Padding */
 .site-padding-x {
   padding-left: $site-padding-x-mobile;
   padding-right: $site-padding-x-mobile;
@@ -5,5 +6,44 @@
   @include media('md-up') {
     padding-left: $site-padding-x-desktop;
     padding-right: $site-padding-x-desktop;
+  }
+}
+
+//* Borders */
+.border-white {
+  border: 1px solid color('white');
+}
+
+.dot {
+  height: 0.8125rem;
+  width: 0.8125rem;
+  background-color: color('white');
+  border-radius: 50%;
+  display: inline-block;
+}
+
+//* Product Grid */
+.grid {
+  display: grid;
+    padding-left: 0.125rem;
+    padding-right: 0.125rem;
+    gap: 0.125rem;
+    grid-template-columns: 1fr;
+
+    @include media('md-up') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+  &--style-featured-product {
+    @include media('lg-up') {
+      > :first-child {
+        grid-column: 1/3;
+        grid-row: 1/3;
+
+        img {
+          min-height: 31.25rem!important;
+        }
+      }
+    }
   }
 }
