@@ -1,7 +1,7 @@
 .NewsFeed {
   margin-left: $site-padding-x-mobile;
 
-  @include media('xxs-up') {
+  @include media('xs-up') {
     margin-right: $site-padding-x-mobile;
   }
 
@@ -11,7 +11,6 @@
   }
 
   &__inner-container {
-    
     > :last-child {
       border-bottom: 0;
     }  
