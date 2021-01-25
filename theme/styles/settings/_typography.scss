@@ -8,7 +8,7 @@
 }
 
 /** Sizes */
-.serif-xxl, .serif-xl, .serif-lg, .serif-md, .serif-xs {
+.serif-mega, .serif-xxl, .serif-xl, .serif-lg, .serif-md, .serif-sm, .serif-xs {
   font-family: $itc-garamond;
   font-weight: 300;
 }
@@ -18,8 +18,7 @@
   font-weight: 300;
 }
 
-.serif-xxl,
-%serif-xxl {
+.serif-mega {
   font-size: 4.6875rem;
   line-height: 4.6875rem;
 
@@ -45,7 +44,7 @@
   font-size: 2.5rem;
   line-height: 2.625rem;
 
-  @include media('md-up') {
+  @include media('lg-up') {
     font-size: 3.125rem;
     line-height: 2.8125rem;
   }
@@ -61,6 +60,12 @@
     font-size: 2.5rem;
     line-height: 2.625rem;
   }
+}
+
+.serif-sm,
+%serif-sm {
+  font-size: 2rem;
+  line-height: 2.1rem;
 }
 
 .serif-xs {
@@ -107,7 +112,8 @@
   line-height: 1.6875rem;
 }
 
-.sans-xs {
+.sans-xs,
+%sans-xs {
   font-size: 1rem;
   line-height: 1.171875rem;
   letter-spacing: 0.0275rem;
