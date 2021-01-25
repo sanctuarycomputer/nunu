@@ -1,4 +1,14 @@
 .NewsFeed {
+  margin-left: $site-padding-x-mobile;
+
+  @include media('xxs-up') {
+    margin-right: $site-padding-x-mobile;
+  }
+
+  @include media('md-up') {
+    margin-left: $site-padding-x-desktop;
+    margin-right: $site-padding-x-desktop;
+  }
 
   &__inner-container {
     
