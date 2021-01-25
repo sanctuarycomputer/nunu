@@ -4,6 +4,7 @@
   font-size: 1.125rem;
   line-height: 1.35rem;
   letter-spacing: 0.0275rem;
+  padding-right: $site-padding-x-mobile;
 
   @include media('md-up') {
     font-size: 3.125rem;
