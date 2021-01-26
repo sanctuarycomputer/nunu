@@ -23,7 +23,7 @@
 
 ## About The Project
 
-//TO-DO: Add project description
+This is a relaunch of the old XXXI as a new community space for hosting events, workshops, shared / sharing knowledge, and store.
 
 ### The Stack
 
@@ -34,6 +34,7 @@ Here are the major frameworks, programming languages, software and libraries we 
 - [Liquid](https://shopify.github.io/liquid/)
 - [Basement CSS](https://basement.sanctuary.computer/)
 - Shopify Bookings
+- [Accentuate Custom Fields for Shopify](https://www.accentuate.io/)
 
 #### Design
 
