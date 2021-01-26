@@ -39,7 +39,7 @@
     <div class="site-padding-x uppercase color-white serif-xl pb2_5">{{ related_products_heading }}</div>
   {% endif %}
 
-  <div class="grid grid--style-related-products bg-color-white pt_125">
+  <div class="grid grid--style-padding-x-0 bg-color-white pt_125">
     {% for related_products_handle in related_products_handles %}
       {% render 'product-grid-item', current_product: all_products[related_products_handle] %}  
     {% endfor %}
