@@ -5,6 +5,12 @@
 
   <div class="NewsFeedItem__text-row flex justify-between col-11">
     <span class="px1">{{ text }}</span>
-    <a class="sans-xs hover-lighten-black" href="{{ button_link }}" aria-label="Navigate to {{ button_label }}">{{ button_label }}</a>
+
+    {% if has_homepage_styling %}
+      <a class="sans-xs hover-lighten-black" href="{{ button_link }}" aria-label="Navigate to {{ button_label }}">{{ button_label }}</a>
+    {% else %}
+      <span class="sans-sm">{{ date }}<span>
+    {% endif %}
+    
   </div>
 </div>

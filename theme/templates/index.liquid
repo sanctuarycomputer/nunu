@@ -1,7 +1,12 @@
 {% assign show_featured_product = collections.frontpage.metafields.accentuate.show_featured_product %}
 {% render 'home-header' %}
+<<<<<<< HEAD
 {% render 'news-feed', show_see_more: true %}
 <div class="grid {% if show_featured_product %} grid--style-first-cell-enlarged {% endif %}">
+=======
+{% render 'news-feed', has_homepage_styling: true %}
+<div class="grid {% if show_featured_product %} grid--style-featured-product {% endif %}">
+>>>>>>> Add date
   {% for product in collections.frontpage.products %}
     {% render 'product-grid-item', current_product: product, show_featured_product: show_featured_product %}  
   {% endfor %}
