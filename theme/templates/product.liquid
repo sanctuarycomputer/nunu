@@ -3,15 +3,17 @@
 {% assign related_products_heading = product.metafields.accentuate.related_products_heading %}
 {% assign related_products_handles = product.metafields.accentuate.related_products | split: '|' %}
 
-<div class="Product bg-color-black">
+<div class="Product pt_625 bg-color-black">
+  <div class="site-padding-x">
+    <h1 class="uppercase serif-xl color-white">{{ product.title }}</h1>
+    <p class="uppercase sans-sm color-white">{{ product.vendor }}</p>
+  </div>
   <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
   {% for image in product.images %}
     <a href="{{ image.src | img_url: 'large' }}">
       <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
     </a>
   {% endfor %}
-  <h1 class="color-white">{{ product.title }}</h1>
-
   <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
     <select name="id" id="productSelect">
       {% for variant in product.variants %}
@@ -34,7 +36,7 @@
   <div>{{ product.description }}</div>
 
   {% if related_products_heading %}
-    <div class="uppercase color-white serif-xl pb2_5">{{ related_products_heading }}</div>
+    <div class="site-padding-x uppercase color-white serif-xl pb2_5">{{ related_products_heading }}</div>
   {% endif %}
 
   <div class="grid grid--style-related-products bg-color-white pt_125">
