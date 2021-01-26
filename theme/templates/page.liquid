@@ -1,2 +1,6 @@
-<h1>{{ page.title }}</h1>
-<div>{{ page.content }}</div>
+{% assign has_black_background = page.metafields.accentuate.has_black_background %}
+
+<div class="Page site-padding-x {% if has_black_background %}Page--style-black {% endif %}">
+  <h1 class="uppercase serif-mega">{{ page.title }}</h1>
+  <div class="Page__content pt2_5 pb2">{{ page.content }}</div>  
+</div>
