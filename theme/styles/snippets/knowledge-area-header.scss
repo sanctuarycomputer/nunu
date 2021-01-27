@@ -1,0 +1,19 @@
+.KnowledgeAreaHeader {
+  &__image-container {
+ 
+    // > img {
+    //   max-width: 11.25rem;
+
+    //   @include media('md-up') {
+    //     max-width: 17.6875rem;
+    //   }
+    // }
+  }
+
+  &__title {
+    @include media('lg-up') {
+      font-size: 9.375rem;
+      line-height: 8.4375rem;
+    }
+  }
+}

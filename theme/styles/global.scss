@@ -48,6 +48,10 @@
   display: inline-block;
 }
 
+.border-black {
+  border: 1px solid color('black');
+}
+
 //* Product Grid */
 .grid {
   display: grid;
@@ -77,4 +81,8 @@
       }
     }
   }
+}
+
+.hyphens {
+  hyphens: auto;
 }

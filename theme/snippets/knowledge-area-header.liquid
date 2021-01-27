@@ -1,0 +1,21 @@
+{% assign heading_image = page.metafields.accentuate.knowledge_area_heading_image %}
+{% assign author = page.metafields.accentuate.knowledge_area_author %}
+
+<div class="flex flex-col p1_25">
+  <div class="flex flex-col md:flex-row">
+    {% if heading_image %}
+      {% for value in page.metafields.accentuate.knowledge_area_heading_image %} 
+        {% assign image = page.metafields.accentuate.knowledge_area_heading_image[forloop.index0] %}
+          <div class="KnowledgeAreaHeader__image-container col-5 md:col-2 radius-lg md:mr1_5">
+            <img class="w100 h100 fit-cover radius-lg" src="{{ image.src }}" alt="{{ image.alt}}"/>
+          </div>
+      {% endfor %} 
+    {% endif %}
+    <div class="flex col-12 md:col-10">
+      <h1 class="KnowledgeAreaHeader__title flex items-center justify-center hyphens sans-lg sans-serif uppercase border-black border-black radius-lg">{{ page.title }}</h1>
+    </div>
+  </div>
+  {% if author %}
+    <span class="pt1_875 md:pt2_5 sans-xs uppercase">Knowledge area by {{ author }}</span>
+  {% endif %}
+</div>
