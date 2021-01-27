@@ -13,7 +13,8 @@
 </head>
 <body>
 
-  {% for link in linklists.main-menu.links %}
+  <nav class="border-bottom-black sans-md uppercase sans-serif py_5 px_625 md:px1_25">
+    {% for link in linklists.main-menu.links %}
     {% assign child_list_handle = link.title | handleize %}
     {% if linklists[child_list_handle].links != blank %}
       <a href="{{ link.url }}">{{ link.title }}</a>
@@ -25,17 +26,18 @@
     {% endif %}
   {% endfor %}
 
-  <a href="/cart">cart</a>
+    <a href="/cart">cart</a>
 
-  {% if shop.customer_accounts_enabled %}
-    {% if customer %}
-      <a href="/account">account</a>
-      {{ 'log out'  | customer_logout_link }}
-    {% else %}
-      {{ 'log in ' | customer_login_link }}
-      {{ 'register' | customer_register_link }}
+    {% if shop.customer_accounts_enabled %}
+      {% if customer %}
+        <a href="/account">account</a>
+        {{ 'log out'  | customer_logout_link }}
+      {% else %}
+        {{ 'log in ' | customer_login_link }}
+        {{ 'register' | customer_register_link }}
+      {% endif %}
     {% endif %}
-  {% endif %}
+  </nav>
 
   <main role="main">
     {{ content_for_layout }}
