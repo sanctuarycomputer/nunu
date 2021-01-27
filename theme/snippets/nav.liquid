@@ -16,6 +16,6 @@
     </a>
   </div>
 
-  <a class="SHOP{% if request.path == "/collections/all" %} Nav__offerings-button--active {% endif %}" href="/collections/all" aria-label="{{ 'snippets.nav.links.shop_link.aria_label' | t }}">{{ 'snippets.nav.links.shop_link.text' | t }}
+  <a class="{% if request.path == "/collections/all" %} Nav__button--active {% endif %}" href="/collections/all" aria-label="{{ 'snippets.nav.links.shop_link.aria_label' | t }}">{{ 'snippets.nav.links.shop_link.text' | t }}</a>
   
 </nav>

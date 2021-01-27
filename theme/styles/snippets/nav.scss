@@ -11,18 +11,14 @@
   background-color: color('black');
   color: color('white');
   border-radius: radius('xs');
-  padding: 0 0.25rem;
+  padding: 0.25rem 0.25rem;
 
+  @include media('md-up') {
+    padding: 0 0.25rem;
+  }
   @include media('xl-up') {
     border-radius: radius('sm');
   }
- }
-
- &__offerings-button--active {
-  background-color: color('black');
-  color: color('white');
-  border-radius: radius('xs');
-  padding: 0.25rem 0rem;  
  }
 
 }
