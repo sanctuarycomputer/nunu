@@ -1,0 +1,18 @@
+<nav class="Nav none md:flex border-bottom-black text-nav uppercase sans-serif py_5 px_625 md:px1_25 flex justify-between">
+  <div>
+    <a class="{% if request.path == '/' %} Nav__button--active" {% endif %}" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
+    <span>{{ 'snippets.nav.hyphen' | t }}</span>
+    {% for link in linklists.main-menu.links %}
+      <a href="{{ link.url }}">{{ link.title }}</a>{% unless link.title == linklists.main-menu.links.last.title %},{% endunless %}
+    {% endfor %}  
+  </div>
+  <a href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">{{ 'snippets.nav.links.cart_link.text' | t }}</a>
+</nav>
+
+<nav class="Nav MobileNav md:none border-bottom-black text-nav uppercase sans-serif py_5 px_625 md:px1_25 flex justify-between">
+  <div class="flex flex-col">
+    <a href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
+    <a href="/collections/all" aria-label="{{ 'snippets.nav.links.shop_link.aria_label' | t }}">{{ 'snippets.nav.links.shop_link.text' | t }}</a>
+  </div>
+  <a href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">{{ 'snippets.nav.links.cart_link.text' | t }}</a>
+</nav>

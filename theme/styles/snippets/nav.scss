@@ -1,0 +1,25 @@
+.Nav {
+ a {
+   @extend %transition-short; 
+
+   &:hover {
+    color: lighten(black, 25%);
+   }
+ }
+
+ &__button--active {
+  background-color: color('black');
+  color: color('white');
+  border-radius: radius('xs');
+  padding: 0 0.625rem;
+
+  @include media('xl-up') {
+    border-radius: radius('md');
+  }
+ }
+
+}
+
+.MobileNav {
+
+}

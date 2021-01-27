@@ -6,6 +6,23 @@
     }
   },
   "snippets": {
+    "nav": {
+      "links": {
+        "index_link": {
+          "aria_label": "Navigate to homepage",
+          "text": "Index"
+        },
+        "shop_link": {
+          "aria_label": "Open the Shop menu",
+          "text": "Shop"
+        },
+        "cart_link": {
+          "aria_label": "Open the cart",
+          "text": "Cart"
+        }
+      },
+      "hyphen": "—"
+    },
     "home_header": { 
       "links": {
         "offerings_link": {
