@@ -8,9 +8,7 @@
     {% render 'news-feed-item', image_src: current_thumbnail.src image_alt: current_thumbnail.alt body: value, third_column: shop.metafields.accentuate.news_feed_item_third_column[forloop.index0] %}
   {% endfor %}
   </div>
-
   {% if is_limited %}
     <a class="uppercase serif-xl pt2 md:pt5 pb3 hover-lighten-black" href="/pages/news" aria-label="{{ 'snippets.news_feed.see_more_link.aria_label' | t }}">{{ 'snippets.news_feed.see_more_link.text' | t }}</a>
   {% endif %}
-
 </div>

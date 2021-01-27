@@ -1,6 +1,7 @@
 {% assign show_featured_product = collections.frontpage.metafields.accentuate.show_featured_product %}
+{% assign news_feed_limit = shop.metafields.accentuate.news_feed_homepage_limit %}
 {% render 'home-header' %}
-{% render 'news-feed' is_limited: true, limit: 4 %}
+{% render 'news-feed' is_limited: true, limit: news_feed_limit %}
 <div class="grid {% if show_featured_product %} grid--style-first-cell-enlarged  {% endif %}">
   {% for product in collections.frontpage.products %}
     {% render 'product-grid-item', current_product: product, show_featured_product: show_featured_product %}  
