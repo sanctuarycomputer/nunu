@@ -42,6 +42,12 @@
       "product_btn": {
         "aria_label": "Navigate to the product page."
       }
+    },
+    "news_feed": {
+      "see_more_link": {
+        "aria_label": "See more News.",
+        "text": "See more"
+      }
     }
   }
 }

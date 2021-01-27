@@ -1,0 +1,18 @@
+.NewsFeed {
+  margin-left: $site-padding-x-mobile;
+
+  @include media('xs-up') {
+    margin-right: $site-padding-x-mobile;
+  }
+
+  @include media('md-up') {
+    margin-left: $site-padding-x-desktop;
+    margin-right: $site-padding-x-desktop;
+  }
+
+  &__inner-container {
+    > :last-child {
+      border-bottom: 0;
+    }  
+  }
+}

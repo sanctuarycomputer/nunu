@@ -1,8 +1,7 @@
-{% render 'home-header' %}
-
 {% assign show_featured_product = collections.frontpage.metafields.accentuate.show_featured_product %}
-
-<div class="grid {% if show_featured_product %} grid--style-first-cell-enlarged {% endif %}">
+{% render 'home-header' %}
+{% render 'news-feed' %}
+<div class="grid {% if show_featured_product %} grid--style-first-cell-enlarged  {% endif %}">
   {% for product in collections.frontpage.products %}
     {% render 'product-grid-item', current_product: product, show_featured_product: show_featured_product %}  
   {% endfor %}
