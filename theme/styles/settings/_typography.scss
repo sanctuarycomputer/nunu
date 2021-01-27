@@ -22,7 +22,7 @@
   font-size: 4.6875rem;
   line-height: 4.6875rem;
 
-  @include media('md-up') {
+  @include media('lg-up') {
     font-size: 9.375rem;
     line-height: 9.375rem;
   }
@@ -41,8 +41,9 @@
 
 .serif-lg,
 %serif-lg {
-  font-size: 2.5rem;
-  line-height: 2.625rem;
+  font-size: 1.125rem;
+  line-height: 1.35rem;
+  letter-spacing: 0.0275rem;
 
   @include media('lg-up') {
     font-size: 3.125rem;
@@ -108,8 +109,14 @@
 
 .sans-sm,
 %sans-sm {
-  font-size: 1.875rem;
-  line-height: 1.6875rem;
+  font-size: 1rem;
+  line-height: 1.171875rem;
+  letter-spacing: 0.0275rem;
+
+  @include media('lg-up') {
+    font-size: 1.875rem;
+    line-height: 1.6875rem;
+  }
 }
 
 .sans-xs,

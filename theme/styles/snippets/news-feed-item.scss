@@ -1,20 +1,10 @@
 .NewsFeedItem {
-  min-width: 55rem;
-  font-family: $itc-garamond;
-  font-size: 1.125rem;
-  line-height: 1.35rem;
-  letter-spacing: 0.0275rem;
+  min-width: 40rem;
   padding-right: $site-padding-x-mobile;
 
-  @include media('md-up') {
-    font-size: 3.125rem;
-    line-height: 2.8125rem;
-  }
-
   a {
-    @include media('md-up') {
-      font-size: 1.875rem;
-      line-height: 1.6875rem;
+    &:hover {
+      color: lighten(black, 25%);
     }
   }
 
@@ -25,6 +15,24 @@
     @include media('md-up') {
       width: 4rem;
       height: 4rem;
+    }
+  }
+
+  &__body {
+    font-size: 1.125rem;
+    line-height: 1.35rem;
+    letter-spacing: 0.0275rem;
+
+    @include media('md-up') {
+      font-size: 3.125rem;
+      line-height: 2.8125rem;
+      min-width: 55rem;
+    }
+  }
+  &__third-column p, &__third-column p a {
+    @include media('md-up') {
+      font-size: 1.875rem;
+      line-height: 1.6875rem;
     }
   }
 }
