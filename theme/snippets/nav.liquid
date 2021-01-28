@@ -13,7 +13,7 @@
   <div class="flex justify-between mb_25">
     <span>
       <a href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
-      <button id="nav-menu-button">--</button>
+      <button id="nav-open-menu-button"><img class="debug" src="{{ 'menu-icon.svg' | asset_url }}" /></button>
     </span>
    
     <a href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">{{ 'snippets.nav.links.cart_link.text' | t }}</a>
@@ -24,7 +24,7 @@
     <div class="flex justify-between mb_25">
       <span>
         <a href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
-        <button id="nav-close-menu-button">--</button>
+        <button id="nav-close-menu-button"><img class="debug" src="{{ 'menu-icon.svg' | asset_url }}" /></button>
       </span>
      
       <a href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">{{ 'snippets.nav.links.cart_link.text' | t }}</a>
@@ -33,7 +33,7 @@
     <a class="uppercase py1_875" href="/" aria-label="{{ 'snippets.nav.links.home_link.aria_label' | t }}">{{ 'snippets.nav.links.home_link.text' | t }}</a>
     <a class="uppercase pb1_875" href="/" aria-label="{{ 'snippets.nav.links.knowledge_areas_link.aria_label' | t }}">{{ 'snippets.nav.links.knowledge_areas_link.text' | t }}</a>
     <a class="uppercase pb1_875" href="/pages/about" aria-label="{{ 'snippets.nav.links.about_link.aria_label' | t }}">{{ 'snippets.nav.links.about_link.text' | t }}</a>
-    <a class="uppercase" href="/pages/newsw" aria-label="{{ 'snippets.nav.links.news_link.aria_label' | t }}">{{ 'snippets.nav.links.news_link.text' | t }}</a>
+    <a class="uppercase" href="/pages/news" aria-label="{{ 'snippets.nav.links.news_link.aria_label' | t }}">{{ 'snippets.nav.links.news_link.text' | t }}</a>
   </div>
 
   <a class="{% if request.path == "/collections/all" %} Nav__button--active {% endif %}" href="/collections/all" aria-label="{{ 'snippets.nav.links.shop_link.aria_label' | t }}">{{ 'snippets.nav.links.shop_link.text' | t }}</a>

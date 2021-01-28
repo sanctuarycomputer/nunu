@@ -1,5 +1,5 @@
 import "../styles/index.scss";
-const navMenuButton = document.getElementById('nav-menu-button');
+const navOpenMenuButton = document.getElementById('nav-open-menu-button');
 const navCloseMenuButton = document.getElementById('nav-close-menu-button');
 const navMobileMenu = document.getElementById('nav-mobile-menu');
 
@@ -13,5 +13,5 @@ const closeMenu = () => {
   navMobileMenu.classList.add('opacity-0', 'events-none');
 };
 
-navMenuButton.addEventListener('click', openMenu);
+navOpenMenuButton.addEventListener('click', openMenu);
 navCloseMenuButton.addEventListener('click', closeMenu);
