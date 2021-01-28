@@ -11,9 +11,29 @@
 
 <nav class="Nav MobileNav md:none border-bottom-black text-nav uppercase sans-serif py_5 px_625 md:px1_25 flex flex-col col-12">
   <div class="flex justify-between mb_25">
-    <a href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
+    <span>
+      <a href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
+      <button id="nav-menu-button">--</button>
+    </span>
+   
     <a href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">{{ 'snippets.nav.links.cart_link.text' | t }}</a>
     </a>
+  </div>
+
+  <div id="nav-mobile-menu" class="transition-shorter opacity-0 events-none bg-color-white vh100 vw100 fixed t0 r0 flex flex-col py_5 px_625 md:px1_25">
+    <div class="flex justify-between mb_25">
+      <span>
+        <a href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
+        <button id="nav-close-menu-button">--</button>
+      </span>
+     
+      <a href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">{{ 'snippets.nav.links.cart_link.text' | t }}</a>
+      </a>
+    </div>
+    <a class="uppercase py1_875" href="/" aria-label="{{ 'snippets.nav.links.home_link.aria_label' | t }}">{{ 'snippets.nav.links.home_link.text' | t }}</a>
+    <a class="uppercase pb1_875" href="/" aria-label="{{ 'snippets.nav.links.knowledge_areas_link.aria_label' | t }}">{{ 'snippets.nav.links.knowledge_areas_link.text' | t }}</a>
+    <a class="uppercase pb1_875" href="/pages/about" aria-label="{{ 'snippets.nav.links.about_link.aria_label' | t }}">{{ 'snippets.nav.links.about_link.text' | t }}</a>
+    <a class="uppercase" href="/pages/newsw" aria-label="{{ 'snippets.nav.links.news_link.aria_label' | t }}">{{ 'snippets.nav.links.news_link.text' | t }}</a>
   </div>
 
   <a class="{% if request.path == "/collections/all" %} Nav__button--active {% endif %}" href="/collections/all" aria-label="{{ 'snippets.nav.links.shop_link.aria_label' | t }}">{{ 'snippets.nav.links.shop_link.text' | t }}</a>
