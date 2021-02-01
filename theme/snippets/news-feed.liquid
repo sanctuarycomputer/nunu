@@ -1,5 +1,5 @@
 <div class="NewsFeed flex flex-col">
-  <div class="NewsFeed__inner-container overflow-x-scroll flex flex-col border-top-black border-bottom-black">
+  <div class="NewsFeed__inner-container overflow-x-scroll flex flex-col border-thick-top-black border-thick-bottom-black">
     {% for value in shop.metafields.accentuate.news_feed_item_body limit: limit %} 
     {% assign multi_thumbnails = shop.metafields.accentuate.news_feed_item_thumbnail[forloop.index0] %}
     {% for thumbnail in multi_thumbnails %} 

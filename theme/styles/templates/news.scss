@@ -1,9 +1,9 @@
 .News {
   &__content {
-    margin-top: -0.75rem;
+    margin-top: -1.5rem;
 
     @include media('lg-up') {
-      margin-top: -2rem;
+      margin-top: -3rem;
     }
   }
 }

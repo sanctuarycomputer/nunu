@@ -12,7 +12,7 @@
 
   &__inner-container {
     > :last-child {
-      border-bottom: 0;
+      border-bottom: 0!important;
     }  
   }
 }
