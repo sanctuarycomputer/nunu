@@ -37,7 +37,13 @@
           "text": "Cart"
         }
       },
-      "hyphen": "—"
+      "hyphen": "—",
+      "menu_icon": {
+        "alt": "Menu icon"
+      },
+      "close_icon": {
+        "alt": "Close icon"
+      }
     },
     "home_header": { 
       "links": {
