@@ -4,13 +4,11 @@ const navCloseMenuButton = document.getElementById('nav-close-menu-button');
 const navMobileMenu = document.getElementById('nav-mobile-menu');
 
 const openMenu = () => {
-  navMobileMenu.classList.remove('opacity-0', 'events-none');
-  navMobileMenu.classList.add('opacity-1', 'events-all');
+  navMobileMenu.classList.add('MobileNav__menu--active');
 };
 
 const closeMenu = () => {
-  navMobileMenu.classList.remove('opacity-1', 'events-all');
-  navMobileMenu.classList.add('opacity-0', 'events-none');
+  navMobileMenu.classList.remove('MobileNav__menu--active');
 };
 
 navOpenMenuButton.addEventListener('click', openMenu);

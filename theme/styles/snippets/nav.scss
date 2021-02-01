@@ -28,4 +28,14 @@
     padding-left: 0.5625rem;
     max-height: 1.281875rem;
   }
+  &__menu {
+    opacity: 0;
+    pointer-events: none;
+
+    &--active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
 }
