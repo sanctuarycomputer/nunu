@@ -11,22 +11,20 @@
 
 <nav class="Nav MobileNav md:none border-bottom-black text-nav uppercase sans-serif py_5 px_625 md:px1_25 flex flex-col col-12">
   <div class="flex justify-between mb_25">
-    <span>
+    <span class="flex items-center justify-center">
       <a href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
-      <button id="nav-open-menu-button"><img class="debug" src="{{ 'menu-icon.svg' | asset_url }}" /></button>
+      <button id="nav-open-menu-button" class="bg-color-transparent"><img src="{{ 'menu-icon.svg' | asset_url }}" class="MobileNav__icon" /></button>
     </span>
-   
     <a href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">{{ 'snippets.nav.links.cart_link.text' | t }}</a>
     </a>
   </div>
 
   <div id="nav-mobile-menu" class="transition-shorter opacity-0 events-none bg-color-white vh100 vw100 fixed t0 r0 flex flex-col py_5 px_625 md:px1_25">
     <div class="flex justify-between mb_25">
-      <span>
+      <span class="flex items-center justify-center">
         <a href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
-        <button id="nav-close-menu-button"><img class="debug" src="{{ 'menu-icon.svg' | asset_url }}" /></button>
+        <button id="nav-close-menu-button" class="bg-color-transparent"><img src="{{ 'close-icon.svg' | asset_url }}" class="MobileNav__icon" /></button>
       </span>
-     
       <a href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">{{ 'snippets.nav.links.cart_link.text' | t }}</a>
       </a>
     </div>
