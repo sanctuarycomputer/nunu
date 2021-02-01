@@ -13,7 +13,7 @@
   <div class="flex justify-between mb_25">
     <span class="flex items-center justify-center">
       <a href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
-      {% render 'nav-open-menu-button' %}
+      <button id="nav-open-menu-button" class="bg-color-transparent"><img src="{{ 'menu-icon.svg' | asset_url }}" alt="{{ 'snippets.nav.menu_icon.alt' | t }}" class="MobileNav__icon" /></button>
     </span>
     <a href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">{{ 'snippets.nav.links.cart_link.text' | t }}</a>
     </a>
@@ -23,7 +23,7 @@
     <div class="flex justify-between mb_25">
       <span class="flex items-center justify-center">
         <a href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
-        {% render 'nav-close-menu-button' %}
+        <button id="nav-close-menu-button" class="bg-color-transparent"><img src="{{ 'close-icon.svg' | asset_url }}" alt="{{ 'snippets.nav.close_icon.alt' | t }}" class="MobileNav__icon" /></button>
       </span>
       <a href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">{{ 'snippets.nav.links.cart_link.text' | t }}</a>
       </a>
