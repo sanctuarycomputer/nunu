@@ -1,3 +1,5 @@
 <div class="KnowledgeArea">
-  {% render 'knowledge-area-header' %}
+  {% for knowledge_area_content in page.metafields.accentuate.knowledge_area_content.references %}
+    {{ knowledge_area_content }}
+  {% endfor %}
 </div>
