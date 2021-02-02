@@ -1,0 +1,7 @@
+{% assign news_feed_limit = shop.metafields.accentuate.news_feed_on_news_page_limit %}
+<div class="News">
+  <h1 class="uppercase serif-mega site-padding-x">{{ page.title }}</h1>
+  <div class="News__content">
+    {% render 'news-feed' limit: limit %}
+  </div>
+</div>
