@@ -11,6 +11,8 @@
       {% render 'knowledge-area-markdown' markdown: shop.metafields.globals['knowledge_area_overview'][module.index].html %}    
     {% when 'knowledge_area_tips' %}   
       {% render 'knowledge-area-markdown' markdown: shop.metafields.globals['knowledge_area_tips'][module.index].html %}
+    {% when 'knowledge_area_overlay' %}   
+      {% render 'knowledge-area-overlay' module: module %}
     {% endcase %}
   {% endfor %}
 </div>

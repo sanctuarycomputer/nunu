@@ -1,0 +1,8 @@
+{% assign overlay_images = shop.metafields.globals['knowledge_area_overlay_image'][module.index] %}
+  {% for image in overlay_images %} 
+    {% assign overlay_image = image %}
+  {% endfor %}
+  
+  <div class="KnowledgeAreaOverlay absolute z-700 r0 l0">
+    <img class="fit-contain w100 h100" src="{{ overlay_image.src }}" alt="{{ overlay_image.alt }}" />
+  </div>

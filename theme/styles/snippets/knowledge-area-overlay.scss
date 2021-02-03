@@ -1,0 +1,15 @@
+.KnowledgeAreaOverlay {
+  top: 7rem;
+
+  @include media('md-up') {
+    top: 12rem;
+  }
+
+  > img {
+    max-height: 28.625rem;
+
+    @include media('lg-up') {
+      max-height: 50rem;
+    }
+  }
+}
