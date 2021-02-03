@@ -1,18 +1,18 @@
-{% assign heading_image = shop.metafields.globals.knowledge_area_heading_image[knowledge_area.index] %}
-{% assign author = shop.metafields.globals.knowledge_area_author[knowledge_area.index] %}
+{% assign author = shop.metafields.globals['knowledge_area_author'][module.index]%}
+{% assign header_images = shop.metafields.globals['knowledge_area_header_image'][module.index] %}
+  {% for image in header_images %} 
+    {% assign header_image = image %}
+  {% endfor %}
 
-<div class="KnowledgeAreaHeader border-thick-black flex flex-col p1_25">
+<div class="KnowledgeAreaHeader border-thick-black flex flex-col p1_25 mb1_875">
   <div class="flex flex-col md:flex-row">
-    {% if heading_image %}
-      {% for value in page.metafields.accentuate.knowledge_area_heading_image %} 
-        {% assign image = page.metafields.accentuate.knowledge_area_heading_image[forloop.index0] %}
+    {% if header_image %}
           <div class="KnowledgeAreaHeader__image-container col-5 md:col-2 radius-lg md:mr1_5 mb1_25 md:mb0">
-            <img class="w100 h100 fit-cover radius-lg" src="{{ image.src }}" alt="{{ image.alt }}"/>
+            <img class="w100 h100 fit-cover radius-lg" src="{{ header_image.src }}" alt="{{ header_image.alt }}"/>
           </div>
-      {% endfor %} 
     {% endif %}
     <div class="flex col-12 md:col-10">
-      <h1 class="KnowledgeAreaHeader__title flex items-center justify-center hyphens sans-lg sans-serif uppercase border-black border-black radius-lg p_625">{{ page.title }}</h1>
+      <h1 class="KnowledgeAreaHeader__title flex items-center justify-center hyphens sans-lg sans-serif uppercase border-black border-black radius-lg p_625">{{ title }}</h1>
     </div>
   </div>
   {% if author %}
