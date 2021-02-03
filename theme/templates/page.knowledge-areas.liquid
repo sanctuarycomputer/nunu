@@ -3,13 +3,8 @@
 <div class="KnowledgeArea">
   {% for module in content_modules %}
     {% assign referenced_fields = shop.metafields.acf_settings.global.fields | where: "section_name", module.section %}
-    {% comment %}
-      This block switch renders different snippets depending on the section name.
-    {% endcomment %}
-
     {% assign section = module.section %}
     {% case section %}
-
     {% when 'knowledge_area_header' %}
       {% render 'knowledge-area-header' title: page.title module: module %}
     {% when 'knowledge_area_overview' %} 
