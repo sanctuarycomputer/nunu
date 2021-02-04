@@ -3,7 +3,7 @@
     <a class="{% if request.path == '/' %} Nav__button--active" {% endif %}" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
     <span>{{ 'snippets.nav.hyphen' | t }}</span>
     {% for link in linklists.main-menu.links %}
-      <a class="{% if request.path == link.url %} Nav__button--active {% endif %}" href="{{ link.url }}">{{ link.title }}</a>{% unless link.title == linklists.main-menu.links.last.title %},{% endunless %}
+      <a class="{% if request.path == link.url %} Nav__button--active {% endif %}" href="{{ link.url }}">{{ link.title }}</a>{% if forloop.last == false %},{% endif %}
     {% endfor %}  
   </div>
   <a href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">{{ 'snippets.nav.links.cart_link.text' | t }}</a>
