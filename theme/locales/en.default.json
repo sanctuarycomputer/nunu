@@ -6,6 +6,45 @@
     }
   },
   "snippets": {
+    "nav": {
+      "links": {
+        "index_link": {
+          "aria_label": "Navigate to homepage",
+          "text": "Index"
+        },
+        "home_link": {
+          "aria_label": "Navigate to homepage",
+          "text": "Home"
+        },
+        "knowledge_areas_link": {
+          "aria_label": "Navigate to Knowledge Areas",
+          "text": "Knowledge Areas"
+        },
+        "about_link": {
+          "aria_label": "Navigate to About",
+          "text": "About"
+        },
+        "news_link": {
+          "aria_label": "Navigate to News",
+          "text": "News"
+        },
+        "shop_link": {
+          "aria_label": "Open the Shop menu",
+          "text": "Shop"
+        },
+        "cart_link": {
+          "aria_label": "Open the cart",
+          "text": "Cart"
+        }
+      },
+      "hyphen": "—",
+      "menu_icon": {
+        "alt": "Menu icon"
+      },
+      "close_icon": {
+        "alt": "Close icon"
+      }
+    },
     "home_header": { 
       "links": {
         "offerings_link": {

@@ -132,3 +132,13 @@
   line-height: 0.83125rem;
   letter-spacing: 0.0275rem;
 }
+
+.text-nav {
+  font-size: 1.875rem;
+  line-height: 1.6875rem;
+
+  @include media('xl-up') {
+    font-size: 3.125rem;
+    line-height: 2.8125rem;
+  }
+}
