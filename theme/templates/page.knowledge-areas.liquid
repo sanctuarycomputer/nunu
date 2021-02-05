@@ -1,0 +1,16 @@
+{% assign content_modules = page.metafields.accentuate.knowledge_area_content.references %}
+
+<div class="KnowledgeArea">
+  {% for module in content_modules %}
+    {% assign referenced_fields = shop.metafields.acf_settings.global.fields | where: "section_name", module.section %}
+    {% assign section = module.section %}
+    {% case section %}
+    {% when 'knowledge_area_header' %}
+      {% render 'knowledge-area-header' title: page.title module: module %}
+    {% when 'knowledge_area_overview' %} 
+      {% render 'knowledge-area-markdown' markdown: shop.metafields.globals['knowledge_area_overview'][module.index].html %}    
+    {% when 'knowledge_area_tips' %}   
+      {% render 'knowledge-area-markdown' markdown: shop.metafields.globals['knowledge_area_tips'][module.index].html %}
+    {% endcase %}
+  {% endfor %}
+</div>

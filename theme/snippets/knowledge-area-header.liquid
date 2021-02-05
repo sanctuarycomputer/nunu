@@ -1,0 +1,21 @@
+{% assign author = shop.metafields.globals['knowledge_area_author'][module.index]%}
+{% assign header_images = shop.metafields.globals['knowledge_area_header_image'][module.index] %}
+  {% for image in header_images %} 
+    {% assign header_image = image %}
+  {% endfor %}
+
+<div class="KnowledgeAreaHeader border-thick-black flex flex-col p1_25 mb1_875">
+  <div class="flex flex-col md:flex-row">
+    {% if header_image %}
+          <div class="KnowledgeAreaHeader__image-container col-5 md:col-2 radius-lg md:mr1_5 mb1_25 md:mb0">
+            <img class="w100 h100 fit-cover radius-lg" src="{{ header_image.src }}" alt="{{ header_image.alt }}"/>
+          </div>
+    {% endif %}
+    <div class="flex col-12 md:col-10">
+      <h1 class="KnowledgeAreaHeader__title flex items-center justify-center hyphens sans-lg sans-serif uppercase border-black border-black radius-lg p_625">{{ title }}</h1>
+    </div>
+  </div>
+  {% if author %}
+    <span class="pt1_875 md:pt2_5 sans-xs uppercase">Knowledge area by {{ author }}</span>
+  {% endif %}
+</div>

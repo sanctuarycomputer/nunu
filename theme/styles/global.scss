@@ -48,6 +48,26 @@
   display: inline-block;
 }
 
+.border-black {
+  border: 1px solid color('black');
+}
+
+.border-thick-black {
+  border: 2px solid color('black');
+}
+
+.border-left-black {
+  border-left: 1px solid color('black');
+}
+
+.border-right-black {
+  border-right: 1px solid color('black');
+}
+
+.border-bottom-black {
+  border-bottom: 1px solid color('black');
+}
+
 //* Product Grid */
 .grid {
   display: grid;
@@ -77,4 +97,8 @@
       }
     }
   }
+}
+
+.hyphens {
+  hyphens: auto;
 }
