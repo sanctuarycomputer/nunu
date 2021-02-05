@@ -1,5 +1,4 @@
 {% assign content_modules = page.metafields.accentuate.knowledge_area_content.references %}
-
 <div class="KnowledgeArea">
   {% for module in content_modules %}
     {% assign referenced_fields = shop.metafields.acf_settings.global.fields | where: "section_name", module.section %}

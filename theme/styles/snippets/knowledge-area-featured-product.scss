@@ -1,0 +1,22 @@
+.KnowledgeAreaFeaturedProduct {
+  &__product-container {
+    height: 23.4375rem;
+
+    @include media('md-up') {
+      height: 36.375rem;
+    }  
+  }
+
+  &__image {
+    width: 60%;
+    max-height: 13rem;
+
+    @include media('xs-up') {
+      max-height: 17rem;
+    }
+
+    @include media('md-up') {
+      max-height: 26.1875rem;
+    }
+  }
+}

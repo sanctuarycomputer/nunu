@@ -10,7 +10,7 @@
     font-size: 2.5rem;
     line-height: 2.625rem;
 
-    @include media('md-up') {
+    @include media('lg-up') {
       font-size: 4.0625rem;
       line-height: 3.65625rem;
     }
