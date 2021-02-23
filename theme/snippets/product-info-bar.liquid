@@ -1,0 +1,21 @@
+{% comment %} TO-DO: Adjust or replace Tags, Add "Add to Cart" functionality {% endcomment %}
+
+<div class="ProductInfoBar border-thick-top-white border-thick-bottom-white flex flex-col md:flex-row justify-between">
+  <span class="ProductInfoBar__product-details col-12 md:col-7 flex items-center sans-sm uppercase color-white border-thick-bottom-white px_625 py1 md:px1_875 md:py1_5">
+    <span class="dot-lg mr_25"></span>
+    <span>{{ product.type }}</span>
+    <span class="ProductInfoBar__tags">
+      {% for tag in product.tags %}
+        <span class="ml_625 radius-xs border-white p_25">{{ tag }}</span>
+      {% endfor %}
+    </span>
+  </span>
+  <div class="col-12 md:col-5 flex flex-row justify-start md:justify-end px_625 py1 md:px1_875 md:py1_5 color-white sans-md uppercase">
+    <span class="md:none">{{ product.price | money_without_trailing_zeros }}</span>
+    <span class="md:none mx_25">-</span>
+    <form class=" action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+      <button class="sans-md uppercase bg-color-transparent color-white" type="submit" name="add" id="AddToCart">Add to cart</button>
+    </form>
+  </div>
+  
+</div>

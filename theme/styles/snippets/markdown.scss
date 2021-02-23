@@ -1,0 +1,50 @@
+.Markdown {
+  padding-bottom: 3.125rem;
+    
+  @include media ('lg-up') {
+    padding-bottom: 12.5rem;
+  }
+
+  h1, h2, h3, p, ul, ol {
+    font-family: $itc-garamond;
+  }
+
+  h2 {
+    padding-bottom: 2.5rem;
+    text-transform: uppercase;
+    @extend %serif-xl;
+  }
+
+  p {
+    padding-bottom: 1.5rem;
+  }
+  
+  ul, ol, p {
+    @extend %serif-sm;
+    
+    @include media('lg-up') {
+      font-size: 2.5rem;
+      line-height: 2.625rem;
+    }
+  }
+
+  ul,
+  ol {
+    list-style-position: inside;
+  }
+
+  ul {
+    list-style-type: none;
+
+    
+    li {
+      &::before {
+        content: "-";
+        margin-right: 0.625rem;
+      }
+    }
+  }
+
+  &--style-black-bg {
+  }
+}
