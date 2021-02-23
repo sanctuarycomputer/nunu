@@ -1,3 +1,5 @@
+//Change hover link styling when designs are added.
+
 .Markdown {
   padding-bottom: 3.125rem;
     
@@ -23,6 +25,17 @@
       font-size: 2.5rem;
       line-height: 2.625rem;
     }
+
+    strong {
+      font-weight: 700;
+    }
+
+    a {
+      @extend %transition-shorter;
+      &:hover {
+        color: lighten(color('black'), 25%);
+      }
+    }
   }
 
   ul,
@@ -47,6 +60,13 @@
     display: block;
     overflow-x: auto;
     white-space: nowrap;
+
+    a {
+      @extend %transition-shorter;
+      &:hover {
+        color: lighten(color('black'), 25%);
+      }
+    }
 
     tbody {
       display: table;
