@@ -2,7 +2,7 @@
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
 {% assign related_products_heading = product.metafields.accentuate.related_products_heading %}
 {% assign related_products_handles = product.metafields.accentuate.related_products | split: '|' %}
-{% assign product_content = product.metafields.accentuate.product_content %}
+{% assign product_description = product.metafields.accentuate.product_description %}
 
 <div class="Product pt_625 bg-color-black">
   <div class="site-padding-x">
@@ -19,7 +19,7 @@
 
   {% render 'product-info-bar' product: product %}
 
-  {% render 'markdown' variant: 'black-bg' classes: 'site-padding-x py1_25' markdown: product_content.html %}
+  {% render 'markdown' variant: 'black-bg' classes: 'site-padding-x py1_25' markdown: product_description.html %}
 
   {% if related_products_heading %}
     <div class="site-padding-x uppercase color-white serif-xl pb2_5">{{ related_products_heading }}</div>
