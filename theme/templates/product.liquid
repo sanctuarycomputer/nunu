@@ -9,19 +9,15 @@
     <h1 class="uppercase serif-xl color-white">{{ product.title }}</h1>
     <p class="uppercase sans-sm color-white">{{ product.vendor }}</p>
   </div>
-
   {% if product.images.size > 1 %}
-    {% include 'product-image-slider' %}
+    {% include 'product-images-slider' %}
     {% else %}
       <div class="Product__hero-image-container flex items-center justify-center p2 md:p3">
         <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" class="fit-contain w100">
       </div>
   {% endif %}
-
   {% render 'product-info-bar' product: product %}
-
   {% render 'markdown' variant: 'black-bg' classes: 'site-padding-x py1_25' markdown: product_description.html %}
-
   {% if related_products_heading %}
     <div class="site-padding-x uppercase color-white serif-xl pb2_5">{{ related_products_heading }}</div>
   {% endif %}

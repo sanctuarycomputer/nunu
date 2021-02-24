@@ -1,0 +1,9 @@
+<div class="ProductImagesSlider">
+  <div class="ProductImagesSlider__slider">
+    {% for image in product.images %}
+    <div class="ProductImagesSlider__img-container py4 px1 sm:px2 md:px2 md:py4">
+      <img class="ProductImagesSlider__img" src="{{ image | img_url: 'master' }}" >
+    </div>
+    {% endfor %}
+  </div>
+</div>

@@ -10,8 +10,6 @@
   {{ content_for_header }} <!-- Header hook for plugins -->
   {{ 'index.css' | asset_url | stylesheet_tag }}
   {{ 'fonts.css' | asset_url | stylesheet_tag }}
-
-
 </head>
 <body>
 
@@ -29,15 +27,15 @@
 
     <script type="text/javascript">
       jQuery( document ).ready(function() {
-        $('.ProductImageSlider__slider').slick({
+        $('.ProductImagesSlider__slider').slick({
             dots: false,
             autoplay: false,
             arrows: false,
             infinite: false,
-            slidesToShow: 1.25,
+            slidesToShow: 1.2,
             centerMode: true,
         });
-    });
+      });
   </script>
 </body>
 </html>
