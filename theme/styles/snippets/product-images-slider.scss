@@ -19,6 +19,10 @@
       max-height: 35rem;
     }
 
+    @include media('xl-up') {
+      max-height: 40rem;
+    }
+
   }
 }
 
