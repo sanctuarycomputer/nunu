@@ -6,13 +6,10 @@
 
   &__img-container {
     display: flex!important;
-    height: 100%;
   }
 
   &__img {
     max-height: 16rem;
-    width: 100%;
-    object-fit: contain;
 
     @include media('sm-up') {
       max-height: 28rem;
@@ -31,7 +28,6 @@
 
 .slick-slide { 	
   position: relative;
-  // border: 1px solid red;
   display: flex;
   height: auto;
   align-items: center;
