@@ -1,9 +1,9 @@
-  <div class="ProductImageSlider">
-    <div class="ProductImageSlider__slider">
-      {% for image in product.images %}
-      <div class="ProductImagesSlider__img-container">
-        <img class="ProductImagesSlider__img py5 fit-contain w100" src="{{ image | img_url: 'master' }}" >
-      </div>
-      {% endfor %}
+<div class="ProductImageSlider">
+  <div class="ProductImageSlider__slider">
+    {% for image in product.images %}
+    <div class="ProductImagesSlider__img-container">
+      <img class="ProductImagesSlider__img py5 fit-contain w100" src="{{ image | img_url: 'master' }}" >
     </div>
+    {% endfor %}
   </div>
+</div>

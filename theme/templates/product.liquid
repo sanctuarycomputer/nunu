@@ -10,15 +10,13 @@
     <p class="uppercase sans-sm color-white">{{ product.vendor }}</p>
   </div>
 
-  <!-- <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
-  {% for image in product.images %}
-    <a href="{{ image.src | img_url: 'large' }}">
-      <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
-    </a>
-  {% endfor %} -->
-
-  {% include 'product-image-slider' %}
-
+  {% if product.images.size > 1 %}
+    {% include 'product-image-slider' %}
+    {% else %}
+      <div class="Product__hero-image-container flex items-center justify-center p2 md:p3">
+        <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" class="fit-contain w100">
+      </div>
+  {% endif %}
 
   {% render 'product-info-bar' product: product %}
 

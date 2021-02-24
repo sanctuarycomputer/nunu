@@ -1,0 +1,13 @@
+.Product {
+  &__hero-image-container img {
+    max-height: 12.75rem;
+
+    @include media('sm-up') {
+      max-height: 20rem;
+    }
+
+    @include media('md-up') {
+      max-height: 30rem;
+    }
+  }
+}
