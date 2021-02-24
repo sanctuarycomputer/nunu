@@ -1,0 +1,23 @@
+.ProductImagesSlider {
+  &__img {
+    max-height: 39rem;
+    // border: 1px solid orange;
+  }
+}
+
+.slick-track {
+  display: flex;
+}
+
+.slick-slide { 	
+  // border: 1px solid red;
+  height: inherit !important; 	
+  display: flex !important; 	
+  justify-content: center; 	
+  align-items: center; 
+
+  > div:first-of-type {
+    width: 80%;
+  }
+}
+
