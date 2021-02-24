@@ -45,14 +45,36 @@
     @extend %sans-sm;
   }
 
+  p {
+    a {
+      @extend %button--style-primary;
+      font-family: $gt-zirkon;
+      font-size: 2.5rem;
+      line-height: 2.625rem;
+      
+      @include media('md-up') {
+        font-size: 4.0625rem;
+        line-height: 3.65625rem;
+      }
+    }
+  }
+
   p, ol, ul {
+    @extend %serif-sm;
     margin-bottom: 2rem;
 
     @include media('md-up') {
       margin-bottom: 5.625rem;
+      font-size: 4.6875rem;
+      line-height: 4.6875rem;
     }
+  }
 
+  ol, ul {
     a {
+      @extend %serif-sm;
+      font-family: $itc-garamond;
+
       &:hover {
         color: lighten(color('black'), 25%);
       }
