@@ -6,6 +6,7 @@
   text-transform: uppercase;
   color: color('black');
   text-decoration: none;
+  white-space: nowrap;
 
   &:hover {
     background-color: color('black');

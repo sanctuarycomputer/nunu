@@ -126,13 +126,18 @@
 
     p, div {
       img {
-        max-width: calc(100vw - #{$site-padding-x-mobile-double});
-        object-fit: contain;
-        width: 100%;
-        height: 100%;
+        border: 1px solid red;
+        // max-width: calc(100vw - #{$site-padding-x-mobile-double});
+        // object-fit: contain;
+        // width: 100%;
+        // height: 100%;
+        // padding-top: 3rem;
+        // padding-bottom: 3rem;
 
         @include media('md-up') {
-          max-width: calc(100vw - #{$site-padding-x-desktop-double});
+          // padding-top: 10rem;
+          // padding-bottom: 10rem;
+          // max-width: calc(100vw - #{$site-padding-x-desktop-double});
         }
       }
     }
