@@ -1,0 +1,114 @@
+//Change hover link styling when designs are added.
+
+.Markdown {
+  padding-bottom: 3.125rem;
+    
+  @include media ('lg-up') {
+    padding-bottom: 12.5rem;
+  }
+
+  h1, h2, h3, p, ul, ol {
+    font-family: $itc-garamond;
+  }
+
+  h2 {
+    padding-bottom: 3.125rem;
+    text-transform: uppercase;
+    @extend %serif-xl;
+  }
+
+  ul, ol, p {
+    @extend %serif-sm;
+    padding-bottom: 2.875rem;
+
+    @include media('lg-up') {
+      font-size: 2.5rem;
+      line-height: 2.625rem;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    a {
+      @extend %transition-shorter;
+      &:hover {
+        color: lighten(color('black'), 25%);
+      }
+    }
+  }
+
+  ul,
+  ol {
+    list-style-position: inside;
+  }
+
+  ul {
+    list-style-type: none;
+
+    
+    li {
+      &::before {
+        content: "-";
+        margin-right: 0.625rem;
+      }
+    }
+  }
+
+  table { 
+    border-collapse: collapse; 
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    a {
+      @extend %transition-shorter;
+      &:hover {
+        color: lighten(color('black'), 25%);
+      }
+    }
+
+    tbody {
+      display: table;
+      width: 100%;
+    }
+
+    tr {
+      &:first-of-type {
+        border-top: 1px solid color('black');
+      }
+
+      border-bottom: 1px solid color('black'); 
+    }
+
+    td { 
+      padding: 0.75rem 0;
+
+      @include media('md-up') {
+        padding: 1.25rem 0;
+      }   
+    }
+
+    td:first-of-type {
+      font-family: $itc-garamond;
+      @extend %serif-lg;
+    }
+
+    td:nth-of-type(2) {
+      font-family: $gt-zirkon;
+      @extend %sans-sm;
+      padding-left: 2rem;
+    }
+  }
+
+  &--style-black-bg {
+    tr {
+      &:first-of-type {
+        border-top: 1px solid color('white')!important;
+      }
+
+      border-bottom: 1px solid color('white')!important; 
+    }
+
+  }
+}

@@ -1,0 +1,7 @@
+.ProductInfoBar {
+  &__product-details {
+    @include media('md-up') {
+      border-bottom: 0;
+    }
+  }
+}
