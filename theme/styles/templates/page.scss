@@ -12,7 +12,7 @@
 
     a {
       @extend %button--style-primary;
-      font-family: $gt-zirkon;
+      font-family: $abc-diatype;
       font-size: 2.5rem;
       line-height: 2.625rem;
       
@@ -33,7 +33,7 @@
   }
 
   h4, h5 {
-    font-family: $gt-zirkon;
+    font-family: $abc-diatype;
   }
 
   h4 {
@@ -107,7 +107,7 @@
         }
 
         &:last-child {
-          font-family: $gt-zirkon;
+          font-family: $abc-diatype;
           @extend %sans-xs;
 
           @include media('md-up') {
