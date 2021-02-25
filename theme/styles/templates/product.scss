@@ -10,4 +10,14 @@
       max-height: 40rem;
     }
   }
+  
+  &__vendor-avatar {
+    height: 1.5rem;
+    width: 1.5rem;
+
+    @include media('md-up') {
+      height: 2.9375rem;
+      width: 2.9375rem;
+    }
+  }
 }
