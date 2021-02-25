@@ -1,0 +1,15 @@
+<a class="CartItem bg-color-black color-white text-decoration-none hover--style-rounded-border relative p_625 mb_125" href="{{ item.url }}" aria-label="{{ 'snippets.product_grid_item.product_btn.aria_label' | t }}" >
+  <div class="CartItem__inner-container bg-color-black h100">
+    <div class="flex justify-between">
+      <span class="CartItem__title serif-xs uppercase">{{item.title}}</span>
+      <span class="CartItem__price serif-xs uppercase">{{item.price | money_without_trailing_zeros }}</span>
+    </div>
+    <span class="CartItem__vendor sans-xs">{{item.vendor}}</span>
+    <div class="CartItem__image-container flex items-center justify-center absolute t0 r0 h100 w100">
+      <img class="CartItem__image w100 h100 fit-contain xs:py1" src={{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+    </div>
+    <div class="CartItem__details absolute r0 b0 p_625 w100">
+      <span class="sans-xs uppercase">Remove</span>
+    </div>
+  </div>
+</a>
