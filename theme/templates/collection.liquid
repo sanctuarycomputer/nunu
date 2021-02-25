@@ -1,18 +1,7 @@
-{% paginate collection.products by 2 %}
-  <h1>{{ collection.title }}</h1>
+{% assign show_featured_product = collections.frontpage.metafields.accentuate.show_featured_product %}
+
+<div class="grid {% if show_featured_product %} grid--style-first-cell-enlarged  {% endif %}">
   {% for product in collection.products %}
-    <div>
-      <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-      {{ product.price | money }}
-      {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-      <a href="{{ product.url | within: collection }}">
-        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-      </a>
-    </div>
-  {% else %}
-    <p>no matches</p>
+    {% render 'product-grid-item', current_product: product, show_featured_product: show_featured_product %}  
   {% endfor %}
-  {% if paginate.pages > 1 %}
-    {{ paginate | default_pagination }}
-  {% endif %}
-{% endpaginate %}
+</div>
