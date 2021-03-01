@@ -10,6 +10,8 @@
   {{ content_for_header }} <!-- Header hook for plugins -->
   {{ 'index.css' | asset_url | stylesheet_tag }}
   {{ 'fonts.css' | asset_url | stylesheet_tag }}
+  {{ 'fonts.css' | asset_url | stylesheet_tag }}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 </head>
 <body>
 
@@ -20,22 +22,5 @@
   </main>
     {% render 'footer' %}
     {{ 'index.js' | asset_url | script_tag }}
-
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    {{ 'slick.min.js' | asset_url | script_tag }}
-
-    <script type="text/javascript">
-      jQuery( document ).ready(function() {
-        $('.ProductImagesSlider__slider').slick({
-            dots: false,
-            autoplay: false,
-            arrows: false,
-            infinite: false,
-            slidesToShow: 1.2,
-            centerMode: true,
-        });
-      });
-  </script>
 </body>
 </html>
