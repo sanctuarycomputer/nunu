@@ -1,6 +1,6 @@
 .Page {
   h1, h2, h3, p, ol, ul {
-    font-family: $itc-garamond;
+    font-family: $serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -12,7 +12,7 @@
 
     a {
       @extend %button--style-primary;
-      font-family: $abc-diatype;
+      font-family: $sans-serif;
       font-size: 2.5rem;
       line-height: 2.625rem;
       
@@ -33,16 +33,16 @@
   }
 
   h4, h5 {
-    font-family: $abc-diatype;
+    font-family: $sans-serif;
   }
 
   h4 {
-    @extend %sans-md;
+    @extend %sans-light-md;
     text-transform: uppercase;
   }
 
   h5 {
-    @extend %sans-sm;
+    @extend %sans-light-sm;
   }
 
   p, ol, ul {
@@ -95,7 +95,7 @@
 
         &:first-child {
           padding-right: 2rem;
-          font-family: $itc-garamond;
+          font-family: $serif;
           font-size: 1.125rem;
           line-height: 1.35rem;
           letter-spacing: 0.0275rem;
@@ -107,7 +107,7 @@
         }
 
         &:last-child {
-          font-family: $abc-diatype;
+          font-family: $sans-serif;
           @extend %sans-xs;
 
           @include media('md-up') {
