@@ -38,12 +38,12 @@
   }
 
   &__vendor-avatar {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: $vendor-avatar-height-mobile;
+    width: $vendor-avatar-height-mobile;
 
     @include media('lg-up') {
-      height: 2.9375rem;
-      width: 2.9375rem;
+      height: $vendor-avatar-height-desktop;
+      width: $vendor-avatar-height-desktop;
     }
   }
 }

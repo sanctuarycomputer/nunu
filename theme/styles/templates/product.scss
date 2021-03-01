@@ -12,12 +12,12 @@
   }
   
   &__vendor-avatar {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: $vendor-avatar-height-mobile;
+    width: $vendor-avatar-height-mobile;
 
-    @include media('md-up') {
-      height: 2.9375rem;
-      width: 2.9375rem;
+    @include media('lg-up') {
+      height: $vendor-avatar-height-desktop;
+      width: $vendor-avatar-height-desktop;
     }
   }
 }
