@@ -40,6 +40,11 @@
   resolved "https://registry.yarnpkg.com/@sanctucompu/basement/-/basement-1.2.0.tgz#cfad4652b22eba7a388fe365f6a4dfc8747f6d31"
   integrity sha512-ziX7pPHCrzaBBHkDxLJ9gEQlx9hJUGHLmUEisnXdJqurKm12QON7f3uyLewokyh9Zoid/nxIsUJOhCFtWlgw4A==
 
+"@splidejs/splide@^2.4.21":
+  version "2.4.21"
+  resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-2.4.21.tgz#ad1954d8d8822c9bfea0d3dc6a119358b88581ad"
+  integrity sha512-LdIwSnmNsGybCCnA3QG2dOeRv/rQl46jf7FflXxMGX0ADYWyL6UJHWJbMZvHBi5I67uRJY1ga/W+CvJ39nH26A==
+
 "@types/eslint-scope@^3.7.0":
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/@types/eslint-scope/-/eslint-scope-3.7.0.tgz#4792816e31119ebd506902a482caec4951fabd86"
