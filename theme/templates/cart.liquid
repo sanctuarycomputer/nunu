@@ -6,7 +6,7 @@
     {% endfor %}
       <div class="Cart__checkout-container border-thick-black serif flex justify-between p_625">
         <p>{{ cart.total_price | money }}</p>
-        <button class="Cart__checkout-container button--style-no-style serif uppercase" type="submit" name="checkout">Checkout</button>
+        <button aria-label={{ 'snippets.cart.checkout_button.aria_label' | t }} class="Cart__checkout-container button--style-no-style serif uppercase" type="submit" name="checkout">{{ 'snippets.cart.checkout_button.text' | t }} </button>
       </div>
     </form>
   {% else %}

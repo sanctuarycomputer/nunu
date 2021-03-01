@@ -61,6 +61,12 @@
         }
       }
     },
+    "cart": {
+      "checkout_button": {
+        "aria_label": "Check out your cart.",
+        "text": "Check out"
+      }
+    },
     "footer": {
       "social_links": {
         "newsletter_link": {
