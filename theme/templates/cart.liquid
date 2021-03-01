@@ -1,14 +1,15 @@
-{% if cart.item_count > 0 %}
-  <form action="/cart" method="post" novalidate>
-    {% for item in cart.items %}
-      {% render 'cart-item', item: item %}  
-  {% endfor %}
-    <div class="Cart__checkout-container border-thick-black serif flex justify-between p_625">
-      <p>{{ cart.total_price | money }}</p>
-      <button class="Cart__checkout-container button--style-no-style serif uppercase" type="submit" name="checkout">Checkout</button>
-    </div>
-  </form>
-{% else %}
-  <h2>cart</h2>
-  Cart is empty
-{% endif %}
+<div class="Cart px_125">
+  {% if cart.item_count > 0 %}
+    <form action="/cart" method="post" novalidate>
+      {% for item in cart.items %}
+        {% render 'cart-item', item: item %}  
+    {% endfor %}
+      <div class="Cart__checkout-container border-thick-black serif flex justify-between p_625">
+        <p>{{ cart.total_price | money }}</p>
+        <button class="Cart__checkout-container button--style-no-style serif uppercase" type="submit" name="checkout">Checkout</button>
+      </div>
+    </form>
+  {% else %}
+    Cart is empty
+  {% endif %}
+</div>
