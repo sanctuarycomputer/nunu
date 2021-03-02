@@ -1,4 +1,4 @@
-{% comment %} TO-DO: Remove Type Design "Knowledge Area" placeholder {% endcomment %}
+{% comment %} TO-DO: Remove Type Design "Knowledge Area" placeholder. Change Vendor avatar placeholder once Shopify Bookings is connected. {% endcomment %}
 {% assign product_media = current_product.media | first %}
 
 <a class="ProductGridItem bg-color-black color-white text-decoration-none hover--style-rounded-border relative p_625" href="{{ current_product.url }}" aria-label="{{ 'snippets.product_grid_item.product_btn.aria_label' | t }}" >
@@ -9,8 +9,11 @@
         <span class="color-yellow serif-md">
           {{ current_product.metafields.accentuate.featured_product_text }}
         </span>
-      <span class="ProductGridItem__title serif-md color-white">{{current_product.title}}</span>
-      <span class="ProductGridItem__vendor sans-xs">{{current_product.vendor}}</span>
+        <span class="ProductGridItem__title serif-md color-white">{{current_product.title}}</span>
+        <span class="sans-xs uppercase flex items-center">
+          <img class="ProductGridItem__vendor-avatar radius-xs md:radius-sm  w100 fit-cover mr_75" src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Grey.PNG"/>
+          {{current_product.vendor}}
+        </span>
       </span>
     {% else %}
       <div class="flex justify-between">
