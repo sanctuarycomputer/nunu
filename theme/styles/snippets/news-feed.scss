@@ -1,9 +1,6 @@
 .NewsFeed {
   margin-left: $site-padding-x-mobile;
-
-  @include media('xs-up') {
-    margin-right: $site-padding-x-mobile;
-  }
+  margin-right: $site-padding-x-mobile;
 
   @include media('md-up') {
     margin-left: $site-padding-x-desktop;
@@ -11,8 +8,8 @@
   }
 
   &__inner-container {
-    > :last-child {
-      border-bottom: 0!important;
+    > :first-child {
+      border-top: 2px solid color('black');
     }  
   }
 }

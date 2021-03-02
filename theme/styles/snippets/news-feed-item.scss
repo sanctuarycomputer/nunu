@@ -1,11 +1,11 @@
 .NewsFeedItem {
-  min-width: 40rem;
   padding-right: $site-padding-x-mobile;
 
-  a {
-    &:hover {
-      color: lighten(black, 25%);
-    }
+  &:hover {
+    color: color('white');
+    background-color: color('black');
+    border-radius: radius('sm');
+    @extend .transition;
   }
 
   &__image {
@@ -24,13 +24,12 @@
     @include media('md-up') {
       font-size: 3.125rem;
       line-height: 2.8125rem;
-      min-width: 55rem;
     }
   }
 
-  &__third-column p, &__third-column p a {
+  &__cta-label p, &__cta-label p a {
     font-weight: 300;
-
+    
     @include media('md-up') {
       font-size: 1.875rem;
       line-height: 1.6875rem;
