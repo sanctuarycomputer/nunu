@@ -10,4 +10,14 @@
       max-height: 40rem;
     }
   }
+  
+  &__vendor-avatar {
+    height: $vendor-avatar-height-mobile;
+    width: $vendor-avatar-height-mobile;
+
+    @include media('lg-up') {
+      height: $vendor-avatar-height-desktop;
+      width: $vendor-avatar-height-desktop;
+    }
+  }
 }

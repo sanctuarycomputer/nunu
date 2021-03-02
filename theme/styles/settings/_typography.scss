@@ -1,10 +1,12 @@
 /** Families */
 .serif {
   font-family: $itc-garamond;
+  font-weight: 300;
 }
 
 .sans-serif {
-  font-family: $gt-zirkon;
+  font-family: $abc-diatype;
+  font-weight: 300;
 }
 
 /** Sizes */
@@ -14,7 +16,7 @@
 }
 
 .sans-mega, .sans-xxl, .sans-md, .sans-sm, .sans-xs, .sans-xxs {
-  font-family: $gt-zirkon;
+  font-family: $abc-diatype;
   font-weight: 300;
 }
 
@@ -136,6 +138,7 @@
 .text-nav {
   font-size: 1.875rem;
   line-height: 1.6875rem;
+  font-weight: 300;
 
   @include media('xl-up') {
     font-size: 3.125rem;
