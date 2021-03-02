@@ -107,4 +107,4 @@ export default(function() {
   };
 
   Cart.init();
-})(); 
+})();
