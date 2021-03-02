@@ -99,6 +99,24 @@
         "aria_label": "See more News.",
         "text": "See more"
       }
+    },
+    "product_info_bar": {
+      "add_to_cart_btn": {
+        "aria_label": "Add product to cart",
+        "text": "Add to cart"
+      },
+      "added_to_cart_btn": {
+        "aria_label": "Product added to cart",
+        "text": "Added to cart"
+      },
+      "registration_closed_btn": {
+        "aria_label": "Registration is closed",
+        "text": "Registration closed"
+      },
+      "sold_out_btn": {
+        "aria_label": "Product is sold out",
+        "text": "Sold out"
+      }
     }
   }
 }
