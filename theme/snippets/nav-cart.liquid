@@ -1,0 +1,4 @@
+<a class="NavCart" href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">
+  {{ 'snippets.nav.links.cart_link.text' | t }}
+  <span class="NavCart__count color-white bg-color-black radius-xs px_5" data-nav-cart-item-count {% if cart.item_count > 0 %} data-active="true" {% endif %}>{{cart.item_count}}</span>
+</a>
