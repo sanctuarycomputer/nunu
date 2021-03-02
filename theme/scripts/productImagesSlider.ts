@@ -1,10 +1,30 @@
 import Splide from '@splidejs/splide';
 
-new Splide( '.ProductImagesSlider', {
-	pagination: false,
-	easing: 'linear',
-	arrows: false,
-	focus: 'center',
-	perPage: 1.35,
-	trimSpace: false,
-} ).mount();
+export default(function() {
+	const ProductImageSlider = {
+		SELECTORS: {
+			imageSlider: "[data-product-image-slider]"
+		},
+
+		init() {
+			const slider: HTMLElement = document.querySelector(ProductImageSlider.SELECTORS.imageSlider);
+
+			if (!slider) return;
+
+			ProductImageSlider.setup(slider);
+		},
+
+		setup(slider: HTMLElement) {
+			new Splide(slider, {
+				pagination: false,
+				easing: 'linear',
+				arrows: false,
+				focus: 'center',
+				perPage: 1.35,
+				trimSpace: false,
+			}).mount();
+		}
+	};
+
+	ProductImageSlider.init();
+})();
