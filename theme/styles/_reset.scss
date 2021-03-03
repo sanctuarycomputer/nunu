@@ -106,9 +106,10 @@ section {
   box-sizing: border-box;
 }
 
-a {
+a, button {
   color: currentColor;
   text-decoration: none;
+  cursor: pointer;
 }
 
 button {

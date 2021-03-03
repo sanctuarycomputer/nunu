@@ -61,6 +61,18 @@
         }
       }
     },
+    "cart": {
+      "checkout_button": {
+        "aria_label": "Check out your cart.",
+        "text": "Check out",
+        "name": "checkout"
+      },
+      "remove_button": {
+        "aria_label": "Remove item from cart",
+        "text": "Remove",
+        "name": "checkout"
+      }
+    },
     "footer": {
       "social_links": {
         "newsletter_link": {
