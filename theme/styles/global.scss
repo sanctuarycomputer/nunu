@@ -125,9 +125,9 @@
 }
 
 .nav-button-padding {
-  padding: 0.1875rem;
+  padding: 0.1875rem 0.1875rem 0.05rem 0.1875rem;
 
   @include media('md-up') {
-    padding: 0.15rem 0.25rem;
+    padding: 0.25rem 0.25rem 0.1rem 0.25rem;
   }
 }
