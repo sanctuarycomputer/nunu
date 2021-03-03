@@ -1,25 +1,35 @@
 /** Families */
 .serif {
-  font-family: $itc-garamond;
+  font-family: $serif;
   font-weight: 300;
 }
 
+.sans-serif, .sans-serif-light {
+  font-family: $sans-serif;
+}
+
 .sans-serif {
-  font-family: $abc-diatype;
+  font-weight: 400;
+}
+
+.sans-serif-light {
   font-weight: 300;
 }
 
 /** Sizes */
 .serif-mega, .serif-xxl, .serif-xl, .serif-lg, .serif-md, .serif-sm, .serif-xs {
-  font-family: $itc-garamond;
-  font-weight: 300;
+  @extend .serif;
 }
 
-.sans-mega, .sans-xxl, .sans-md, .sans-sm, .sans-xs, .sans-xxs {
-  font-family: $abc-diatype;
-  font-weight: 300;
+.sans-xs, .sans-xxs, .sans-xxxs {
+  @extend .sans-serif;
 }
 
+.sans-light-mega, .sans-light-xxl, .sans-light-md, .sans-light-sm {
+  @extend .sans-serif-light;
+}
+
+//Serif
 .serif-mega {
   font-size: 4.6875rem;
   line-height: 4.6875rem;
@@ -69,6 +79,11 @@
 %serif-sm {
   font-size: 2rem;
   line-height: 2.1rem;
+
+  @include media('lg-up') {
+    font-size: 2.5rem;
+    line-height: 2.625rem;
+  }
 }
 
 .serif-xs,
@@ -78,18 +93,39 @@
   letter-spacing: 0.0275rem;
 }
 
-.sans-mega {
+//Sans-Serif Regular
+.sans-xs,
+%sans-xs {
+  font-size: 1rem;
+  line-height: 1.25125rem;
+  letter-spacing: -0.0275rem;
+}
+
+.sans-xxs {
+  font-size: 0.75rem;
+  line-height: 0.938125rem;
+  letter-spacing: -0.0275rem;
+}
+
+.sans-xxxs {
+  font-size: 0.5625rem;
+  line-height: 0.70375rem;
+  letter-spacing: -0.0275rem;
+}
+
+//Sans-Serif Light
+.sans-light-mega {
   font-size: 9.375rem;
   line-height: 8.4375rem;
 }
 
-.sans-xxl {
+.sans-light-xxl {
   font-size: 6.25rem;
   line-height: 5.625rem;
 }
 
-.sans-lg,
-%sans-lg {
+.sans-light-lg,
+%sans-light-lg {
   font-size: 3.125rem;
   line-height: 2.8125rem;
 
@@ -99,8 +135,8 @@
   }
 }
 
-.sans-md,
-%sans-md {
+.sans-light-md,
+%sans-light-md {
   font-size: 1.875rem;
   line-height: 1.6875rem;
 
@@ -110,8 +146,8 @@
   }
 }
 
-.sans-sm,
-%sans-sm {
+.sans-light-sm,
+%sans-light-sm {
   font-size: 1rem;
   line-height: 1.171875rem;
   letter-spacing: 0.0275rem;
@@ -120,19 +156,6 @@
     font-size: 1.875rem;
     line-height: 1.6875rem;
   }
-}
-
-.sans-xs,
-%sans-xs {
-  font-size: 1rem;
-  line-height: 1.171875rem;
-  letter-spacing: 0.0275rem;
-}
-
-.sans-xxs {
-  font-size: 0.75rem;
-  line-height: 0.83125rem;
-  letter-spacing: 0.0275rem;
 }
 
 .text-nav {

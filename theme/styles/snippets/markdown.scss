@@ -8,7 +8,7 @@
   }
 
   h1, h2, h3, p, ul, ol {
-    font-family: $itc-garamond;
+    font-family: $serif;
   }
 
   h2 {
@@ -90,13 +90,11 @@
     }
 
     td:first-of-type {
-      font-family: $itc-garamond;
       @extend %serif-lg;
     }
 
     td:nth-of-type(2) {
-      font-family: $abc-diatype;
-      @extend %sans-sm;
+      @extend %sans-light-sm;
       padding-left: 2rem;
     }
   }
