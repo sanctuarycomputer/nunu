@@ -8,6 +8,8 @@ export default(function() {
       activateTrigger: "[data-activatable-activate-trigger]",
       /* Trigger that can only deactivate an activatable */
       deactivateTrigger: "[data-activatable-deactivate-trigger]",
+    },
+    ATTRIBUTES:{
       active: "data-active",
     },
 
@@ -49,7 +51,7 @@ export default(function() {
     },
 
     isActive(activatable: Element) {
-      return activatable.hasAttribute(Activatable.SELECTORS.active);
+      return activatable.hasAttribute(Activatable.ATTRIBUTES.active);
     },
 
     toggle(activatable: Element) {
@@ -61,13 +63,14 @@ export default(function() {
     },
 
     deactivate(activatable: Element) {
-      activatable.removeAttribute(Activatable.SELECTORS.active);
+      activatable.removeAttribute(Activatable.ATTRIBUTES.active);
     },
 
     activate(activatable: Element) {
-      activatable.setAttribute(Activatable.SELECTORS.active, "true");
+      activatable.setAttribute(Activatable.ATTRIBUTES.active, "true");
     },
   };
 
   Activatable.init();
+  return Activatable;
 })();

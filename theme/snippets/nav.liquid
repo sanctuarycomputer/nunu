@@ -6,7 +6,7 @@
       <a class="{% if request.path == link.url %} Nav__button--active {% endif %}" href="{{ link.url }}">{{ link.title }}</a>{% if forloop.last == false %},{% endif %}
     {% endfor %}  
   </div>
-  <a href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">{{ 'snippets.nav.links.cart_link.text' | t }}</a>
+  {% render 'nav-cart' %}
 </nav>
 
 <nav data-activatable class="Nav MobileNav md:none border-bottom-black text-nav uppercase sans-serif py_5 px_625 md:px1_25 flex flex-col col-12">
@@ -15,8 +15,7 @@
       <a href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
       <button data-activatable-activate-trigger class="bg-color-transparent"><img src="{{ 'menu-icon.svg' | asset_url }}" alt="{{ 'snippets.nav.menu_icon.alt' | t }}" class="MobileNav__icon" /></button>
     </span>
-    <a href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">{{ 'snippets.nav.links.cart_link.text' | t }}</a>
-    </a>
+    {% render 'nav-cart' %}
   </div>
 
   <div id="nav-mobile-menu" class="MobileNav__menu transition-shorter bg-color-white vh100 vw100 fixed t0 r0 flex flex-col py_5 px_625 md:px1_25 z-nav">
@@ -25,8 +24,7 @@
         <a href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
         <button data-activatable-deactivate-trigger class="bg-color-transparent"><img src="{{ 'close-icon.svg' | asset_url }}" alt="{{ 'snippets.nav.close_icon.alt' | t }}" class="MobileNav__icon" /></button>
       </span>
-      <a href="/cart" aria-label="{{ 'snippets.nav.links.cart_link.aria_label' | t }}">{{ 'snippets.nav.links.cart_link.text' | t }}</a>
-      </a>
+      {% render 'nav-cart' %}
     </div>
     <a class="uppercase py1_875" href="/" aria-label="{{ 'snippets.nav.links.home_link.aria_label' | t }}">{{ 'snippets.nav.links.home_link.text' | t }}</a>
     <a class="uppercase pb1_875" href="/pages/about" aria-label="{{ 'snippets.nav.links.about_link.aria_label' | t }}">{{ 'snippets.nav.links.about_link.text' | t }}</a>

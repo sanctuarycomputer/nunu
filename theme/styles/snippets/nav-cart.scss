@@ -1,0 +1,15 @@
+.NavCart {
+  &__count {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0);
+    position: absolute;
+
+    &[data-active="true"] {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+      position: initial;
+    }
+  }
+}
