@@ -1,0 +1,39 @@
+.CartItem {
+  display: grid;
+
+  //Aspect ratio 
+  &::before {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    padding-bottom: calc(480/499 * 100%);
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  &__inner-container {
+    grid-area: 1 / 1 / 2 / 2;
+    width: 100%
+  }
+
+  &__image {
+    width: 60%;
+    max-height: 13rem;
+
+    @include media('xs-up') {
+      max-height: 22rem;
+    }
+
+    @include media('md-up') {
+      max-height: 11rem;
+    }
+
+    @include media('lg-up') {
+      max-height: 14rem;
+    }
+
+    @include media('xl-up') {
+      max-height: 17rem;
+    }
+  }
+}
