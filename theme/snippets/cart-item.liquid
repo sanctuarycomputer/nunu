@@ -9,7 +9,7 @@
       <img class="CartItem__image w100 h100 fit-contain xs:py1" src={{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
     </div>
     <div class="CartItem__details absolute r0 b0 p_625 w100">
-      <button aria-label={{ 'snippets.cart.remove_button.aria_label' | t }} class="button--style-no-style sans-xs color-white uppercase">{{ 'snippets.cart.remove_button.text' | t }} </button>
+      <button data-line-item-variant-id={{item.variant_id}} data-line-item-quantity={{item.quantity}} data-remove-from-cart-button aria-label={{ 'snippets.cart.remove_button.aria_label' | t }} class="button--style-no-style sans-xs color-white uppercase">{{ 'snippets.cart.remove_button.text' | t }} </button>
     </div>
   </div>
 </div>
