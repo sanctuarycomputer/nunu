@@ -1,20 +1,14 @@
-.Nav {  
+.Nav {
   @include media('xl-up') {
     height: $nav-height-desktop-xl;
   }
 
  &__button  {
   @extend %transition-short; 
-  line-height: 0;
 
-   &:hover, &--active {
+  &:hover, &--active {
     background-color: color('black');
     color: color('white');
-    border-radius: radius('xs');
-
-    @include media('xl-up') {
-      border-radius: radius('sm');
-    }
    }
  }
 }
@@ -58,11 +52,6 @@
       a:nth-child(3) {
         animation: $transition-duration-short cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s 1 normal forwards animation-fade-in-down-short;
       }
-  
-      a:nth-child(4) {
-        animation: $transition-duration-short cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s 1 normal forwards animation-fade-in-down-short;
-      }
-
     }
   }
 }

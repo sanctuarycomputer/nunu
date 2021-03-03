@@ -123,3 +123,11 @@
 .hyphens {
   hyphens: auto;
 }
+
+.nav-button-padding {
+  padding: 0.1875rem;
+
+  @include media('md-up') {
+    padding: 0.15rem 0.25rem;
+  }
+}
