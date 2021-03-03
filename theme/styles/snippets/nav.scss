@@ -1,43 +1,57 @@
 .Nav {
- a {
-   @extend %transition-short; 
+  @include media('xl-up') {
+    height: $nav-height-desktop-xl;
+  }
 
-   &:hover {
-    color: lighten(black, 25%);
+ &__button  {
+  @extend %transition-short; 
+
+  &:hover, &--active {
+    background-color: color('black');
+    color: color('white');
    }
  }
-
- &__button--active {
-  background-color: color('black');
-  color: color('white');
-  border-radius: radius('xs');
-  padding: 0.25rem 0.25rem;
-
-  @include media('md-up') {
-    padding: 0 0.25rem;
-  }
-  @include media('xl-up') {
-    border-radius: radius('sm');
-  }
- }
-
 }
 
 .MobileNav {
-  &__icon {
-    padding-left: 0.5625rem;
-    max-height: 1.281875rem;
+  &__icon img {
+    width: 1.8125rem;
+    height: 1.3125rem;
   }
   
   &__menu {
+    @extend .transition;
     opacity: 0;
     pointer-events: none;
   }
 
   &[data-active="true"] {
+    .MobileNav__close-icon {
+      opacity: 1;
+      pointer-events: all;
+    }
+
     .MobileNav__menu {
       opacity: 1;
       pointer-events: all;
+    }
+
+    .MobileNav__menu-links {
+      a {
+        pointer-events: all!important;
+      }
+
+      a:nth-child(1) {
+        animation: $transition-duration-short cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s 1 normal forwards animation-fade-in-down-short;
+      }
+  
+      a:nth-child(2) {
+        animation: $transition-duration-short cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s 1 normal forwards animation-fade-in-down-short;
+      }
+  
+      a:nth-child(3) {
+        animation: $transition-duration-short cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s 1 normal forwards animation-fade-in-down-short;
+      }
     }
   }
 }

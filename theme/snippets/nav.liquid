@@ -1,9 +1,9 @@
-<nav class="Nav none md:flex border-bottom-black text-nav uppercase sans-serif py_5 px_625 md:px1_25 flex justify-between">
-  <div>
-    <a class="{% if request.path == '/' %} Nav__button--active" {% endif %}" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
-    <span>{{ 'snippets.nav.hyphen' | t }}</span>
+<nav class="Nav none md:flex border-bottom-black uppercase sans-serif py_5 px_625 md:px_5 text-nav flex items-center justify-between">
+  <div class="flex flex-row items-center justify-center">
+    <a class="Nav__button radius-xs nav-button-padding {% if request.path == '/' %} Nav__button--active" {% endif %}" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
+    <span class="mx_75">{{ 'snippets.nav.hyphen' | t }}</span>
     {% for link in linklists.main-menu.links %}
-      <a class="{% if request.path == link.url %} Nav__button--active {% endif %}" href="{{ link.url }}">{{ link.title }}</a>{% if forloop.last == false %},{% endif %}
+      <a class="Nav__button radius-xs nav-button-padding mr4_375 {% if request.path == link.url %} Nav__button--active {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
     {% endfor %}  
   </div>
   {% render 'nav-cart' %}
@@ -12,8 +12,8 @@
 <nav data-activatable class="Nav MobileNav md:none border-bottom-black text-nav uppercase sans-serif py_5 px_625 md:px1_25 flex flex-col col-12">
   <div class="flex justify-between mb_25">
     <span class="flex items-center justify-center">
-      <a href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
-      <button data-activatable-activate-trigger class="bg-color-transparent"><img src="{{ 'menu-icon.svg' | asset_url }}" alt="{{ 'snippets.nav.menu_icon.alt' | t }}" class="MobileNav__icon" /></button>
+      <a class="Nav__button radius-xs nav-button-padding mr_5 md:mr0" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
+      <button data-activatable-activate-trigger class="MobileNav__icon transition-long bg-color-transparent"><img class="w100 h100 fit-contain" src="{{ 'menu-icon.svg' | asset_url }}" alt="{{ 'snippets.nav.menu_icon.alt' | t }}" /></button>
     </span>
     {% render 'nav-cart' %}
   </div>
@@ -21,16 +21,18 @@
   <div id="nav-mobile-menu" class="MobileNav__menu transition-shorter bg-color-white vh100 vw100 fixed t0 r0 flex flex-col py_5 px_625 md:px1_25 z-nav">
     <div class="flex justify-between mb_25">
       <span class="flex items-center justify-center">
-        <a href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
-        <button data-activatable-deactivate-trigger class="bg-color-transparent"><img src="{{ 'close-icon.svg' | asset_url }}" alt="{{ 'snippets.nav.close_icon.alt' | t }}" class="MobileNav__icon" /></button>
+        <a class="Nav__button radius-xs nav-button-padding mr_5 md:mr0" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
+        <button data-activatable-deactivate-trigger class="MobileNav__icon MobileNav__close-icon transition opacity-0 events-none bg-color-transparent"><img class="w100 h100 fit-contain" src="{{ 'close-icon.svg' | asset_url }}" alt="{{ 'snippets.nav.close_icon.alt' | t }}" /></button>
       </span>
       {% render 'nav-cart' %}
     </div>
-    <a class="uppercase py1_875" href="/" aria-label="{{ 'snippets.nav.links.home_link.aria_label' | t }}">{{ 'snippets.nav.links.home_link.text' | t }}</a>
-    <a class="uppercase pb1_875" href="/pages/about" aria-label="{{ 'snippets.nav.links.about_link.aria_label' | t }}">{{ 'snippets.nav.links.about_link.text' | t }}</a>
-    <a class="uppercase" href="/pages/news" aria-label="{{ 'snippets.nav.links.news_link.aria_label' | t }}">{{ 'snippets.nav.links.news_link.text' | t }}</a>
+    <div class="MobileNav__menu-links flex flex-col">
+      <a class="opacity-0 events-none hover-lighten-black uppercase py1_875" href="/" aria-label="{{ 'snippets.nav.links.home_link.aria_label' | t }}">{{ 'snippets.nav.links.home_link.text' | t }}</a>
+      <a class="opacity-0 events-none hover-lighten-black uppercase pb1_875" href="/pages/about" aria-label="{{ 'snippets.nav.links.about_link.aria_label' | t }}">{{ 'snippets.nav.links.about_link.text' | t }}</a>
+      <a class="opacity-0 events-none hover-lighten-black uppercase" href="/pages/news" aria-label="{{ 'snippets.nav.links.news_link.aria_label' | t }}">{{ 'snippets.nav.links.news_link.text' | t }}</a>
+    </div>
   </div>
 
-  <a class="{% if request.path == "/collections/all" %} Nav__button--active {% endif %}" href="/collections/all" aria-label="{{ 'snippets.nav.links.shop_link.aria_label' | t }}">{{ 'snippets.nav.links.shop_link.text' | t }}</a>
+  <a class="Nav__button radius-xs nav-button-padding {% if request.path == "/collections/offerings-collection" %} Nav__button--active {% endif %}" href="/collections/offerings-collection" aria-label="{{ 'snippets.nav.links.shop_link.aria_label' | t }}">{{ 'snippets.nav.links.shop_link.text' | t }}</a>
   
 </nav>
