@@ -1,73 +1,141 @@
-export default(function() {
+
+export default (function() {
   const Activatable = {
     SELECTORS: {
-      activatable: "[data-activatable]",
-      /* Trigger that can activate and deactivate an activatable */
       toggle: "[data-activatable-toggle]",
-      /* Trigger that can only activate an activatable */
-      activateTrigger: "[data-activatable-activate-trigger]",
-      /* Trigger that can only deactivate an activatable */
-      deactivateTrigger: "[data-activatable-deactivate-trigger]",
+      toggleableItem: "[data-activatable-toggleable-item]",
+      activator: "[data-activatable-activator]",
+      deactivator: "[data-activatable-deactivator]",
+      deactivatorAttr: "data-activatable-deactivator",
     },
-    ATTRIBUTES:{
+    ATTRIBUTES: {
+      toggle: "data-activatable-toggle",
+      toggleableItem: "data-activatable-toggleable-item",
       active: "data-active",
+      activator: "data-activatable-activator",
+      deactivator: "data-activatable-deactivator",
     },
 
     init() {
-      const activatables = [].slice.call(
-        document.querySelectorAll(Activatable.SELECTORS.activatable)
+      const toggles = [].slice.call(
+        document.querySelectorAll(Activatable.SELECTORS.toggle)
+      );
+      const toggleableItems = [].slice.call(
+        document.querySelectorAll(Activatable.SELECTORS.toggleableItem)
+      );
+      const activators = [].slice.call(
+        document.querySelectorAll(Activatable.SELECTORS.activator)
+      );
+      const deactivators = [].slice.call(
+        document.querySelectorAll(Activatable.SELECTORS.deactivator)
       );
 
-      Activatable.bindEventListeners(activatables);
+      Activatable.bindEventListeners(
+        toggles,
+        toggleableItems,
+        activators,
+        deactivators,
+      );
     },
 
-    bindEventListeners(activatables: Element[]) {
-      activatables.forEach((activatable) => {
-        const toggle = activatable.querySelector(Activatable.SELECTORS.toggle);
-        const activateTrigger =  activatable.querySelector(Activatable.SELECTORS.activateTrigger);
-        const deactivateTrigger =  activatable.querySelector(Activatable.SELECTORS.deactivateTrigger);
+    bindEventListeners(
+      toggles: Element[],
+      toggleableItems: Element[],
+      activators: Element[],
+      deactivators: Element[],
+    ) {
+      toggles.forEach((toggle) => {
+        const toggleId = toggle.getAttribute(
+          Activatable.ATTRIBUTES.toggle
+        );
 
-        if (toggle) {
-          toggle.addEventListener("click", (e) => {
-            e.stopPropagation();
-            Activatable.toggle(activatable);
-          });
-        }
+        const currentToggleableItems = toggleableItems.filter(
+          (toggleableItem) =>
+            toggleableItem.getAttribute(
+              Activatable.ATTRIBUTES.toggleableItem
+            ) === toggleId
+        );
 
-        if (activateTrigger) {
-          activateTrigger.addEventListener("click", (e) => {
-            e.stopPropagation();
-            Activatable.activate(activatable);
-          });
-        }
+        if (!toggleId && !currentToggleableItems.length) return;
 
-        if (deactivateTrigger) {
-          deactivateTrigger.addEventListener("click", (e) => {
-            e.stopPropagation();
-            Activatable.deactivate(activatable);
-          });
-        }
+        toggle.addEventListener("click", () => {
+          if (Activatable.isActive(currentToggleableItems[0])) {
+            Activatable.deactivate(currentToggleableItems);
+          } else {
+            Activatable.activate(
+              toggleableItems,
+              currentToggleableItems
+            );
+          }
+        });
+      });
+
+      activators.forEach((activator) => {
+        const activatorId = activator.getAttribute(
+          Activatable.ATTRIBUTES.activator
+        );
+        const currentActivatorItems = toggleableItems.filter(
+          (toggleableItem) =>
+            toggleableItem.getAttribute(
+              Activatable.ATTRIBUTES.toggleableItem
+            ) === activatorId
+        );
+
+        if (!activatorId && !currentActivatorItems.length) return;
+
+        activator.addEventListener("click", () => {
+          Activatable.activate(toggleableItems, currentActivatorItems);
+        });
+      });
+
+      deactivators.forEach((deactivator) => {
+        const activatorIdsAttr = deactivator.getAttribute(
+          Activatable.SELECTORS.deactivatorAttr
+        );
+
+        if (!activatorIdsAttr) return;
+
+        const activatorIds = activatorIdsAttr.split(",");
+
+        const currentActivatorItems = toggleableItems.filter((toggleableItem) =>
+          activatorIds.includes(
+            toggleableItem.getAttribute(
+              Activatable.ATTRIBUTES.toggleableItem
+            )
+          )
+        );
+
+        if (!currentActivatorItems.length) return;
+
+        deactivator.addEventListener("click", () => {
+          Activatable.deactivate(currentActivatorItems);
+        });
       });
     },
 
-    isActive(activatable: Element) {
-      return activatable.hasAttribute(Activatable.ATTRIBUTES.active);
+    isActive(currentToggleableItem: Element) {
+      return currentToggleableItem.hasAttribute(
+        Activatable.ATTRIBUTES.active
+      );
     },
 
-    toggle(activatable: Element) {
-      if (Activatable.isActive(activatable)) {
-        Activatable.deactivate(activatable);
-      } else {
-        Activatable.activate(activatable);
-      }
+    deactivate(currentToggleableItems: Element[]) {
+      currentToggleableItems.forEach((toggleableItem) => {
+        toggleableItem.removeAttribute(Activatable.ATTRIBUTES.active);
+      });
     },
 
-    deactivate(activatable: Element) {
-      activatable.removeAttribute(Activatable.ATTRIBUTES.active);
-    },
+    activate(toggleableItems: Element[], currentToggleableItems: Element[]) {
+      toggleableItems.forEach((toggleableItem) => {
+        toggleableItem.removeAttribute(Activatable.ATTRIBUTES.active);
+      });
 
-    activate(activatable: Element) {
-      activatable.setAttribute(Activatable.ATTRIBUTES.active, "true");
+      currentToggleableItems.forEach((toggleableItem) => {
+        toggleableItem.setAttribute(
+          Activatable.ATTRIBUTES.active,
+          "true"
+        );
+      });
     },
   };
 

@@ -1,0 +1,52 @@
+.Cart {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  bottom: 0;
+  transition: all 250ms ease-in-out;
+
+  &__header {
+    height: $nav-height;
+
+    @include media('md-up') {
+      height: $nav-height-md;
+    }
+
+    @include media('xl-up') {
+      height: $nav-height-xl;
+    }
+  }
+
+  &__inner {
+    height: calc(100% - #{$nav-height});
+    padding-bottom: $cart-checkout-container-height;
+
+    @include media('md-up') {
+      height: calc(100% - #{$nav-height-md});
+    }
+
+    @include media('xl-up') {
+      height: calc(100% - #{$nav-height-xl});
+    }
+  }
+
+  &__checkout-container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 100%;
+  }
+
+  &[data-active="true"] {
+    transform: translateX(-100%);
+
+    .Cart__checkout-container {
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+}

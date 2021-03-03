@@ -84,13 +84,13 @@ export default(function() {
     },
 
     updateCartItemCount(cartItemCount: string) {
-      const navCartItemsCount = document.querySelectorAll(Cart.SELECTORS.navCartItemCount);
+      const navCartItemsCount = [].slice.call(document.querySelectorAll(Cart.SELECTORS.navCartItemCount));
 
       navCartItemsCount.forEach(navCartItem => {
         if (activatable.isActive(navCartItem)) {
           navCartItem.textContent = cartItemCount;
         } else {
-          activatable.activate(navCartItem);
+          activatable.activate([], navCartItemsCount);
           navCartItem.textContent = cartItemCount;
         }
       })
