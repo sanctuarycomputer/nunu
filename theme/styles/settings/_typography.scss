@@ -4,30 +4,29 @@
   font-weight: 300;
 }
 
-.sans-serif {
+.sans-serif, .sans-serif-light {
   font-family: $sans-serif;
+}
+
+.sans-serif {
   font-weight: 400;
 }
 
 .sans-serif-light {
-  font-family: $sans-serif;
   font-weight: 300;
 }
 
 /** Sizes */
 .serif-mega, .serif-xxl, .serif-xl, .serif-lg, .serif-md, .serif-sm, .serif-xs {
-  font-family: $serif;
-  font-weight: 300;
+  @extend .serif;
 }
 
 .sans-xs, .sans-xxs, .sans-xxxs {
-  font-family: $sans-serif;
-  font-weight: 400;
+  @extend .sans-serif;
 }
 
 .sans-light-mega, .sans-light-xxl, .sans-light-md, .sans-light-sm {
-  font-family: $sans-serif;
-  font-weight: 300;
+  @extend .sans-serif-light;
 }
 
 //Serif

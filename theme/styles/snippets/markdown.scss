@@ -90,12 +90,10 @@
     }
 
     td:first-of-type {
-      font-family: $serif;
       @extend %serif-lg;
     }
 
     td:nth-of-type(2) {
-      font-family: $sans-serif;
       @extend %sans-light-sm;
       padding-left: 2rem;
     }
