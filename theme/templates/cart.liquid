@@ -1,15 +1,1 @@
-<div class="Cart px_125">
-  {% if cart.item_count > 0 %}
-    <form action="/cart" method="post" novalidate>
-      {% for item in cart.items %}
-        {% render 'cart-item', item: item %}  
-    {% endfor %}
-      <div class="Cart__checkout-container border-thick-black serif flex justify-between p_625">
-        <p>{{ cart.total_price | money }}</p>
-        <button to="TO-DO" aria-label={{ 'snippets.cart.checkout_button.aria_label' | t }} class="Cart__checkout-container button--style-no-style serif uppercase" type="submit" name={{ 'snippets.cart.checkout_button.name' | t }}>{{ 'snippets.cart.checkout_button.text' | t }} </button>
-      </div>
-    </form>
-  {% else %}
-    Cart is empty
-  {% endif %}
-</div>
+<!-- TO-DO: Add 404 page contents -->
