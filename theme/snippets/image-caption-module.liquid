@@ -1,16 +1,20 @@
 {% assign image_module_images = shop.metafields.globals['image_module_image'][module.index] %}
 {% assign caption = shop.metafields.globals['image_module_caption'][module.index] %}
 {% assign variant = shop.metafields.globals['image_module_variant'][module.index] %}
+{% assign color = {% if styling == 'black-bg' %}'color-white' {% else %} 'color-black'
+{% endif %}
+%}
 
 {% for image in image_module_images %} 
   {% assign image_module_image = image %}
 {% endfor %}
 
+
 {% if image_module_image and variant == 'centered' %}
   <div class="ImageCaptionModule flex flex-col col-12 md:col-6 mxauto py5 md:py10">
     <img class="w100 h100 fit-contain" src="{{ image_module_image.src }}" alt="{{ image_module_image.alt }}"/>
     {% if caption %}
-      <span class="pt_25 sans-xs">{{ caption }}</span>
+      <span class="{{ color }} pt_25 sans-xs">{{ caption }}</span>
     {% endif %}
   </div>
 {% endif %}
@@ -19,7 +23,7 @@
   <div class="ImageCaptionModule flex flex-col col-12 py3">
     <img class="w100 h100 fit-contain" src="{{ image_module_image.src }}" alt="{{ image_module_image.alt }}"/>
     {% if caption %}
-      <span class="pt_25 sans-xs">{{ caption }}</span>
+      <span class="{{ color }} pt_25 sans-xs">{{ caption }}</span>
     {% endif %}
   </div>
 {% endif %}
@@ -30,7 +34,7 @@
       <img class="w100 h100 fit-contain" src="{{ image_module_image.src }}" alt="{{ image_module_image.alt }}"/>
     </div>
     {% if caption %}
-      <span class="pt_25 sm:pt0 sm:pl3 col-12 sm:col-3 sans-xs">{{ caption }}</span>
+      <span class="{{ color }} pt_25 sm:pt0 sm:pl3 col-12 sm:col-3 sans-xs">{{ caption }}</span>
     {% endif %}
   </div>
 {% endif %}
