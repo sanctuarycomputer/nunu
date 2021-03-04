@@ -71,6 +71,11 @@
         "aria_label": "Remove item from cart",
         "text": "Remove",
         "name": "checkout"
+      },
+      "close_button": {
+        "aria_label": "Close cart",
+        "text": "Close",
+        "name": "close"
       }
     },
     "footer": {

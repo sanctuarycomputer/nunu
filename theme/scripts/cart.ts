@@ -76,7 +76,7 @@ export default(function() {
           await Cart.removeLineItem(lineItemVariantId, quantity);
         } catch (response) {
           // TO-DO: Add Sentry
-          console.warn("Item could not be added to cart");
+          console.warn("Item could not be removed from cart");
           throw response;
         }
       });
