@@ -59,7 +59,7 @@
         {% endfor %}
       </select>
 
-      <button data-add-to-cart-button {% if button_disabled %} disabled {% endif %} class="sans-light-md uppercase bg-color-transparent color-white" type="submit" name="add" id="AddToCart">
+      <button data-variant-id={{product.first_available_variant.id}} data-add-to-cart-button {% if button_disabled %} disabled {% endif %} class="sans-light-md uppercase bg-color-transparent color-white" type="submit" name="add" id="AddToCart">
         {{button_label}}
       </button>
     </form>

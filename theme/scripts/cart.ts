@@ -1,6 +1,11 @@
 import { handleFetchJSONResponse } from './utils';
 import activatable from './activatable';
 
+enum Action {
+  ADD = 'add',
+  REMOVE = 'remove'
+};
+
 export default(function() {
   const Cart = {
     SELECTORS: {
@@ -8,16 +13,19 @@ export default(function() {
       addToCartButton: "[data-add-to-cart-button]",
       removeFromCartButton: "[data-remove-from-cart-button]",
       navCartItemCount: "[data-nav-cart-item-count]",
-      cartInner: "[data-cart-inner]"
+      cartInner: "[data-cart-inner]",
+      cartItemCount: "[data-cart-item-count]"
     },
     ATTRIBUTES: {
-      productType: "data-product-type",
       disabled: "disabled",
       lineItemVariantId: "data-line-item-variant-id",
       lineItemQuantity: "data-line-item-quantity",
+      itemCount: "data-cart-item-count",
+      variantId: "data-variant-id",
     },
     CONSTANTS: {
-      "addedToCart": "Added to cart"
+      "addedToCart": "Added to cart",
+      "addToCart": "Add to cart",
     },
 
     init() {
@@ -27,11 +35,11 @@ export default(function() {
 
       const removeLineItemButtons: Element[] = [].slice.call(document.querySelectorAll(Cart.SELECTORS.removeFromCartButton));
 
-      addToCartForms.forEach(Cart.bindEventListeners);
+      addToCartForms.forEach(Cart.bindAddEventListeners);
       removeLineItemButtons.forEach(Cart.bindRemoveEventListeners);
     },
 
-    bindEventListeners(form: Element) {
+    bindAddEventListeners(form: Element) {
       const formId = form.id;
       form.addEventListener("submit", async(e: any) => {
         e.preventDefault();
@@ -42,12 +50,11 @@ export default(function() {
 
         const variantId = form.variant?.value;
         const quantity = form.quantity?.value ?? 1;
-        const productType = form.getAttribute(Cart.ATTRIBUTES.productType);
 
         if (!variantId) return;
 
         try {
-          await Cart.addLineItem(variantId, quantity, productType);
+          await Cart.addLineItem(variantId, quantity);
         } catch (response) {
           // TO-DO: Add Sentry
           console.warn("Item could not be added to cart");
@@ -75,7 +82,7 @@ export default(function() {
       });
     },
 
-    async addLineItem(variantId: string, quantity: number, productType: string) {
+    async addLineItem(variantId: string, quantity: number) {
       return fetch("/cart/add.js", {
         method: "POST",
         headers: {
@@ -91,7 +98,7 @@ export default(function() {
         }),
       })
         .then(handleFetchJSONResponse) 
-        .then(() => Cart.onChange(productType))
+        .then(() => Cart.onChange(variantId, Action.ADD))
     },
 
     async removeLineItem(variantId: string, quantity: number) {
@@ -105,15 +112,23 @@ export default(function() {
           quantity: quantity
         })
       }).then(handleFetchJSONResponse) 
-      .then(Cart.onChange)
+      .then(() => Cart.onChange(variantId, Action.REMOVE))
     },
 
-    getCartJson() {
-      return fetch("/cart.js", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then(handleFetchJSONResponse)
+    async onChange(variantId: string, action: Action ) {
+      const cartHtml = await Cart.getCartHtml();
+      Cart.render(cartHtml);
+
+      const cartItemCount = document.querySelector(Cart.SELECTORS.cartItemCount).getAttribute(Cart.ATTRIBUTES.itemCount);
+      if (cartItemCount) {
+        Cart.updateCartItemCount(cartItemCount);
+      }
+
+      if (variantId) {
+        Cart.updateProductInfoBar(variantId, action);
+      }
+
+      Cart.init();
     },
 
     getCartHtml() {
@@ -123,31 +138,6 @@ export default(function() {
         },
       })
         .then((response) => response.text());
-    },
-
-    async onChange(productType?: string) {
-      const cartHtml = await Cart.getCartHtml();
-      const cartInner = Cart.render(cartHtml)[0];
-      const cartJson =  await Cart.getCartJson();
-      Cart.updateCartItemCount(cartJson.item_count);
-
-      if (productType) {
-        Cart.updateProductInfoBar(productType);
-      }
-
-      if (cartInner) {
-        console.log("We out here")
-        // const quantityIndicators: Element[] = [].slice.call(
-        //   cartInner.querySelectorAll(Cart.SELECTORS.quantityIndicator)
-        // );
-        // const cartTotal = quantityIndicators.reduce((acc, el) => {
-        //   acc = acc + parseInt(el.textContent);
-        //   return acc;
-        // }, 0);
-        // Cart.updateIndicators(cartTotal);
-      }
-
-      Cart.init();
     },
 
     render(cartHtml) {
@@ -172,7 +162,11 @@ export default(function() {
 
       navCartItemsCount.forEach(navCartItem => {
         if (activatable.isActive(navCartItem)) {
-          navCartItem.textContent = cartItemCount;
+          if (parseInt(cartItemCount) === 0) {
+            activatable.deactivate(navCartItemsCount);
+          } else {
+            navCartItem.textContent = cartItemCount;
+          }
         } else {
           activatable.activate([], navCartItemsCount);
           navCartItem.textContent = cartItemCount;
@@ -180,12 +174,20 @@ export default(function() {
       })
     },
 
-    updateProductInfoBar(productType: string) {
-      if (productType) {
-        const addToCartButton = document.querySelector(Cart.SELECTORS.addToCartButton);
+    updateProductInfoBar(variantId: string, action: Action) {
+      const addToCartButton = document.querySelector(Cart.SELECTORS.addToCartButton);
+      const addToCartVariantId = addToCartButton.getAttribute(Cart.ATTRIBUTES.variantId);
 
-        addToCartButton.textContent = Cart.CONSTANTS.addedToCart;
-        addToCartButton.setAttribute(Cart.ATTRIBUTES.disabled, Cart.ATTRIBUTES.disabled);
+      if (addToCartVariantId === variantId) {
+        if (action === Action.ADD) {
+          addToCartButton.textContent = Cart.CONSTANTS.addedToCart;
+          addToCartButton.setAttribute(Cart.ATTRIBUTES.disabled, Cart.ATTRIBUTES.disabled);
+        }
+
+        if (action === Action.REMOVE) {
+          addToCartButton.textContent = Cart.CONSTANTS.addToCart;
+          addToCartButton.removeAttribute(Cart.ATTRIBUTES.disabled);
+        }
       }
     },
   };
