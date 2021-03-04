@@ -1,0 +1,9 @@
+<div data-activatable-toggleable-item="cart" class="Cart z-cart bg-color-white col-12 md:col-6 lg:col-4">
+  <div data-activatable-deactivator="cart" aria-label="{{ 'snippets.cart.close_button.aria_label' | t }}" class="Cart__header pointer px_625 md:px1_25 uppercase sans-serif text-right text-nav flex items-center justify-end">
+    {{ 'snippets.cart.close_button.text' | t }}
+  </div>
+
+  <div class="h100" data-cart-inner>
+    {% render 'cart-inner' %}
+  </div>
+</div>

@@ -1,3 +1,10 @@
+button {
+  &:disabled {
+    color: color('gray');
+    cursor: not-allowed;
+  }
+}
+
 .button--style-primary,
 %button--style-primary {
   @extend %transition-shorter;
