@@ -18,6 +18,14 @@
     }
   }
 
+  &__close-icon {
+    font-size: 3rem;
+
+    @include media('xl-up') {
+      font-size: 5rem;
+    }
+  }
+
   &__inner {
     height: calc(100% - #{$nav-height});
     padding-bottom: $cart-checkout-container-height;
@@ -28,6 +36,18 @@
 
     @include media('xl-up') {
       height: calc(100% - #{$nav-height-xl});
+    }
+  }
+
+  &__empty {
+    &--image {
+      max-width: 31.25rem;
+    }
+
+    &--copy {
+      font-family: $serif;
+      font-size: 2.5rem;
+      line-height: 2.625rem;
     }
   }
 

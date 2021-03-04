@@ -75,6 +75,7 @@
       "close_button": {
         "aria_label": "Close cart",
         "text": "Close",
+        "icon": "&#9786;",
         "name": "close"
       }
     },

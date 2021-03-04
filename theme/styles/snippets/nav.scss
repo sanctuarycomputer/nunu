@@ -1,6 +1,6 @@
 .Nav {
   @include media('xl-up') {
-    height: $nav-height-desktop-xl;
+    height: $nav-height-xl;
   }
 
  &__button  {
