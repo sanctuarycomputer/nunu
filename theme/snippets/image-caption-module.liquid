@@ -1,14 +1,11 @@
 {% assign image_module_images = shop.metafields.globals['image_module_image'][module.index] %}
 {% assign caption = shop.metafields.globals['image_module_caption'][module.index] %}
 {% assign variant = shop.metafields.globals['image_module_variant'][module.index] %}
-{% assign color = {% if styling == 'black-bg' %}'color-white' {% else %} 'color-black'
-{% endif %}
-%}
+{% assign color = {% if styling == 'black-bg' %}'color-white'{% else %} 'color-black'{% endif %} %}
 
 {% for image in image_module_images %} 
   {% assign image_module_image = image %}
 {% endfor %}
-
 
 {% if image_module_image and variant == 'centered' %}
   <div class="ImageCaptionModule flex flex-col col-12 md:col-6 mxauto py5 md:py10">
