@@ -1,0 +1,38 @@
+{% assign image_module_image = shop.metafields.globals['image_module_image'][module.index].first %}
+{% assign caption = shop.metafields.globals['image_module_caption'][module.index] %}
+{% assign variant = shop.metafields.globals['image_module_variant'][module.index] %}
+{% if styling == 'black-bg' %}
+  {% assign color = 'color-white' %}
+  {% else %}
+  {% assign color = 'color-black' %}
+{% endif %}
+
+{% if image_module_image %}
+  <div class="ImageCaptionModule flex flex-col 
+    {% if variant == 'centered' %}
+      col-12 md:col-6 mxauto py5 md:py10
+    {% elsif variant == 'full-width' %}
+      col-12 py3
+    {% elsif variant == 'left' %}
+      sm:flex-row py3 col-12
+    {% endif %}
+  ">
+    <img class="w100 h100 fit-contain
+      {% if variant == 'left' %}
+      col-12 sm:col-9
+      {% endif %}
+    " 
+    src="{{ image_module_image.src }}" 
+    alt="{{ image_module_image.alt }}
+    "/>
+    {% if caption %}
+      <span class="{{ color }} pt_25 sans-xs
+        {% if variant == 'left' %}
+        col-12 sm:col-3 sm:pl2_5
+        {% endif %}
+        ">
+        {{ caption }}
+      </span>
+    {% endif %}
+  </div>
+{% endif %}

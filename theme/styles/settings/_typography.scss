@@ -17,7 +17,7 @@
 }
 
 /** Sizes */
-.serif-mega, .serif-xxl, .serif-xl, .serif-lg, .serif-md, .serif-sm, .serif-xs {
+.serif-mega, .serif-xl, .serif-lg, .serif-md, .serif-sm, .serif-xs {
   @extend .serif;
 }
 
@@ -30,7 +30,8 @@
 }
 
 //Serif
-.serif-mega {
+.serif-mega,
+%serif-mega {
   font-size: 4.6875rem;
   line-height: 4.6875rem;
 

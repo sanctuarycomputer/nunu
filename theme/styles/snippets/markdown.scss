@@ -1,52 +1,59 @@
 //Change hover link styling when designs are added.
 
 .Markdown {
-  padding-bottom: 3.125rem;
-    
-  @include media ('lg-up') {
-    padding-bottom: 12.5rem;
-  }
-
-  h1, h2, h3, p, ul, ol {
+  h1, h2, h3, p, ol, ul {
     font-family: $serif;
   }
 
-  h2 {
-    padding-bottom: 3.125rem;
-    text-transform: uppercase;
+  h4, h5, h6 {
+    font-family: $sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    padding-bottom: 2.8125rem;
+  }
+
+  h1  {
+    @extend %serif-mega;
+  }
+
+  h2  {
     @extend %serif-xl;
   }
 
-  ul, ol, p {
-    @extend %serif-sm;
-    padding-bottom: 2.875rem;
+  h3  {
+    @extend %serif-md;
+  }
 
-    @include media('lg-up') {
-      font-size: 2.5rem;
-      line-height: 2.625rem;
-    }
+  h4, h5, h6 {
+    text-transform: uppercase;
+  }
 
-    strong {
-      font-weight: 700;
-    }
+  h4 {
+    @extend %sans-light-md;
+  }
 
+  h5, h6 {
+    @extend %sans-light-sm;
+  }
+
+  p {  
     a {
       @extend %transition-shorter;
+
       &:hover {
-        color: lighten(color('black'), 25%);
+        color: lighten(black, 25%);
       }
     }
   }
 
-  ul,
-  ol {
+  ul, ol {
     list-style-position: inside;
   }
-
+  
   ul {
     list-style-type: none;
 
-    
     li {
       &::before {
         content: "-";
@@ -55,58 +62,130 @@
     }
   }
 
-  table { 
-    border-collapse: collapse; 
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-
-    a {
-      @extend %transition-shorter;
-      &:hover {
-        color: lighten(color('black'), 25%);
-      }
-    }
-
-    tbody {
-      display: table;
-      width: 100%;
-    }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid color('black');
+    border-bottom: 1px solid color('black');
 
     tr {
-      &:first-of-type {
-        border-top: 1px solid color('black');
+      &:not(:last-of-type) {
+        border-bottom: 1px solid color('black');
       }
 
-      border-bottom: 1px solid color('black'); 
-    }
+      td {
+        vertical-align: middle;
+        padding: 1.25rem 0;
 
-    td { 
-      padding: 0.75rem 0;
+        @include media('md-up') {
+          padding: 1.6875rem 0;
+        }
+
+        &:first-child {
+          padding-right: 2rem;
+          font-family: $serif;
+          font-size: 1.125rem;
+          line-height: 1.35rem;
+          letter-spacing: 0.0275rem;
+
+          @include media('md-up') {
+            font-size: 3.125rem;
+            line-height: 2.8125rem;
+          }
+        }
+
+        &:last-child {
+          font-family: $sans-serif;
+          @extend %sans-xs;
+
+          @include media('md-up') {
+            font-size: 1.875rem;
+            line-height: 1.6875rem;
+          }
+        }
+      }
+    }
+  }
+  
+  /* Product Description Styling */
+  &--style-default {
+    padding-bottom: 3.125rem;
+    
+    @include media ('lg-up') {
+      padding-bottom: 12.5rem;
+    }
+  }
+
+  &--style-default, &--style-black-bg {
+    table {
+      width: calc(100vw - #{$site-padding-x-mobile-double});
 
       @include media('md-up') {
-        padding: 1.25rem 0;
-      }   
+        width: calc(100vw - #{$site-padding-x-desktop-double});
+      }
     }
+  }
 
-    td:first-of-type {
-      @extend %serif-lg;
+  /* Pages Styling */
+  &--style-white-bg {
+    h1, h2, h3, p, ul, ol {
+      font-family: $serif;
     }
-
-    td:nth-of-type(2) {
-      @extend %sans-light-sm;
-      padding-left: 2rem;
+  
+    h2 {
+      padding-bottom: 3.125rem;
+      @extend %serif-xl;
+    }
+  
+    p, ol, ul {
+      @extend %serif-xl;
+    
+      a {
+        @extend %button--style-primary;
+        font-family: $sans-serif;
+        font-size: 2.5rem;
+        line-height: 2.625rem;
+        
+        @include media('md-up') {
+          font-size: 4.0625rem;
+          line-height: 3.65625rem;
+        }
+      }
+    
+      @include media('md-up') {
+        font-size: 4.6875rem;
+        line-height: 4.6875rem;
+      }
     }
   }
 
   &--style-black-bg {
-    tr {
-      &:first-of-type {
-        border-top: 1px solid color('white')!important;
-      }
-
-      border-bottom: 1px solid color('white')!important; 
+    h1 {
+      @extend %serif-mega;
     }
 
+    h2 {
+      @extend %serif-xl;
+    }
+
+    p, ol, ul {
+      @extend %serif-md;
+      margin-bottom: 2rem;
+
+      @include media('md-up') {
+        margin-bottom: 5.625rem;
+      }
+    }
+
+    table {
+      border-top: 1px solid color('white');
+      border-bottom: 1px solid color('white');
+
+      tr {
+        &:not(:last-of-type) {
+          border-bottom: 1px solid color('white');
+        }
+      }
+    }
   }
 }
