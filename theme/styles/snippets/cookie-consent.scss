@@ -1,0 +1,32 @@
+.CookieConsent {
+  @extend %transition;
+  position: fixed;
+  right: 0.625rem;
+  bottom: 0.625rem;
+  opacity: 0;
+  pointer-events: none;
+
+  img {
+    width: 6.25rem;
+    height: 6.25rem;
+
+    @include media('md-up') {
+      width: auto;
+      height: auto;
+    }
+  }
+
+  &:hover {
+    transform: rotate(180deg);
+  }
+
+  &[data-cookie-has-consented="true"] {
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &[data-cookie-has-consented="false"] {
+    pointer-events: auto;
+    opacity: 1;
+  }
+}
