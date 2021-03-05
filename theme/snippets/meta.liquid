@@ -17,6 +17,7 @@
 {% elsif template contains 'collection' %}
   <meta property="og:title" content="INDEX | {{ collection.title }}">
   <meta property="og:description" content="{{ collection_description }}">
+  <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 
 {% elsif template contains 'product' %}
   <meta property="og:type" content="product">
@@ -36,6 +37,7 @@
 {% else %}
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ page.title | escape }}">
+  <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 {% endif %}
 
 <meta property="og:url" content="{{ canonical_url }}">
