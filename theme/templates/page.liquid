@@ -1,8 +1,6 @@
 {% assign variant = page.metafields.accentuate.page_styling_variant %}
 {% assign content_modules = page.metafields.accentuate.page_content.references %}
 
-{{variant}}
-
 <div class="Page site-padding-x {% if variant == 'black-bg' %}Page--style-black-bg color-white bg-color-black {% else %} Page--style-white-bg {% endif %}">
   <h1 class="uppercase serif-mega">{{ page.title }}</h1>
     <div class="Page__content pt2_5 pb2 {% if variant == 'black-bg' %}col-12 md:col-9 {% endif %}">
@@ -13,7 +11,7 @@
         {% when 'page_markdown' %} 
           {% render 'markdown' variant: variant classes: 'Markdown--style-block-content' markdown: shop.metafields.globals['page_markdown'][module.index].html %}  
         {% when 'image_module' %}
-          {% render 'image-caption-module' module: module styling: {{ variant }} %}
+          {% render 'image-caption-module' module: module styling: variant %}
         {% endcase %}
       {% endfor %}
     </div>  
