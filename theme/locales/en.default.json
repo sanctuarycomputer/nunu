@@ -123,6 +123,18 @@
         "aria_label": "Product is sold out",
         "text": "Sold out"
       }
+    },
+    "404": {
+      "link": {
+        "aria-label": "Go to homepage"
+      },
+      "image": {
+        "alt": "XXXI store front circa 2016"
+      },
+      "text": {
+        "line-1": "Where it all started",
+        "line-2": "411 E 9th Street, September 2016"
+      }
     }
   }
 }
