@@ -80,6 +80,9 @@
         "text": "Close",
         "icon": "&#9786;",
         "name": "close"
+      },
+      "empty_image": {
+        "alt": "Sguiqqle line drawing"
       }
     },
     "footer": {
