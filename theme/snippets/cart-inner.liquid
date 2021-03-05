@@ -1,14 +1,13 @@
 {% assign cart_item_count = cart.item_count %}
 
 <div class="Cart__inner border-thick-black overflow-y-scroll">
-  <form action="/cart" method="post" novalidate>
+  <form class="h100" action="/cart" method="post" novalidate>
     {% if cart_item_count > 0 %}
         {% for item in cart.items %}
           {% render 'cart-item', item: item %}  
         {% endfor %}
     {% else %}
-      <!--TO-DO: Implement Cart Empty State -->
-      Cart is empty
+      {% render 'cart-empty' %}  
     {% endif %}
   
     <span data-cart-item-count={{cart_item_count}} class="none"></span>
