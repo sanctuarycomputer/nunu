@@ -12,6 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="INDEX">
   <meta property="og:description" content="TO-DO: ADD DEFAULT HOME DESCRIPTION">
+  <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 
 {% elsif template contains 'collection' %}
   <meta property="og:title" content="INDEX | {{ collection.title }}">
@@ -30,6 +31,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ page.title | escape }}">
   <meta name="twitter:description" content="{{ page_description | escape }}">
+  <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 
 {% else %}
   <meta property="og:type" content="website">
@@ -73,4 +75,3 @@
   <link rel="icon" type="image/png" sizes="32x32" href="{{ 'favicon.png' | asset_img_url: 32x32 }}">
   <link rel="icon" type="image/png" sizes="96x96" href="{{ 'favicon.png' | asset_img_url: 96x96 }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ 'favicon.png' | asset_img_url: 16x16 }}">
-  
