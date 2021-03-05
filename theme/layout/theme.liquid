@@ -22,6 +22,7 @@
     {{ content_for_layout }}
   </main>
     {% render 'footer' %}
+    {% render 'cookie-consent' %}
     {{ 'index.js' | asset_url | script_tag }}
 </body>
 </html>
