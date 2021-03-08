@@ -23,4 +23,13 @@ $additional-class-definitions: (
   'debug': (
     border: 1px solid red,
   ),
+  'safe-visibility-hidden': (
+    position: absolute,
+    text-indent: -10000px,
+    white-space: nowrap,
+    top: auto,
+    width: 1px,
+    height: 1px,
+    overflow: hidden,
+  )
 );

@@ -1,5 +1,5 @@
 {% assign show_featured_product = collections.frontpage.metafields.accentuate.show_featured_product %}
-
+<h1 class="safe-visibility-hidden">{{ collection.title }}</h1>
 <div class="grid {% if show_featured_product %} grid--style-first-cell-enlarged  {% endif %}">
   {% for product in collection.products %}
     {% render 'product-grid-item', current_product: product, show_featured_product: show_featured_product %}  
