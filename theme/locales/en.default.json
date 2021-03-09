@@ -135,6 +135,15 @@
         "line-1": "Where it all started",
         "line-2": "411 E 9th Street, September 2016"
       }
+    },
+    "email_subscribe": {
+      "input": {
+        "placeholder": "jacob@xxxi.com"
+      },
+      "submit": {
+        "text": "Sign Up",
+        "icon": "&#x2710;"
+      }
     }
   }
 }
