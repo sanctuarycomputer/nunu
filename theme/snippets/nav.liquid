@@ -3,7 +3,7 @@
     <a class="Nav__button radius-xs nav-button-padding {% if request.path == '/' %} Nav__button--active" {% endif %}" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
     <span class="mx_75">{{ 'snippets.nav.hyphen' | t }}</span>
     {% for link in linklists.main-menu.links %}
-      <a class="Nav__button radius-xs nav-button-padding mr4_375 {% if request.path == link.url %} Nav__button--active {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+      <a class="Nav__button radius-xs nav-button-padding mr1_875 {% if request.path == link.url %} Nav__button--active {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
     {% endfor %}  
   </div>
   {% render 'nav-cart' %}
