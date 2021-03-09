@@ -1,0 +1,69 @@
+.EmailSubscribe {
+  @extend %transition;
+  position: relative;
+  height: 42px;
+  top: -8px;
+  background-color: color('black');
+
+  @include media('md-up') {
+    height: 57px;
+    top: -12px;
+    min-width: 80%;
+  }
+
+  @include media('lg-up') {
+    min-width: 50%;
+  }
+
+  /**
+    Validation Error, or 
+    failed request state
+  */
+  &[data-subscribe-state='error'] {
+    background-color: color('red');
+
+    .EmailSubscribe__submit {
+      pointer-events: none;
+    }
+  }
+
+  /**
+    Already subscribed, or
+    sucessfull response state
+  */
+  &[data-subscribe-state='success'] {
+    background-color: color('green');
+
+    .EmailSubscribe__input {
+      &::placeholder {
+        color: color('white');
+      }
+    }
+
+    .EmailSubscribe__submit {
+      pointer-events: none;
+    }
+  }
+
+  &__input {
+    height: 100%;
+    border: none;
+  }
+
+  &__submit {
+    height: 100%;
+    border: none;
+  } 
+
+  &__glyph {
+    line-height: 2rem;
+
+    @include media('md-up') {
+      line-height: 3rem;
+    }
+
+    @include media('lg-up') {
+      line-height: 3.75rem;
+    }
+  }
+} 
