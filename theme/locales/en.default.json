@@ -62,6 +62,9 @@
       }
     },
     "cart": {
+      "section": {
+        "aria_label": "Cart"
+      },
       "checkout_button": {
         "aria_label": "Check out your cart.",
         "text": "Check out",
@@ -98,7 +101,14 @@
     "product_grid_item": {
       "product_btn": {
         "aria_label": "Navigate to the product page."
+      },
+      "avatar": {
+        "alt": "Image of product vendor"
       }
+    },
+    "cookie_consent": {
+      "alt": "Yellow circle cookie consent pop up",
+      "aria_label": "Cookie Consent pop up"
     },
     "news_feed": {
       "see_more_link": {

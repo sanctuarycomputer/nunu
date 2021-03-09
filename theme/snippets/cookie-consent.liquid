@@ -1,3 +1,5 @@
-<button class="CookieConsent z-overlay bg-color-transparent" data-cookie-consent>
-  <img src="{{ 'cookie-consent.svg' | asset_url }}" />
-</button>
+<section aria-label="{{ 'snippets.cookie.aria-label' | t }}">
+  <button class="CookieConsent z-overlay bg-color-transparent" data-cookie-consent>
+    <img src="{{ 'cookie-consent.svg' | asset_url }}" alt= {{ 'snippets.cookie_consent.alt' | t }}/>
+  </button>  
+</section>

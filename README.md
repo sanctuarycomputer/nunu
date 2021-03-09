@@ -116,7 +116,7 @@ If you are not using VSCode, please check to see if you editor has an equivalent
 
 ### Styleguide
 
-//TO-DO: Add Styleguide
+View Default Page style guide at /pages/default-page-style-guide
 
 ## Our Git Process
 
