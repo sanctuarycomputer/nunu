@@ -1,3 +1,6 @@
+
+import * as Sentry from "@sentry/browser";
+
 import handleFetchJSONResponse from './utils/handleFetchJSONResponse';
 import activatable from './activatable';
 
@@ -56,8 +59,7 @@ export default(function() {
         try {
           await Cart.addLineItem(variantId, quantity);
         } catch (response) {
-          // TO-DO: Add Sentry
-          console.warn("Item could not be added to cart");
+          Sentry.captureException(response);
           throw response;
         }
       });
@@ -75,8 +77,7 @@ export default(function() {
         try {
           await Cart.removeLineItem(lineItemVariantId, quantity);
         } catch (response) {
-          // TO-DO: Add Sentry
-          console.warn("Item could not be removed from cart");
+          Sentry.captureException(response);
           throw response;
         }
       });
