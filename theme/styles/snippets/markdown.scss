@@ -1,5 +1,3 @@
-//Change hover link styling when designs are added.
-
 .Markdown {
   h1, h2, h3, p, ol, ul {
     font-family: $serif;
@@ -37,12 +35,25 @@
     @extend %sans-light-sm;
   }
 
-  p {  
+  p, ol, ul, td {  
+    /* Adds bottom border to links with additional padding between text and border */
     a {
-      @extend %transition-shorter;
+      text-decoration: none;
+      position: relative;
 
-      &:hover {
-        color: lighten(black, 25%);
+      &:after {
+        content: '';
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-width: 0 0 0.12rem;
+        border-style: solid;
+        border-color: currentColor;
+
+        @include media('md-up') {
+          bottom: 0.3rem;
+        }
       }
     }
   }
@@ -63,7 +74,12 @@
   }
 
   table {
-    width: 100%;
+    width: calc(100vw - #{$site-padding-x-mobile-double});
+
+    @include media('md-up') {
+      width: calc(100vw - #{$site-padding-x-desktop-double});
+    }
+
     border-collapse: collapse;
     border-top: 1px solid color('black');
     border-bottom: 1px solid color('black');
@@ -107,25 +123,6 @@
     }
   }
   
-  /* Product Description Styling */
-  &--style-default {
-    padding-bottom: 3.125rem;
-    
-    @include media ('lg-up') {
-      padding-bottom: 12.5rem;
-    }
-  }
-
-  &--style-default, &--style-black-bg {
-    table {
-      width: calc(100vw - #{$site-padding-x-mobile-double});
-
-      @include media('md-up') {
-        width: calc(100vw - #{$site-padding-x-desktop-double});
-      }
-    }
-  }
-
   /* Pages Styling */
   &--style-white-bg {
     h1, h2, h3, p, ul, ol {

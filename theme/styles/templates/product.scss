@@ -20,4 +20,133 @@
       width: $vendor-avatar-height-desktop;
     }
   }
+
+  &__description {
+    h1, h2, h3, p, ol, ul {
+      font-family: $serif;
+    }
+  
+    h4, h5, h6 {
+      font-family: $sans-serif;
+    }
+  
+    h1, h2, h3, h4, h5, h6, ol {
+      padding-bottom: 2.8125rem;
+      padding-top: 2.8125rem;
+    }
+
+    h1, h2  {
+      @extend %serif-xl;
+    }
+  
+    h3, p, ol, ul  {
+      @extend %serif-md;
+    }
+  
+    h4, h5, h6 {
+      text-transform: uppercase;
+    }
+  
+    h4 {
+      @extend %sans-light-md;
+    }
+  
+    h5, h6 {
+      @extend %sans-light-sm;
+    }
+
+    p, ol, ul, td {  
+      /* Adds bottom border to links with additional padding between text and border */
+      a {
+        text-decoration: none;
+        position: relative;
+
+        &:after {
+          content: '';
+          width: 100%;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          border-width: 0 0 0.12rem;
+          border-style: solid;
+          border-color: white;
+
+          @include media('md-up') {
+            bottom: 0.3rem;
+          }
+        }
+      }
+    }
+  
+    ul, ol {
+      list-style-position: inside;
+    }
+    
+    ul {
+      list-style-type: none;
+  
+      li {
+        &::before {
+          content: "-";
+          margin-right: 0.625rem;
+        }
+      }
+    }
+
+    padding-bottom: 3.125rem;
+
+    table {
+      width: calc(100vw - #{$site-padding-x-mobile-double});
+
+      @include media('md-up') {
+        width: calc(100vw - #{$site-padding-x-desktop-double});
+      }
+
+      border-collapse: collapse;
+      border-top: 1px solid color('white');
+      border-bottom: 1px solid color('white');
+  
+      tr {
+        &:not(:last-of-type) {
+          border-bottom: 1px solid color('white');
+        }
+  
+        td {
+          vertical-align: middle;
+          padding: 1.25rem 0;
+  
+          @include media('md-up') {
+            padding: 1.6875rem 0;
+          }
+  
+          &:first-child {
+            padding-right: 2rem;
+            font-family: $serif;
+            font-size: 1.125rem;
+            line-height: 1.35rem;
+            letter-spacing: 0.0275rem;
+  
+            @include media('md-up') {
+              font-size: 3.125rem;
+              line-height: 2.8125rem;
+            }
+          }
+  
+          &:last-child {
+            @extend %sans-xs;
+            font-family: $sans-serif;
+  
+            @include media('md-up') {
+              font-size: 1.875rem;
+              line-height: 1.6875rem;
+            }
+          }
+        }
+      }
+    }
+    
+    @include media ('lg-up') {
+      padding-bottom: 12.5rem;
+    }
+  }
 }
