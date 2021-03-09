@@ -26,12 +26,11 @@
       </span>
       {% render 'nav-cart' %}
     </div>
-    <div class="MobileNav__menu-links flex flex-col">
-      <a class="opacity-0 events-none hover-lighten-black uppercase py1_875" href="/" aria-label="{{ 'snippets.nav.links.home_link.aria_label' | t }}">{{ 'snippets.nav.links.home_link.text' | t }}</a>
-      <a class="opacity-0 events-none hover-lighten-black uppercase pb1_875" href="/pages/about" aria-label="{{ 'snippets.nav.links.about_link.aria_label' | t }}">{{ 'snippets.nav.links.about_link.text' | t }}</a>
-      <a class="opacity-0 events-none hover-lighten-black uppercase" href="/pages/news" aria-label="{{ 'snippets.nav.links.news_link.aria_label' | t }}">{{ 'snippets.nav.links.news_link.text' | t }}</a>
+    <div class="MobileNav__menu-links flex flex-col pt1_875">
+      <a class="opacity-0 events-none hover-lighten-black uppercase" href="/" aria-label="{{ 'snippets.nav.links.home_link.aria_label' | t }}">{{ 'snippets.nav.links.home_link.text' | t }}</a>
+      {% for link in linklists.main-menu.links %}
+        <a class="opacity-0 events-none hover-lighten-black uppercase" href="{{ link.url }}" aria-label="{{ 'snippets.nav.links.offerings_link.aria_label' | t }}">{{ link.title }}</a>
+      {% endfor %}  
     </div>
   </div>
-
-  <a class="Nav__button radius-xs nav-button-padding {% if request.path == "/collections/offerings-collection" %} Nav__button--active {% endif %}" href="/collections/offerings-collection" aria-label="{{ 'snippets.nav.links.shop_link.aria_label' | t }}">{{ 'snippets.nav.links.shop_link.text' | t }}</a>
 </nav>
