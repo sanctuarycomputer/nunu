@@ -3,13 +3,24 @@
 {% assign related_products_heading = product.metafields.accentuate.related_products_heading %}
 {% assign related_products_handles = product.metafields.accentuate.related_products | split: '|' %}
 {% assign product_description = product.metafields.accentuate.product_description %}
+{% assign product_vendor = "" %}
+{% if product.first_available_variant.metafields.bookings != blank %}
+  {% assign product_vendor = product.first_available_variant.metafields.bookings %}
+{% else %}
+  {% assign product_vendor = product.vendor %}
+{% endif %}
 
 <div class="Product pt_625 bg-color-black">
+  <p class="color-white">{{product.metafields.bookings}}</p>
+
+
+
+
   <div class="site-padding-x">
     <h1 class="uppercase serif-xl color-white">{{ product.title }}</h1>
     <span class="sans-light-sm color-white uppercase flex items-center">
-      <img class="Product__vendor-avatar radius-xs lg:radius-sm w100 fit-cover mr_75" alt={{ 'snippets.product_grid_item.avatar.alt' | t }} src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Grey.PNG" >
-      {{ product.vendor }}
+      <img class="Product__vendor-avatar radius-xs lg:radius-sm w100 fit-cover mr_75" src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Grey.PNG"/>
+      {{ product_vendor }}
     </span>
   </div>
   {% if product.images.size > 1 %}
