@@ -39,6 +39,13 @@ export default (function() {
       emailSubscribeSubmit.addEventListener("click", () => {
         EmailSubscribe.handleSubscribe(emailSubscribe);
       });
+
+      emailSubscribeInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          EmailSubscribe.handleSubscribe(emailSubscribe);
+        }
+      });
     },
 
     handleSubscribe(emailSubscribe: HTMLElement) {
