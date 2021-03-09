@@ -1,4 +1,4 @@
-import { handleFetchJSONResponse } from './utils';
+import handleFetchJSONResponse from './utils/handleFetchJSONResponse';
 import activatable from './activatable';
 
 enum Action {
@@ -24,8 +24,8 @@ export default(function() {
       variantId: "data-variant-id",
     },
     CONSTANTS: {
-      "addedToCart": "Added to cart",
-      "addToCart": "Add to cart",
+      addedToCart: "Added to cart",
+      addToCart: "Add to cart",
     },
 
     init() {
