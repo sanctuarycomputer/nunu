@@ -5,18 +5,26 @@ button {
   }
 }
 
+/* Rounded border radius */ 
 .button--style-primary,
 %button--style-primary {
   @extend %transition-shorter;
+  @extend .text-to-crop;
+  display: inline-block;
   border-radius: 0.625rem;
   border: 1px solid color('black');
   text-transform: uppercase;
   color: color('black');
   text-decoration: none;
+  padding-top: 0.1rem;
 
   &:hover {
     background-color: color('black');
     color: color('white');
+  }
+
+  @include media('lg-up') {
+    padding-top: 0.325rem;
   }
 }
 

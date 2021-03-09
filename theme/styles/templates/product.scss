@@ -71,7 +71,7 @@
           border-style: solid;
           border-color: white;
 
-          @include media('md-up') {
+          @include media('lg-up') {
             bottom: 0.3rem;
           }
         }
@@ -115,7 +115,7 @@
           vertical-align: middle;
           padding: 1.25rem 0;
   
-          @include media('md-up') {
+          @include media('lg-up') {
             padding: 1.6875rem 0;
           }
   
@@ -126,7 +126,7 @@
             line-height: 1.35rem;
             letter-spacing: 0.0275rem;
   
-            @include media('md-up') {
+            @include media('lg-up') {
               font-size: 3.125rem;
               line-height: 2.8125rem;
             }
@@ -136,7 +136,7 @@
             @extend %sans-xs;
             font-family: $sans-serif;
   
-            @include media('md-up') {
+            @include media('lg-up') {
               font-size: 1.875rem;
               line-height: 1.6875rem;
             }
