@@ -1,0 +1,62 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+{% assign product_description = product.metafields.accentuate.product_description_seo %}
+{% assign page_description = page.metafields.accentuate.page_description_seo %}
+{% assign collection_description = collection.metafields.accentuate.collection_description_seo %}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+{% if template == 'index' %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="INDEX">
+  <meta property="og:description" content="TO-DO: ADD DEFAULT HOME DESCRIPTION">
+  <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
+
+{% elsif template contains 'collection' %}
+  <meta property="og:title" content="INDEX | {{ collection.title }}">
+  <meta property="og:description" content="{{ collection_description }}">
+  <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
+
+{% elsif template contains 'product' %}
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="{{ product.title | strip_html | escape }}">
+  <meta property="og:image" content="http:{{ featured_image | img_url: '600x600' }}">
+  <meta property="og:image:secure_url" content="https:{{ featured_image | img_url: '600x600' }}">
+  <meta property="og:description" content="{{ product_description | strip_html | escape }}">
+  <meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html | escape }}">
+  <meta property="og:price:currency" content="{{ shop.currency }}">
+
+{% elsif template contains 'page' %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title | escape }}">
+  <meta name="twitter:description" content="{{ page_description | escape }}">
+  <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
+
+{% else %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title | escape }}">
+  <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
+{% endif %}
+
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:site_name" content="INDEX">
+
+{% comment %}
+  Twitter card
+{% endcomment %}
+<meta name="twitter:site" content="TO-DO: ADD WHEN ACCOUNT HAS BEEN CREATED">
+<meta name="twitter:card" content="summary">
+
+{% if template == 'index' %}
+  <meta name="twitter:title" content="TO-DO: ADD DEFAULT HOME DESCRIPTION">
+  <meta name="twitter:description" content="TO-DO: ADD DEFAULT HOME DESCRIPTION">
+
+{% elsif template contains 'product' %}
+  <meta name="twitter:title" content="{{ product.title | strip_html | escape }}">
+  <meta name="twitter:description" content="{{ product_description | strip_html | truncate: 200, '' | escape }}">
+  <meta name="twitter:image" content="https:{{ product | img_url: '600x600' }}">
+  <meta name="twitter:image:width" content="600">
+  <meta name="twitter:image:height" content="600">
+{% endif %}
