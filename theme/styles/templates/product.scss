@@ -93,6 +93,8 @@
       }
     }
 
+    padding-bottom: 3.125rem;
+
     table {
       width: calc(100vw - #{$site-padding-x-mobile-double});
 
@@ -131,8 +133,8 @@
           }
   
           &:last-child {
-            font-family: $sans-serif;
             @extend %sans-xs;
+            font-family: $sans-serif;
   
             @include media('md-up') {
               font-size: 1.875rem;
@@ -142,8 +144,6 @@
         }
       }
     }
-
-    padding-bottom: 3.125rem;
     
     @include media ('lg-up') {
       padding-bottom: 12.5rem;
