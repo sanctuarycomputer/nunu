@@ -27,12 +27,12 @@
     }
   }
 
-  &__cta-label p, &__cta-label p a {
+  &__cta-label {
     font-weight: 300;
     
     @include media('md-up') {
       font-size: 1.875rem;
-      line-height: 1.6875rem;
+      line-height: 2.0625rem;
     }
   }
 }
