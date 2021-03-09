@@ -1,3 +1,6 @@
+
+import * as Sentry from "@sentry/browser";
+
 import jsonp from './utils/jsonp';
 import validateEmail from './utils/validateEmail';
 
@@ -63,14 +66,13 @@ export default (function() {
       return new Promise(() => {
         jsonp(subscribeUrl, "c", (err, data) => {
           if (err) {
-            /** To-do: Add Sentry */
-            console.error(data.msg);
+            Sentry.captureException(err);
             EmailSubscribe.showError(emailSubscribe);
           } else if (data.result !== "success") {
             if (data.msg.includes("subscribed")) {
               EmailSubscribe.showSuccess(emailSubscribe);
             } else {
-              console.error(data.msg);
+              Sentry.captureException(err);
               EmailSubscribe.showError(emailSubscribe);
             }
           } else {
