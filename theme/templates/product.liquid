@@ -10,10 +10,10 @@
   {% assign product_vendor = product.vendor %}
 {% endif %}
 
+
 <div class="Product pt_625 bg-color-black">
-  <p class="color-white">{{product.metafields.bookings}}</p>
 
-
+  <p class="color-white">{{ product.first_available_variant.metafields.bookings }}</p>
 
 
   <div class="site-padding-x">
