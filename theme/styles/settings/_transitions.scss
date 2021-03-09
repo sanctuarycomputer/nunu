@@ -46,3 +46,11 @@ $transition-easing: ease-in-out;
     transform: translate3d(0, 0, 0);
   }
 }
+
+@mixin stagger-nav-transition {
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      animation: $transition-duration-short cubic-bezier(0.25, 0.46, 0.45, 0.94) #{$i * 0.05}s 1 normal forwards animation-fade-in-down-short;
+    }
+  }
+}
