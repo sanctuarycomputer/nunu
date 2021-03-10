@@ -20,13 +20,8 @@
 }
 
 /* Global site border */
-.site-border-x {
-  margin-left: $site-border-x;
-  margin-right: $site-border-x;
-}
-
-main, footer {
-  @extend .site-border-x;
+body {
+  border: solid $site-border color('white');
 }
 
 //* Borders */
