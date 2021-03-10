@@ -25,6 +25,10 @@
     pointer-events: none;
   }
 
+  &__menu {
+    border-left: solid $site-border color('white');
+  }
+
   &[data-active="true"] {
     .MobileNav__close-icon {
       opacity: 1;
