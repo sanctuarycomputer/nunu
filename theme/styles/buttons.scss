@@ -5,7 +5,6 @@ button {
   }
 }
 
-/* Rounded border radius */ 
 .button--style-rounded-border-sm,
 %button--style-rounded-border-sm {
   @extend %transition-shorter;
@@ -30,7 +29,6 @@ button {
   }
 }
 
-/* Smaller rounded border radius */ 
 .button--style-rounded-border-xs,
 %button--style-rounded-border-xs {
   @extend %transition-shorter;
