@@ -14,11 +14,13 @@
     }
   }
 
-  &:hover {
-    color: color('white');
+  @include not-on-touch-devices {
+    &:hover {
+      color: color('white');
 
-    .NewsFeedItem__hover-panel {
-      background-color: color('black');
+      .NewsFeedItem__hover-panel {
+        background-color: color('black');
+      }
     }
   }
 

@@ -1,4 +1,10 @@
-<a href="{{ link }}" target="_blank" rel="noreferrer noopener" class="NewsFeedItem">
+{% assign is_external_link = false %}
+
+{% if link contains 'http://' or link contains 'https://' %}
+  {% assign is_external_link = true %}
+{% endif %}
+
+<a href="{{ link }}" {% if is_external_link %} target="_blank" rel="noreferrer noopener" {% endif %} class="NewsFeedItem">
   <div class="NewsFeedItem__inner relative flex md:items-center py1_25 md:py_75 xs:pr0">
     <div class="flex mr1_25 md:mr2_5 z-1">
       <img class="NewsFeedItem__image fit-contain w100 h100 radius-sm" src="{{ image_src }}" alt="{{ image_alt }}"/>

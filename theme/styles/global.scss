@@ -154,6 +154,12 @@ body {
   }
 }
 
+@mixin not-on-touch-devices {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
 .text-to-crop {
   @include lhCrop(1.1); //line-height: 1.1
 }
