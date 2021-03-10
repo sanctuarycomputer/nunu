@@ -1,15 +1,4 @@
 .NewsFeed {
-  margin-left: $site-padding-x-mobile;
-  margin-right: $site-padding-x-mobile;
-
-  @include media('md-up') {
-    margin-left: $site-padding-x-desktop;
-    margin-right: $site-padding-x-desktop;
-  }
-
-  &__inner-container {
-    > :first-child {
-      border-top: 2px solid color('black');
-    }  
-  }
+  margin-left: $margin-offset-sm;
+  margin-right: $margin-offset-sm;
 }
