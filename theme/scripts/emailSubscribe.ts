@@ -25,7 +25,6 @@ export default (function() {
       success: 'success',
       successMessage: 'You\'re in! Thanks',
       defaultPlaceholder: 'SIGNUP FOR EMAILS',
-      submitText: '',
       submitIcon: '&#x2710;',
       loading: '...'
     },
