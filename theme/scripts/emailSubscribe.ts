@@ -86,12 +86,14 @@ export default (function() {
     resetEmailSubscribe(emailSubscribe: HTMLElement) {
       const emailSubscribeInput: HTMLInputElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.input);
       const emailSubscribeSubmitIcon: HTMLElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submitIcon);
+      const emailSubscribeSubmit: HTMLInputElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submit);
 
       emailSubscribeInput.value = "";
       emailSubscribeInput.placeholder = EmailSubscribe.CONSTANTS.defaultPlaceholder;
 
       emailSubscribe.removeAttribute(EmailSubscribe.ATTRIBUTES.emailSubscribeState);
-
+      
+      emailSubscribeSubmit.value = "";
       emailSubscribeSubmitIcon.innerHTML = EmailSubscribe.CONSTANTS.submitIcon;
     },
 

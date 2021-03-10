@@ -6,13 +6,18 @@
   background-color: color('black');
 
   @include media('md-up') {
-    min-width: 80%;
+    min-width: 30%;
   }
 
   @include media('lg-up') {
+    top: -0.9rem;
     height: 3.668125rem;
-    min-width: 50%;
     border-radius: radius('sm');
+    min-width: 45%;
+  }
+
+  @include media('xl-up') {
+    min-width: 35%;
   }
 
   /**
@@ -48,18 +53,9 @@
   &__input {
     height: 100%;
     border: none;
-    font-size: 1.875rem;
-    line-height: 1.6875rem;
-    padding-top: 0.1rem;
 
     &::placeholder {
       color: color('white');
-    }
-
-    @include media('lg-up') {
-      padding-top: 0.325rem;
-      font-size: 4.0625rem;
-      line-height: 3.65625rem;
     }
   }
 
@@ -68,23 +64,15 @@
     height: 100%;
     border: none;
     width: 1.625rem;
-    font-size: 1.875rem;
-    line-height: 1.6875rem;
     
     @include media('lg-up') {
-      font-size: 4.0625rem;
-      line-height: 3.65625rem;
       width: 4.1875rem;
     }
   } 
 
   &__glyph {
     top: 0.6rem;
-    line-height: 2rem;
-
-    @include media('md-up') {
-      line-height: 3rem;
-    }
+    line-height: 1.4rem;
 
     @include media('lg-up') {
       line-height: 3.75rem;

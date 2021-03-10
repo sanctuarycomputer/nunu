@@ -135,7 +135,7 @@
     },
     "email_subscribe": {
       "input": {
-        "placeholder": "SIGN UP FOR EMAILS"
+        "placeholder": "SIGN UP FOR OUR EMAILS"
       },
       "submit": {
         "text": "Sign Up",
