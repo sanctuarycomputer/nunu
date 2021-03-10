@@ -23,8 +23,8 @@ export default (function() {
       error: 'error',
       success: 'success',
       successMessage: 'You\'re in! Thanks',
-      defaultPlaceholder: 'jacob@xxix.co',
-      submitText: 'Sign Up',
+      defaultPlaceholder: 'SIGNUP FOR EMAILS',
+      submitText: '&#x2710;',
       loading: '...'
     },
 
