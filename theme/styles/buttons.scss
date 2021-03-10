@@ -6,8 +6,8 @@ button {
 }
 
 /* Rounded border radius */ 
-.button--style-primary,
-%button--style-primary {
+.button--style-rounded-border-sm,
+%button--style-rounded-border-sm {
   @extend %transition-shorter;
   @extend .text-to-crop;
   display: inline-block;
@@ -30,8 +30,32 @@ button {
   }
 }
 
-.button--style-primary-black,
-%button--style-primary-black {
+/* Smaller rounded border radius */ 
+.button--style-rounded-border-xs,
+%button--style-rounded-border-xs {
+  @extend %transition-shorter;
+  @extend .text-to-crop;
+  display: inline-block;
+  border-radius: radius('xs');
+  border: 1px solid color('black');
+  text-transform: uppercase;
+  color: color('black');
+  text-decoration: none;
+  padding-top: 0.1rem;
+
+  &:hover {
+    background-color: color('black');
+    color: color('white');
+  }
+
+  @include media('lg-up') {
+    padding-top: 0.325rem;
+    border-radius: radius('sm');
+  }
+}
+
+.button--style-rounded-border-sm-black,
+%button--style-rounded-border-sm-black {
   @extend %transition-shorter;
   border-radius: 0.625rem;
   border: 1px solid color('white');

@@ -1,18 +1,18 @@
 .EmailSubscribe {
   @extend %transition;
   position: relative;
-  height: 42px;
-  top: -8px;
+  height: 1.911875rem;
+  top: -0.2rem;
   background-color: color('black');
 
   @include media('md-up') {
-    height: 57px;
-    top: -12px;
     min-width: 80%;
   }
 
   @include media('lg-up') {
+    height: 3.668125rem;
     min-width: 50%;
+    border-radius: radius('sm');
   }
 
   /**
@@ -48,14 +48,38 @@
   &__input {
     height: 100%;
     border: none;
+    font-size: 1.875rem;
+    line-height: 1.6875rem;
+    padding-top: 0.1rem;
+
+    &::placeholder {
+      color: color('white');
+    }
+
+    @include media('lg-up') {
+      padding-top: 0.325rem;
+      font-size: 4.0625rem;
+      line-height: 3.65625rem;
+    }
   }
 
   &__submit {
+    cursor: pointer;
     height: 100%;
     border: none;
+    width: 1.625rem;
+    font-size: 1.875rem;
+    line-height: 1.6875rem;
+    
+    @include media('lg-up') {
+      font-size: 4.0625rem;
+      line-height: 3.65625rem;
+      width: 4.1875rem;
+    }
   } 
 
   &__glyph {
+    top: 0.6rem;
     line-height: 2rem;
 
     @include media('md-up') {

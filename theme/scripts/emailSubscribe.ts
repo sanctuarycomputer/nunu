@@ -15,6 +15,7 @@ export default (function() {
       container: "[data-email-subscribe-container]",
       input: "[data-email-subscribe-input]",
       submit: "[data-email-subscribe-submit]",
+      submitIcon: "[data-email-subscribe-submit-icon]",
     },
     ATTRIBUTES: {
       emailSubscribeState: "data-subscribe-state"
@@ -24,7 +25,8 @@ export default (function() {
       success: 'success',
       successMessage: 'You\'re in! Thanks',
       defaultPlaceholder: 'SIGNUP FOR EMAILS',
-      submitText: '&#x2710;',
+      submitText: '',
+      submitIcon: '&#x2710;',
       loading: '...'
     },
 
@@ -84,20 +86,22 @@ export default (function() {
 
     resetEmailSubscribe(emailSubscribe: HTMLElement) {
       const emailSubscribeInput: HTMLInputElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.input);
-      const emailSubscribeSubmit: HTMLInputElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submit);
+      const emailSubscribeSubmitIcon: HTMLElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submitIcon);
 
       emailSubscribeInput.value = "";
       emailSubscribeInput.placeholder = EmailSubscribe.CONSTANTS.defaultPlaceholder;
 
-      emailSubscribeSubmit.value = EmailSubscribe.CONSTANTS.submitText;
-
       emailSubscribe.removeAttribute(EmailSubscribe.ATTRIBUTES.emailSubscribeState);
+
+      emailSubscribeSubmitIcon.innerHTML = EmailSubscribe.CONSTANTS.submitIcon;
     },
 
     startLoading(emailSubscribe: HTMLElement) {
       const emailSubscribeSubmit: HTMLInputElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submit);
+      const emailSubscribeSubmitIcon: HTMLElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submitIcon);
 
       emailSubscribeSubmit.value = EmailSubscribe.CONSTANTS.loading;
+      emailSubscribeSubmitIcon.innerHTML = "";
     },
 
     showError(emailSubscribe: HTMLElement) {
