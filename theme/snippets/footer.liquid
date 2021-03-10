@@ -2,20 +2,20 @@
     <p>
       Contact us if you’d like to teach a workshop, propose an event, feature a product or get involved in any other way. You can also {% render 'email-subscribe' %} 
       {% if shop.metafields.accentuate.newsletter %}
-        <a href="{{ shop.metafields.accentuate.newsletter }}" target="_blank" rel="noreferrer noopener" aria-label="{{ 'snippets.footer.social_links.newsletter_link.aria_label' | t }}">
-          <span class="Footer__button button--style-primary">{{ 'snippets.footer.social_links.newsletter_link.text' | t }}</span>
+        <a class="Footer__button button--style-primary" href="{{ shop.metafields.accentuate.newsletter }}" target="_blank" rel="noreferrer noopener" aria-label="{{ 'snippets.footer.social_links.newsletter_link.aria_label' | t }}">
+          {{ 'snippets.footer.social_links.newsletter_link.text' | t }}
         </a>
       {% endif %}
       and follow us on 
       {% if shop.metafields.accentuate.instagram %}
-        <a href="{{ shop.metafields.accentuate.instagram }}" target="_blank" rel="noreferrer noopener" aria-label="{{ 'snippets.footer.social_links.instagram_link.aria_label' | t }}">
-          <span class="Footer__button button--style-primary">{{ 'snippets.footer.social_links.instagram_link.text' | t }}</span>
+        <a class="Footer__button button--style-primary" href="{{ shop.metafields.accentuate.instagram }}" target="_blank" rel="noreferrer noopener" aria-label="{{ 'snippets.footer.social_links.instagram_link.aria_label' | t }}">
+          {{ 'snippets.footer.social_links.instagram_link.text' | t }}
         </a>
       {% endif %}
       and
       {% if shop.metafields.accentuate.twitter %} 
-        <a href="{{ shop.metafields.accentuate.twitter }}" target="_blank" rel="noreferrer noopener" aria-label="{{ 'snippets.footer.social_links.twitter_link.aria_label' | t }}">
-          <span class="Footer__button button--style-primary">{{ 'snippets.footer.social_links.twitter_link.text' | t }}</span>
+        <a class="Footer__button button--style-primary" href="{{ shop.metafields.accentuate.twitter }}" target="_blank" rel="noreferrer noopener" aria-label="{{ 'snippets.footer.social_links.twitter_link.aria_label' | t }}">
+          {{ 'snippets.footer.social_links.twitter_link.text' | t }}
         </a>
       {% endif %}
       to stay up to date.
