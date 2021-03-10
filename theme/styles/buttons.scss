@@ -18,9 +18,11 @@ button {
   text-decoration: none;
   padding-top: 0.1rem;
 
-  &:hover {
-    background-color: color('black');
-    color: color('white');
+  @include not-on-touch-devices {
+    &:hover {
+      background-color: color('black');
+      color: color('white');
+    }
   }
 
   @include media('lg-up') {
@@ -37,9 +39,11 @@ button {
   color: color('white');
   text-decoration: none;
 
-  &:hover {
-    background-color: color('white');
-    color: color('black');
+  @include not-on-touch-devices {
+    &:hover {
+      background-color: color('white');
+      color: color('black');
+    }
   }
 }
 
@@ -52,7 +56,9 @@ button {
 .hover--style-rounded-border {
   @extend %transition;
 
-  &:hover {
-    border-radius: 0.5rem;
+  @include not-on-touch-devices {
+    &:hover {
+      border-radius: 0.5rem;
+    }
   }
 }
