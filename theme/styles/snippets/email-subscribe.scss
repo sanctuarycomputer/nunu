@@ -27,7 +27,7 @@
   &[data-subscribe-state='error'] {
     background-color: color('red');
 
-    .EmailSubscribe__submit {
+    .EmailSubscribe__input, .EmailSubscribe__submit {
       pointer-events: none;
     }
   }
@@ -40,6 +40,8 @@
     background-color: color('green');
 
     .EmailSubscribe__input {
+      pointer-events: none;
+
       &::placeholder {
         color: color('white');
       }
@@ -60,15 +62,24 @@
   }
 
   &__submit {
+    position: relative;
     cursor: pointer;
-    height: 100%;
     border: none;
-    width: 1.625rem;
+    height: 100%;
+    top: -5px;
     
     @include media('lg-up') {
-      width: 4.1875rem;
+      top: -20px;
     }
-  } 
+  }
+
+  &__label {
+    width: 4rem;
+
+    @include media('md-up') {
+      width: 7rem;
+    }
+  }
 
   &__glyph {
     top: 0.6rem;
