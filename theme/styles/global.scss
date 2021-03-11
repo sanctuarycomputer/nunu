@@ -82,8 +82,17 @@ body {
   border-bottom: 2px solid color('black');
 }
 
+.bulleted {
+  &::before {
+    content: "●";
+    margin-right: 0.25em;
+  }
+}
+
 .dot-sm,
 %dot-sm {
+  position: relative;
+  top: -1px;
   height: 0.8125rem;
   width: 0.8125rem;
   background-color: color('white');
@@ -95,6 +104,7 @@ body {
   @extend %dot-sm;
 
   @include media('lg-up') {
+    top: -2px;
     height: 1.75rem;
     width: 1.75rem;
     background-color: color('white');

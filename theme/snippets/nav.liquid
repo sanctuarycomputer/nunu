@@ -1,6 +1,6 @@
 {% assign show_border_bottom = true %}
 
-{% if request.page_type == 'collection' %}
+{% if request.page_type == 'collection' or request.page_type == 'product' %}
   {% assign show_border_bottom = false %}
 {% endif %}
 
