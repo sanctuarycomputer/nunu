@@ -35,6 +35,12 @@
     }
   }
 
+  &__text-container {
+    @include media('md-up') {
+      padding-top: 0.875rem;
+    }
+  }
+
   &:first-of-type {
     .NewsFeedItem__inner {
       border-top: solid 2px color('black');

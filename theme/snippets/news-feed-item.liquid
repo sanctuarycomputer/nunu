@@ -5,13 +5,13 @@
 {% endif %}
 
 <a href="{{ link }}" {% if is_external_link %} target="_blank" rel="noreferrer noopener" {% endif %} class="NewsFeedItem">
-  <div class="NewsFeedItem__inner relative flex md:items-center py1_25 md:py_75 xs:pr0">
+  <div class="NewsFeedItem__inner relative flex py1_25 md:py_75 xs:pr0">
     <div class="flex mr1_25 md:mr2_5 z-1">
       <img class="NewsFeedItem__image fit-contain w100 h100 radius-sm" src="{{ image_src }}" alt="{{ image_alt }}"/>
     </div>
-    <div class="flex flex-col md:flex-row items-start md:items-center justify-between col-12 z-1">
-      <span class="NewsFeedItem__body serif mb_625 md:mb0 col-9 md:col-10">{{ body }}</span>
-      <span class="NewsFeedItem__cta-label sans-xs sans-serif md:pl2 col-3 md:col-2 flex flex-col md:items-end">{{ cta_label }}</span>
+    <div class="NewsFeedItem__text-container flex flex-col md:flex-row items-start justify-between col-12 z-1">
+      <span class="NewsFeedItem__body serif mb_625 md:mb0 col-12 md:col-10">{{ body }}</span>
+      <span class="NewsFeedItem__cta-label sans-xs sans-serif md:pl2 md:pt_3125 col-3 md:col-2 flex flex-col md:items-end">{{ cta_label }}</span>
     </div>
     <div class="NewsFeedItem__hover-panel absolute"></div>
   </div>
