@@ -19,9 +19,18 @@
   }
 }
 
-/* Global site border */
+/* Global site border and offset for Nav height */
 body {
   border: solid $site-border color('white');
+  padding-top: $nav-height;
+
+  @include media('md-up') {
+    padding-top: $nav-height-md;
+  }
+
+  @include media('xl-up') {
+    padding-top: $nav-height-xl;
+  }
 }
 
 //* Borders */
