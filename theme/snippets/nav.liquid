@@ -4,7 +4,7 @@
   {% assign show_border_bottom = false %}
 {% endif %}
 
-<nav class="Nav none md:flex {% if show_border_bottom %} border-bottom-black {% endif %} uppercase sans-serif py_5 px_625 md:px_5 text-nav flex items-center justify-between bg-color-white w100 fixed t0 z-nav HELLO">
+<nav class="Nav none md:flex {% if show_border_bottom %} border-bottom-black {% endif %} uppercase sans-serif py_5 px_625 md:px_5 text-nav flex items-center justify-between bg-color-white w100 fixed t0 z-nav">
   <div class="flex flex-row items-center justify-center">
     <a class="Nav__button radius-xs nav-button-padding {% if request.path == '/' %} Nav__button--active" {% endif %}" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
     <span class="mx_75">{{ 'snippets.nav.hyphen' | t }}</span>
