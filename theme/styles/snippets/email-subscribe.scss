@@ -1,18 +1,23 @@
 .EmailSubscribe {
   @extend %transition;
   position: relative;
-  height: 42px;
-  top: -8px;
+  height: 1.911875rem;
+  top: -0.2rem;
   background-color: color('black');
 
   @include media('md-up') {
-    height: 57px;
-    top: -12px;
-    min-width: 80%;
+    min-width: 30%;
   }
 
   @include media('lg-up') {
-    min-width: 50%;
+    top: -0.9rem;
+    height: 3.668125rem;
+    border-radius: radius('sm');
+    min-width: 45%;
+  }
+
+  @include media('xl-up') {
+    min-width: 35%;
   }
 
   /**
@@ -22,7 +27,7 @@
   &[data-subscribe-state='error'] {
     background-color: color('red');
 
-    .EmailSubscribe__submit {
+    .EmailSubscribe__input, .EmailSubscribe__submit {
       pointer-events: none;
     }
   }
@@ -35,6 +40,8 @@
     background-color: color('green');
 
     .EmailSubscribe__input {
+      pointer-events: none;
+
       &::placeholder {
         color: color('white');
       }
@@ -48,19 +55,35 @@
   &__input {
     height: 100%;
     border: none;
+
+    &::placeholder {
+      color: color('white');
+    }
   }
 
   &__submit {
-    height: 100%;
+    position: relative;
+    cursor: pointer;
     border: none;
-  } 
+    height: 100%;
+    top: -5px;
+    
+    @include media('lg-up') {
+      top: -20px;
+    }
+  }
 
-  &__glyph {
-    line-height: 2rem;
+  &__label {
+    width: 4rem;
 
     @include media('md-up') {
-      line-height: 3rem;
+      width: 7rem;
     }
+  }
+
+  &__glyph {
+    top: 0.6rem;
+    line-height: 1.4rem;
 
     @include media('lg-up') {
       line-height: 3.75rem;

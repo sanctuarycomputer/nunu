@@ -135,7 +135,7 @@
     },
     "email_subscribe": {
       "input": {
-        "placeholder": "jacob@xxxi.com"
+        "placeholder": "SIGN UP FOR OUR EMAILS"
       },
       "submit": {
         "text": "Sign Up",

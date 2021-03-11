@@ -1,7 +1,7 @@
-<span data-email-subscribe-container class="EmailSubscribe flex md:inline-flex items-center justify-between bg-color-black color-white radius-sm p_625">
-  <input data-email-subscribe-input class="EmailSubscribe__input sans-serif sans-light-sm bg-color-transparent color-white col-12" type="email" placeholder="{{ 'snippets.email_subscribe.input.placeholder' | t }}" />
-  <span class="EmailSubscribe__submit-container inline-flex item-center h100">
-    <input data-email-subscribe-submit class="EmailSubscribe__submit button--style-no-style sans-serif sans-light-sm uppercase color-white" type="submit" value="{{ 'snippets.email_subscribe.submit.text' | t }}" />
-    <span class="EmailSubscribe__glyph sans-light-xs">{{ 'snippets.email_subscribe.submit.icon' | t }}</span>
-  </span>
+<span data-email-subscribe-container class="EmailSubscribe flex md:inline-flex items-center justify-between bg-color-black color-white radius-xs">
+  <input data-email-subscribe-input class="EmailSubscribe__input sans-serif sans-light-sm bg-color-transparent color-white col-12 pl_75" type="email" placeholder="{{ 'snippets.email_subscribe.input.placeholder' | t }}" />
+  <label class="EmailSubscribe__label h100"> 
+    <input data-email-subscribe-submit class="EmailSubscribe__submit w100 button--style-no-style sans-serif sans-light-sm uppercase color-white relative z-2" type="submit" value="" />
+    <span data-email-subscribe-submit-icon class="EmailSubscribe__glyph sans-light-xs absolute r0 mr_75">{{ 'snippets.email_subscribe.submit.icon' | t }}</span>
+  </label>
 </span>
