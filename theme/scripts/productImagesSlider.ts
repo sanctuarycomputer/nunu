@@ -16,6 +16,7 @@ export default(function() {
 
 		setup(slider: HTMLElement) {
 			new Splide(slider, {
+				type: 'loop',
 				pagination: false,
 				easing: 'linear',
 				arrows: false,

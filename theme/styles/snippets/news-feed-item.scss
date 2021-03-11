@@ -25,7 +25,7 @@
   }
 
   &__inner {
-    border-bottom: solid 2px color('black');
+    border-bottom: solid 1px color('black');
     margin-left: $margin-offset-sm;
     margin-right: $margin-offset-sm;
 
@@ -37,7 +37,7 @@
 
   &:first-of-type {
     .NewsFeedItem__inner {
-      border-top: solid 2px color('black');
+      border-top: solid 1px color('black');
     }
   }
 
