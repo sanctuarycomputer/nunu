@@ -1,0 +1,52 @@
+.ProductVendor {
+  // Product
+  &--product {
+    .ProductVendor__name {
+      @extend .sans-light-sm;
+    }
+
+    .ProductVendor__avatar {
+      height: $vendor-avatar-height-mobile;
+      width: $vendor-avatar-height-mobile;
+      margin-right: 0.3125rem;
+
+      @include media('lg-up') {
+        margin-right: 0.75rem;
+        height: $vendor-avatar-height-desktop;
+        width: $vendor-avatar-height-desktop;
+      }
+    }
+  }
+
+  // Featured Grid Item
+  &--featured-grid-item {
+    .ProductVendor__name {
+      @extend .sans-xs;
+    }
+
+    .ProductVendor__avatar {
+      margin-right: 0.3125rem;
+      height: $vendor-avatar-height-mobile;
+      width: $vendor-avatar-height-mobile;
+
+      @include media('md-up') {
+        margin-right: 0.75rem;
+        height: $vendor-avatar-height-desktop;
+        width: $vendor-avatar-height-desktop;
+      }
+    }
+  }
+
+  // Grid Item
+  &--grid-item {
+    .ProductVendor__name {
+      @extend .sans-xs;
+    }
+
+    .ProductVendor__avatar {
+      margin-right: 0.3125rem;
+      height: $vendor-avatar-height-mobile;
+      width: $vendor-avatar-height-mobile;
+    }
+  }
+}

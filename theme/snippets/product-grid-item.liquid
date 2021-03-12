@@ -1,6 +1,15 @@
 {% comment %} TO-DO: Change Vendor avatar placeholder once Shopify Bookings has the avatar. {% endcomment %}
 {% assign product_media = current_product.media | first %}
 
+<!-- Get product type -->
+{% assign current_product_type = "" %}
+{% if current_product.first_available_variant.metafields.bookings != blank %}
+  {% assign current_product_type = current_product.first_available_variant.metafields.bookings.bookable_type %}
+{% else %}
+  {% assign current_product_type = current_product.type %}
+{% endif %}
+
+
 <a class="ProductGridItem bg-color-black color-white text-decoration-none hover--style-rounded-border relative p_625" href="{{ current_product.url }}" aria-label="{{ 'snippets.product_grid_item.product_btn.aria_label' | t }}" >
   <div class="ProductGridItem__inner-container bg-color-black h100">
 
@@ -10,17 +19,14 @@
           {{ current_product.metafields.accentuate.featured_product_text }}
         </span>
         <span class="ProductGridItem__title serif-md color-white">{{current_product.title}}</span>
-        <span class="sans-xs uppercase flex items-center">
-          <img class="ProductGridItem__vendor-avatar radius-xs md:radius-sm  w100 fit-cover mr_75" src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Grey.PNG" alt="{{ 'snippets.product_grid_item.avatar.alt' | t }}" />
-          {{current_product.vendor}}
-        </span>
+        {% render 'product-vendor' product: current_product, display_variant: 'featured-grid-item' %}
       </span>
     {% else %}
       <div class="flex justify-between">
         <span class="ProductGridItem__title serif-xs uppercase">{{current_product.title}}</span>
         <span class="ProductGridItem__price serif-xs uppercase">{{current_product.price | money_without_trailing_zeros }}</span>
       </div>
-      <span class="ProductGridItem__vendor sans-xs uppercase">{{current_product.vendor}}</span>
+      {% render 'product-vendor' product: current_product, display_variant: 'grid-item' %}
     {% endif %}
 
     <div class="ProductGridItem__image-container flex items-center justify-center absolute t0 r0 h100 w100">
@@ -29,7 +35,7 @@
 
     <div class="ProductGridItem__details absolute r0 b0 p_625 sans-xxs uppercase flex justify-between w100">
       <span class="flex items-center">
-        <span class="bulleted">{{ current_product.type }}</span>
+        <span class="bulleted">{{ current_product_type }}</span>
       </span>
       {% for tag in product.tags %}
         <span class="ml_625 radius-xs border-white p_25">{{ tag }}</span>

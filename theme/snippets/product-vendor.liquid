@@ -1,0 +1,39 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<!-- Display Variants include: 'grid-item', 'featured-grid-item', default: 'product'-->
+{% if display_variant == blank %}
+  {% assign display_variant = "product" %}
+{% endif %}
+
+<!-- Vendor attributes -->
+{% assign product_type = "" %}
+{% assign vendor_name = "" %}
+{% assign vendor_avatar = "" %}
+
+{% if current_variant.metafields.bookings != blank %}
+  {% assign bookings_meta = current_variant.metafields.bookings %}
+  {% assign product_type = bookings_meta.bookable_type %}
+
+  {% case product_type %}
+    {% when "Course" %}
+      {% assign resource = bookings_meta.sessions.first.resources.first %}
+      {% assign vendor_name = resource.formatted_name %}
+      {% assign vendor_avatar = resource.avatar %}
+    {% when "Event" %}
+      {% assign resource = bookings_meta.resources.first %}
+      {% assign vendor_name = resource.formatted_name %}
+      {% assign vendor_avatar = resource.avatar %}
+    {% else %}
+      {% assign vendor_name = product.vendor %}
+  {% endcase %}
+{% else %}
+  {% assign vendor_name = product.vendor %}
+{% endif %}
+
+
+<span class="ProductVendor ProductVendor--{{display_variant}} flex items-center">
+  {% if vendor_avatar != blank %}
+    <img class="ProductVendor__avatar radius-xs lg:radius-sm w100 fit-cover" alt={{ 'snippets.product_vendor.avatar.alt' | t }} src={{vendor_avatar}} >
+  {% endif %}
+  <span class="ProductVendor__name color-white uppercase">{{ vendor_name }}</span>
+</span>

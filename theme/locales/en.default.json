@@ -85,12 +85,14 @@
         }
       }
     },
+    "product_vendor": {
+      "avatar": {
+        "alt": "Image of product vendor"
+      }
+    },
     "product_grid_item": {
       "product_btn": {
         "aria_label": "Navigate to the product page."
-      },
-      "avatar": {
-        "alt": "Image of product vendor"
       }
     },
     "cookie_consent": {
