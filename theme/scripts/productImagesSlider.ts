@@ -16,10 +16,14 @@ export default(function() {
 
 		setup(slider: HTMLElement) {
 			new Splide(slider, {
+				classes: {
+					arrows: 'splide__arrows--override',
+					arrow : 'splide__arrow--override',
+				},
 				type: 'loop',
 				pagination: false,
 				easing: 'linear',
-				arrows: false,
+				arrows: true,
 				focus: 'center',
 				perPage: 1.35,
 				trimSpace: false,

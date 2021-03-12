@@ -15,7 +15,7 @@
   {% render 'nav-cart' %}
 </nav>
 
-<nav data-activatable-toggleable-item="mobileNav" class="Nav MobileNav md:none border-bottom-black text-nav uppercase sans-serif py_5 pl_625 pr_75 md:px1_25 flex flex-col col-12 bg-color-white z-nav fixed t0">
+<nav data-activatable-toggleable-item="mobileNav" class="Nav MobileNav md:none {% if show_border_bottom %} border-bottom-black {% endif %} text-nav uppercase sans-serif py_5 pl_625 pr_75 md:px1_25 flex flex-col col-12 bg-color-white z-nav fixed t0">
   <div class="flex justify-between mb_25">
     <span class="flex items-center justify-center">
       <a class="Nav__button radius-xs nav-button-padding mr_5 md:mr0" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>

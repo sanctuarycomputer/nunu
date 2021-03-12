@@ -21,6 +21,14 @@
     }
   }
 
+  &__price {
+    font-size: 1.125rem;
+
+    @include media('md-up') {
+      font-size: 2.5rem;
+    }
+  }
+
   &__description {
     h1, h2, h3, p, ol, ul {
       font-family: $serif;
