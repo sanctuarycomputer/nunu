@@ -1,4 +1,26 @@
 .NewsFeed {
   margin-left: $margin-offset-sm;
   margin-right: $margin-offset-sm;
+  padding-bottom: 16.25rem;
+
+  &__button {
+    @include lhCrop(1); //line-height: 1
+    font-family: $sans-serif;
+    font-size: 3.125rem;
+    line-height: 3.4375rem;
+    letter-spacing: -0.001875rem;
+    padding-top: 0.1rem;
+    margin-left: $margin-offset-sm;
+    margin-right: $margin-offset-sm;
+
+    @include media('md-up') {
+      margin-left: $margin-offset-md;
+      margin-right: $margin-offset-md;
+    }
+
+    @include media('lg-up') {
+      @include lhCrop(1.1); //line-height: 1.1
+      padding-top: 0.325rem;
+    }
+  }
 }

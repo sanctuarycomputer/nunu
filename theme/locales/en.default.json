@@ -105,6 +105,11 @@
         "text": "See more"
       }
     },
+    "collection_links": {
+      "link": {
+        "aria_label": "See more collections"
+      }
+    },
     "product_info_bar": {
       "add_to_cart_btn": {
         "aria_label": "Add product to cart",
