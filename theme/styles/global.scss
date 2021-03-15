@@ -119,6 +119,10 @@ body {
   gap: 0.125rem;
   grid-template-columns: 1fr;
 
+  @include media('sm-up') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   @include media('md-up') {
     grid-template-columns: repeat(3, 1fr);
   }

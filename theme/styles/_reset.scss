@@ -118,12 +118,6 @@ button {
   padding: 0;
 }
 
-/* prevent overflow-x (particularly on mobile Safari) */
-html, body {
-  position: relative;
-  overflow-x: hidden;
-}
-
 /* suppress focus ring on form controls for mouse users */
 [data-whatintent='mouse'] *:focus {
   outline: none;

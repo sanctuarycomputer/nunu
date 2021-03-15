@@ -24,7 +24,7 @@
       max-height: 22rem;
     }
 
-    @include media('md-up') {
+    @include media('sm-up') {
       max-height: 11rem;
     }
 
