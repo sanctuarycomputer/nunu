@@ -42,6 +42,7 @@
 
   &__description {
     max-width: $product-description-max-width;
+<<<<<<< HEAD
     padding-bottom: 3.125rem;
 
     img {
@@ -51,6 +52,8 @@
         max-width: calc(100vw - #{$site-padding-x-desktop-double + $margin-offset-md});
       }
     }
+=======
+>>>>>>> add product description max width
 
     h1, h2, h3, p, ol, ul {
       font-family: $serif;
