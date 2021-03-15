@@ -24,7 +24,7 @@ export default (function() {
       error: 'error',
       success: 'success',
       successMessage: 'You\'re in! Thanks',
-      defaultPlaceholder: 'SIGNUP FOR EMAILS',
+      defaultPlaceholder: 'SIGN UP FOR OUR EMAILS',
       submitIcon: '&#x2710;',
       loading: '...'
     },

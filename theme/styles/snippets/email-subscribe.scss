@@ -5,6 +5,10 @@
   top: -0.2rem;
   background-color: color('black');
 
+  @include media('sm-up') {
+    height: 2.911875rem;
+  }
+
   @include media('md-up') {
     min-width: 30%;
   }
@@ -84,6 +88,10 @@
   &__glyph {
     top: 0.6rem;
     line-height: 1.4rem;
+
+    @include media('sm-up') {
+      top: 1rem;
+    }
 
     @include media('lg-up') {
       line-height: 3.75rem;
