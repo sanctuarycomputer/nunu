@@ -7,7 +7,7 @@
 <div class="Product pt_625 bg-color-black">
   <div class="site-padding-x flex justify-between">
     <div class="col-10">
-      <h1 class="uppercase serif-xl color-white">{{ product.title }}</h1>
+      <h1 class="serif-xl color-white">{{ product.title }}</h1>
       {% render 'product-vendor' product: product %}
     </div>
     <span class="Product__price col-2 serif color-white text-right">{{ product.price | money_without_trailing_zeros }}</span>
