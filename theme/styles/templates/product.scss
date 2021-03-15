@@ -30,6 +30,8 @@
   }
 
   &__description {
+    max-width: $product-description-max-width;
+
     h1, h2, h3, p, ol, ul {
       font-family: $serif;
     }
