@@ -20,7 +20,7 @@ $text-max-width: 65rem;
   }
 
   h1  {
-    @extend %serif-mega;
+    @extend %serif-xl;
   }
 
   h2  {
@@ -134,11 +134,12 @@ $text-max-width: 65rem;
     h1, h2, h3, p, ul, ol {
       font-family: $serif;
     }
-  
-    h2 {
-      font-size: 2rem;
-      line-height: 2.1rem;
 
+    h1  {
+      @extend %serif-xl;
+    }
+
+    h1, h2 {
       a {
         @extend %button--style-rounded-border-sm;
         font-family: $sans-serif;
@@ -152,16 +153,19 @@ $text-max-width: 65rem;
           line-height: 3.65625rem;
         }
       }
+
+      @include media('lg-up') {
+        width: 91.667%;
+      }
+    }
+  
+    h2 {
+      font-size: 2rem;
+      line-height: 2.1rem;
     
       @include media('lg-up') {
         font-size: 4.6875rem;
         line-height: 4.6875rem;
-      }
-    }
-
-    h1, h2 {
-      @include media('lg-up') {
-        width: 91.667%;
       }
     }
 
