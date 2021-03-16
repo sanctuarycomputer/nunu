@@ -70,31 +70,37 @@
     cursor: pointer;
     border: none;
     height: 100%;
-    top: -5px;
-    
-    @include media('lg-up') {
-      top: -20px;
-    }
   }
 
   &__label {
     width: 4rem;
 
-    @include media('md-up') {
+    @include media('lg-up') {
       width: 7rem;
     }
   }
 
   &__glyph {
-    top: 0.6rem;
-    line-height: 1.4rem;
+    line-height: 1.1;
 
     @include media('sm-up') {
-      top: 1rem;
+      line-height: 3.5rem;
     }
 
     @include media('lg-up') {
-      line-height: 3.75rem;
+      line-height: 1.1;
+    }
+  }
+
+  &__loader {
+    line-height: 50%;
+
+    @include media('sm-up') {
+      line-height: 1.1;
+    }
+
+    @include media('lg-up') {
+      line-height: 50%;
     }
   }
 }

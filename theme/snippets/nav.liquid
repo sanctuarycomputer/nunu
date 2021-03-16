@@ -4,7 +4,7 @@
   {% assign show_border_bottom = false %}
 {% endif %}
 
-<nav class="Nav none md:flex {% if show_border_bottom %} border-bottom-black {% endif %} uppercase sans-serif py_5 px_625 md:px_5 text-nav flex items-center justify-between bg-color-white w100 fixed t0 z-nav">
+<nav class="Nav none md:flex {% if show_border_bottom %} border-bottom-black {% endif %} uppercase sans-serif py_5 px_625 md:px_5 text-nav flex items-center justify-between bg-color-white w100 fixed t0 r0 l0 z-nav">
   <div class="flex flex-row items-center justify-center">
     <a class="Nav__button radius-xs nav-button-padding {% if request.path == '/' %} Nav__button--active" {% endif %}" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
     <span class="mx_75">{{ 'snippets.nav.hyphen' | t }}</span>
@@ -15,7 +15,7 @@
   {% render 'nav-cart' %}
 </nav>
 
-<nav data-activatable-toggleable-item="mobileNav" class="Nav MobileNav md:none {% if show_border_bottom %} border-bottom-black {% endif %} text-nav uppercase sans-serif py_5 pl_625 pr_75 md:px1_25 flex flex-col col-12 bg-color-white z-nav fixed t0">
+<nav data-activatable-toggleable-item="mobileNav" class="Nav MobileNav md:none {% if show_border_bottom %} border-bottom-black {% endif %} text-nav uppercase sans-serif py_5 px_625 md:px1_25 flex flex-col col-12 bg-color-white z-nav fixed t0 r0 l0">
   <div class="flex justify-between mb_25">
     <span class="flex items-center justify-center">
       <a class="Nav__button radius-xs nav-button-padding mr_5 md:mr0" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
@@ -24,7 +24,7 @@
     {% render 'nav-cart' %}
   </div>
 
-  <div id="nav-mobile-menu" class="MobileNav__menu transition-shorter bg-color-white vh100 vw100 fixed t0 r0 flex flex-col py_5 px_625 md:px1_25 z-nav">
+  <div id="nav-mobile-menu" class="MobileNav__menu transition-shorter bg-color-white vh100 w100 fixed t0 r0 l0 flex flex-col py_5 px_625 md:px1_25 z-nav">
     <div class="flex justify-between mb_25">
       <span class="flex items-center justify-center">
         <a class="Nav__button radius-xs nav-button-padding mr_5 md:mr0" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
