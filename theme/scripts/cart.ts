@@ -25,10 +25,15 @@ export default(function() {
       lineItemQuantity: "data-line-item-quantity",
       itemCount: "data-cart-item-count",
       variantId: "data-variant-id",
+      pointerEvents: "pointerEvents",
     },
     CONSTANTS: {
       addedToCart: "Added to cart",
       addToCart: "Add to cart",
+      remove: "Remove",
+      removing: "Removing...",
+      auto: "auto",
+      none: "none",
     },
 
     init() {
@@ -75,8 +80,10 @@ export default(function() {
         const quantity = parseInt(lineItemQuantity) - 1;
 
         try {
+          Cart.setRemoving(removeButton);
           await Cart.removeLineItem(lineItemVariantId, quantity);
         } catch (response) {
+          Cart.resetRemoving(removeButton);
           Sentry.captureException(response);
           throw response;
         }
@@ -130,6 +137,16 @@ export default(function() {
       }
 
       Cart.init();
+    },
+
+    setRemoving(removeButton: HTMLElement) {
+      removeButton.innerHTML = Cart.CONSTANTS.removing;
+      removeButton.style[Cart.ATTRIBUTES.pointerEvents] = Cart.CONSTANTS.none;
+    },
+
+    resetRemoving(removeButton: HTMLElement) {
+      removeButton.innerHTML = Cart.CONSTANTS.remove;
+      removeButton.style[Cart.ATTRIBUTES.pointerEvents] = Cart.CONSTANTS.auto;
     },
 
     getCartHtml() {
