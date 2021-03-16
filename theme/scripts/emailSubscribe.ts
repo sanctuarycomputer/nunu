@@ -16,6 +16,7 @@ export default (function() {
       input: "[data-email-subscribe-input]",
       submit: "[data-email-subscribe-submit]",
       submitIcon: "[data-email-subscribe-submit-icon]",
+      submitLoader: "[data-email-subscribe-loader]",
     },
     ATTRIBUTES: {
       emailSubscribeState: "data-subscribe-state"
@@ -24,7 +25,7 @@ export default (function() {
       error: 'error',
       success: 'success',
       successMessage: 'You\'re in! Thanks',
-      defaultPlaceholder: 'SIGN UP FOR OUR EMAILS',
+      defaultPlaceholder: 'SIGN UP FOR EMAILS',
       submitIcon: '&#x2710;',
       loading: '...'
     },
@@ -87,6 +88,7 @@ export default (function() {
       const emailSubscribeInput: HTMLInputElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.input);
       const emailSubscribeSubmitIcon: HTMLElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submitIcon);
       const emailSubscribeSubmit: HTMLInputElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submit);
+      const emailSubscribeLoader: HTMLInputElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submitLoader);
 
       emailSubscribeInput.value = "";
       emailSubscribeInput.placeholder = EmailSubscribe.CONSTANTS.defaultPlaceholder;
@@ -95,28 +97,35 @@ export default (function() {
       
       emailSubscribeSubmit.value = "";
       emailSubscribeSubmitIcon.innerHTML = EmailSubscribe.CONSTANTS.submitIcon;
+
+      emailSubscribeLoader.innerHTML = "";
     },
 
     startLoading(emailSubscribe: HTMLElement) {
-      const emailSubscribeSubmit: HTMLInputElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submit);
+      const emailSubscribeLoader: HTMLInputElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submitLoader);
       const emailSubscribeSubmitIcon: HTMLElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submitIcon);
 
-      emailSubscribeSubmit.value = EmailSubscribe.CONSTANTS.loading;
+      emailSubscribeLoader.innerHTML = EmailSubscribe.CONSTANTS.loading;
       emailSubscribeSubmitIcon.innerHTML = "";
     },
 
     showError(emailSubscribe: HTMLElement) {
+      const emailSubscribeLoader: HTMLInputElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submitLoader);
+
+      emailSubscribeLoader.innerHTML = "";
       emailSubscribe.setAttribute(EmailSubscribe.ATTRIBUTES.emailSubscribeState, EmailSubscribe.CONSTANTS.error);
 
       setTimeout(() => EmailSubscribe.resetEmailSubscribe(emailSubscribe), TIMEOUT_INTERVAL);
     },
 
     showSuccess(emailSubscribe: HTMLElement) {
+      const emailSubscribeLoader: HTMLInputElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submitLoader);
       const emailSubscribeInput: HTMLInputElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.input);
       const emailSubscribeSubmit: HTMLInputElement = emailSubscribe.querySelector(EmailSubscribe.SELECTORS.submit);
 
       emailSubscribe.setAttribute(EmailSubscribe.ATTRIBUTES.emailSubscribeState, EmailSubscribe.CONSTANTS.success);
 
+      emailSubscribeLoader.innerHTML = "";
       emailSubscribeInput.value = "";
       emailSubscribeInput.placeholder = EmailSubscribe.CONSTANTS.successMessage;
 
