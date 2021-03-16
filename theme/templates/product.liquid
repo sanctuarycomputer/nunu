@@ -4,10 +4,10 @@
 {% assign related_products_handles = product.metafields.accentuate.related_products | split: '|' %}
 {% assign product_description = product.metafields.accentuate.product_description %}
 
-<div class="Product pt_625 bg-color-black">
+<div class="Product pt_625 md:pt1_25 bg-color-black">
   <div class="site-padding-x flex justify-between">
     <div class="col-10">
-      <h1 class="serif-xl color-white">{{ product.title }}</h1>
+      <h1 class="Product__title serif color-white">{{ product.title }}</h1>
       {% render 'product-vendor' product: product %}
     </div>
     <span class="Product__price col-2 serif color-white text-right">{{ product.price | money_without_trailing_zeros }}</span>
