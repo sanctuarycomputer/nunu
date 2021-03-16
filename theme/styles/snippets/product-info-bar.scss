@@ -1,4 +1,18 @@
+$product-detail-height: 3.25rem;
+
 .ProductInfoBar {
+  background-color: color('black');
+  position: sticky;
+  top: calc(#{$nav-height} - #{$product-detail-height});
+  
+  @include media('md-up') {
+    top: $nav-height-md;
+  }
+
+  @include media('xl-up') {
+    top: $nav-height-xl;
+  }
+
   &__product-details {
 
     @include media('md-up') {
