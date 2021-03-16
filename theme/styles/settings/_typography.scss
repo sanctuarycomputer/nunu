@@ -174,3 +174,8 @@
     line-height: 2.8125rem;
   }
 }
+
+::selection {
+  background: color('black');
+  color: color('white');
+} 

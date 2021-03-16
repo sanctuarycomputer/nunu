@@ -21,6 +21,17 @@
     }
   }
 
+  &__title {
+    font-size: 2.5rem;
+    line-height: 2.625rem;
+    letter-spacing: 0.0275rem;
+
+    @include media('lg-up') {
+      font-size: 3.125rem;
+      line-height: 2.8125rem;
+    }
+  }
+  
   &__price {
     font-size: 1.125rem;
 
@@ -30,6 +41,17 @@
   }
 
   &__description {
+    max-width: $product-description-max-width;
+    padding-bottom: 3.125rem;
+
+    img {
+      max-width: calc(100vw - #{$site-padding-x-mobile-double + $margin-offset-sm});
+
+      @include media('md-up') {
+        max-width: calc(100vw - #{$site-padding-x-desktop-double + $margin-offset-md});
+      }
+    }
+
     h1, h2, h3, p, ol, ul {
       font-family: $serif;
     }
@@ -113,8 +135,6 @@
         }
       }
     }
-
-    padding-bottom: 3.125rem;
 
     table {
       width: calc(100vw - #{$site-padding-x-mobile-double});

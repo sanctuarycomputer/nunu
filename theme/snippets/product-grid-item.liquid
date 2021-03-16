@@ -10,7 +10,7 @@
 {% endif %}
 
 
-<a class="ProductGridItem bg-color-black color-white text-decoration-none hover--style-rounded-border relative p_625" href="{{ current_product.url }}" aria-label="{{ 'snippets.product_grid_item.product_btn.aria_label' | t }}" >
+<a class="ProductGridItem bg-color-black color-white text-decoration-none hover--style-rounded-border relative p1_25" href="{{ current_product.url }}" aria-label="{{ 'snippets.product_grid_item.product_btn.aria_label' | t }}" >
   <div class="ProductGridItem__inner-container bg-color-black h100">
 
     {% if current_product.metafields.accentuate.featured_product_text and current_product.metafields.accentuate.is_featured_product and show_featured_product %}
@@ -23,7 +23,7 @@
       </span>
     {% else %}
       <div class="flex justify-between">
-        <span class="ProductGridItem__title serif-xs uppercase">{{current_product.title}}</span>
+        <span class="ProductGridItem__title serif-xs">{{current_product.title}}</span>
         <span class="ProductGridItem__price serif-xs uppercase">{{current_product.price | money_without_trailing_zeros }}</span>
       </div>
       {% render 'product-vendor' product: current_product, display_variant: 'grid-item' %}

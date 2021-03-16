@@ -1,9 +1,19 @@
 {% assign show_featured_product = collections.frontpage.metafields.accentuate.show_featured_product %}
 {% assign news_feed_limit = shop.metafields.accentuate.news_feed_homepage_limit %}
+{% assign homepage_product_grid_title = shop.metafields.accentuate.homepage_product_grid_title %}
+{% assign homepage_collection_links = shop.metafields.accentuate.homepage_collection_links %}
 {% render 'home-intro', markdown: shop.metafields.accentuate.home_page_intro.html %}
-{% render 'news-feed' limit: news_feed_limit %} 
+{% render 'news-feed' limit: news_feed_limit %}
+{% if homepage_product_grid_title %}
+  <div class="site-padding-x serif-lg uppercase pb1_5">
+    {{ homepage_product_grid_title }}
+  </div>
+{% endif %}
 <div class="grid {% if show_featured_product %} grid--style-first-cell-enlarged  {% endif %}">
   {% for product in collections.frontpage.products %}
     {% render 'product-grid-item', current_product: product, show_featured_product: show_featured_product %}  
   {% endfor %}
 </div>
+{% if homepage_collection_links %}
+  {% render 'collection-links' homepage_collection_links: homepage_collection_links %}
+{% endif %}

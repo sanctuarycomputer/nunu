@@ -1,4 +1,6 @@
-<div class="NewsFeed flex flex-col">
+{% assign see_more_link_label = shop.metafields.accentuate.news_feed_see_more_link_label %}
+
+<div class="NewsFeed">
   <div class="NewsFeed__inner-container flex flex-col">
     {% for value in shop.metafields.accentuate.news_feed_item_body limit: limit %} 
     {% assign multi_thumbnails = shop.metafields.accentuate.news_feed_item_thumbnail[forloop.index0] %}
@@ -9,6 +11,6 @@
   {% endfor %}
   </div>
   {% if limit %}
-    <a class="uppercase serif-xl pt2 md:pt5 pb3 hover-lighten-black" href="/pages/news" aria-label="{{ 'snippets.news_feed.see_more_link.aria_label' | t }}">{{ 'snippets.news_feed.see_more_link.text' | t }}</a>
+    <a class="NewsFeed__button button--style-rounded-border-xs mt1_25" href="/pages/news" aria-label="{{ 'snippets.news_feed.see_more_link.aria_label' | t }}">{{ see_more_link_label }}</a>
   {% endif %}
 </div>

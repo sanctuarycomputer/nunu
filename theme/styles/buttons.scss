@@ -41,13 +41,40 @@ button {
   text-decoration: none;
   padding-top: 0.1rem;
 
-  &:hover {
-    background-color: color('black');
-    color: color('white');
+  @include not-on-touch-devices {
+    &:hover {
+      background-color: color('black');
+      color: color('white');
+    }
   }
 
   @include media('lg-up') {
     padding-top: 0.325rem;
+    border-radius: radius('sm');
+  }
+}
+
+.button--style-rounded-border-xxs,
+%button--style-rounded-border-xxs {
+  @extend %transition-shorter;
+  @extend .text-to-crop;
+  display: inline-block;
+  border-radius: radius('xs');
+  border: 1px solid color('black');
+  text-transform: uppercase;
+  color: color('black');
+  text-decoration: none;
+  padding-top: 0.1rem;
+
+  @include not-on-touch-devices {
+    &:hover {
+      background-color: color('black');
+      color: color('white');
+    }
+  }
+
+  @include media('lg-up') {
+    padding-top: 0.15rem;
     border-radius: radius('sm');
   }
 }
