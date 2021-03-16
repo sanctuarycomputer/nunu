@@ -1,3 +1,5 @@
+$text-max-width: 65rem;
+
 .Markdown {
   h1, h2, h3, p, ol, ul {
     font-family: $serif;
@@ -22,17 +24,7 @@
   }
 
   h2  {
-    @extend %serif-xl;
-  }
-
-  h3  {
-    font-size: 1.7rem;
-    line-height: 1.8rem;
-
-    @include media('lg-up') {
-      font-size: 2.5rem;
-      line-height: 2.625rem;
-    }
+    @extend %serif-lg;
   }
 
   h4, h5, h6 {
@@ -58,6 +50,29 @@
       &::before {
         content: "-";
         margin-right: 0.625rem;
+      }
+    }
+  }
+
+  p, ol, ul, td {
+    /* Adds bottom border to links with additional padding between text and border */
+    a {
+      text-decoration: none;
+      position: relative;
+
+      &:after {
+        content: '';
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0.3rem;
+        border-width: 0 0 0.12rem;
+        border-style: solid;
+        border-color: currentColor;
+
+        @include media('lg-up') {
+          bottom: 0.3rem;
+        }
       }
     }
   }
@@ -121,14 +136,9 @@
     }
   
     h2 {
-      @extend %serif-xl;
-    }
-  
-    p, ol, ul {
-      font-size: 1.9rem;
-      line-height: 2rem;
-      margin-bottom: 1.5rem;
-    
+      font-size: 2rem;
+      line-height: 2.1rem;
+
       a {
         @extend %button--style-rounded-border-sm;
         font-family: $sans-serif;
@@ -148,6 +158,31 @@
         line-height: 4.6875rem;
       }
     }
+
+    h1, h2 {
+      @include media('lg-up') {
+        width: 91.667%;
+      }
+    }
+
+    h3, h4, h5, h6, p, ol, ul {
+      @include media('lg-up') {
+        max-width: $text-max-width;
+        width: 75%;
+        margin: 0 auto;
+      }
+    }
+  
+    h3, p, ol, ul {
+      font-size: 2rem;
+      line-height: 2.1rem;
+      padding-bottom: 1.5rem;
+
+      @include media('lg-up') {
+        font-size: 2.5rem;
+        line-height: 2.625rem;
+      }
+    }
   }
 
   &--style-black-bg {
@@ -156,34 +191,23 @@
     }
 
     h2 {
-      @extend %serif-xl;
+      @extend %serif-lg;
+    }
+
+    h3  {
+      font-size: 1.7rem;
+      line-height: 1.8rem;
+  
+      @include media('lg-up') {
+        font-size: 2.5rem;
+        line-height: 2.625rem;
+      }
     }
 
     p, ol, ul, td {
       font-size: 1.7rem;
       line-height: 1.8rem;
       margin-bottom: 1.5rem;
-
-      /* Adds bottom border to links with additional padding between text and border */
-      a {
-        text-decoration: none;
-        position: relative;
-
-        &:after {
-          content: '';
-          width: 100%;
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          border-width: 0 0 0.12rem;
-          border-style: solid;
-          border-color: currentColor;
-
-          @include media('lg-up') {
-            bottom: 0.3rem;
-          }
-        }
-      }
 
       @include media('lg-up') {
         margin-bottom: 5.625rem;
