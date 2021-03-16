@@ -14,9 +14,18 @@ $product-detail-height: 3.25rem;
   }
 
   &__product-details {
-
     @include media('md-up') {
       border-bottom: 0;
+    }
+  }
+
+  &__type {
+    &::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+      margin-bottom: (calc((1 - 1.13) * 0.5em));
     }
   }
 }

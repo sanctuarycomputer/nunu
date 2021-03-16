@@ -82,34 +82,10 @@ body {
   border-bottom: 2px solid color('black');
 }
 
-.bulleted {
+.bulleted {  
   &::before {
     content: "●";
     margin-right: 0.25em;
-  }
-}
-
-.dot-sm,
-%dot-sm {
-  position: relative;
-  top: -1px;
-  height: 0.8125rem;
-  width: 0.8125rem;
-  background-color: color('white');
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.dot-lg {
-  @extend %dot-sm;
-
-  @include media('lg-up') {
-    top: -2px;
-    height: 1.75rem;
-    width: 1.75rem;
-    background-color: color('white');
-    border-radius: 50%;
-    display: inline-block;
   }
 }
 
@@ -185,14 +161,14 @@ body {
   }
 }
 
+.text-to-crop {
+  @include lhCrop(1.1); //line-height: 1.1
+}
+
 @mixin not-on-touch-devices {
   @media (hover: hover) {
     @content;
   }
-}
-
-.text-to-crop {
-  @include lhCrop(1.1); //line-height: 1.1
 }
 
 .page-heading {
