@@ -3,9 +3,6 @@
 {% assign homepage_product_grid_title = shop.metafields.accentuate.homepage_product_grid_title %}
 {% assign homepage_collection_links = shop.metafields.accentuate.homepage_collection_links %}
 {% render 'home-intro', markdown: shop.metafields.accentuate.home_page_intro.html %}
-=======
-{% render 'home-intro', markdown: shop.metafields.accentuate.home_page_intro.html %}
-{% render 'news-feed' limit: news_feed_limit %} 
 {% render 'news-feed' limit: news_feed_limit %}
 {% if homepage_product_grid_title %}
   <div class="site-padding-x serif-lg uppercase pb1_5">
