@@ -18,6 +18,16 @@
     width: 1.8125rem;
     height: 1.3125rem;
   }
+
+  &__close-icon {
+    position: relative;
+    top: 4px;
+  }
+
+  &__open-icon {
+    position: relative;
+    top: 4px;
+  }
   
   &__menu {
     @extend .transition;

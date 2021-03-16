@@ -156,6 +156,14 @@ body {
   @include media('md-up') {
     padding: 0.25rem 0.25rem 0.1rem 0.25rem;
   }
+
+  &--lowercase {
+    padding: 0.05rem 0.1875rem 0.1875rem 0.1875rem;
+
+    @include media('md-up') {
+      padding: 0.1rem 0.25rem 0.25rem 0.25rem;
+    }
+  }
 }
 
 /* To crop line height spacing for the primary buttons */

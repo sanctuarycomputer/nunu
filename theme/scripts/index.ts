@@ -14,4 +14,5 @@ import "./productImagesSlider";
 import "./cart";
 import "./activatable";
 import "./cookieConsent";
-import './emailSubscribe';
+import "./emailSubscribe";
+import "./logo";
