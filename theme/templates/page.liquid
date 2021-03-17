@@ -9,7 +9,7 @@
         {% assign section = module.section %}
         {% case section %}
         {% when 'page_markdown' %} 
-          {% render 'markdown' variant: variant classes: 'Markdown--style-block-content' markdown: shop.metafields.globals['page_markdown'][module.index].html %}  
+          {% render 'markdown' variant: variant markdown: shop.metafields.globals['page_markdown'][module.index].html %}  
         {% when 'image_module' %}
           {% render 'image-caption-module' module: module styling: variant %}
         {% endcase %}
