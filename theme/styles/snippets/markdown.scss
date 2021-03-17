@@ -185,6 +185,7 @@ $text-max-width: 65rem;
       @include media('lg-up') {
         font-size: 2.5rem;
         line-height: 2.625rem;
+        padding-bottom: 2.625rem;
       }
     }
   }

@@ -60,6 +60,10 @@
     height: 100%;
     border: none;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     &::placeholder {
       color: color('white');
     }
