@@ -2,6 +2,10 @@ button {
   &:disabled {
     color: color('gray');
     cursor: not-allowed;
+
+    &:hover {
+      border: 1px solid color('transparent');
+    }
   }
 }
 
@@ -10,7 +14,7 @@ button {
   @extend %transition-shorter;
   @extend .text-to-crop;
   display: inline-block;
-  border-radius: 0.625rem;
+  border-radius: radius('sm');
   border: 1px solid color('black');
   text-transform: uppercase;
   color: color('black');
@@ -26,6 +30,38 @@ button {
 
   @include media('lg-up') {
     padding-top: 0.325rem;
+  }
+}
+
+.button--style-rounded-border-sm-white,
+%button--style-rounded-border-sm-white {
+  @extend %transition-shorter;
+  @extend .text-to-crop;
+  display: inline-block;
+  border-radius: radius('xs');
+  border: 1px solid color('transparent');
+  text-transform: uppercase;
+  color: color('white');
+  text-decoration: none;
+  padding-left: 0.15rem;
+  padding-right: 0.15rem;
+  padding-top: 0.15rem;
+
+  @include not-on-touch-devices {
+    &:hover {
+      border: 1px solid color('white');
+    }
+  }
+
+  @include media('md-up') {
+    padding-top: 0.25rem;
+  }
+
+  @include media('lg-up') {
+    border-radius: radius('sm');
+    padding-top: 0.325rem;
+    padding-left: 0.325rem;
+    padding-right: 0.325rem;
   }
 }
 

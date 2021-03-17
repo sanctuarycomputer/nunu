@@ -46,8 +46,8 @@
     </span>
   </span>
   <div class="col-12 md:col-5 flex flex-row justify-start md:justify-end px_625 py1 md:pr1 md:pl0 md:py1_3125 color-white sans-light-md uppercase">
-    <span class="md:none">{{ product.price | money_without_trailing_zeros }}</span>
-    <span class="md:none mx_25">-</span>
+    <span class="pt_15 md:none">{{ product.price | money_without_trailing_zeros }}</span>
+    <span class="pt_15 md:none mx_25">-</span>
     
     <form data-add-to-cart-form data-product-type={{product_type}} action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
       <select class="{% if product.variants.size <= 1 %} none {% endif %}" name="variant" data-variant-selector>
@@ -58,7 +58,7 @@
         {% endfor %}
       </select>
 
-      <button data-variant-id={{product.first_available_variant.id}} data-add-to-cart-button {% if button_disabled %} disabled {% endif %} class="sans-light-md uppercase bg-color-transparent color-white" type="submit" name="add" id="AddToCart">
+      <button data-variant-id={{product.first_available_variant.id}} data-add-to-cart-button {% if button_disabled %} disabled {% endif %} class="button--style-rounded-border-sm-white sans-light-md uppercase bg-color-transparent color-white" type="submit" name="add" id="AddToCart">
         {{button_label}}
       </button>
     </form>
