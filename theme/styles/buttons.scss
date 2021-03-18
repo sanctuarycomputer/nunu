@@ -40,9 +40,7 @@ button {
   text-transform: uppercase;
   color: color('white');
   text-decoration: none;
-  padding-left: 0.15rem;
-  padding-right: 0.15rem;
-  padding-top: 0.15rem;
+  padding: 0.25rem 0.25rem 0.25rem 0;
 
   @include not-on-touch-devices {
     &:hover {
@@ -56,9 +54,8 @@ button {
 
   @include media('lg-up') {
     border-radius: radius('sm');
-    padding-top: 0.325rem;
-    padding-left: 0.325rem;
-    padding-right: 0.325rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
   }
 }
 

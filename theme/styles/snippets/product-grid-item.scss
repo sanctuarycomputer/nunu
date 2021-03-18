@@ -37,7 +37,8 @@
     }
   }
 
-  &__title {
+  &__title, &__price {
+    font-family: $serif;
     font-size: 1.5rem;
     line-height: 1.8rem;
     letter-spacing: 0.0275rem;
