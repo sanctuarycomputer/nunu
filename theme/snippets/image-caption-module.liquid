@@ -42,8 +42,7 @@ is always an array.
   </div>
 {% endif %}
 
-
-{% if variant == 'two-up' and image_module_first_image and image_module_last_image %}
+{% if variant == 'two-up' and image_module_images.size >= 1 %}
   <div class="ImageCaptionModule flex flex-col xs:flex-row py3">
     <div class="ImageCaptionModule__images--style-two-up flex flex-row xs:col-9">
       {% for image in image_module_images %}
