@@ -2,6 +2,7 @@ button {
   &:disabled {
     color: color('gray');
     cursor: not-allowed;
+    pointer-events: none; 
   }
 }
 
@@ -10,7 +11,7 @@ button {
   @extend %transition-shorter;
   @extend .text-to-crop;
   display: inline-block;
-  border-radius: 0.625rem;
+  border-radius: radius('sm');
   border: 1px solid color('black');
   text-transform: uppercase;
   color: color('black');
@@ -26,6 +27,35 @@ button {
 
   @include media('lg-up') {
     padding-top: 0.325rem;
+  }
+}
+
+.button--style-rounded-border-sm-white,
+%button--style-rounded-border-sm-white {
+  @extend %transition-shorter;
+  @extend .text-to-crop;
+  display: inline-block;
+  border-radius: radius('xs');
+  border: 1px solid color('transparent');
+  text-transform: uppercase;
+  color: color('white');
+  text-decoration: none;
+  padding: 0.25rem 0.25rem 0.25rem 0;
+
+  @include not-on-touch-devices {
+    &:hover {
+      border: 1px solid color('white');
+    }
+  }
+
+  @include media('md-up') {
+    padding-top: 0.25rem;
+  }
+
+  @include media('lg-up') {
+    border-radius: radius('sm');
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
   }
 }
 

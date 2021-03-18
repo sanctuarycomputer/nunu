@@ -28,4 +28,18 @@ $product-detail-height: 3.25rem;
       margin-bottom: (calc((1 - 1.13) * 0.5em));
     }
   }
+
+  &__add-to-cart-container {
+    @include media('md-up') {
+      padding-right: 0.62rem;
+    }
+
+    @include media('lg-up') {
+      padding-right: 0.5rem;
+    }
+
+    @include media('xl-up') {
+      padding-right: 0.75rem;
+    }
+  }
 }
