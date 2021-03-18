@@ -17,3 +17,4 @@ import "./cookieConsent";
 import "./emailSubscribe";
 import "./logo";
 import "./pageTransition";
+import "./fadeIn";
