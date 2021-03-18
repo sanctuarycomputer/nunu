@@ -14,7 +14,7 @@
     }
 
     @include media('xl-up') {
-      height: $nav-height-xl;
+      height: calc(#{$nav-height-xl} - 1px);
     }
   }
 

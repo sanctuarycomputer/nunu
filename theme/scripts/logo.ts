@@ -23,7 +23,7 @@ export default (function() {
     },
 
     randomizeLogo(logoEl: HTMLElement) {
-      const randomCharIndex = getRandomInt(1, 3);
+      const randomCharIndex = getRandomInt(0, 4);
       const randomAlphabetIndex = getRandomInt(0, ALPHABET.length - 1);
 
       const indexArr = (Logo.CONSTANTS.index).split("");
