@@ -16,7 +16,7 @@
     font-family: $sans-serif;
     font-size: 1.875rem;
     line-height: 1.6875rem;
-    padding-top: 0.1rem;
+    padding: 0.2rem 0.25rem 0 0.2rem;
     @include lhCrop(1); //line-height: 1
 
     @include media('lg-up') {
