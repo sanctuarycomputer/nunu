@@ -2,10 +2,7 @@ button {
   &:disabled {
     color: color('gray');
     cursor: not-allowed;
-
-    &:hover {
-      border: 1px solid color('transparent');
-    }
+    pointer-events: none; 
   }
 }
 
