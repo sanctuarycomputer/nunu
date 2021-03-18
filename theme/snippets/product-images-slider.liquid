@@ -3,7 +3,7 @@
 		<ul class="splide__list">
       {% for image in product.images %}
         <li class="splide__slide py6 md:py3 pr2 md:pr4">
-          <img class="ProductImagesSlider__img w100 h100 fit-contain" src="{{ image | img_url: 'master' }}" alt="{{ image.alt }}" />
+          <img class="ProductImagesSlider__img w100 h100 fit-contain" src="{{ image | img_url: '1200x' }}" alt="{{ image.alt }}" />
         </li>
       {% endfor %}
 		</ul>
