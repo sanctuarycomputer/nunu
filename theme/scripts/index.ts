@@ -16,3 +16,4 @@ import "./activatable";
 import "./cookieConsent";
 import "./emailSubscribe";
 import "./logo";
+import "./pageTransition";

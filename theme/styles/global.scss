@@ -174,3 +174,12 @@ body {
 .page-heading {
   padding: 0.75rem 0 6.25rem 0;
 }
+
+body {
+  transition: opacity 750ms $transition-easing;
+  opacity: 0;
+
+  &.fade-in {
+    opacity: 1;
+  };
+}
