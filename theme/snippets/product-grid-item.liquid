@@ -1,6 +1,10 @@
 {% comment %} TO-DO: Change Vendor avatar placeholder once Shopify Bookings has the avatar. {% endcomment %}
 {% assign product_media = current_product.media | first %}
 
+{% if request.page_type == 'collection' %}
+  {% assign is_collection_page = true %}
+{% endif %}
+
 <!-- Get product type -->
 {% assign current_product_type = "" %}
 {% if current_product.first_available_variant.metafields.bookings != blank %}

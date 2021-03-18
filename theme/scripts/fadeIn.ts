@@ -3,24 +3,55 @@ import isInViewport from './utils/isInViewport';
 export default (function() {
   const FadeIn = {
     SELECTORS: {
-      gridItem: "[data-grid-item]",
+      homeGridItem: "[data-home-grid-item]",
+      collectionGridItem: "[data-collection-grid-item]",
     },
     ATTRIBUTES: {
       fadeIn: "data-fade-in",
     },
 
     init() {
-      const gridItems = [].slice.call(
-        document.querySelectorAll(FadeIn.SELECTORS.gridItem)
+      //Fade in activated by scroll
+      const homeGridItems = [].slice.call(
+        document.querySelectorAll(FadeIn.SELECTORS.homeGridItem)
       )
 
-      if (!gridItems) {
+      //Fade in activated by page load, then by scroll
+      const collectionGridItems = [].slice.call(
+        document.querySelectorAll(FadeIn.SELECTORS.collectionGridItem)
+      )
+
+      if (!homeGridItems || !collectionGridItems) {
         return;
       } else {
-        document.addEventListener("scroll", () => {
-          FadeIn.activate(gridItems);
-        });      
+        FadeIn.bindEventListeners();    
       }
+    },
+
+    bindEventListeners() {
+      const homeGridItems = [].slice.call(
+        document.querySelectorAll(FadeIn.SELECTORS.homeGridItem)
+      )
+      const collectionGridItems = [].slice.call(
+        document.querySelectorAll(FadeIn.SELECTORS.collectionGridItem)
+      )
+      
+      if (homeGridItems) {
+        document.addEventListener("scroll", () => {
+          FadeIn.activate(homeGridItems);
+        });  
+      };
+
+      if (collectionGridItems) {
+        window.addEventListener("load", () => {
+          FadeIn.activate(collectionGridItems);
+        });
+
+        document.addEventListener("scroll", () => {
+          FadeIn.activate(collectionGridItems);
+        });
+      };
+
     },
     
     activate(gridItems: Element[]) {
@@ -33,6 +64,7 @@ export default (function() {
         }
       });
     },
+
   };
 
   FadeIn.init();
