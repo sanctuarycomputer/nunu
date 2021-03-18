@@ -1,4 +1,9 @@
-{% assign image_module_image = shop.metafields.globals['image_module_image'][module.index].first %}
+{% comment %}
+With Accentuate.io, even if only one image is uploaded, the metafield 
+is always an array. 
+{% endcomment %}
+{% assign image_module_images = shop.metafields.globals['image_module_image'][module.index] %}
+{% assign image_module_first_image = shop.metafields.globals['image_module_image'][module.index].first %}
 {% assign caption = shop.metafields.globals['image_module_caption'][module.index] %}
 {% assign variant = shop.metafields.globals['image_module_variant'][module.index] %}
 {% if styling == 'black-bg' %}
@@ -7,7 +12,7 @@
   {% assign color = 'color-black' %}
 {% endif %}
 
-{% if image_module_image %}
+{% if image_module_first_image and variant != 'two-up' %}
   <div class="ImageCaptionModule flex flex-col 
     {% if variant == 'centered' %}
       col-12 md:col-6 mxauto py5 md:py10
@@ -22,15 +27,33 @@
       col-12 sm:col-9
       {% endif %}
     " 
-    src="{{ image_module_image.src }}" 
-    alt="{{ image_module_image.alt }}
+    src="{{ image_module_first_image.src }}" 
+    alt="{{ image_module_first_image.alt }}
     "/>
     {% if caption %}
-      <span class="{{ color }} pt_25 sans-xs
+      <span class="{{ color }} pt_25 sm:pt0 sans-xs
         {% if variant == 'left' %}
-        col-12 sm:col-3 sm:pl2_5
+        col-12 sm:col-3 sm:ml2_5
         {% endif %}
         ">
+        {{ caption }}
+      </span>
+    {% endif %}
+  </div>
+{% endif %}
+
+{% if variant == 'two-up' and image_module_images.size >= 1 %}
+  <div class="ImageCaptionModule flex flex-col xs:flex-row py3">
+    <div class="ImageCaptionModule__images--style-two-up flex flex-row xs:col-9">
+      {% for image in image_module_images %}
+        <div class="col-6">
+          <img class="w100 h100 fit-cover" src="{{ image.src }}" alt="{{ image.alt }}"/>
+        </div>
+      {% endfor %}
+    </div>
+    {% if caption %}
+      <span class="flex {{ color }} pt_25 xs:pt0 sans-xs
+        col-10 xs:col-3 xs:ml2_5">
         {{ caption }}
       </span>
     {% endif %}

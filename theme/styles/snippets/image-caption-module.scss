@@ -1,0 +1,27 @@
+.ImageCaptionModule {
+  &__images {
+    &--style-two-up {
+      max-height: 10rem;
+
+      div:not(:last-of-type) {
+        margin-right: 0.6875rem;
+
+        @include media('md-up') {
+          margin-right: 1.9375rem;
+        }
+      }
+
+      @include media('xs-up') {
+        max-height: 15rem;
+      }
+
+      @include media('md-up') {
+        max-height: 20rem;
+      }
+
+      @include media('lg-up') {
+        max-height: 30rem;
+      }
+    }
+  }
+}
