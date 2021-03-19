@@ -10,7 +10,6 @@
   }
 
   @include media('lg-up') {
-    // top: -0.9rem;
     top: -0.8rem;
     height: 3.66875rem;
     border-radius: radius('sm');
@@ -65,7 +64,6 @@
   &__input {
     height: 100%;
     border: none;
-    //Makes input seem centered visually
     margin-top: 0.25rem;
 
     &::placeholder {
