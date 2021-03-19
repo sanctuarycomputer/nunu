@@ -1,5 +1,5 @@
 import isInViewport from './utils/isInViewport';
-import throttle from './utils/throttle';
+import throttle from 'lodash/throttle';
 
 export default (function() {
   const FadeIn = {
@@ -32,13 +32,10 @@ export default (function() {
           FadeIn.activate(gridItems);
         });
 
-        const activateFadeIn = (gridItems) => {
-          FadeIn.activate(gridItems)
-        }
+        document.addEventListener("scroll", () => {
+          throttle(FadeIn.activate(gridItems), 150);
+        });
 
-        const throttleScroll = throttle(activateFadeIn, 150);
-        
-        document.addEventListener("scroll", throttleScroll);
       };
 
     },
@@ -53,7 +50,6 @@ export default (function() {
         }
       });
     },
-
   };
 
   FadeIn.init();
