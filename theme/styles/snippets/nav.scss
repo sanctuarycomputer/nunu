@@ -2,11 +2,7 @@
   @include media('xl-up') {
     height: $nav-height-xl;
   }
-
-  &__logo {
-
-  }
-
+  
   &__button  {
     @extend %transition-short; 
 
