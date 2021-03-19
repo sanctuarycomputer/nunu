@@ -5,17 +5,13 @@
   top: -0.2rem;
   background-color: color('black');
 
-  @include media('sm-up') {
-    height: 2.911875rem;
-  }
-
   @include media('md-up') {
     min-width: 30%;
   }
 
   @include media('lg-up') {
     top: -0.9rem;
-    height: 3.668125rem;
+    height: 3.66875rem;
     border-radius: radius('sm');
     min-width: 45%;
   }

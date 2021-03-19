@@ -15,7 +15,7 @@
   <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 
 {% elsif template contains 'collection' %}
-  <meta property="og:title" content="INDEX | {{ collection.title }}">
+  <meta property="og:title" content="INDEX - {{ collection.title }}">
   <meta property="og:description" content="{{ collection_description }}">
   <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 
@@ -30,13 +30,13 @@
 
 {% elsif template contains 'page' %}
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ page.title | escape }}">
+  <meta property="og:title" content="INDEX - {{ page.title | escape }}">
   <meta name="twitter:description" content="{{ page_description | escape }}">
   <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 
 {% else %}
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ page.title | escape }}">
+  <meta property="og:title" content="INDEX - {{ page.title | escape }}">
   <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 {% endif %}
 

@@ -3,14 +3,18 @@
     height: $nav-height-xl;
   }
 
- &__button  {
-  @extend %transition-short; 
+  &__logo {
 
-  &:hover, &--active {
-    background-color: color('black');
-    color: color('white');
-   }
- }
+  }
+
+  &__button  {
+    @extend %transition-short; 
+
+    &:hover, &--active {
+      background-color: color('black');
+      color: color('white');
+    }
+  }
 }
 
 .MobileNav {

@@ -180,7 +180,7 @@
   line-height: 1.6875rem;
   font-weight: 300;
 
-  @include media('xl-up') {
+  @include media('lg-up') {
     font-size: 3.125rem;
     line-height: 2.8125rem;
   }
