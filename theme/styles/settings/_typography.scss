@@ -22,7 +22,7 @@
 }
 
 /** Sizes */
-.serif-mega, .serif-xl, .serif-lg, .serif-md, .serif-sm, .serif-xs {
+.serif-mega, .serif-xl, .serif-lg, .serif-md, .serif-sm-md, .serif-sm, .serif-xs {
   @extend .serif;
 }
 
@@ -78,6 +78,17 @@
   @include media('lg-up') {
     font-size: 2.5rem;
     line-height: 2.625rem;
+  }
+}
+
+.serif-sm-md,
+%serif-sm-md {
+  font-size: 2rem;
+  line-height: 2.1rem;
+
+  @include media('lg-up') {
+    font-size: 3.125rem;
+    line-height: 3.125rem;
   }
 }
 
