@@ -1,27 +1,21 @@
 import isInViewport from './utils/isInViewport';
+import throttle from './utils/throttle';
 
 export default (function() {
   const FadeIn = {
     SELECTORS: {
-      homeGridItem: "[data-home-grid-item]",
-      collectionGridItem: "[data-collection-grid-item]",
+      gridItem: "[data-grid-item]",
     },
     ATTRIBUTES: {
       fadeIn: "data-fade-in",
     },
 
     init() {
-      //Fade in activated by scroll
-      const homeGridItems = [].slice.call(
-        document.querySelectorAll(FadeIn.SELECTORS.homeGridItem)
-      )
+      const gridItems = [].slice.call(
+        document.querySelectorAll(FadeIn.SELECTORS.gridItem)
+      );
 
-      //Fade in activated by page load, then by scroll
-      const collectionGridItems = [].slice.call(
-        document.querySelectorAll(FadeIn.SELECTORS.collectionGridItem)
-      )
-
-      if (!homeGridItems || !collectionGridItems) {
+      if (!gridItems) {
         return;
       } else {
         FadeIn.bindEventListeners();    
@@ -29,27 +23,22 @@ export default (function() {
     },
 
     bindEventListeners() {
-      const homeGridItems = [].slice.call(
-        document.querySelectorAll(FadeIn.SELECTORS.homeGridItem)
+      const gridItems = [].slice.call(
+        document.querySelectorAll(FadeIn.SELECTORS.gridItem)
       )
-      const collectionGridItems = [].slice.call(
-        document.querySelectorAll(FadeIn.SELECTORS.collectionGridItem)
-      )
-      
-      if (homeGridItems) {
-        document.addEventListener("scroll", () => {
-          FadeIn.activate(homeGridItems);
-        });  
-      };
 
-      if (collectionGridItems) {
+      if (gridItems) {
         window.addEventListener("load", () => {
-          FadeIn.activate(collectionGridItems);
+          FadeIn.activate(gridItems);
         });
 
-        document.addEventListener("scroll", () => {
-          FadeIn.activate(collectionGridItems);
-        });
+        const activateFadeIn = (gridItems) => {
+          FadeIn.activate(gridItems)
+        }
+
+        const throttleScroll = throttle(activateFadeIn, 150);
+        
+        document.addEventListener("scroll", throttleScroll);
       };
 
     },
