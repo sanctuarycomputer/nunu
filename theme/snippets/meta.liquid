@@ -11,7 +11,7 @@
 {% if template == 'index' %}
   <meta property="og:type" content="website">
   <meta property="og:title" content="INDEX">
-  <meta property="og:description" content="TO-DO: ADD DEFAULT HOME DESCRIPTION">
+  <meta property="og:description" content="Index is a community space promoting access, support and good vibrations within the creative disciplines.">
   <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 
 {% elsif template contains 'collection' %}
@@ -46,12 +46,12 @@
 {% comment %}
   Twitter card
 {% endcomment %}
-<meta name="twitter:site" content="TO-DO: ADD WHEN ACCOUNT HAS BEEN CREATED">
+<meta name="twitter:site" content="@index_space_org">
 <meta name="twitter:card" content="summary">
 
 {% if template == 'index' %}
-  <meta name="twitter:title" content="TO-DO: ADD DEFAULT HOME DESCRIPTION">
-  <meta name="twitter:description" content="TO-DO: ADD DEFAULT HOME DESCRIPTION">
+  <meta name="twitter:title" content="INDEX">
+  <meta name="twitter:description" content="Index is a community space promoting access, support and good vibrations within the creative disciplines.">
 
 {% elsif template contains 'product' %}
   <meta name="twitter:title" content="{{ product.title | strip_html | escape }}">
