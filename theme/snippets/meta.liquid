@@ -21,7 +21,7 @@
 
 {% elsif template contains 'product' %}
   <meta property="og:type" content="product">
-  <meta property="og:title" content="{{ product.title | strip_html | escape }}">
+  <meta property="og:title" content="INDEX - {{ product.title | strip_html | escape }}">
   <meta property="og:image" content="http:{{ featured_image | img_url: '600x600' }}">
   <meta property="og:image:secure_url" content="https:{{ featured_image | img_url: '600x600' }}">
   <meta property="og:description" content="{{ product_description | strip_html | escape }}">
