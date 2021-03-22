@@ -43,4 +43,11 @@
     line-height: 1.8rem;
     letter-spacing: 0.0275rem;
   }
+
+  &[data-fade-in="true"] {
+    .ProductGridItem__image {
+      animation: $transition-duration-long cubic-bezier(0.25, 0.46, 0.45, 0.94)1 normal forwards animation-fade-in-up;
+      pointer-events: all;
+    }
+  }
 }
