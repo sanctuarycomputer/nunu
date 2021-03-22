@@ -1,0 +1,16 @@
+.CartEmpty {
+  &--image {
+    max-width: 31.25rem;
+  }
+
+  &--copy {
+    font-family: $serif;
+    font-size: 2rem;
+    line-height: 2.1rem;
+
+    @include media('md-up') {
+      font-size: 2.5rem;
+      line-height: 2.625rem;
+    }
+  }
+}

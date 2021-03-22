@@ -39,18 +39,6 @@
     }
   }
 
-  &__empty {
-    &--image {
-      max-width: 31.25rem;
-    }
-
-    &--copy {
-      font-family: $serif;
-      font-size: 2.5rem;
-      line-height: 2.625rem;
-    }
-  }
-
   &__checkout-container {
     width: 100%;
     position: fixed;
