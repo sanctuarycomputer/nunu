@@ -10,18 +10,18 @@
 
 {% if template == 'index' %}
   <meta property="og:type" content="website">
-  <meta property="og:title" content="INDEX">
-  <meta property="og:description" content="Index is a community space promoting access, support and good vibrations within the creative disciplines.">
+  <meta property="og:title" content="{{ 'seo.default_title' | t }}">
+  <meta property="og:description" content={{ 'seo.default_description' | t }}">
   <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 
 {% elsif template contains 'collection' %}
-  <meta property="og:title" content="INDEX - {{ collection.title }}">
+  <meta property="og:title" content="{{ 'seo.default_title' | t }} - {{ collection.title }}">
   <meta property="og:description" content="{{ collection_description }}">
   <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 
 {% elsif template contains 'product' %}
   <meta property="og:type" content="product">
-  <meta property="og:title" content="INDEX - {{ product.title | strip_html | escape }}">
+  <meta property="og:title" content="{{ 'seo.default_title' | t }} - {{ product.title | strip_html | escape }}">
   <meta property="og:image" content="http:{{ featured_image | img_url: '600x600' }}">
   <meta property="og:image:secure_url" content="https:{{ featured_image | img_url: '600x600' }}">
   <meta property="og:description" content="{{ product_description | strip_html | escape }}">
@@ -30,18 +30,18 @@
 
 {% elsif template contains 'page' %}
   <meta property="og:type" content="website">
-  <meta property="og:title" content="INDEX - {{ page.title | escape }}">
+  <meta property="og:title" content="{{ 'seo.default_title' | t }} - {{ page.title | escape }}">
   <meta name="twitter:description" content="{{ page_description | escape }}">
   <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 
 {% else %}
   <meta property="og:type" content="website">
-  <meta property="og:title" content="INDEX - {{ page.title | escape }}">
+  <meta property="og:title" content="{{ 'seo.default_title' | t }} - {{ page.title | escape }}">
   <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 {% endif %}
 
 <meta property="og:url" content="{{ canonical_url }}">
-<meta property="og:site_name" content="INDEX">
+<meta property="og:site_name" content="{{ 'seo.default_title' | t }}">
 
 {% comment %}
   Twitter card
@@ -50,8 +50,8 @@
 <meta name="twitter:card" content="summary">
 
 {% if template == 'index' %}
-  <meta name="twitter:title" content="INDEX">
-  <meta name="twitter:description" content="Index is a community space promoting access, support and good vibrations within the creative disciplines.">
+  <meta name="twitter:title" content="{{ 'seo.default_title' | t }}">
+  <meta name="twitter:description" content="{{ 'seo.default_description' | t }}">
 
 {% elsif template contains 'product' %}
   <meta name="twitter:title" content="{{ product.title | strip_html | escape }}">

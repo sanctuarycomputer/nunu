@@ -10,11 +10,11 @@
     height: $nav-height;
 
     @include media('md-up') {
-      height: $nav-height-md;
+      height: calc(#{$nav-height-md} - 1px);
     }
 
-    @include media('xl-up') {
-      height: calc(#{$nav-height-xl} - 1px);
+    @include media('lg-up') {
+      height: calc(#{$nav-height-lg} - 1px);
     }
   }
 
@@ -34,8 +34,8 @@
       height: calc(100% - #{$nav-height-md});
     }
 
-    @include media('xl-up') {
-      height: calc(100% - #{$nav-height-xl});
+    @include media('lg-up') {
+      height: calc(100% - #{$nav-height-lg});
     }
   }
 

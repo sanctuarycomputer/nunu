@@ -1,6 +1,10 @@
 .Nav {
-  @include media('xl-up') {
-    height: $nav-height-xl;
+  @include media('md-up') {
+    height: $nav-height-md;
+  }
+
+  @include media('lg-up') {
+    height: $nav-height-lg;
   }
   
   &__button  {
