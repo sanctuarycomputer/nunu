@@ -5,6 +5,13 @@ $text-max-width: 65rem;
     font-family: $serif;
   }
 
+  /* Bold class used for Dingbats Font in Home Page Intro */
+  h1, h2, h3, h4, h5, h6, p, ol, ul {
+    strong {
+      font-family: $logo;
+    }
+  }
+
   h4, h5, h6 {
     font-family: $sans-serif;
   }
