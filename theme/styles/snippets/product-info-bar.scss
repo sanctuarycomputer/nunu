@@ -9,8 +9,8 @@ $product-detail-height: 3.25rem;
     top: $nav-height-md;
   }
 
-  @include media('lg-up') {
-    top: $nav-height-lg;
+  @include media('lg-xl-up') {
+    top: $nav-height-lg-xl;
   }
 
   &__product-details {

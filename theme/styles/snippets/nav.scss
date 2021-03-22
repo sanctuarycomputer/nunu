@@ -3,8 +3,8 @@
     height: $nav-height-md;
   }
 
-  @include media('lg-up') {
-    height: $nav-height-lg;
+  @include media('lg-xl-up') {
+    height: $nav-height-lg-xl;
   }
   
   &__button  {

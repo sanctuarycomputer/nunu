@@ -5,6 +5,6 @@
   {% assign selected_collections = homepage_collection_links | split: '|' %}
   {% for selected_collection in selected_collections %}
     {% if forloop.last and forloop.length > 1 %}or{% endif %}
-    <a class="CollectionLinks__button button--style-rounded-border-xxs mx_25" href="{{ collections[selected_collection].url }}" aria-label={{ 'snippets.collection-links.link.aria-label' | t }}>{{ collections[selected_collection].title }}</a>
+    <a class="CollectionLinks__button button--style-rounded-border-xxs" href="{{ collections[selected_collection].url }}" aria-label={{ 'snippets.collection-links.link.aria-label' | t }}>{{ collections[selected_collection].title }}</a>
   {% endfor %}
 </div>
