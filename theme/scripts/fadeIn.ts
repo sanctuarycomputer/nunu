@@ -15,34 +15,24 @@ export default (function() {
         document.querySelectorAll(FadeIn.SELECTORS.gridItem)
       );
 
-      if (!gridItems) {
-        return;
-      } else {
-        FadeIn.bindEventListeners();    
-      }
+      if (!gridItems.length) return; 
+
+      FadeIn.bindEventListeners(gridItems);    
     },
 
-    bindEventListeners() {
-      const gridItems = [].slice.call(
-        document.querySelectorAll(FadeIn.SELECTORS.gridItem)
-      )
+    bindEventListeners(gridItems: Element[]) {
+      window.addEventListener("load", () => {
+        FadeIn.activate(gridItems);
+      });
 
-      if (gridItems) {
-        window.addEventListener("load", () => {
-          FadeIn.activate(gridItems);
-        });
-
-        document.addEventListener("scroll", () => {
-          throttle(FadeIn.activate(gridItems), 150);
-        });
-
-      };
-
+      document.addEventListener("scroll", () => {
+        throttle(FadeIn.activate(gridItems), 150);
+      });
     },
     
     activate(gridItems: Element[]) {
       gridItems.forEach((gridItem) => {
-        if (isInViewport(gridItem)) {
+        if (isInViewport(gridItem, 2)) {
           gridItem.setAttribute(
             FadeIn.ATTRIBUTES.fadeIn,
             "true"

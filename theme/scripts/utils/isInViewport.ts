@@ -1,6 +1,5 @@
-export default (element: Element) => {
+export default (element: Element, threshold: number) => {
   const rect = element.getBoundingClientRect();
-  const threshold = 2;
 
   return (
     rect.top + (rect.height / threshold) > 0 && 
