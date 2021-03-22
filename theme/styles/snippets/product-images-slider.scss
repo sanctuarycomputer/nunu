@@ -21,6 +21,7 @@
     bottom: 0;
     left: 0;
     width: 50%;
+    -webkit-tap-highlight-color: color('transparent');
   }
 
   .splide__arrow--next {
@@ -29,5 +30,37 @@
     bottom: 0;
     left: 50%;
     width: 50%;
+    -webkit-tap-highlight-color: color('transparent');
   }
+}
+
+/**
+  Prevents black flash
+  seen on certain browsers when 
+  changin slides
+
+  See: https://github.com/Splidejs/splide/issues/220
+*/
+.splide__list {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100%;
+  display: flex;
+  width: -webkit-max-content;
+  width: max-content;
+  will-change: transform;
+}
+
+.splide__track > .splide__list > .splide__slide {
+  width: 100%;
+  transform: translate3d(0px,0,0);
+  -webkit-transform: translate3d(0px,0,0);
+  -moz-transform: translate3d(0px,0,0);
+  -ms-transform: translate3d(0px,0,0);
+  -o-transform: translate3d(0px,0,0);
+  will-change: inherit;
+}
+  
+.splide__list > .splide__slide:first-child {
+  z-index: 2;
 }
