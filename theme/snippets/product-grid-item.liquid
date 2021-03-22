@@ -11,8 +11,7 @@
 
 
 <a class="ProductGridItem bg-color-black color-white text-decoration-none hover--style-rounded-border relative p1_25" href="{{ current_product.url }}" aria-label="{{ 'snippets.product_grid_item.product_btn.aria_label' | t }}" >
-  <div class="ProductGridItem__inner-container bg-color-black h100">
-
+  <div class="ProductGridItem__inner-container bg-color-black h100 flex flex-col justify-between">
     {% if current_product.metafields.accentuate.featured_product_text and current_product.metafields.accentuate.is_featured_product and show_featured_product %}
       <span class="flex flex-col uppercase">
         <span class="color-yellow serif-md">
@@ -22,18 +21,20 @@
         {% render 'product-vendor' product: current_product, display_variant: 'featured-grid-item' %}
       </span>
     {% else %}
-      <div class="flex justify-between">
-        <span class="ProductGridItem__title">{{current_product.title}}</span>
-        <span class="ProductGridItem__price uppercase">{{current_product.price | money_without_trailing_zeros }}</span>
-      </div>
-      {% render 'product-vendor' product: current_product, display_variant: 'grid-item' %}
+      <span class="flex flex-col uppercase">
+        <div class="flex justify-between">
+          <span class="ProductGridItem__title">{{current_product.title}}</span>
+          <span class="ProductGridItem__price uppercase">{{current_product.price | money_without_trailing_zeros }}</span>
+        </div>
+        {% render 'product-vendor' product: current_product, display_variant: 'grid-item' %}
+      </span>
     {% endif %}
 
-    <div class="ProductGridItem__image-container flex items-center justify-center absolute t0 r0 h100 w100">
+    <div class="ProductGridItem__image-container flex items-center justify-center">
       <img class="ProductGridItem__image w100 h100 fit-contain xs:py1" src="{{ product_media.src | img_url: 'x620' }}" alt="{{ product_media.alt | escape }}">
     </div>
 
-    <div class="ProductGridItem__details absolute r0 b0 p1_25 sans-xxs uppercase flex justify-between w100">
+    <div class="ProductGridItem__details sans-xxs uppercase flex justify-between w100">
       <span class="flex items-center">
         <span class="bulleted">{{ current_product_type }}</span>
       </span>
