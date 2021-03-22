@@ -5,6 +5,10 @@
       "subtext_html": "The page you were looking for does not exist"
     }
   },
+  "seo": {
+    "default_description": "Index is a community space promoting access, support and good vibrations within the creative disciplines.",
+    "default_title": "INDEX"
+  },
   "snippets": {
     "nav": {
       "links": {

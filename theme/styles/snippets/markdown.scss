@@ -157,7 +157,7 @@ $text-max-width: 65rem;
       }
     }
   
-    h2 {
+    h2, h3 {
       font-size: 2rem;
       line-height: 2.1rem;
     
@@ -175,7 +175,7 @@ $text-max-width: 65rem;
       }
     }
   
-    h3, p, ol, ul {
+    p, ol, ul {
       font-size: 2rem;
       line-height: 2.1rem;
       padding-bottom: 1.5rem;

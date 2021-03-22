@@ -2,14 +2,15 @@
   padding-top: 15.625rem;
   line-height: 2.1rem;
   font-size: 2rem;
-  
-  @include media('md-up') {
-    padding-top: 6.875rem;
-  }
 
+  @include media('sm-up') {
+    padding-top: 26rem;
+  }
+  
   @include media('lg-up') {
     font-size: 4.6875rem;
     line-height: 4.6875rem;
+    padding-top: 28rem;
   }
 
   &__button {

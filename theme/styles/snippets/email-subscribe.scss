@@ -5,17 +5,13 @@
   top: -0.2rem;
   background-color: color('black');
 
-  @include media('sm-up') {
-    height: 2.911875rem;
-  }
-
   @include media('md-up') {
     min-width: 30%;
   }
 
   @include media('lg-up') {
-    top: -0.9rem;
-    height: 3.668125rem;
+    top: -0.8rem;
+    height: 3.66875rem;
     border-radius: radius('sm');
     min-width: 45%;
   }
@@ -56,9 +52,19 @@
     }
   }
 
+  &__input, &__submit {
+    font-size: 1rem;
+    letter-spacing: 0.0275rem;
+  
+    @include media('lg-up') {
+      font-size: 1.875rem;
+    }
+  }
+
   &__input {
     height: 100%;
     border: none;
+    margin-top: 0.25rem;
 
     &::placeholder {
       color: color('white');
@@ -67,7 +73,6 @@
 
   &__submit {
     position: relative;
-    cursor: pointer;
     border: none;
     height: 100%;
   }

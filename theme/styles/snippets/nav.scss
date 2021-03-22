@@ -1,16 +1,20 @@
 .Nav {
-  @include media('xl-up') {
-    height: $nav-height-xl;
+  @include media('md-up') {
+    height: $nav-height-md;
   }
 
- &__button  {
-  @extend %transition-short; 
+  @include media('lg-up') {
+    height: $nav-height-lg;
+  }
+  
+  &__button  {
+    @extend %transition-short; 
 
-  &:hover, &--active {
-    background-color: color('black');
-    color: color('white');
-   }
- }
+    &:hover, &--active {
+      background-color: color('black');
+      color: color('white');
+    }
+  }
 }
 
 .MobileNav {
