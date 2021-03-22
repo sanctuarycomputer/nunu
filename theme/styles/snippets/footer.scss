@@ -10,9 +10,6 @@
   @include media('lg-up') {
     font-size: 4.6875rem;
     line-height: 4.6875rem;
-  }
-
-  @include media('xl-up') {
     padding-top: 28rem;
   }
 
