@@ -16,15 +16,15 @@
   <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 
 {% elsif template contains 'collection' %}
-  <title>{{ 'seo.default_title' | t }} - {{ collection.title }}</title>
-  <meta property="og:title" content="{{ 'seo.default_title' | t }} - {{ collection.title }}">
+  <title>{{ 'seo.default_title' | t }} — {{ collection.title }}</title>
+  <meta property="og:title" content="{{ 'seo.default_title' | t }} — {{ collection.title }}">
   <meta property="og:description" content="{{ collection_description }}">
   <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 
 {% elsif template contains 'product' %}
-  <title>{{ 'seo.default_title' | t }} - {{ product.title | strip_html | escape }}</title>
+  <title>{{ 'seo.default_title' | t }} — {{ product.title | strip_html | escape }}</title>
   <meta property="og:type" content="product">
-  <meta property="og:title" content="{{ 'seo.default_title' | t }} - {{ product.title | strip_html | escape }}">
+  <meta property="og:title" content="{{ 'seo.default_title' | t }} — {{ product.title | strip_html | escape }}">
   <meta property="og:image" content="http:{{ featured_image | img_url: '600x600' }}">
   <meta property="og:image:secure_url" content="https:{{ featured_image | img_url: '600x600' }}">
   <meta property="og:description" content="{{ product_description | strip_html | escape }}">
@@ -32,16 +32,16 @@
   <meta property="og:price:currency" content="{{ shop.currency }}">
 
 {% elsif template contains 'page' %}
-  <title>{{ 'seo.default_title' | t }} - {{ page.title | escape }}</title>
+  <title>{{ 'seo.default_title' | t }} — {{ page.title | escape }}</title>
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ 'seo.default_title' | t }} - {{ page.title | escape }}">
+  <meta property="og:title" content="{{ 'seo.default_title' | t }} — {{ page.title | escape }}">
   <meta name="twitter:description" content="{{ page_description | escape }}">
   <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 
 {% else %}
-  <title>{{ 'seo.default_title' | t }} - {{ page.title | escape }}</title>
+  <title>{{ 'seo.default_title' | t }} — {{ page.title | escape }}</title>
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ 'seo.default_title' | t }} - {{ page.title | escape }}">
+  <meta property="og:title" content="{{ 'seo.default_title' | t }} — {{ page.title | escape }}">
   <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
 {% endif %}
 

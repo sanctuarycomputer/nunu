@@ -23,7 +23,7 @@
 
 ## About The Project
 
-This is a relaunch of the old XXXI as a new community space for hosting events, workshops, shared / sharing knowledge, and store.
+INDEX is a community space promoting access, support and good vibrations within the creative disciplines.
 
 ### The Stack
 
