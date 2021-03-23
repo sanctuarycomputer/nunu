@@ -1,3 +1,5 @@
+$cart-header-offset: 1px;
+
 .Cart {
   position: fixed;
   top: 0;
@@ -10,19 +12,22 @@
     height: $nav-height;
 
     @include media('md-up') {
-      height: calc(#{$nav-height-md} - 1px);
+      height: calc(#{$nav-height-md} - #{$cart-header-offset});
     }
 
     @include media('lg-xl-up') {
-      height: calc(#{$nav-height-lg-xl} - 1px);
+      height: calc(#{$nav-height-lg-xl} - #{$cart-header-offset});
     }
   }
 
   &__close-icon {
+    position: relative;
     font-size: 3rem;
+    top: 1.25px;
 
-    @include media('xl-up') {
+    @include media('lg-xl-up') {
       font-size: 5rem;
+      top: 2px;
     }
   }
 
