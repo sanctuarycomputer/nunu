@@ -28,8 +28,8 @@ body {
     padding-top: $nav-height-md;
   }
 
-  @include media('lg-up') {
-    padding-top: $nav-height-lg;
+  @include media('lg-xl-up') {
+    padding-top: $nav-height-lg-xl;
   }
 }
 
