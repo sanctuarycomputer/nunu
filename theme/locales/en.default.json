@@ -75,6 +75,10 @@
     },
     "footer": {
       "social_links": {
+        "contact_us": {
+          "aria_label": "Contact us via email.",
+          "text": "Contact us"
+        },
         "newsletter_link": {
           "aria_label": "Sign up for emails.",
           "text": "emails"
