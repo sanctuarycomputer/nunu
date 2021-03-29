@@ -1,6 +1,9 @@
+{% assign img_src_300w = 'squiggly.png' | asset_img_url: '300x' %}
+{% assign img_src_500w = 'squiggly.png' | asset_img_url: '500x' %}
+
 <div class="CartEmpty h100 flex flex-col justify-between">
   <div class="flex flex-1 items-center justify-center">
-    <img class="CartEmpty--image col-10 md:col-12 self-center" alt={{ 'snippets.cart.empty_image.alt' | t }} src="{{ 'squiggly.png' | asset_url }}" />
+    <img class="CartEmpty--image col-10 md:col-12 self-center" alt={{ 'snippets.cart.empty_image.alt' | t }} sizes="(min-width: 56.25rem) 500w, 300ww" srcset="{{ img_src_300w }} 300w, {{ img_src_500w }} 500w" src="{{ img_src_300w }}" />
   </div>
   <div>
     <p class="CartEmpty--copy p_75 col-11">
