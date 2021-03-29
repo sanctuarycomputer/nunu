@@ -28,18 +28,18 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'index.css',
-    }),
+    })
   ],
   resolve: {
     extensions: ['.ts', '.js'],
-  },
-  output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'theme/assets'),
   },
   optimization: {
     minimizer: [new TerserPlugin({
       extractComments: false,
     })],
+  },
+  output: {
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'theme/assets'),
   },
 };
