@@ -4,15 +4,10 @@
   {% assign is_external_link = true %}
 {% endif %}
 
-{% assign img_src_414w = cloudinary_img_src | append: 'w_414' %}
-{% assign img_src_768w = cloudinary_img_src | append: 'w_768' %}
-{% assign img_src_1024w = cloudinary_img_src | append: 'w_1024' %}
-{% assign img_src_1990w = cloudinary_img_src | append: 'w_1990' %}
-
 <a href="{{ link }}" {% if is_external_link %} target="_blank" rel="noreferrer noopener" {% endif %} class="NewsFeedItem">
   <div class="NewsFeedItem__inner relative flex py1_25 md:py_75 xs:pr0">
     <div class="flex mr1_25 md:mr2_5 z-1">
-      <img class="NewsFeedItem__image fit-contain w100 h100 radius-sm" alt="{{ image_alt }}" sizes="100vw" srcset="{{img_src_414w}} 414w, {{img_src_768w}} 768w, {{img_src_1024w}} 1024w, {{img_src_1990w}} 1990w" src="{{img_src_1990w}}" />
+      <img class="NewsFeedItem__image fit-contain w100 h100 radius-sm" src="{{ image_src }}" alt="{{ image_alt }}"/>
     </div>
     <div class="flex flex-col md:flex-row items-start justify-between col-12 z-1 md:pt_875">
       <span class="NewsFeedItem__body serif mb_625 md:mb0 col-12 md:col-10">{{ body }}</span>
