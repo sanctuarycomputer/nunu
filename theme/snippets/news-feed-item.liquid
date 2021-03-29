@@ -4,10 +4,13 @@
   {% assign is_external_link = true %}
 {% endif %}
 
+{% assign img_src_55w = cloudinary_src | append: 'w_55' %}
+{% assign img_src_64w = cloudinary_src | append: 'w_64' %}
+
 <a href="{{ link }}" {% if is_external_link %} target="_blank" rel="noreferrer noopener" {% endif %} class="NewsFeedItem">
   <div class="NewsFeedItem__inner relative flex py1_25 md:py_75 xs:pr0">
     <div class="flex mr1_25 md:mr2_5 z-1">
-      <img class="NewsFeedItem__image fit-contain w100 h100 radius-sm" src="{{ image_src }}" alt="{{ image_alt }}"/>
+      <img class="NewsFeedItem__image fit-contain w100 h100 radius-sm" sizes="(min-width: 56.25rem) 64w, 55w" srcset="{{img_src_55w}} 55w, {{img_src_64w}} 64w" src="{{ img_src_55w }}" alt="{{ image_alt }}"/>
     </div>
     <div class="flex flex-col md:flex-row items-start justify-between col-12 z-1 md:pt_875">
       <span class="NewsFeedItem__body serif mb_625 md:mb0 col-12 md:col-10">{{ body }}</span>
