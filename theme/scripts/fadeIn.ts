@@ -1,5 +1,5 @@
 import isInViewport from './utils/isInViewport';
-import { throttle as _throttle } from 'lodash';
+import * as _throttle from 'lodash.throttle';
 
 export default (function() {
   const FadeIn = {
