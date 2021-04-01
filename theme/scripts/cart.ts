@@ -39,7 +39,6 @@ export default(function() {
       addToCart: "Add to cart",
       remove: "Remove",
       removing: "Removing...",
-      updatedCart: "Cart updated",
       auto: "auto",
       none: "none",
     },
@@ -148,7 +147,6 @@ export default(function() {
   
       increment.addEventListener("click", async(e: any) => {
         e.preventDefault();
-        console.log('increment clicked')
 
         try {
           await Cart.changeLineItem(variantId, parseInt(quantity) + 1);
