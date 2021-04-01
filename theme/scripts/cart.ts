@@ -7,7 +7,6 @@ import activatable from './activatable';
 enum Action {
   ADD = 'add',
   REMOVE = 'remove',
-  UPDATE = 'update'
 };
 
 export default(function() {
@@ -87,12 +86,11 @@ export default(function() {
 
     bindRemoveEventListeners(removeButton: any) {
       const lineItemVariantId = removeButton.getAttribute(Cart.ATTRIBUTES.lineItemVariantId);
-      const lineItemQuantity = removeButton.getAttribute(Cart.ATTRIBUTES.lineItemQuantity);
 
       removeButton.addEventListener('click', async(e: any) => {
         e.preventDefault();
 
-        const quantity = parseInt(lineItemQuantity) - parseInt(lineItemQuantity);
+        const quantity = 0;
 
         try {
           Cart.setRemoving(removeButton);
@@ -191,7 +189,7 @@ export default(function() {
         }),
       })
         .then(handleFetchJSONResponse)
-        .then(() => Cart.onChange(variantId, Action.UPDATE))
+        .then(() => Cart.onChange(variantId))
     },  
 
     async removeLineItem(variantId: string, quantity: number) {
@@ -208,7 +206,7 @@ export default(function() {
       .then(() => Cart.onChange(variantId, Action.REMOVE))
     },
 
-    async onChange(variantId: string, action: Action ) {
+    async onChange(variantId: string, action?: Action ) {
       const cartHtml = await Cart.getCartHtml();
       Cart.render(cartHtml);
 
@@ -295,7 +293,7 @@ export default(function() {
       const addToCartVariantId = addToCartButton.getAttribute(Cart.ATTRIBUTES.variantId);
 
       if (addToCartVariantId === variantId) {
-        if (action === Action.ADD || action === Action.UPDATE) {
+        if (action === Action.ADD) {
           addToCartButton.textContent = Cart.CONSTANTS.addedToCart;
           addToCartButton.setAttribute(Cart.ATTRIBUTES.disabled, Cart.ATTRIBUTES.disabled);
         }
