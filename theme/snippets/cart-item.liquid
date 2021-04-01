@@ -17,8 +17,8 @@
         class="CartItem__quantity-spinner serif flex flex-row">
         <button data-decrement class="serif mr1 md:mr_25 color-white button--style-no-style">–</button>
         <span data-quantity-indicator class="color-white">{{ item.quantity }}</span>
-        <button data-increment class="serif ml1 md:ml_25 color-white button--style-no-style">+</button>
-      </div>
+        <button data-increment {% if item.quantity == item.variant.inventory_quantity %} disabled {% endif %} class="serif ml1 md:ml_25 color-white button--style-no-style">+</button>
+        </div>
     </div>
   </div>
 </div>
