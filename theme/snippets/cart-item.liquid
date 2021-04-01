@@ -12,12 +12,12 @@
       <button data-line-item-variant-id={{item.variant_id}} data-line-item-quantity={{item.quantity}} data-remove-from-cart-button aria-label={{ 'snippets.cart.remove_button.aria_label' | t }} class="button--style-no-style sans-xs color-white uppercase">{{ 'snippets.cart.remove_button.text' | t }} </button>
       <div 
         data-quantity-selector 
-        data-quantity-selector-variant-id="{{item.variant_id}}"
+        data-quantity-selector-variant-id="{{ item.variant_id }}"
         data-quantity="{{ item.quantity }}"
         class="CartItem__quantity-spinner serif flex flex-row">
-        <button data-decrement class="color-white button--style-no-style">–</button>
+        <button data-decrement class="serif mr1 md:mr_25 color-white button--style-no-style">–</button>
         <span data-quantity-indicator class="color-white">{{ item.quantity }}</span>
-        <button data-increment class="color-white button--style-no-style">+</button>
+        <button data-increment class="serif ml1 md:ml_25 color-white button--style-no-style">+</button>
       </div>
     </div>
   </div>
