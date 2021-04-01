@@ -1,6 +1,11 @@
 {% assign show_featured_product = collection.metafields.accentuate.show_featured_product %}
+{% assign collection_links = shop.metafields.accentuate.collection_links %}
 
 <h1 class="safe-visibility-hidden">{{ collection.title }}</h1>
+{% if collection_links %}
+  {% render 'collection-links' collection_links: collection_links %}
+{% endif %}
+
 <div class="grid {% if show_featured_product %} grid--style-first-cell-enlarged  {% endif %}">
   {% for product in collection.products %}
     {% render 'product-grid-item', current_product: product, show_featured_product: show_featured_product %}  
