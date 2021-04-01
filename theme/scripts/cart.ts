@@ -6,7 +6,8 @@ import activatable from './activatable';
 
 enum Action {
   ADD = 'add',
-  REMOVE = 'remove'
+  REMOVE = 'remove',
+  UPDATE = 'update'
 };
 
 export default(function() {
@@ -14,6 +15,12 @@ export default(function() {
     SELECTORS: {
       addToCartForm: "[data-add-to-cart-form]",
       addToCartButton: "[data-add-to-cart-button]",
+      quantitySelector: "[data-quantity-selector]",
+      quantity: "data-quantity",
+      increment: "[data-increment]",
+      decrement: "[data-decrement]",
+      quantitySelectorVariantId: "data-quantity-selector-variant-id",
+      quantityIndicator: "[data-quantity-indicator]",
       removeFromCartButton: "[data-remove-from-cart-button]",
       navCartItemCount: "[data-nav-cart-item-count]",
       cartInner: "[data-cart-inner]",
@@ -32,6 +39,7 @@ export default(function() {
       addToCart: "Add to cart",
       remove: "Remove",
       removing: "Removing...",
+      updatedCart: "Cart updated",
       auto: "auto",
       none: "none",
     },
@@ -47,6 +55,12 @@ export default(function() {
 
       const removeLineItemButtons: Element[] = [].slice.call(document.querySelectorAll(Cart.SELECTORS.removeFromCartButton));
       removeLineItemButtons.forEach(Cart.bindRemoveEventListeners);
+
+      const quantitySelector: Element[] = [].slice.call(
+        document.querySelectorAll(Cart.SELECTORS.quantitySelector)
+      );
+      
+      quantitySelector.forEach(Cart.bindQuantitySelectorEventListeners);
     },
 
     bindAddEventListeners(form: Element) {
@@ -79,13 +93,69 @@ export default(function() {
       removeButton.addEventListener('click', async(e: any) => {
         e.preventDefault();
 
-        const quantity = parseInt(lineItemQuantity) - 1;
+        const quantity = parseInt(lineItemQuantity) - parseInt(lineItemQuantity);
 
         try {
           Cart.setRemoving(removeButton);
           await Cart.removeLineItem(lineItemVariantId, quantity);
         } catch (response) {
           Cart.resetRemoving(removeButton);
+          Sentry.captureException(response);
+          throw response;
+        }
+      });
+    },
+
+    bindQuantitySelectorEventListeners(quantitySelector: Element) {
+      const variantId = quantitySelector.getAttribute(
+        Cart.SELECTORS.quantitySelectorVariantId
+      );
+
+      if (!variantId) return;
+  
+      const quantity = quantitySelector.getAttribute(Cart.SELECTORS.quantity);
+      const decrement = quantitySelector.querySelector(Cart.SELECTORS.decrement);
+      const increment = quantitySelector.querySelector(Cart.SELECTORS.increment);
+      const indicator = quantitySelector.querySelector(
+        Cart.SELECTORS.quantityIndicator
+      );
+  
+      if (!decrement) {
+        return console.warn("Missing decrement quantity button");
+      }
+  
+      if (!increment) {
+        return console.warn("Missing increment quantity button");
+      }
+  
+      if (!quantity || isNaN(parseInt(quantity))) {
+        return console.warn("Missing quantity");
+      }
+  
+      if (!indicator) {
+        return console.warn("Missing quantity indicator");
+      }
+  
+      decrement.addEventListener("click", async(e: any) => {
+        e.preventDefault();
+
+        try {
+          await Cart.changeLineItem(variantId, parseInt(quantity) - 1);
+
+        } catch (response) {
+          Sentry.captureException(response);
+          throw response;
+        }
+      });
+  
+      increment.addEventListener("click", async(e: any) => {
+        e.preventDefault();
+        console.log('increment clicked')
+
+        try {
+          await Cart.changeLineItem(variantId, parseInt(quantity) + 1);
+          
+        } catch (response) {
           Sentry.captureException(response);
           throw response;
         }
@@ -110,6 +180,21 @@ export default(function() {
         .then(handleFetchJSONResponse) 
         .then(() => Cart.onChange(variantId, Action.ADD))
     },
+
+    async changeLineItem(variantId: string, quantity: number) {
+      return fetch("/cart/change.js", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: variantId,
+          quantity,
+        }),
+      })
+        .then(handleFetchJSONResponse)
+        .then(() => Cart.onChange(variantId, Action.UPDATE))
+    },  
 
     async removeLineItem(variantId: string, quantity: number) {
       return fetch("/cart/change.js", {
@@ -212,7 +297,7 @@ export default(function() {
       const addToCartVariantId = addToCartButton.getAttribute(Cart.ATTRIBUTES.variantId);
 
       if (addToCartVariantId === variantId) {
-        if (action === Action.ADD) {
+        if (action === Action.ADD || action === Action.UPDATE) {
           addToCartButton.textContent = Cart.CONSTANTS.addedToCart;
           addToCartButton.setAttribute(Cart.ATTRIBUTES.disabled, Cart.ATTRIBUTES.disabled);
         }

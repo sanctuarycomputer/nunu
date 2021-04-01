@@ -36,4 +36,15 @@
       max-height: 17rem;
     }
   }
+
+  &__quantity-spinner {
+    font-size: 2.5rem;
+    line-height: 2.625rem;
+
+    @include media('md-up') {
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+      letter-spacing: 0.0275rem;
+    }
+  }
 }
