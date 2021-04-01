@@ -27,6 +27,7 @@ export default(function() {
 				focus: 'center',
 				perPage: 1.35,
 				trimSpace: false,
+				drag: true
 			}).mount();
 		}
 	};
