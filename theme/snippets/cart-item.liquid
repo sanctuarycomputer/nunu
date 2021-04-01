@@ -15,9 +15,9 @@
         data-quantity-selector-variant-id="{{ item.variant_id }}"
         data-quantity="{{ item.quantity }}"
         class="CartItem__quantity-spinner serif flex flex-row">
-        <button data-decrement class="serif mr1 md:mr_25 color-white button--style-no-style">–</button>
+        <button data-decrement {% if item.quantity == 1 %} disabled {% endif %} class="CartItem__decrement serif mr1 md:mr_25 color-white button--style-no-style">–</button>
         <span data-quantity-indicator class="color-white">{{ item.quantity }}</span>
-        <button data-increment {% if item.quantity == item.variant.inventory_quantity %} disabled {% endif %} class="serif ml1 md:ml_25 color-white button--style-no-style">+</button>
+        <button data-increment {% if item.quantity == item.variant.inventory_quantity %} disabled {% endif %} class="CartItem__increment serif ml1 md:ml_25 color-white button--style-no-style">+</button>
         </div>
     </div>
   </div>

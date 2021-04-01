@@ -47,4 +47,11 @@
       letter-spacing: 0.0275rem;
     }
   }
+
+  &__increment, &__decrement {
+    &[disabled] {
+      cursor: not-allowed;
+      pointer-events: all;
+    }
+  }
 }
