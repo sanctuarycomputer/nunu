@@ -6,7 +6,7 @@ import activatable from './activatable';
 
 enum Action {
   ADD = 'add',
-  REMOVE = 'remove',
+  REMOVE = 'remove'
 };
 
 export default(function() {
