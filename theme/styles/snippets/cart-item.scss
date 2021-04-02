@@ -1,6 +1,11 @@
 .CartItem {
   display: grid;
 
+  // &:not(:last-child) {
+  //   border: 1px solid red;
+  //   // margin-bottom: 0.125rem;
+  // }
+
   //Aspect ratio 
   &::before {
     content: "";
@@ -54,3 +59,4 @@
     }
   }
 }
+

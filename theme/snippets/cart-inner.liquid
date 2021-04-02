@@ -3,9 +3,11 @@
 <div class="Cart__inner border-thick-black overflow-y-scroll">
   <form action="/cart" method="post" novalidate>
     {% if cart_item_count > 0 %}
+      <div class="Cart__inner__items">
         {% for item in cart.items %}
           {% render 'cart-item', item: item %}  
         {% endfor %}
+      </div>
     {% else %}
       {% render 'cart-empty' %}  
     {% endif %}
