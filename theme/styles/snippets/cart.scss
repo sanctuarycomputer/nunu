@@ -1,5 +1,4 @@
 $cart-header-offset: 1px;
-$cart-item-offset: 0.125rem;
 
 .Cart {
   position: fixed;
@@ -35,16 +34,21 @@ $cart-item-offset: 0.125rem;
   &__inner {
     height: calc(100% - #{$nav-height});
 
-    //Adds spacing between the checkout container and the last cart item.
     &:after {
       content: "";
       display: block;
-      height: calc(#{$cart-checkout-container-height} - #{$cart-item-offset});
+      height: $cart-checkout-container-height;
       width: 100%;
     }
 
     @include media('md-up') {
       height: calc(100% - #{$nav-height-md});
+    }
+
+    @include media('lg-up') {
+      &:after {
+        height: $cart-checkout-container-height-lg;
+      }
     }
 
     @include media('lg-xl-up') {
