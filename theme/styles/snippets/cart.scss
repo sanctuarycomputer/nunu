@@ -1,4 +1,5 @@
 $cart-header-offset: 1px;
+$cart-item-offset: 0.125rem;
 
 .Cart {
   position: fixed;
@@ -33,7 +34,14 @@ $cart-header-offset: 1px;
 
   &__inner {
     height: calc(100% - #{$nav-height});
-    padding-bottom: $cart-checkout-container-height;
+
+    //Adds spacing between the checkout container and the last cart item.
+    &:after {
+      content: "";
+      display: block;
+      height: calc(#{$cart-checkout-container-height} - #{$cart-item-offset});
+      width: 100%;
+    }
 
     @include media('md-up') {
       height: calc(100% - #{$nav-height-md});
