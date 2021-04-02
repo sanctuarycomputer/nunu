@@ -42,14 +42,16 @@ export default(function() {
       none: "none",
     },
 
-    init() {
-      const addToCartForms: Element[] = [].slice.call(
-        document.querySelectorAll(Cart.SELECTORS.addToCartForm)
-      );
+    init(skipBindAddToCartForms = false) {
+
+      if (!skipBindAddToCartForms) {
+        const addToCartForms: Element[] = [].slice.call(
+          document.querySelectorAll(Cart.SELECTORS.addToCartForm)
+        );
+        addToCartForms.forEach(Cart.bindAddEventListeners);
+      }
 
       const removeLineItemButtons: Element[] = [].slice.call(document.querySelectorAll(Cart.SELECTORS.removeFromCartButton));
-
-      addToCartForms.forEach(Cart.bindAddEventListeners);
       removeLineItemButtons.forEach(Cart.bindRemoveEventListeners);
 
       const quantitySelector: Element[] = [].slice.call(
@@ -61,7 +63,8 @@ export default(function() {
 
     bindAddEventListeners(form: Element) {
       const formId = form.id;
-      form.addEventListener("submit", async(e: any) => {
+
+      async function handleAddLineItem (e: any) {
         e.preventDefault();
 
         const form = document.getElementById(formId) as HTMLFormElement;
@@ -79,7 +82,9 @@ export default(function() {
           Sentry.captureException(response);
           throw response;
         }
-      });
+      };
+
+      form.addEventListener("submit", handleAddLineItem);
     },
 
     bindRemoveEventListeners(removeButton: any) {
@@ -217,7 +222,12 @@ export default(function() {
         Cart.updateProductInfoBar(variantId, action);
       }
 
-      Cart.init();
+      // TODO: Better solution for mutlie binding events
+      // Prevents Cart.init()
+      // from binding multiple click events
+      // to product#add. This can be done better,
+      // but for the meantime
+      Cart.init(true);
     },
 
     setRemoving(removeButton: HTMLElement) {
@@ -293,6 +303,5 @@ export default(function() {
       }
     },
   };
-
   Cart.init();
 })();
