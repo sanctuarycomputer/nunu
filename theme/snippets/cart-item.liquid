@@ -8,8 +8,17 @@
     <div class="CartItem__image-container flex items-center justify-center absolute t0 r0 h100 w100">
       <img class="CartItem__image w100 h100 fit-contain xs:py1" src={{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
     </div>
-    <div class="CartItem__details absolute r0 b0 p_625 w100">
+    <div class="CartItem__details absolute r0 b0 p_625 w100 flex justify-between">
       <button data-line-item-variant-id={{item.variant_id}} data-line-item-quantity={{item.quantity}} data-remove-from-cart-button aria-label={{ 'snippets.cart.remove_button.aria_label' | t }} class="button--style-no-style sans-xs color-white uppercase">{{ 'snippets.cart.remove_button.text' | t }} </button>
+      <div 
+        data-quantity-selector 
+        data-quantity-selector-variant-id="{{ item.variant_id }}"
+        data-quantity="{{ item.quantity }}"
+        class="CartItem__quantity-spinner serif flex flex-row">
+        <button data-decrement {% if item.quantity == 1 %} disabled {% endif %} class="CartItem__decrement serif mr1 md:mr_25 color-white button--style-no-style">–</button>
+        <span data-quantity-indicator class="color-white">{{ item.quantity }}</span>
+        <button data-increment {% if item.quantity == item.variant.inventory_quantity %} disabled {% endif %} class="CartItem__increment serif ml1 md:ml_25 color-white button--style-no-style">+</button>
+        </div>
     </div>
   </div>
 </div>
