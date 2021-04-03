@@ -36,14 +36,16 @@ export default(function() {
       none: "none",
     },
 
-    init() {
-      const addToCartForms: Element[] = [].slice.call(
-        document.querySelectorAll(Cart.SELECTORS.addToCartForm)
-      );
+    init(bindAddToCartForms = true) {
+
+      if (bindAddToCartForms) {
+        const addToCartForms: Element[] = [].slice.call(
+          document.querySelectorAll(Cart.SELECTORS.addToCartForm)
+        );
+        addToCartForms.forEach(Cart.bindAddEventListeners);
+      }
 
       const removeLineItemButtons: Element[] = [].slice.call(document.querySelectorAll(Cart.SELECTORS.removeFromCartButton));
-
-      addToCartForms.forEach(Cart.bindAddEventListeners);
       removeLineItemButtons.forEach(Cart.bindRemoveEventListeners);
     },
 
@@ -136,7 +138,17 @@ export default(function() {
         Cart.updateProductInfoBar(variantId, action);
       }
 
-      Cart.init();
+      /**
+       * TODO: Better solve for this
+       * Currently, when calling Cart.init()
+       * after when onChange runs, binds multiple event
+       * to the addToCartForm on the product#show page
+       * 
+       * Potential Solutions:
+       * - Move addToCart form logic out of cart
+       * - Track and remove bound event listeners
+       */
+      Cart.init(false);
     },
 
     setRemoving(removeButton: HTMLElement) {
