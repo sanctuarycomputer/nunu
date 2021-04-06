@@ -5,7 +5,6 @@ const ALPHABET = ['a', 'b', 'c', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'o', 'p', 'q
 
 // Medium breakpoint
 const breakpointIsMdUp = 900;
-let windowWidth = 0;
 
 export default (function() {
   const Logo = {
@@ -16,25 +15,24 @@ export default (function() {
     CONSTANTS: {
       index: 'index'
     },
+    STATE: {
+      setInterval: null
+    },
 
     init() {
       const logoEl: HTMLElement = document.querySelector(Logo.SELECTORS.logoText);
       const logoElMobile: HTMLElement = document.querySelector(Logo.SELECTORS.logoTextMobile);
-
-      Logo.bindEventListeners(logoEl);
-      Logo.bindEventListenersToMobileLogo(logoElMobile);
+      Logo.bindEventListeners(logoEl, logoElMobile);
     },
 
-    bindEventListeners(logoEl: HTMLElement) {
+    bindEventListeners(logoEl: HTMLElement, logoElMobile: HTMLElement) {
       logoEl.addEventListener('mouseenter', () => Logo.randomizeLogo(logoEl));
       logoEl.addEventListener('mouseleave', () => Logo.resetLogo(logoEl));
+      window.addEventListener('resize', () => Logo.randomizeLogoOnInterval(logoElMobile));
     },
 
-    bindEventListenersToMobileLogo(logoEl: HTMLElement) {
-      window.addEventListener('resize', () => Logo.randomizeLogoOnInterval(logoEl));
-    },
-
-    randomizeLogo(logoEl: HTMLElement): any {
+    randomizeLogo(logoEl: HTMLElement) {
+      console.log('randomize logo ran')
       const randomCharIndex = getRandomInt(0, 4);
       const randomAlphabetIndex = getRandomInt(0, ALPHABET.length - 1);
 
@@ -44,26 +42,39 @@ export default (function() {
       logoEl.innerHTML = indexArr.join("");
     },
 
-    randomizeLogoOnInterval(logoEl: HTMLElement) {  
-      windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    checkBreakpointAndRandomizeLogo() {
+      // check isMobile
+      // if isMobile  {
 
-      // const randomizeLogoOnIntervalFunc = setInterval(Logo.randomizeLogo(logoEl), 2000);  
-      // setInterval(() => {
-      //   Logo.randomizeLogo(logoEl)
-      // }, 2000);
+      Logo.setInterval = setInterval(() => {
+            Logo.randomizeLogo(logoEl)
+            }, 2000);
+//here's my thing,every 2 secs, call it for me
 
+    }  else {
+      Logo.clearInterval()
 
-      // if (windowWidth < breakpointIsMdUp) {
-      //   // const randomizeLogoOnIntervalFunc = setInterval(Logo.randomizeLogo(logoEl), 2000); 
-
-      //   setInterval(() => {
-      //     Logo.randomizeLogo(logoEl)
-      //   }, 2000);
-      // } else {  
-      //   // clearInterval(randomizeLogoOnIntervalFunc);
-      // }
-
+    }
     },
+
+
+    isMobile() {
+      //checks breakpoint 
+      //if mobile, randomize Logo, otherwise return 
+
+      const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+      if width < breakpointIsMdUp {
+        return true
+      } 
+
+      return false
+    }
+
+    clearInterval() {
+      check, if Logo.setInterval
+      then clearInterval(Logo.setInterval)
+    }
 
     resetLogo(logoEl: HTMLElement) {
       logoEl.innerHTML = Logo.CONSTANTS.index;
@@ -73,3 +84,10 @@ export default (function() {
   Logo.init();
 })();
 
+
+// document.addEventListener("scroll", _throttle(() => 
+// FadeIn.activate(gridItems), 15)
+
+//mozilla docs - to-do
+
+// 
