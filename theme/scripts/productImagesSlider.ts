@@ -16,18 +16,13 @@ export default(function() {
 
 		setup(slider: HTMLElement) {
 			new Splide(slider, {
-				classes: {
-					arrows: 'splide__arrows--override',
-					arrow : 'splide__arrow--override',
-				},
 				speed: 800,
 				type: 'loop',
+				arrows: false,
 				pagination: false,
-				arrows: true,
 				focus: 'center',
 				perPage: 1.35,
-				trimSpace: false,
-				drag: true
+				trimSpace: false
 			}).mount();
 		}
 	};
