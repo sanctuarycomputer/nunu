@@ -9,7 +9,7 @@ export default (function() {
     },
 
     bindEventListeners() {
-      window.addEventListener('load', PageTransition.fadeIn)
+      window.addEventListener('DOMContentLoaded', PageTransition.fadeIn)
     },
 
     fadeIn() {
