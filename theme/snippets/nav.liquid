@@ -18,7 +18,7 @@
 <nav data-activatable-toggleable-item="mobileNav" class="Nav MobileNav md:none {% if show_border_bottom %} border-bottom-black {% endif %} text-nav uppercase sans-serif py_5 px_625 md:px1_25 flex flex-col col-12 bg-color-white z-nav fixed t0 r0 l0">
   <div class="flex justify-between">
     <span class="flex items-center justify-center">
-      <a class="Nav__button logo lowercase radius-xs nav-button-padding--lowercase mr_5 md:mr0" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
+      <a data-logo-text-mobile class="Nav__button logo lowercase radius-xs nav-button-padding--lowercase mr_5 md:mr0" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
       <button data-activatable-activator="mobileNav" class="MobileNav__icon MobileNav__open-icon transition-long bg-color-transparent"><img class="w100 h100 fit-contain" src="{{ 'menu-icon.svg' | asset_url }}" alt="{{ 'snippets.nav.menu_icon.alt' | t }}" /></button>
     </span>
     {% render 'nav-cart' %}
