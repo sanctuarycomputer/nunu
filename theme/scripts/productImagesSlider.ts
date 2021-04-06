@@ -22,8 +22,8 @@ export default(function() {
 				},
 				speed: 800,
 				type: 'loop',
-				arrows: true,
 				pagination: false,
+				arrows: true,
 				focus: 'center',
 				perPage: 1.35,
 				trimSpace: false

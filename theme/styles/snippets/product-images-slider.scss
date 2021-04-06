@@ -13,7 +13,7 @@
     //Hide the arrows on mobile, so the images are swipeable.
     display: none;
 
-    @include media('md-up') {
+    @include media('sm-up') {
       display: block;
       position: absolute;
       z-index: 1;
