@@ -21,7 +21,7 @@ export default (function() {
     },
 
     bindEventListeners(gridItems: Element[]) {
-      window.addEventListener("load", () => {
+      window.addEventListener("DOMContentLoaded", () => {
         FadeIn.activate(gridItems);
       });
 
