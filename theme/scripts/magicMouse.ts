@@ -19,7 +19,6 @@ export default (function() {
   });
 
   b.on("message", function(address, msg) {
-    console.log(msg);
     if ((address !== myAddress) && (window.location.pathname === msg.pathname)) {
       lastKnownState[address] = lastKnownState[address] || {}
       if (!lastKnownState[address].cursor) {
