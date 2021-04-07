@@ -26,7 +26,7 @@ export default(function() {
 				arrows: true,
 				focus: 'center',
 				perPage: 1.35,
-				trimSpace: false,
+				trimSpace: false
 			}).mount();
 		}
 	};

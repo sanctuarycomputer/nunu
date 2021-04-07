@@ -47,14 +47,12 @@ $transition-easing: ease-in-out;
   }
 }
 
-@keyframes animation-fade-in-up {
+@keyframes animation-fade-in {
   0% {
-    transform: translate3d(0, 1.125rem, 0);
     opacity: 0;
   }
 
   100% {
-    transform: translate3d(0, 0, 0);
     opacity: 1;
   }
 }

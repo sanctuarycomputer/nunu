@@ -10,9 +10,15 @@
   }
 
   .splide__arrow--override {
-    position: absolute;
-    z-index: 1;
-    opacity: 0;
+    //Hide the arrows on mobile, so the images are swipeable.
+    display: none;
+
+    @include media('sm-up') {
+      display: block;
+      position: absolute;
+      z-index: 1;
+      opacity: 0;
+    }
   }
 
   .splide__arrow--prev {
