@@ -1,9 +1,9 @@
-const breakpointIsMdUp = 900;
+const mdBreakpoint = 900;
 
 const isMobile = () => {
   const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-  if (width < breakpointIsMdUp) {
+  if (width < mdBreakpoint) {
     return true
   } 
 
