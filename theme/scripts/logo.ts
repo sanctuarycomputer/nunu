@@ -1,4 +1,4 @@
-import * as _throttle from 'lodash.throttle';
+import * as _debounce from 'lodash.debounce';
 import getRandomInt from './utils/getRandomInt';
 import isMobile from './utils/isMobile';
 
@@ -15,7 +15,7 @@ export default (function() {
       index: 'index'
     },
     STATE: {
-      setInterval: null
+      setIntervalId: null
     },
 
     init() {
@@ -27,19 +27,21 @@ export default (function() {
     bindEventListeners(logoEl: HTMLElement, logoElMobile: HTMLElement) {
       logoEl.addEventListener('mouseenter', () => Logo.randomizeLogo(logoEl));
       logoEl.addEventListener('mouseleave', () => Logo.resetLogo(logoEl));
+
       window.addEventListener('DOMContentLoaded', () => Logo.checkBreakpointAndRandomizeLogo(logoElMobile));
-      window.addEventListener('resize', () => Logo.checkBreakpointAndRandomizeLogo(logoElMobile));
+      window.addEventListener('resize', _debounce(() => 
+      Logo.checkBreakpointAndRandomizeLogo(logoElMobile), 150));
     },
 
     checkBreakpointAndRandomizeLogo(logoElMobile: HTMLElement) {
-      if (isMobile) {
-        Logo.STATE.setInterval = setInterval(() => {
-          Logo.randomizeLogo(logoElMobile)
-          }, 2000);  
+      if (isMobile()) {        
+        Logo.STATE.setIntervalId = setInterval(() => {
+          Logo.randomizeLogo(logoElMobile);
+          }, 3000); 
+
       } else {
         Logo.clearInterval();
       };
-
     },
 
     randomizeLogo(logoEl: HTMLElement) {
@@ -53,9 +55,10 @@ export default (function() {
     },
 
     clearInterval() {
-      if (Logo.STATE.setInterval) {
-        clearInterval(Logo.STATE.setInterval)
-      }
+      if (Logo.STATE.setIntervalId) {
+        clearInterval(Logo.STATE.setIntervalId);
+        Logo.STATE.setIntervalId = null;
+      };
 
       return;
     },
