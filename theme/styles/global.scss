@@ -9,6 +9,14 @@
   }
 }
 
+.magic-mouse {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  background: color('black');
+  border-radius: 999px;
+}
+
 .site-margin-x {
   margin-left: $site-padding-x-mobile;
   margin-right: $site-padding-x-mobile;
@@ -82,7 +90,7 @@ body {
   border-bottom: 2px solid color('black');
 }
 
-.bulleted {  
+.bulleted {
   &::before {
     content: "●";
     margin-right: 0.25em;
@@ -107,7 +115,7 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
-  
+
   &--style-first-cell-enlarged {
     @include media('lg-up') {
       > :first-child {

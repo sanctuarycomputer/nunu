@@ -82,7 +82,7 @@ yarn install
 2. Spin up the project
 
 ```sh
-yarn start
+yarn watch
 ```
 
 ### Development
