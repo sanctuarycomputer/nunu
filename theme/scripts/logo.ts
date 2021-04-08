@@ -34,7 +34,9 @@ export default (function() {
     },
 
     checkBreakpointAndRandomizeLogo(logoElMobile: HTMLElement) {
-      if (isMobile()) {        
+      if (isMobile()) {
+        if (Logo.STATE.setIntervalId) return;
+
         Logo.STATE.setIntervalId = setInterval(() => {
           Logo.randomizeLogo(logoElMobile);
           }, 3000); 
