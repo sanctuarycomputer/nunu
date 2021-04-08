@@ -10,7 +10,7 @@ function getDocumentHeight() {
 };
 
 export default (function() {
-  const b = new Bugout("org.index-space", {"announce": ["wss://index-space-p2p.herokuapp.com"]});
+  const b = new window.Bugout("org.index-space", {"announce": ["wss://index-space-p2p.herokuapp.com"]});
   const myAddress = b.address();
   const lastKnownState = {};
 
