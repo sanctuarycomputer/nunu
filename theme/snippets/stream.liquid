@@ -1,0 +1,16 @@
+{% if shop.metafields.accentuate.show_twitch_stream %}
+  <div
+    id="stream"
+    class="{% if template.name != "index" %}pip{% endif %} site-padding-x pt_625 md:pt1_25">
+    <div class="stream__wrapper">
+      <iframe
+        src="https://player.twitch.tv/?channel=indexspace&parent=index-space.org"
+        height="100%"
+        width="100%"
+        autoplay="true"
+        muted="true"
+        allowfullscreen="true">
+      </iframe>
+    </div>
+  </div>
+{% endif %}
