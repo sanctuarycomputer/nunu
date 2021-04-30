@@ -35,7 +35,7 @@ jobs:
       - run: yarn run build:js
 
       - name: Invoke Themegit
-        uses: in-house-dot-dev/themegit@v1
+        uses: in-house-dot-dev/themegit@v2
         with:
           BUILT_THEME_DIR: './theme'
           SHOPIFY_STORE_DOMAIN: ${{ secrets.SHOPIFY_STORE_DOMAIN }}
