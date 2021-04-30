@@ -42,7 +42,7 @@ jobs:
       # Invoke Themegit
       - name: Invoke Themegit
         id: themegit
-        uses: in-house-dot-dev/themegit@v4
+        uses: in-house-dot-dev/themegit@v5
         with:
           BUILT_THEME_DIR: './theme'
           SHOPIFY_STORE_DOMAIN: 'nunu-school.myshopify.com'
@@ -62,5 +62,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '🤖 [themegit] The theme preview URL for ${{ steps.vars.outputs.sha_short }} is available here: ${{ steps.themegit.outputs.SHOPIFY_THEME_PREVIEW_URL }}'
+              body: '🤖 [themegit] The theme preview URL for ${{ steps.vars.outputs.sha_short }} is now deployed here: ${{ steps.themegit.outputs.SHOPIFY_THEME_PREVIEW_URL }}'
             })
