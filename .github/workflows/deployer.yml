@@ -39,17 +39,21 @@ jobs:
       - run: yarn install
       - run: yarn run build:js
 
+      # Invoke Themegit
       - name: Invoke Themegit
         id: themegit
-        uses: in-house-dot-dev/themegit@v3
+        uses: in-house-dot-dev/themegit@v4
         with:
           BUILT_THEME_DIR: './theme'
           SHOPIFY_STORE_DOMAIN: 'nunu-school.myshopify.com'
           SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PASSWORD }}
 
-      - name: Get the preview URL
-        run: echo "The preview URL was ${{ steps.themegit.outputs.SHOPIFY_THEME_PREVIEW_URL }}"
+      # Set short SHA
+      - name: Set outputs
+        id: vars
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
+      # Comment back on the thread
       - uses: actions/github-script@v4
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
@@ -58,5 +62,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '🤖 [themegit] Your theme Preview URL is available here: ${{ steps.themegit.outputs.SHOPIFY_THEME_PREVIEW_URL }}'
+              body: '🤖 [themegit] The theme preview URL for ${{ steps.vars.outputs.sha_short }} is available here: ${{ steps.themegit.outputs.SHOPIFY_THEME_PREVIEW_URL }}'
             })
