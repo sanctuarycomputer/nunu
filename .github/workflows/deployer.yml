@@ -42,5 +42,5 @@ jobs:
           SHOPIFY_STORE_DOMAIN: ${{ secrets.SHOPIFY_STORE_DOMAIN }}
           SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PASSWORD }}
 
-    - name: Get the preview URL
-      run: echo "The preview URL was ${{ steps.themegit.outputs.SHOPIFY_THEME_PREVIEW_URL }}"
+      - name: Get the preview URL
+        run: echo "The preview URL was ${{ steps.themegit.outputs.SHOPIFY_THEME_PREVIEW_URL }}"
