@@ -1,0 +1,66 @@
+name: Deployer
+on: pull_request
+
+jobs:
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: View context attributes
+        uses: actions/github-script@v4
+        with:
+          script: console.log(context)
+
+      # Checkout the repo
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Use Node.js 12.x
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      # Restore Node Modules from Cache
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      # Install & Build
+      - run: yarn install
+      - run: yarn run build:js
+
+      # Invoke Themegit
+      - name: Invoke Themegit
+        id: themegit
+        uses: in-house-dot-dev/themegit@v6
+        with:
+          BUILT_THEME_DIR: './theme'
+          SHOPIFY_STORE_DOMAIN: 'nunu-school.myshopify.com'
+          SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PASSWORD }}
+
+      # Set short SHA
+      - name: Set outputs
+        id: vars
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+
+      # Comment back on the thread
+      - uses: actions/github-script@v4
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🤖 [themegit] The theme preview URL for ${{ steps.vars.outputs.sha_short }} is now deployed here: ${{ steps.themegit.outputs.SHOPIFY_THEME_PREVIEW_URL }}'
+            })
