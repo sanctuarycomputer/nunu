@@ -14,6 +14,10 @@
         <img src="{{ featured_image | img_url: '1200x' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" class="fit-contain w100">
       </div>
   {% endif %}
+    <div class="flex flex-col md:none">
+      {% render 'product-instructor' product: product %}
+      {% render 'add-to-cart-container' product: product %}
+    </div>
   </div>
 
   <div class="Product__description site-padding-x py1_25 md:col-9 color-black">
