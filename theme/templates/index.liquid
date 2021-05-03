@@ -10,7 +10,6 @@
   </div>
 {% endif %}
 <div class="grid {% if show_featured_product %} grid--style-first-cell-enlarged  {% endif %}">
-  HELLO
   {% for product in collections.frontpage.products %}
     {% render 'product-grid-item', current_product: product, show_featured_product: show_featured_product %}
   {% endfor %}

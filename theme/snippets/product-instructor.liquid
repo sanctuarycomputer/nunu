@@ -24,11 +24,13 @@
 {% if current_variant.metafields.bookings != blank %}
   <span class="ProductInstructor color-black uppercase flex flex-row items-center">
     {% if vendor_avatar != blank %}
-      <img class="ProductVendor__avatar radius-xs lg:radius-sm w100 fit-cover" alt={{ 'snippets.product_vendor.avatar.alt' | t }} src={{vendor_avatar}} >
+      <img class="ProductInstructor__avatar radius-xs lg:radius-sm w100 fit-cover" alt={{ 'snippets.product_vendor.avatar.alt' | t }} src={{vendor_avatar}} >
     {% endif %}
       <span class="flex flex-col">
-        <span class="sans-xxxs pb_75">{{ 'snippets.product_vendor.instructor' | t }}</span>
-        <span class="ProductVendor__name">{{ vendor_name }}</span>
+        <span class="flex flex-col content-center">
+          <span class="sans-xxxs pb_25">{{ 'snippets.product_vendor.instructor' | t }}</span>
+          <span class="ProductInstructor__name">{{ vendor_name }}</span>
+        </span>
       </span>
   </span>
 {% endif %}
