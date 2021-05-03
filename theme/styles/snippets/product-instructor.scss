@@ -1,0 +1,15 @@
+.ProductInstructor {
+  &__name {
+    @extend .sans-xs
+  }
+
+  &__avatar {
+    height: $product-vendor-avatar-height;
+    width: $product-vendor-avatar-width;
+    margin-right: 0.3125rem;
+
+    @include media('lg-up') {
+      margin-right: 0.75rem;
+    }
+  }
+}

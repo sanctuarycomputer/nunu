@@ -1,45 +1,14 @@
 $product-detail-height: 3.25rem;
 
 .ProductInfoBar {
-  background-color: color('black');
-  position: sticky;
-  top: calc(#{$nav-height} - #{$product-detail-height});
-  
-  @include media('md-up') {
-    top: $nav-height-md;
-  }
-
-  @include media('lg-xl-up') {
-    top: $nav-height-lg-xl;
-  }
-
-  &__product-details {
-    @include media('md-up') {
-      border-bottom: 0;
-    }
-  }
-
-  &__type {
-    &::after {
-      content: '';
-      display: block;
-      height: 0;
-      width: 0;
-      margin-bottom: (calc((1 - 1.13) * 0.5em));
-    }
-  }
-
-  &__add-to-cart-container {
-    @include media('md-up') {
-      padding-right: 0.62rem;
-    }
+  &__title, &__price {
+    font-size: 2rem;
+    line-height: 2.1rem;
+    letter-spacing: 0.0275rem;
 
     @include media('lg-up') {
-      padding-right: 0.5rem;
-    }
-
-    @include media('xl-up') {
-      padding-right: 0.75rem;
+      font-size: 2.5rem;
+      line-height: 2.625rem;
     }
   }
 }

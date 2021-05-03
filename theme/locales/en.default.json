@@ -96,7 +96,8 @@
     "product_vendor": {
       "avatar": {
         "alt": "Image of product vendor"
-      }
+      },
+      "instructor": "Instructor"
     },
     "product_grid_item": {
       "product_btn": {

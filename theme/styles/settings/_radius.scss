@@ -4,6 +4,7 @@ $border-radius: (
   'sm': 0.625rem,
   'md': 0.75rem,
   'lg': 0.9375rem,
+  'xl': 1.25rem
 );
 
 @function radius($radius) {

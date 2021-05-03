@@ -1,3 +1,5 @@
+{% assign brief_product_description = product.metafields.accentuate.brief_product_description %}
+
 <!-- Check if product already exists in cart -->
 {% for item in cart.items %}
   {% if item.product.id == product.id %}
@@ -36,17 +38,21 @@
   {% endcase %}
 {% endif %}
 
-<div class="ProductInfoBar border-thick-top-white border-thick-bottom-white flex flex-col md:flex-row justify-between z-1">
-  <span class="ProductInfoBar__product-details col-12 md:col-7 flex items-center sans-light-sm uppercase color-white border-thick-bottom-white px_625 py1 md:pr0 md:pl1 md:py1_3125">
-    <span class="ProductInfoBar__type bulleted">{{product_type}}</span>
-    <span class="ProductInfoBar__tags">
-      {% for tag in product.tags %}
-        <span class="ml_625 radius-xs border-white p_25">{{ tag }}</span>
-      {% endfor %}
+<div class="ProductInfoBar flex flex-col z-1 col-12 md:col-3 md:pr2_5 px_625 md:pl_75">
+  <span class="ProductInfoBar__product-details flex flex-col sans-light-sm color-black">
+    <div class="serif flex flex-row justify-between">
+      <h1 class="ProductInfoBar__title">{{ product.title }}</h1>
+      <span class="ProductInfoBar__price text-right">{{ product.price | money_without_trailing_zeros }}</span>
+    </div>
+    <span class="sans-xs pt_625 pb1_5 md:pt1_5 md:pb1_125">
+      {{ brief_product_description }}
     </span>
+    {% render 'product-instructor' product: product %}
   </span>
-  <div class="ProductInfoBar__add-to-cart-container col-12 md:col-5 flex flex-row justify-start md:justify-end px_625 py1 md:pl0 md:py1_3125 color-white sans-light-md uppercase">
-    <form data-add-to-cart-form data-product-type={{product_type}} action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+
+
+  <div class="ProductInfoBar__add-to-cart-container radius-xs bg-color-black py_75">
+    <form data-add-to-cart-form data-product-type={{product_type}} action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="w100">
       <select class="{% if product.variants.size <= 1 %} none {% endif %}" name="variant" data-variant-selector>
         {% for variant in product.variants %}
           <option value="{{ variant.id }}">
@@ -54,9 +60,11 @@
           </option>
         {% endfor %}
       </select>
-      <button data-variant-id={{product.first_available_variant.id}} data-add-to-cart-button {% if button_disabled %} disabled {% endif %} class="button--style-rounded-border-sm-white sans-light-md uppercase bg-color-transparent color-white" type="submit" name="add" id="AddToCart">
+      <button data-variant-id={{product.first_available_variant.id}} data-add-to-cart-button {% if button_disabled %} disabled {% endif %} class="w100 bg-color-transparent color-white uppercase sans-light-sm" type="submit" name="add" id="AddToCart">
         {{button_label}}
       </button>
     </form>
   </div>
+
+
 </div>
