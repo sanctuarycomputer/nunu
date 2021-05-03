@@ -1,0 +1,70 @@
+{% assign brief_product_description = product.metafields.accentuate.brief_product_description %}
+
+<!-- Check if product already exists in cart -->
+{% for item in cart.items %}
+  {% if item.product.id == product.id %}
+    {% assign product_in_cart = true %}
+    {% break %}
+  {% else %}
+    {% assign product_in_cart = false %}
+  {% endif %}
+{% endfor %}
+
+<!-- Get product type -->
+{% assign product_type = "" %}
+{% if product.first_available_variant.metafields.bookings != blank %}
+  {% assign product_type = product.first_available_variant.metafields.bookings.bookable_type %}
+{% else %}
+  {% assign product_type = product.type %}
+{% endif %}
+
+<!-- Assign label and disabled state to add to cart button -->
+{% capture button_label %}{{"snippets.product_info_bar.add_to_cart_btn.text" | t }}{% endcapture %}
+{% assign button_disabled = false %}
+{% if product.available %}
+  {% if product_in_cart %}
+    {% capture button_label %}{{"snippets.product_info_bar.added_to_cart_btn.text" | t }}{% endcapture %}
+    {% assign button_disabled = true %}
+  {% endif %}
+{% else %}
+  {% case product_type %}
+    {% when "Course" %}
+    {% when "Event" %}
+      {% capture button_label %}{{"snippets.product_info_bar.registration_closed_btn.text" | t }}{% endcapture %}
+      {% assign button_disabled = true %}
+    {% else %}
+      {% capture button_label %}{{"snippets.product_info_bar.sold_out_btn.text" | t }}{% endcapture %}
+      {% assign button_disabled = true %}
+  {% endcase %}
+{% endif %}
+
+<div class="ProductInfoBar flex flex-col z-1 col-12 md:col-3 md:pr2_5 px_625 md:pl_75">
+  <span class="ProductInfoBar__product-details flex flex-col sans-light-sm color-black">
+    <div class="serif flex flex-row justify-between">
+      <h1 class="ProductInfoBar__title">{{ product.title }}</h1>
+      <span class="ProductInfoBar__price text-right">{{ product.price | money_without_trailing_zeros }}</span>
+    </div>
+    <span class="sans-xs pt_625 pb1_5 md:pt1_5 md:pb1_125">
+      {{ brief_product_description }}
+    </span>
+    {% render 'product-instructor' product: product %}
+  </span>
+
+
+  <div class="ProductInfoBar__add-to-cart-container radius-xs bg-color-black py_75">
+    <form data-add-to-cart-form data-product-type={{product_type}} action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="w100">
+      <select class="{% if product.variants.size <= 1 %} none {% endif %}" name="variant" data-variant-selector>
+        {% for variant in product.variants %}
+          <option value="{{ variant.id }}">
+            {{ variant.title }}
+          </option>
+        {% endfor %}
+      </select>
+      <button data-variant-id={{product.first_available_variant.id}} data-add-to-cart-button {% if button_disabled %} disabled {% endif %} class="w100 bg-color-transparent color-white uppercase sans-light-sm" type="submit" name="add" id="AddToCart">
+        {{button_label}}
+      </button>
+    </form>
+  </div>
+
+
+</div>
