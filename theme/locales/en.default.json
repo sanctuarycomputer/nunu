@@ -135,12 +135,6 @@
       "sold_out_btn": {
         "aria_label": "Product is sold out",
         "text": "Sold out"
-      },
-      "variant_btn": {
-        "placeholder_text": "Variant"
-      },
-      "quantity_btn": {
-        "placeholder_text": "Quantity"
       }
     },
     "404": {
