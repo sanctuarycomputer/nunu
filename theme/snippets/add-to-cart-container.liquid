@@ -15,6 +15,7 @@
 
 <div class="AddToCartContainer">
   <form data-add-to-cart-form data-product-type={{product_type}} action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+<<<<<<< HEAD
     <div class="AddToCartContainer__quantity-select-wrapper overflow-hidden relative {% if product.variants.size <= 1 %} mb1_75 {% endif %}">
       <label for="quantity" type="number" name="quantity" aria-label={{"snippets.add_to_cart_container.quantity_spinner.label" | t }}></label>
       <select class="sans-xs uppercase radius-xs border-black w100 pl1_125 py_5" name="quantity" id="Quantity" data-quantity-selector>
@@ -23,13 +24,24 @@
         TO-DO: Add notification if user adds quantity > product inventory
         {% endcomment %}
         {% for i in (1...10) %}
+=======
+    <div class="AddToCartContainer__quantity-wrapper mt_625{% if product.variants.size <= 1 %} mb1_75 {% endif %}">
+      <select class="sans-xs uppercase radius-xs border-black w100 pl1_125 py_5" name="quantity" id="Quantity" data-quantity-selector>
+        <option value="" selected="selected">{{"snippets.add_to_cart_container.quantity_spinner.label" | t }}</option>
+        {% for i in (1...10) limit: product.selected_or_first_available_variant.inventory_quantity %}
+>>>>>>> update styling
           <option value="{{ i }}">{{ i }}</option>
         {% endfor %}       
       </select>
     </div>
+<<<<<<< HEAD
     <div class="AddToCartContainer__variant-select-wrapper overflow-hidden relative mt_625 mb1_75{% if product.variants.size <= 1 %} none {% endif %}">
       <label for="variant" type="text" name="variant" aria-label={{"snippets.add_to_cart_container.variant_select.label" | t }}></label>
       <select class="sans-xs uppercase radius-xs border-black w100 pl1_125 py_5 {% if product.variants.size <= 1 %} none {% endif %}" name="variant">
+=======
+    <div class="AddToCartContainer__select-wrapper mt_625 mb1_75 {% if product.variants.size <= 1 %} none {% endif %}">
+      <select class="sans-xs uppercase radius-xs border-black w100 pl1_125 py_5 {% if product.variants.size <= 1 %} none {% endif %}" name="variant" data-variant-selector>
+>>>>>>> update styling
         {% if product.variants.size > 1 %}
           <option value="" selected="selected">{{"snippets.add_to_cart_container.variant_select.label" | t }}</option>
         {% endif %}
