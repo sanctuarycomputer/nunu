@@ -139,7 +139,7 @@
       "quantity_spinner": {
         "label": "Quantity"
       },
-      "variant_selector": {
+      "variant_select": {
         "label": "Variant"
       }
     },

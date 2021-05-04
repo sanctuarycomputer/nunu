@@ -37,7 +37,7 @@
       <select class="sans-xs uppercase radius-xs border-black w100 pl1_125 py_5 {% if product.variants.size <= 1 %} none {% endif %}" name="variant">
       <select class="sans-xs uppercase radius-xs border-black w100 pl1_125 py_5 {% if product.variants.size <= 1 %} none {% endif %}" name="variant" data-variant-selector>
         {% if product.variants.size > 1 %}
-          <option value="" selected="selected">{{"snippets.add_to_cart_container.variant_selector.label" | t }}</option>
+          <option value="" selected="selected">{{"snippets.add_to_cart_container.variant_select.label" | t }}</option>
         {% endif %}
         {% for variant in product.variants %}
           <option value="{{ variant.id }}">
