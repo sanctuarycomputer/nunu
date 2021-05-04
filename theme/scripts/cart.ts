@@ -15,6 +15,7 @@ export default(function() {
       addToCartForm: "[data-add-to-cart-form]",
       addToCartButton: "[data-add-to-cart-button]",
       quantitySelector: "[data-quantity-selector]",
+      variantSelector: "[data-variant-selector]",
       quantity: "data-quantity",
       increment: "[data-increment]",
       decrement: "[data-decrement]",
@@ -287,6 +288,9 @@ export default(function() {
 
     updateProductInfoBar(variantId: string, action: Action) {
       const addToCartButton = document.querySelector(Cart.SELECTORS.addToCartButton);
+      const selectedVariant = document.querySelector(Cart.SELECTORS.variantSelector);
+
+      console.log('sleceted variant', selectedVariant)
 
       if (!addToCartButton) return;
       
