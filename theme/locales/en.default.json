@@ -119,7 +119,7 @@
         "aria_label": "See more collections"
       }
     },
-    "product_info_bar": {
+    "add_to_cart_container": {
       "add_to_cart_btn": {
         "aria_label": "Add product to cart",
         "text": "Add to cart"
@@ -135,6 +135,12 @@
       "sold_out_btn": {
         "aria_label": "Product is sold out",
         "text": "Sold out"
+      },
+      "variant_btn": {
+        "placeholder_text": "Variant"
+      },
+      "quantity_btn": {
+        "placeholder_text": "Quantity"
       }
     },
     "404": {
