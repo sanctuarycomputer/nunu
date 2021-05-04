@@ -1,5 +1,5 @@
 .AddToCartContainer {
-  &__variant-select-wrapper, &__quantity-select-wrapper {    
+  &__variant-selector-wrapper, &__quantity-selector-wrapper {    
       &::after {
         content: "▼";
         font-size: 1rem;
