@@ -26,13 +26,4 @@
   select::-ms-expand {
     display: none; /* remove default caret for ie */
   }
-
-  input[type=number]::-webkit-inner-spin-button {
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    right: 1.125rem;
-    height: 100%;
-    width: 20px;
-  }
 }
