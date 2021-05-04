@@ -288,10 +288,7 @@ export default(function() {
 
     updateProductInfoBar(variantId: string, action: Action) {
       const addToCartButton = document.querySelector(Cart.SELECTORS.addToCartButton);
-      const selectedVariant = document.querySelector(Cart.SELECTORS.variantSelector);
-
-      console.log('sleceted variant', selectedVariant)
-
+      
       if (!addToCartButton) return;
       
       const addToCartVariantId = addToCartButton.getAttribute(Cart.ATTRIBUTES.variantId);
