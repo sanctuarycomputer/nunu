@@ -20,13 +20,20 @@
 
 <div class="AddToCartContainer">
   <form data-add-to-cart-form data-product-type={{product_type}} action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-    <select class="{% if product.variants.size <= 1 %} none {% endif %}" name="variant" data-variant-selector>
-    {% for variant in product.variants %}
-      <option value="{{ variant.id }}">
-        {{ variant.title }}
-      </option>
-    {% endfor %}
-  </select>
+    <label for="quantity" type="number" name="quantity" aria-label={{"snippets.add_to_cart_container.quantity_spinner.label" | t }}></label>
+    <input class="sans-xs uppercase radius-xs border-black w100 pl1_125 py_5{% if product.variants.size <= 1 %} mb1_75 {% endif %}" type="number" id="Quantity" name="quantity" value="1" min="1" max="{{ product.selected_or_first_available_variant.inventory_quantity}}">
+    <div class="AddToCartContainer__select-wrapper mt_625 mb1_75 {% if product.variants.size <= 1 %} none {% endif %}">
+      <select class="sans-xs uppercase radius-xs border-black w100 pl1_125 py_5 {% if product.variants.size <= 1 %} none {% endif %}" name="variant" data-variant-selector>
+        {% if product.variants.size > 1 %}
+          <option value="" selected="selected">{{"snippets.add_to_cart_container.variant_select.label" | t }}</option>
+        {% endif %}
+        {% for variant in product.variants %}
+          <option value="{{ variant.id }}">
+            {{ variant.title }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
     <button data-variant-id={{product.first_available_variant.id}} data-add-to-cart-button {% if button_disabled %} disabled {% endif %} class="w100 color-white uppercase sans-light-sm radius-xs bg-color-black py_75" type="submit" name="add" id="AddToCart">
       {{button_label}}
     </button>

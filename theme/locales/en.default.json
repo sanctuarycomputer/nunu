@@ -135,6 +135,12 @@
       "sold_out_btn": {
         "aria_label": "Product is sold out",
         "text": "Sold out"
+      },
+      "quantity_spinner": {
+        "label": "Quantity"
+      },
+      "variant_select": {
+        "label": "Variant"
       }
     },
     "404": {
