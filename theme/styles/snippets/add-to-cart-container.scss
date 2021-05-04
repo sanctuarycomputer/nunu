@@ -1,8 +1,5 @@
 .AddToCartContainer {
-  &__select-wrapper, &__quantity-wrapper {
-    overflow: hidden;
-    position: relative;
-    
+  &__variant-select-wrapper, &__quantity-select-wrapper {    
       &::after {
         content: "▼";
         font-size: 1rem;
