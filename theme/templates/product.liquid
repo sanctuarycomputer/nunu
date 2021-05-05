@@ -4,27 +4,27 @@
 {% assign related_products_handles = product.metafields.accentuate.related_products | split: '|' %}
 {% assign product_description = product.metafields.accentuate.product_description %}
 
-<div class="Product pt_625 md:pt1_25 bg-color-black">
-  <div class="site-padding-x flex justify-between">
-    <div class="col-10">
-      <h1 class="Product__title serif color-white">{{ product.title }}</h1>
-      {% render 'product-vendor' product: product %}
-    </div>
-    <span class="Product__price col-2 serif color-white text-right">{{ product.price | money_without_trailing_zeros }}</span>
-  </div>
-  {% if product.images.size > 1 %}
+<div class="Product pt_625 md:pt1_25">
+  <div class="Product_hero border-bottom-black flex flex-col md:flex-row pb1_25 md:pb_625">
+    {% render 'product-info' product: product %}
+    {% if product.images.size > 1 %}
     {% include 'product-images-slider' %}
     {% else %}
-      <div class="Product__hero-image-container flex items-center justify-center p2 md:p3">
+      <div class="Product__hero-image-container radius-xl flex items-center justify-center p2 md:p3 col-12 md:col-9 bg-color-black">
         <img src="{{ featured_image | img_url: '1200x' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" class="fit-contain w100">
       </div>
   {% endif %}
-  {% render 'product-info-bar' product: product %}
-  <div class="Product__description site-padding-x py1_25 md:col-9 color-white">
+    <div class="flex flex-col md:none">
+      {% render 'product-instructor' product: product %}
+      {% render 'add-to-cart-container' product: product %}
+    </div>
+  </div>
+
+  <div class="Product__description site-padding-x py1_25 md:col-9 color-black">
     {{ product.description }}
   </div>
   {% if related_products_heading %}
-    <div class="site-padding-x uppercase color-white serif-xl pb2_5">{{ related_products_heading }}</div>
+    <div class="site-padding-x uppercase color-black serif-xl pb2_5">{{ related_products_heading }}</div>
   {% endif %}
   <div class="grid grid--style-padding-x-0 bg-color-white pt_125">
     {% for related_products_handle in related_products_handles %}

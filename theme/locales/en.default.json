@@ -96,7 +96,8 @@
     "product_vendor": {
       "avatar": {
         "alt": "Image of product vendor"
-      }
+      },
+      "instructor": "Instructor"
     },
     "product_grid_item": {
       "product_btn": {
@@ -118,7 +119,7 @@
         "aria_label": "See more collections"
       }
     },
-    "product_info_bar": {
+    "add_to_cart_container": {
       "add_to_cart_btn": {
         "aria_label": "Add product to cart",
         "text": "Add to cart"

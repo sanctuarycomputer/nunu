@@ -12,32 +12,8 @@
   }
   
   &__vendor-avatar {
-    height: $vendor-avatar-height-mobile;
-    width: $vendor-avatar-height-mobile;
-
-    @include media('lg-up') {
-      height: $vendor-avatar-height-desktop;
-      width: $vendor-avatar-height-desktop;
-    }
-  }
-
-  &__title {
-    font-size: 2.5rem;
-    line-height: 2.625rem;
-    letter-spacing: 0.0275rem;
-
-    @include media('lg-up') {
-      font-size: 3.125rem;
-      line-height: 2.8125rem;
-    }
-  }
-  
-  &__price {
-    font-size: 1.125rem;
-
-    @include media('md-up') {
-      font-size: 2.5rem;
-    }
+    height: $product-vendor-avatar-height;
+    width: $product-vendor-avatar-width;
   }
 
   &__description {
@@ -56,11 +32,11 @@
       font-family: $serif;
     }
   
-    h4, h5, h6 {
+    h4, h5 {
       font-family: $sans-serif;
     }
   
-    h1, h2, h3, h4, h5, h6, ol {
+    h1, h2, h3, h4, h5, ol {
       padding-bottom: 2.8125rem;
       padding-top: 2.8125rem;
     }
@@ -80,7 +56,7 @@
       }
     }
   
-    h4, h5, h6 {
+    h4, h5 {
       text-transform: uppercase;
     }
   
@@ -88,8 +64,13 @@
       @extend %sans-light-md;
     }
   
-    h5, h6 {
+    h5 {
       @extend %sans-light-sm;
+    }
+
+    h6 {
+      display:inline;
+      font-family: $logo;
     }
 
     p {

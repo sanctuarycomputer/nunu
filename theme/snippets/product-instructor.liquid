@@ -1,10 +1,5 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
 
-<!-- Display Variants include: 'grid-item', 'featured-grid-item', default: 'grid-item'-->
-{% if display_variant == blank %}
-  {% assign display_variant = "grid-item" %}
-{% endif %}
-
 <!-- Vendor attributes -->
 {% assign product_type = "" %}
 {% assign vendor_name = "" %}
@@ -23,16 +18,19 @@
       {% assign resource = bookings_meta.resources.first %}
       {% assign vendor_name = resource.formatted_name %}
       {% assign vendor_avatar = resource.avatar %}
-    {% else %}
-      {% assign vendor_name = product.vendor %}
   {% endcase %}
-{% else %}
-  {% assign vendor_name = product.vendor %}
 {% endif %}
 
-<span class="ProductVendor ProductVendor--{{display_variant}} flex items-center color-white uppercase">
-  {% if vendor_avatar != blank %}
-    <img class="ProductVendor__avatar radius-xs lg:radius-sm w100 fit-cover" alt={{ 'snippets.product_vendor.avatar.alt' | t }} src={{vendor_avatar}} >
-  {% endif %}
-    <span class="ProductVendor__name">{{ vendor_name }}</span>
-</span>
+{% if current_variant.metafields.bookings != blank %}
+  <span class="ProductInstructor color-black uppercase flex flex-row items-center pt1_25 pb2 md:pt0">
+    {% if vendor_avatar != blank %}
+      <img class="ProductInstructor__avatar radius-xs lg:radius-sm w100 fit-cover" alt={{ 'snippets.product_vendor.avatar.alt' | t }} src={{vendor_avatar}} >
+    {% endif %}
+      <span class="flex flex-col">
+        <span class="flex flex-col content-center">
+          <span class="sans-xxxs pb_25">{{ 'snippets.product_vendor.instructor' | t }}</span>
+          <span class="ProductInstructor__name">{{ vendor_name }}</span>
+        </span>
+      </span>
+  </span>
+{% endif %}

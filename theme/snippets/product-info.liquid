@@ -1,0 +1,37 @@
+{% assign brief_product_description = product.metafields.accentuate.brief_product_description %}
+
+<!-- Check if product already exists in cart -->
+{% for item in cart.items %}
+  {% if item.product.id == product.id %}
+    {% assign product_in_cart = true %}
+    {% break %}
+  {% else %}
+    {% assign product_in_cart = false %}
+  {% endif %}
+{% endfor %}
+
+<!-- Get product type -->
+{% assign product_type = "" %}
+{% if product.first_available_variant.metafields.bookings != blank %}
+  {% assign product_type = product.first_available_variant.metafields.bookings.bookable_type %}
+{% else %}
+  {% assign product_type = product.type %}
+{% endif %}
+
+<div class="ProductInfo flex flex-col z-1 col-12 md:col-3 md:pr2_5 px_625 md:pl_75">
+  <span class="ProductInfo__product-details flex flex-col sans-light-sm color-black">
+    <div class="serif flex flex-row justify-between">
+      <h1 class="ProductInfo__title md:pr_5">{{ product.title }}</h1>
+      <span class="ProductInfo__price text-right">{{ product.price | money_without_trailing_zeros }}</span>
+    </div>
+    <span class="sans-xs pt_625 pb1_5 md:pt1_5 md:pb1_125">
+      {{ brief_product_description }}
+    </span>
+    <div class="none md:flex">
+      {% render 'product-instructor' product: product %}
+    </div>
+  </span>
+  <div class="none md:flex md:flex-col">
+    {% render 'add-to-cart-container' product: product %}
+  </div>
+</div>
