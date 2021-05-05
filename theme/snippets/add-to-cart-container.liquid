@@ -2,25 +2,20 @@
 {% capture button_label %}{{"snippets.add_to_cart_container.add_to_cart_btn.text" | t }}{% endcapture %}
 {% assign button_disabled = false %}
 {% if product.available %}
-  {% if product_in_cart %}
-    {% capture button_label %}{{"snippets.add_to_cart_container.added_to_cart_btn.text" | t }}{% endcapture %}
-    {% assign button_disabled = true %}
-  {% endif %}
-{% else %}
   {% case product_type %}
     {% when "Course" %}
     {% when "Event" %}
       {% capture button_label %}{{"snippets.add_to_cart_container.registration_closed_btn.text" | t }}{% endcapture %}
       {% assign button_disabled = true %}
+  {% endcase %}
     {% else %}
       {% capture button_label %}{{"snippets.add_to_cart_container.sold_out_btn.text" | t }}{% endcapture %}
       {% assign button_disabled = true %}
-  {% endcase %}
 {% endif %}
 
 <div class="AddToCartContainer">
   <form data-add-to-cart-form data-product-type={{product_type}} action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-    <div class="AddToCartContainer__quantity-select-wrapper overflow-hidden relative mt_625{% if product.variants.size <= 1 %} mb1_75 {% endif %}">
+    <div class="AddToCartContainer__quantity-select-wrapper overflow-hidden relative {% if product.variants.size <= 1 %} mb1_75 {% endif %}">
       <label for="quantity" type="number" name="quantity" aria-label={{"snippets.add_to_cart_container.quantity_spinner.label" | t }}></label>
       <select class="sans-xs uppercase radius-xs border-black w100 pl1_125 py_5" name="quantity" id="Quantity" data-quantity-selector>
         <option value="" selected="selected">{{"snippets.add_to_cart_container.quantity_spinner.label" | t }}</option>
@@ -32,7 +27,7 @@
         {% endfor %}       
       </select>
     </div>
-    <div class="AddToCartContainer__variant-select-wrapper overflow-hidden relative mt_625 mb1_75 {% if product.variants.size <= 1 %} none {% endif %}">
+    <div class="AddToCartContainer__variant-select-wrapper overflow-hidden relative mt_625 mb1_75{% if product.variants.size <= 1 %} none {% endif %}">
       <label for="variant" type="text" name="variant" aria-label={{"snippets.add_to_cart_container.variant_select.label" | t }}></label>
       <select class="sans-xs uppercase radius-xs border-black w100 pl1_125 py_5 {% if product.variants.size <= 1 %} none {% endif %}" name="variant">
         {% if product.variants.size > 1 %}
