@@ -6,7 +6,7 @@
 
 <div class="Product pt_625 md:pt1_25">
   <div class="Product_hero border-bottom-black flex flex-col md:flex-row pb1_25 md:pb_625">
-    {% render 'product-info-bar' product: product %}
+    {% render 'product-info' product: product %}
     {% if product.images.size > 1 %}
     {% include 'product-images-slider' %}
     {% else %}

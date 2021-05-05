@@ -18,11 +18,11 @@
   {% assign product_type = product.type %}
 {% endif %}
 
-<div class="ProductInfoBar flex flex-col z-1 col-12 md:col-3 md:pr2_5 px_625 md:pl_75">
-  <span class="ProductInfoBar__product-details flex flex-col sans-light-sm color-black">
+<div class="ProductInfo flex flex-col z-1 col-12 md:col-3 md:pr2_5 px_625 md:pl_75">
+  <span class="ProductInfo__product-details flex flex-col sans-light-sm color-black">
     <div class="serif flex flex-row justify-between">
-      <h1 class="ProductInfoBar__title md:pr_5">{{ product.title }}</h1>
-      <span class="ProductInfoBar__price text-right">{{ product.price | money_without_trailing_zeros }}</span>
+      <h1 class="ProductInfo__title md:pr_5">{{ product.title }}</h1>
+      <span class="ProductInfo__price text-right">{{ product.price | money_without_trailing_zeros }}</span>
     </div>
     <span class="sans-xs pt_625 pb1_5 md:pt1_5 md:pb1_125">
       {{ brief_product_description }}
