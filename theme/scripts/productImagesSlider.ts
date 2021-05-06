@@ -23,10 +23,8 @@ export default(function() {
 				speed: 800,
 				type: 'loop',
 				pagination: false,
-				arrows: true,
-				focus: 'center',
-				perPage: 1.35,
-				trimSpace: false
+				arrows: false,
+				autoWidth: true,
 			}).mount();
 		}
 	};
