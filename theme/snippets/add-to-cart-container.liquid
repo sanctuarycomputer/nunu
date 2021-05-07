@@ -20,7 +20,7 @@
       <select class="sans-xs uppercase radius-xs border-black w100 pl1_125 py_5" name="quantity" id="Quantity" data-quantity-selector>
         <option value="" selected="selected">{{"snippets.add_to_cart_container.quantity_spinner.label" | t }}</option>
         {% comment %}
-        TO-DO: Add notification if user adds quantity > product inventory
+        TO-DO (#177): Add notification if user adds quantity > product inventory
         {% endcomment %}
         {% for i in (1...10) %}
           <option value="{{ i }}">{{ i }}</option>

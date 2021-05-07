@@ -220,7 +220,7 @@ export default(function() {
       }
 
       /**
-       * TODO: Better solve for this
+       * TO-DO (#176): Better solve for this
        * Currently, when calling Cart.init()
        * after when onChange runs, binds multiple event
        * to the addToCartForm on the product#show page
@@ -285,7 +285,7 @@ export default(function() {
       })
     },
 
-    //TO-DO: This function should check when the add to cart button is clicked and use a setTimeout to change the text to "Added to cart" and then revert back to "Add to cart" after a few seconds.
+    //TO-DO (#178): This function should check when the add to cart button is clicked and use a setTimeout to change the text to "Added to cart" and then revert back to "Add to cart" after a few seconds.
     handleAddToCartButton(variantId: string, action: Action) {
       const addToCartButton = document.querySelector(Cart.SELECTORS.addToCartButton);
       
