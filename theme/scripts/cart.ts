@@ -216,7 +216,7 @@ export default(function() {
       }
 
       if (variantId) {
-        Cart.updateProductInfoBar(variantId, action);
+        Cart.handleAddToCartButton(variantId, action);
       }
 
       /**
@@ -285,9 +285,10 @@ export default(function() {
       })
     },
 
-    updateProductInfoBar(variantId: string, action: Action) {
+    //TO-DO: This function should check when the add to cart button is clicked and use a setTimeout to change the text to "Added to cart" and then revert back to "Add to cart" after a few seconds.
+    handleAddToCartButton(variantId: string, action: Action) {
       const addToCartButton = document.querySelector(Cart.SELECTORS.addToCartButton);
-
+      
       if (!addToCartButton) return;
       
       const addToCartVariantId = addToCartButton.getAttribute(Cart.ATTRIBUTES.variantId);
