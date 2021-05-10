@@ -11,6 +11,9 @@ export default(function() {
       variantId: "[data-variantId]",
       variantQty: "[data-variantQty]",
 		},
+    STATE: {
+      products: {}
+    },
 
 		init() {
       const variantSelector: Element[] = [].slice.call(
@@ -30,6 +33,8 @@ export default(function() {
       );
 
       if (!variantId && !variantQty) return;
+
+      ProductVariantHandler.STATE.products[variantId] = variantQty;
 
     },
 
