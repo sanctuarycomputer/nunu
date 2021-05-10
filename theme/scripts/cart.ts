@@ -33,6 +33,7 @@ export default(function() {
       itemCount: "data-cart-item-count",
       variantId: "data-variant-id",
       pointerEvents: "pointerEvents",
+      
     },
     CONSTANTS: {
       addedToCart: "Added to cart",
