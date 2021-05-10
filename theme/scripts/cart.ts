@@ -14,7 +14,8 @@ export default(function() {
     SELECTORS: {
       addToCartForm: "[data-add-to-cart-form]",
       addToCartButton: "[data-add-to-cart-button]",
-      quantitySelector: "[data-quantity-selector]",
+      productQuantitySelector: "[data-product-quantity-selector]",
+      productVariantSelector: "[data-product-variant-selector]",
       quantity: "data-quantity",
       increment: "[data-increment]",
       decrement: "[data-decrement]",
