@@ -1,7 +1,11 @@
 .ProductImagesSlider {
   &__img {
+    max-height: 25rem;
+    border-radius: radius('sm');
+
     @include media('md-up') {
       max-height: 35rem;
+      border-radius: radius('xl');
     }
 
     @include media('xl-up') {
@@ -10,33 +14,13 @@
   }
 
   .splide__arrow--override {
-    //Hide the arrows on mobile, so the images are swipeable.
     display: none;
+  }
 
-    @include media('sm-up') {
-      display: block;
-      position: absolute;
-      z-index: 1;
-      opacity: 0;
+  .splide__slide {
+    &:hover {
+      cursor: grab;
     }
-  }
-
-  .splide__arrow--prev {
-    top: 0;
-    right: 50%;
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    -webkit-tap-highlight-color: color('transparent');
-  }
-
-  .splide__arrow--next {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 50%;
-    width: 50%;
-    -webkit-tap-highlight-color: color('transparent');
   }
 }
 
@@ -58,7 +42,7 @@
 }
 
 .splide__track > .splide__list > .splide__slide {
-  width: 100%;
+  width: auto;
   transform: translate3d(0px,0,0);
   -webkit-transform: translate3d(0px,0,0);
   -moz-transform: translate3d(0px,0,0);

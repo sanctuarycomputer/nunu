@@ -1,9 +1,11 @@
-<div data-product-image-slider class="ProductImagesSlider splide col-12 md:col-9 bg-color-black radius-xl">
+<div data-product-image-slider class="ProductImagesSlider splide col-12 md:col-9 pl_625 md:pl0 bg-color-white">
 	<div class="splide__track">
 		<ul class="splide__list">
       {% for image in product.images %}
-        <li class="splide__slide py6 md:py3 pr2 md:pr4">
-          <img class="ProductImagesSlider__img w100 h100 fit-contain" src="{{ image | img_url: '1200x' }}" alt="{{ image.alt }}" />
+        <li class="splide__slide">
+          <div class="pr_625">
+            <img class="ProductImagesSlider__img overflow-hidden h100 fit-cover" src="{{ image | img_url: '1200x' }}" alt="{{ image.alt }}" />
+          </div>
         </li>
       {% endfor %}
 		</ul>
