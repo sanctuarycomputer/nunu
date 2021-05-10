@@ -210,7 +210,7 @@ export default(function() {
       }
 
       /**
-       * TODO: Better solve for this
+       * TO-DO (#176): Better solve for this
        * Currently, when calling Cart.init()
        * after when onChange runs, binds multiple event
        * to the addToCartForm on the product#show page
