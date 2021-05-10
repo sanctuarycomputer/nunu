@@ -4,21 +4,15 @@ import * as Sentry from "@sentry/browser";
 import handleFetchJSONResponse from './utils/handleFetchJSONResponse';
 import activatable from './activatable';
 
-enum Action {
-  ADD = 'add',
-  REMOVE = 'remove'
-};
-
 export default(function() {
   const Cart = {
     SELECTORS: {
       addToCartForm: "[data-add-to-cart-form]",
       addToCartButton: "[data-add-to-cart-button]",
-      productQuantitySelector: "[data-product-quantity-selector]",
-      productVariantSelector: "[data-product-variant-selector]",
       quantity: "data-quantity",
       increment: "[data-increment]",
       decrement: "[data-decrement]",
+      quantitySelector: "[data-quantity-selector]",
       quantitySelectorVariantId: "data-quantity-selector-variant-id",
       quantityIndicator: "[data-quantity-indicator]",
       removeFromCartButton: "[data-remove-from-cart-button]",
@@ -31,12 +25,9 @@ export default(function() {
       lineItemVariantId: "data-line-item-variant-id",
       lineItemQuantity: "data-line-item-quantity",
       itemCount: "data-cart-item-count",
-      variantId: "data-variant-id",
       pointerEvents: "pointerEvents",
-      
     },
     CONSTANTS: {
-      addedToCart: "Added to cart",
       addToCart: "Add to cart",
       remove: "Remove",
       removing: "Removing...",
@@ -65,6 +56,7 @@ export default(function() {
 
     bindAddEventListeners(form: Element) {
       const formId = form.id;
+      
       form.addEventListener("submit", async(e: any) => {
         e.preventDefault();
 
@@ -176,7 +168,7 @@ export default(function() {
         }),
       })
         .then(handleFetchJSONResponse) 
-        .then(() => Cart.onChange(variantId, Action.ADD))
+        .then(() => Cart.onChange())
     },
 
     async changeLineItem(variantId: string, quantity: number) {
@@ -191,7 +183,7 @@ export default(function() {
         }),
       })
         .then(handleFetchJSONResponse)
-        .then(() => Cart.onChange(variantId))
+        .then(() => Cart.onChange())
     },  
 
     async removeLineItem(variantId: string, quantity: number) {
@@ -205,10 +197,10 @@ export default(function() {
           quantity: quantity
         })
       }).then(handleFetchJSONResponse) 
-      .then(() => Cart.onChange(variantId, Action.REMOVE))
+      .then(() => Cart.onChange())
     },
 
-    async onChange(variantId: string, action?: Action ) {
+    async onChange() {
       const cartHtml = await Cart.getCartHtml();
       Cart.render(cartHtml);
 
@@ -217,12 +209,8 @@ export default(function() {
         Cart.updateCartItemCount(cartItemCount);
       }
 
-      if (variantId) {
-        Cart.handleAddToCartButton(variantId, action);
-      }
-
       /**
-       * TO-DO (#176): Better solve for this
+       * TODO: Better solve for this
        * Currently, when calling Cart.init()
        * after when onChange runs, binds multiple event
        * to the addToCartForm on the product#show page
@@ -285,27 +273,6 @@ export default(function() {
           navCartItem.textContent = cartItemCount;
         }
       })
-    },
-
-    //TO-DO (#178): This function should check when the add to cart button is clicked and use a setTimeout to change the text to "Added to cart" and then revert back to "Add to cart" after a few seconds.
-    handleAddToCartButton(variantId: string, action: Action) {
-      const addToCartButton = document.querySelector(Cart.SELECTORS.addToCartButton);
-      
-      if (!addToCartButton) return;
-      
-      const addToCartVariantId = addToCartButton.getAttribute(Cart.ATTRIBUTES.variantId);
-
-      if (addToCartVariantId === variantId) {
-        if (action === Action.ADD) {
-          addToCartButton.textContent = Cart.CONSTANTS.addedToCart;
-          addToCartButton.setAttribute(Cart.ATTRIBUTES.disabled, Cart.ATTRIBUTES.disabled);
-        }
-
-        if (action === Action.REMOVE) {
-          addToCartButton.textContent = Cart.CONSTANTS.addToCart;
-          addToCartButton.removeAttribute(Cart.ATTRIBUTES.disabled);
-        }
-      }
     },
   };
 
