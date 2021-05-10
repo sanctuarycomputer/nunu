@@ -3,7 +3,7 @@
 <!-- Check if product already exists in cart -->
 {% for item in cart.items %}
   {% if item.product.id == product.id %}
-    {% assign product_in_cart = true %}
+    {% assign produt_in_cart = true %}
     {% break %}
   {% else %}
     {% assign product_in_cart = false %}
@@ -27,7 +27,7 @@
     <span class="sans-xs pt_625 pb1_5 md:pt1_5 md:pb1_125">
       {{ brief_product_description }}
     </span>
-    <div class="none md:flex">
+    <div class="none md:flex md:flex-col">
       {% render 'product-instructor' product: product %}
       {% render 'product-text-fields' product: product %}
     </div>
