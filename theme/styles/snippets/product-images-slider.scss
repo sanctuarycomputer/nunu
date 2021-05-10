@@ -16,6 +16,12 @@
   .splide__arrow--override {
     display: none;
   }
+
+  .splide__slide {
+    &:hover {
+      cursor: grab;
+    }
+  }
 }
 
 /**

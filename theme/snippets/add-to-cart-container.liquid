@@ -13,7 +13,7 @@
       {% assign button_disabled = true %}
 {% endif %}
 
-<div class="AddToCartContainer">
+<div class="AddToCartContainer px_625 md:px0">
   <form data-add-to-cart-form data-product-type={{product_type}} action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
     <div class="AddToCartContainer__quantity-select-wrapper overflow-hidden relative {% if product.variants.size <= 1 %} mb1_75 {% endif %}">
       <label for="quantity" type="number" name="quantity" aria-label={{"snippets.add_to_cart_container.quantity_spinner.label" | t }}></label>
