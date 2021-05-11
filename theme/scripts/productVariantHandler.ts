@@ -12,10 +12,12 @@ export default(function() {
       variantQty: "[data-variantQty]",
 		},
     STATE: {
-      products: {}
+      products: {},
+      selectedProductVariantId: null
     },
 
 		init() {
+      //do i need to get all variant selectors on all pages? 
       const variantSelector: Element[] = [].slice.call(
         document.querySelectorAll(ProductVariantHandler.SELECTORS.variantSelector)
       );
@@ -33,11 +35,17 @@ export default(function() {
       );
 
       if (!variantId && !variantQty) return;
+      
+      //when the user changes the current selected item in the variant select, update the selectedProductVariantId  
+      variantSelector.addEventListener("change", async(e: any) => {
+        e.preventDefault();
 
+        ProductVariantHandler.STATE.selectedProductVariantId = variantId
+      });
+
+      //add to the Products object
       ProductVariantHandler.STATE.products[variantId] = variantQty;
-
     },
-
   }
 
 	ProductVariantHandler.init();
