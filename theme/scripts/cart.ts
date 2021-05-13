@@ -286,6 +286,7 @@ export default(function() {
       const mobileProductAddToCartButton = document.querySelector(Cart.SELECTORS.mobileProductAddToCartButton);
 
       if (desktopProductAddToCartButton) {
+        console.log('button is here desktop')
         Cart.handleProductAddedToCartButtonStyling(desktopProductAddToCartButton);
       }
 
