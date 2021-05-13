@@ -25,4 +25,3 @@ import "./logo";
 import "./pageTransition";
 import "./fadeIn";
 import "./magicMouse";
-import "./productVariantHandler";

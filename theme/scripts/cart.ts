@@ -7,8 +7,9 @@ import activatable from './activatable';
 export default(function() {
   const Cart = {
     SELECTORS: {
-      addToCartForm: "[data-add-to-cart-form]",
-      addToCartButton: "[data-add-to-cart-button]",
+      productAddToCartForm: "[data-product-add-to-cart-form]",
+      desktopProductAddToCartButton: "[data-desktop-product-add-to-cart-button]",
+      mobileProductAddToCartButton: "[data-mobile-product-add-to-cart-button]",
       quantity: "data-quantity",
       increment: "[data-increment]",
       decrement: "[data-decrement]",
@@ -29,19 +30,20 @@ export default(function() {
     },
     CONSTANTS: {
       addToCart: "Add to cart",
+      addedToCart: "Added to cart",
       remove: "Remove",
       removing: "Removing...",
       auto: "auto",
       none: "none",
     },
 
-    init(bindAddToCartForms = true) {
+    init(bindProductAddToCartForms = true) {
 
-      if (bindAddToCartForms) {
-        const addToCartForms: Element[] = [].slice.call(
-          document.querySelectorAll(Cart.SELECTORS.addToCartForm)
+      if (bindProductAddToCartForms) {
+        const productAddToCartForms: Element[] = [].slice.call(
+          document.querySelectorAll(Cart.SELECTORS.productAddToCartForm)
         );
-        addToCartForms.forEach(Cart.bindAddEventListeners);
+        productAddToCartForms.forEach(Cart.bindAddEventListeners);
       }
 
       const removeLineItemButtons: Element[] = [].slice.call(document.querySelectorAll(Cart.SELECTORS.removeFromCartButton));
@@ -168,7 +170,7 @@ export default(function() {
         }),
       })
         .then(handleFetchJSONResponse) 
-        .then(() => Cart.onChange())
+        .then(() => Cart.onChange(Cart.handleProductAddedToCart))
     },
 
     async changeLineItem(variantId: string, quantity: number) {
@@ -200,7 +202,7 @@ export default(function() {
       .then(() => Cart.onChange())
     },
 
-    async onChange() {
+    async onChange(callback?: any) {
       const cartHtml = await Cart.getCartHtml();
       Cart.render(cartHtml);
 
@@ -208,12 +210,16 @@ export default(function() {
       if (cartItemCount) {
         Cart.updateCartItemCount(cartItemCount);
       }
-
+      
+      if (callback) {
+        callback();
+      }
+      
       /**
        * TO-DO (#176): Better solve for this
        * Currently, when calling Cart.init()
        * after when onChange runs, binds multiple event
-       * to the addToCartForm on the product#show page
+       * to the productAddToCartForm on the product#show page
        * 
        * Potential Solutions:
        * - Move addToCart form logic out of cart
@@ -274,6 +280,20 @@ export default(function() {
         }
       })
     },
+  
+    handleProductAddedToCart() {
+      const desktopProductAddToCartButton = document.querySelector(Cart.SELECTORS.desktopProductAddToCartButton);
+      const mobileProductAddToCartButton = document.querySelector(Cart.SELECTORS.mobileProductAddToCartButton);
+
+      desktopProductAddToCartButton.textContent = Cart.CONSTANTS.addedToCart;
+
+      setTimeout(() => desktopProductAddToCartButton.textContent = Cart.CONSTANTS.addToCart, 2000);
+
+      mobileProductAddToCartButton.textContent = Cart.CONSTANTS.addedToCart;
+      
+      setTimeout(() => mobileProductAddToCartButton.textContent = Cart.CONSTANTS.addToCart, 2000);
+    }
+
   };
 
   Cart.init();
