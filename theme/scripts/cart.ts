@@ -202,7 +202,7 @@ export default(function() {
       .then(() => Cart.onChange())
     },
 
-    async onChange(callback?: any) {
+    async onChange(callback?: () => void) {
       const cartHtml = await Cart.getCartHtml();
       Cart.render(cartHtml);
 
@@ -285,14 +285,24 @@ export default(function() {
       const desktopProductAddToCartButton = document.querySelector(Cart.SELECTORS.desktopProductAddToCartButton);
       const mobileProductAddToCartButton = document.querySelector(Cart.SELECTORS.mobileProductAddToCartButton);
 
-      desktopProductAddToCartButton.textContent = Cart.CONSTANTS.addedToCart;
+      if (desktopProductAddToCartButton) {
+        Cart.handleProductAddedToCartButtonStyling(desktopProductAddToCartButton);
+      }
 
-      setTimeout(() => desktopProductAddToCartButton.textContent = Cart.CONSTANTS.addToCart, 2000);
+      if (mobileProductAddToCartButton) {
+        Cart.handleProductAddedToCartButtonStyling(mobileProductAddToCartButton);
+      }
+    },
+    
+    handleProductAddedToCartButtonStyling(button: Element) {
+      button.textContent = Cart.CONSTANTS.addedToCart;
+      button.setAttribute(Cart.ATTRIBUTES.disabled, Cart.ATTRIBUTES.disabled);
 
-      mobileProductAddToCartButton.textContent = Cart.CONSTANTS.addedToCart;
-      
-      setTimeout(() => mobileProductAddToCartButton.textContent = Cart.CONSTANTS.addToCart, 2000);
-    }
+      setTimeout(() => {
+        button.textContent = Cart.CONSTANTS.addToCart;
+        button.removeAttribute(Cart.ATTRIBUTES.disabled);
+      }, 2000);  
+    },
 
   };
 
