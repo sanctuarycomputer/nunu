@@ -10,6 +10,8 @@ export default(function() {
       productAddToCartForm: "[data-product-add-to-cart-form]",
       desktopProductAddToCartButton: "[data-desktop-product-add-to-cart-button]",
       mobileProductAddToCartButton: "[data-mobile-product-add-to-cart-button]",
+      desktopProductAddToCartButtonError: "[data-desktop-product-add-to-cart-button-error]",
+      mobileProductAddToCartButtonError: "[data-mobile-product-add-to-cart-button-error]",
       quantity: "data-quantity",
       increment: "[data-increment]",
       decrement: "[data-decrement]",
@@ -171,6 +173,9 @@ export default(function() {
       })
         .then(handleFetchJSONResponse) 
         .then(() => Cart.onChange(Cart.handleProductAddedToCart))
+        .catch(() => {
+          Cart.handleProductAddedToCartError();
+        })
     },
 
     async changeLineItem(variantId: string, quantity: number) {
@@ -303,6 +308,29 @@ export default(function() {
         button.textContent = Cart.CONSTANTS.addToCart;
         button.removeAttribute(Cart.ATTRIBUTES.disabled);
       }, 2000);  
+    },
+
+    //Handles any errors adding an item to the cart
+    handleProductAddedToCartError() {
+      const desktopProductAddToCartButtonError = document.querySelector(Cart.SELECTORS.desktopProductAddToCartButtonError);
+      const mobileProductAddToCartButtonError = document.querySelector(Cart.SELECTORS.mobileProductAddToCartButtonError);
+
+      if (desktopProductAddToCartButtonError) {
+        Cart.handleProductAddedToCartButtonErrorStyling(desktopProductAddToCartButtonError);
+      }
+
+      if (mobileProductAddToCartButtonError) {
+        Cart.handleProductAddedToCartButtonErrorStyling(mobileProductAddToCartButtonError);
+      }
+    },
+
+    //Shows text below the Add to Cart button, indicating that the customer was not able to add that item to their cart
+    handleProductAddedToCartButtonErrorStyling(button: Element) {
+      button.classList.toggle("none");
+
+      setTimeout(() => {
+        button.classList.toggle("none");
+      }, 4000);  
     },
 
   };
