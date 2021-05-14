@@ -211,6 +211,7 @@ export default(function() {
         Cart.updateCartItemCount(cartItemCount);
       }
       
+      //This callback is specifically used to handle the add to cart button behavior after an item is added to the cart. See function handleProductAddedToCart. 
       if (callback) {
         callback();
       }
@@ -286,7 +287,6 @@ export default(function() {
       const mobileProductAddToCartButton = document.querySelector(Cart.SELECTORS.mobileProductAddToCartButton);
 
       if (desktopProductAddToCartButton) {
-        console.log('button is here desktop')
         Cart.handleProductAddedToCartButtonStyling(desktopProductAddToCartButton);
       }
 
