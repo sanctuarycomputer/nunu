@@ -326,7 +326,7 @@ export default(function() {
     handleProductAddedToCartButtonErrorStyling(button: Element) {
       button.classList.remove("AddToCartContainer__error-message--inactive");
       button.classList.add("AddToCartContainer__error-message--active");
-
+      
       setTimeout(() => {
         button.classList.remove("AddToCartContainer__error-message--active");
         button.classList.add("AddToCartContainer__error-message--inactive");
