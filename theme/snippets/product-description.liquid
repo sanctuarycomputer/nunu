@@ -1,0 +1,27 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign is_course = false %}
+
+{% if current_variant.metafields.bookings != blank and current_variant.metafields.bookings.bookable_type == "Course" %}
+  {% assign is_course = true %}
+{% endif %}
+
+{% if is_course %}
+  <div class="ProductDescription site-padding-x py1_25">
+    <div class="flex flex-row flex-nowrap mb1 overflow-x-auto overflow-y-hidden w100">
+      {% for value in product.metafields.accentuate.title %}
+        <a class="ProductDescription__button nav-button-padding sans-light-md radius-xs" href="{{ value | handleize | prepend: "#" }}">{{ value }}</a>
+      {% endfor %}
+    </div>
+    {% for value in product.metafields.accentuate.markdown %}
+        {% assign id = product.metafields.accentuate.title[forloop.index0] | handleize %}
+        {% render 'markdown' markdown: value.html, classes: "ProductDescription__content", id: id %}
+    {% endfor %}
+    <!-- <div>
+      {% render 'markdown' markdown: product.metafields.accentuate.long_product_description.html %}  
+    </div> -->
+  </div>
+{% else %}
+  <div class="Product__description site-padding-x py1_25 md:col-9 color-black">
+    {{ product.description }}
+  </div>
+{% endif %}

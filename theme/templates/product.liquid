@@ -25,9 +25,7 @@
     </div>
   </div>
 
-  <div class="Product__description site-padding-x py1_25 md:col-9 color-black">
-    {{ product.description }}
-  </div>
+  {% render 'product-description' product: product %}
   {% if related_products_heading %}
     <div class="site-padding-x uppercase color-black serif-xl pb2_5">{{ related_products_heading }}</div>
   {% endif %}

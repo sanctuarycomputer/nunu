@@ -1,3 +1,3 @@
-<div class="Markdown {{ classes }} {% if variant == 'black-bg' %}Markdown--style-black-bg color-white {% else %} Markdown--style-white-bg color-black{% endif %}">
+<div {% if id %} id="{{ id }}" {% endif %} class="Markdown {{ classes }} {% if variant == 'black-bg' %}Markdown--style-black-bg color-white {% else %} Markdown--style-white-bg color-black{% endif %}">
 	{{ markdown }}
 </div>
