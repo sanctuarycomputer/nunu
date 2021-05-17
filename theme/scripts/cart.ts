@@ -173,9 +173,7 @@ export default(function() {
       })
         .then(handleFetchJSONResponse) 
         .then(() => Cart.onChange(Cart.handleProductAddedToCart))
-        .catch(() => {
-          Cart.handleProductAddedToCartError();
-        })
+        .catch(Cart.handleProductAddedToCartError);
     },
 
     async changeLineItem(variantId: string, quantity: number) {
@@ -326,10 +324,12 @@ export default(function() {
 
     //Shows text below the Add to Cart button, indicating that the customer was not able to add that item to their cart
     handleProductAddedToCartButtonErrorStyling(button: Element) {
-      button.classList.toggle("none");
+      button.classList.remove("AddToCartContainer__error-message--inactive");
+      button.classList.add("AddToCartContainer__error-message--active");
 
       setTimeout(() => {
-        button.classList.toggle("none");
+        button.classList.remove("AddToCartContainer__error-message--active");
+        button.classList.add("AddToCartContainer__error-message--inactive");
       }, 4000);  
     },
 

@@ -37,8 +37,8 @@
     {% if button_disabled %} disabled {% endif %} class="w100 color-white uppercase sans-light-sm radius-xs bg-color-black py_75" type="submit" name="add" id="AddToCart">
       {{button_label}}
     </button>
-    <span {% if isDesktop %} data-desktop-product-add-to-cart-button-error {% else %} data-mobile-product-add-to-cart-button-error {% endif %} class="none color-red sans-xxxs">
+    <div {% if isDesktop %} data-desktop-product-add-to-cart-button-error {% else %} data-mobile-product-add-to-cart-button-error {% endif %} class="AddToCartContainer__error-message--inactive color-red sans-xs py_625 md:pb0 md:pt_625 transition-short">
       {{"snippets.add_to_cart_container.add_to_cart_btn_error.text" | t }}
-    </span>
+    </div>
   </form>
 </div>

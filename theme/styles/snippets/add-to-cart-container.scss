@@ -11,6 +11,18 @@
     }
   }
 
+  &__error-message { 
+    &--inactive {
+      opacity: 0; 
+      transform: translate3d(0, -1rem, 0);    
+    }
+
+    &--active {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    };
+  }
+
   select {
     /* remove default caret */
     -webkit-appearance: none; /* webkit browsers */
