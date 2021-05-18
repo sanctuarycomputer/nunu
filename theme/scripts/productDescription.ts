@@ -6,6 +6,9 @@ export default(function() {
       tabsWrapper: ".ProductDescription__tabs",
       nav: ".Nav"
 		},
+    CLASSES: {
+      activeTab: "ProductDescription__button--active"
+    },
 
 		init() {
 			const tabs = [].slice.call(
@@ -22,56 +25,55 @@ export default(function() {
       );
 
 			if (!tabs && !tabbedContent && !tabsWrapper && !navs) return;
+
+      let height = ProductDescription.getStickyHeight(tabsWrapper, navs);
+      window.addEventListener('resize', () => {
+        height = ProductDescription.getStickyHeight(tabsWrapper, navs);
+      })
       
       window.addEventListener('scroll', () => {
         window.requestAnimationFrame(() => {
-          ProductDescription.scrollHandler(tabs, tabbedContent, tabsWrapper, navs);
+          ProductDescription.scrollHandler(tabs, tabbedContent, height);
         });
       })
 		},
 
-		scrollHandler(tabs: HTMLElement[], tabbedContent: HTMLElement[], tabsWrapper: HTMLElement, navs: HTMLElement[]) {
+    getStickyHeight(tabsWrapper: HTMLElement, navs: HTMLElement[]): number {
       const tabsWrapperHeight = tabsWrapper.offsetHeight;
       const activeNav = navs.find((elem) => {
-        if (elem.style.display != 'none') return elem;
+        if (elem.offsetHeight !== 0) return elem;
       })
-      const height = tabsWrapperHeight + activeNav.offsetHeight;
+      return tabsWrapperHeight + activeNav.offsetHeight + 16;
+    },
 
+    toggleActiveStyling(isActive: boolean, tab: HTMLElement) {
+      if (isActive) {
+        tab.classList.add(
+          ProductDescription.CLASSES.activeTab
+         );
+      } else {
+        tab.classList.remove(
+          ProductDescription.CLASSES.activeTab
+        );
+      }
+    },
+
+		scrollHandler(tabs: HTMLElement[], tabbedContent: HTMLElement[], height: number) {
       tabbedContent.forEach((elem, index) => {
+        const offsetTop = elem.offsetTop;
+        const offsetHeight = elem.offsetHeight;
+        const offsetBottom = offsetTop + offsetHeight;
+        let isActive = true;
+        
         if (index == 0) {
-          if (window.scrollY < elem.offsetTop + elem.offsetHeight - height) {
-            tabs[index].classList.add(
-              "ProductDescription__button--active"
-            );
-          } else {
-            tabs[index].classList.remove(
-              "ProductDescription__button--active"
-            );
-          }
+          isActive = window.scrollY < offsetBottom - height;
         } else if (index == tabbedContent.length - 1) {
-          if (window.scrollY >= tabbedContent[index-1].offsetTop + tabbedContent[index-1].offsetHeight - height) {
-            tabs[index].classList.add(
-              "ProductDescription__button--active"
-            );
-          } else {
-            tabs[index].classList.remove(
-              "ProductDescription__button--active"
-            );
-          }
+          isActive = window.scrollY >= tabbedContent[index-1].offsetTop + tabbedContent[index-1].offsetHeight - height
         } else {
-          if (
-            window.scrollY >= elem.offsetTop &&
-            window.scrollY < elem.offsetTop + elem.offsetHeight - height
-          ) {
-            tabs[index].classList.add(
-              "ProductDescription__button--active"
-            );
-          } else {
-            tabs[index].classList.remove(
-              "ProductDescription__button--active"
-            );
-          }
+          isActive = window.scrollY >= offsetTop - 16 && window.scrollY < offsetBottom - height
         }
+
+        ProductDescription.toggleActiveStyling(isActive, tabs[index]);
       });
 		}
 	};

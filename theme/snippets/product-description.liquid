@@ -7,28 +7,25 @@
 
 {% if is_course %}
   <div class="ProductDescription__tabs sticky pt1_25 pb_5 site-padding-x z-description flex flex-row items flex-nowrap overflow-x-auto overflow-y-hidden w100">
-    {% for value in product.metafields.accentuate.title %}
+    {% for title in product.metafields.accentuate.title %}
       <a 
         data-product-description-tab 
         class="ProductDescription__button {% if forloop.index0 == 0 %} ProductDescription__button--active {% endif %} nav-button-padding sans-serif-light radius-xs" 
-        href="{{ value | handleize | prepend: "#" }}">
-          {{ value }}
+        href="{{ title | handleize | prepend: "#" }}">
+          {{ title }}
       </a>
     {% endfor %}
   </div>
   <div class="ProductDescription site-padding-x">
-    {% for value in product.metafields.accentuate.markdown %}
+    {% for markdown in product.metafields.accentuate.markdown %}
         {% assign id = product.metafields.accentuate.title[forloop.index0] | handleize %}
         <div id="{{ id }}" class="ProductDescription__content" data-product-description-content>
           {% if forloop.index0 != 0 %}
             <h1>{{ product.metafields.accentuate.title[forloop.index0] }}</h1>
           {% endif %}
-          {% render 'markdown' markdown: value.html, classes: "ProductDescription__markdown" %}
+          {% render 'markdown' markdown: markdown.html, classes: "ProductDescription__markdown" %}
         </div>
     {% endfor %}
-    <!-- <div>
-      {% render 'markdown' markdown: product.metafields.accentuate.long_product_description.html %}  
-    </div> -->
   </div>
 {% else %}
   <div class="Product__description site-padding-x py1_25 md:col-9 color-black">

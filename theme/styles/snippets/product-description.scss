@@ -6,7 +6,6 @@
     @extend %serif-xl;
 
     padding-bottom: 1.5rem;
-    padding-top: 2rem;
 
     @include media('lg-up') {
       padding-top: 0;
@@ -21,21 +20,17 @@
       padding-bottom: 0;
     }
 
-    &::before {
-      content:"";
-      display:block;
-      height: calc(#{$nav-height} + #{$product-tabs-height} + 2rem); 
-      margin: calc(-#{$nav-height} - #{$product-tabs-height} - 2rem) 0 0; 
+    padding-top: calc(#{$nav-height} + #{$product-tabs-height}); 
+    margin-top: calc(-#{$nav-height} - #{$product-tabs-height}); 
 
-      @include media('md-up') {
-        height: calc(#{$nav-height-md} + #{$product-tabs-height});
-        margin: calc(-#{$nav-height-md} - #{$product-tabs-height}) 0 0;
-      }
-    
-      @include media('lg-xl-up') {
-        height: calc(#{$nav-height-lg-xl} + #{$product-tabs-height-lg-xl});
-        margin: calc(-#{$nav-height-lg-xl} - #{$product-tabs-height-lg-xl}) 0 0;
-      }
+    @include media('md-up') {
+      padding-top: calc(#{$nav-height-md} + #{$product-tabs-height-md});
+      margin-top: calc(-#{$nav-height-md} - #{$product-tabs-height-md});
+    }
+  
+    @include media('lg-xl-up') {
+      padding-top: calc(#{$nav-height-lg-xl} + #{$product-tabs-height-lg-xl});
+      margin-top: calc(-#{$nav-height-lg-xl} - #{$product-tabs-height-lg-xl});
     }
   }
 
@@ -50,7 +45,7 @@
 
   &__button  {
     @extend %transition-short;
-    margin-right: 2rem;
+    margin-right: 1.5rem;
     border: 1px solid color('transparent');
     text-transform: uppercase;
     white-space: nowrap;
@@ -61,6 +56,7 @@
     @include media('lg-xl-up') {
       font-size: 3.125rem;
       line-height: 2.8125rem;
+      margin-right: 2rem;
     }
 
     &:hover, &--active {
