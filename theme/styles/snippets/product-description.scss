@@ -1,6 +1,53 @@
 .ProductDescription {
   padding-bottom: 3.125rem;
 
+  h1 {
+    font-family: $serif;
+    @extend %serif-xl;
+
+    padding-bottom: 1.5rem;
+    padding-top: 2rem;
+
+    @include media('lg-up') {
+      padding-top: 0;
+      padding-bottom: 2.8125rem;
+    }
+  }
+
+  &__content {
+    padding-bottom: 4rem;
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+
+    &::before {
+      content:"";
+      display:block;
+      height: calc(#{$nav-height} + #{$product-tabs-height} + 2rem); 
+      margin: calc(-#{$nav-height} - #{$product-tabs-height} - 2rem) 0 0; 
+
+      @include media('md-up') {
+        height: calc(#{$nav-height-md} + #{$product-tabs-height});
+        margin: calc(-#{$nav-height-md} - #{$product-tabs-height}) 0 0;
+      }
+    
+      @include media('lg-xl-up') {
+        height: calc(#{$nav-height-lg-xl} + #{$product-tabs-height-lg-xl});
+        margin: calc(-#{$nav-height-lg-xl} - #{$product-tabs-height-lg-xl}) 0 0;
+      }
+    }
+  }
+
+  &__tabs {
+    top: $nav-height;
+    background: color('white');
+
+    @include media('md-up') {
+      top: $nav-height-md;
+    }
+  }
+
   &__button  {
     @extend %transition-short;
     margin-right: 2rem;
@@ -8,40 +55,30 @@
     text-transform: uppercase;
     white-space: nowrap;
 
+    font-size: 1.875rem;
+    line-height: 1.6875rem;
+
+    @include media('lg-xl-up') {
+      font-size: 3.125rem;
+      line-height: 2.8125rem;
+    }
+
     &:hover, &--active {
       border: 1px solid color('black');
     }
   }
 
-  &__content {
-    margin-bottom: 4rem;
+  &__markdown {
 
-    h1, h2, h3, h4, h5, h6, p {
+    h1, h2, h3, h4, h5, h6, p, ul {
       @include media('lg-up') {
         width: 100%;
         margin: 0;
       }
     }
 
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-
-    &::before {
-      content:"";
-      display:block;
-      height: calc(#{$nav-height} + 2rem); 
-      margin: calc(-#{$nav-height} - 2rem) 0 0; 
-
-      @include media('md-up') {
-        height: $nav-height-md;
-        margin: -$nav-height-md 0 0;
-      }
-    
-      @include media('lg-xl-up') {
-        height: $nav-height-lg-xl;
-        margin: -$nav-height-lg-xl 0 0;
-      }
+    hr + p {
+      padding-bottom: 0;
     }
   }
 

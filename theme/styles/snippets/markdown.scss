@@ -60,6 +60,10 @@ $text-max-width: 65rem;
       }
     }
   }
+  
+  hr {
+    border-top: 2px solid color('black');
+  }
 
   p, ol, ul, td {
     /* Adds bottom border to links with additional padding between text and border */
