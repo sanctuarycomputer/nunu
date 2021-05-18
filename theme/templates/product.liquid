@@ -5,7 +5,7 @@
 {% assign product_description = product.metafields.accentuate.product_description %}
 
 <div class="Product pt_625 md:pt1_25">
-  <div class="Product_hero border-bottom-black flex flex-col md:flex-row pb1_25 md:pb_625">
+  <div class="Product_hero border-bottom-black flex flex-col md:flex-row pb_75 md:pb_625">
     {% render 'product-info' product: product %}
     {% if product.images.size > 1 %}
     {% include 'product-images-slider' %}
@@ -21,7 +21,7 @@
       <div class="px_625 pt2">
         {% render 'product-text-fields' product: product %}
       </div>
-      {% render 'add-to-cart-container' product: product %}
+      {% render 'add-to-cart-container' data_selector: 'data-mobile-product-add-to-cart-button' product: product %}
     </div>
   </div>
 

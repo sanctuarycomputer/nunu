@@ -4,20 +4,18 @@ import * as Sentry from "@sentry/browser";
 import handleFetchJSONResponse from './utils/handleFetchJSONResponse';
 import activatable from './activatable';
 
-enum Action {
-  ADD = 'add',
-  REMOVE = 'remove'
-};
-
 export default(function() {
   const Cart = {
     SELECTORS: {
-      addToCartForm: "[data-add-to-cart-form]",
-      addToCartButton: "[data-add-to-cart-button]",
-      quantitySelector: "[data-quantity-selector]",
+      productAddToCartForm: "[data-product-add-to-cart-form]",
+      desktopProductAddToCartButton: "[data-desktop-product-add-to-cart-button]",
+      mobileProductAddToCartButton: "[data-mobile-product-add-to-cart-button]",
+      desktopProductAddToCartButtonError: "[data-desktop-product-add-to-cart-button-error]",
+      mobileProductAddToCartButtonError: "[data-mobile-product-add-to-cart-button-error]",
       quantity: "data-quantity",
       increment: "[data-increment]",
       decrement: "[data-decrement]",
+      quantitySelector: "[data-quantity-selector]",
       quantitySelectorVariantId: "data-quantity-selector-variant-id",
       quantityIndicator: "[data-quantity-indicator]",
       removeFromCartButton: "[data-remove-from-cart-button]",
@@ -30,25 +28,24 @@ export default(function() {
       lineItemVariantId: "data-line-item-variant-id",
       lineItemQuantity: "data-line-item-quantity",
       itemCount: "data-cart-item-count",
-      variantId: "data-variant-id",
       pointerEvents: "pointerEvents",
     },
     CONSTANTS: {
-      addedToCart: "Added to cart",
       addToCart: "Add to cart",
+      addedToCart: "Added to cart",
       remove: "Remove",
       removing: "Removing...",
       auto: "auto",
       none: "none",
     },
 
-    init(bindAddToCartForms = true) {
+    init(bindProductAddToCartForms = true) {
 
-      if (bindAddToCartForms) {
-        const addToCartForms: Element[] = [].slice.call(
-          document.querySelectorAll(Cart.SELECTORS.addToCartForm)
+      if (bindProductAddToCartForms) {
+        const productAddToCartForms: Element[] = [].slice.call(
+          document.querySelectorAll(Cart.SELECTORS.productAddToCartForm)
         );
-        addToCartForms.forEach(Cart.bindAddEventListeners);
+        productAddToCartForms.forEach(Cart.bindAddEventListeners);
       }
 
       const removeLineItemButtons: Element[] = [].slice.call(document.querySelectorAll(Cart.SELECTORS.removeFromCartButton));
@@ -63,6 +60,7 @@ export default(function() {
 
     bindAddEventListeners(form: Element) {
       const formId = form.id;
+      
       form.addEventListener("submit", async(e: any) => {
         e.preventDefault();
 
@@ -174,7 +172,8 @@ export default(function() {
         }),
       })
         .then(handleFetchJSONResponse) 
-        .then(() => Cart.onChange(variantId, Action.ADD))
+        .then(() => Cart.onChange(Cart.handleProductAddedToCart))
+        .catch(Cart.handleProductAddedToCartError);
     },
 
     async changeLineItem(variantId: string, quantity: number) {
@@ -189,7 +188,7 @@ export default(function() {
         }),
       })
         .then(handleFetchJSONResponse)
-        .then(() => Cart.onChange(variantId))
+        .then(() => Cart.onChange())
     },  
 
     async removeLineItem(variantId: string, quantity: number) {
@@ -203,10 +202,10 @@ export default(function() {
           quantity: quantity
         })
       }).then(handleFetchJSONResponse) 
-      .then(() => Cart.onChange(variantId, Action.REMOVE))
+      .then(() => Cart.onChange())
     },
 
-    async onChange(variantId: string, action?: Action ) {
+    async onChange(callback?: () => void) {
       const cartHtml = await Cart.getCartHtml();
       Cart.render(cartHtml);
 
@@ -214,16 +213,17 @@ export default(function() {
       if (cartItemCount) {
         Cart.updateCartItemCount(cartItemCount);
       }
-
-      if (variantId) {
-        Cart.handleAddToCartButton(variantId, action);
+      
+      //This callback is specifically used to handle the add to cart button behavior after an item is added to the cart. See function handleProductAddedToCart. 
+      if (callback) {
+        callback();
       }
-
+      
       /**
        * TO-DO (#176): Better solve for this
        * Currently, when calling Cart.init()
        * after when onChange runs, binds multiple event
-       * to the addToCartForm on the product#show page
+       * to the productAddToCartForm on the product#show page
        * 
        * Potential Solutions:
        * - Move addToCart form logic out of cart
@@ -284,27 +284,55 @@ export default(function() {
         }
       })
     },
+  
+    handleProductAddedToCart() {
+      const desktopProductAddToCartButton = document.querySelector(Cart.SELECTORS.desktopProductAddToCartButton);
+      const mobileProductAddToCartButton = document.querySelector(Cart.SELECTORS.mobileProductAddToCartButton);
 
-    //TO-DO (#178): This function should check when the add to cart button is clicked and use a setTimeout to change the text to "Added to cart" and then revert back to "Add to cart" after a few seconds.
-    handleAddToCartButton(variantId: string, action: Action) {
-      const addToCartButton = document.querySelector(Cart.SELECTORS.addToCartButton);
-      
-      if (!addToCartButton) return;
-      
-      const addToCartVariantId = addToCartButton.getAttribute(Cart.ATTRIBUTES.variantId);
+      if (desktopProductAddToCartButton) {
+        Cart.handleProductAddedToCartButtonStyling(desktopProductAddToCartButton);
+      }
 
-      if (addToCartVariantId === variantId) {
-        if (action === Action.ADD) {
-          addToCartButton.textContent = Cart.CONSTANTS.addedToCart;
-          addToCartButton.setAttribute(Cart.ATTRIBUTES.disabled, Cart.ATTRIBUTES.disabled);
-        }
-
-        if (action === Action.REMOVE) {
-          addToCartButton.textContent = Cart.CONSTANTS.addToCart;
-          addToCartButton.removeAttribute(Cart.ATTRIBUTES.disabled);
-        }
+      if (mobileProductAddToCartButton) {
+        Cart.handleProductAddedToCartButtonStyling(mobileProductAddToCartButton);
       }
     },
+    
+    handleProductAddedToCartButtonStyling(button: Element) {
+      button.textContent = Cart.CONSTANTS.addedToCart;
+      button.setAttribute(Cart.ATTRIBUTES.disabled, Cart.ATTRIBUTES.disabled);
+
+      setTimeout(() => {
+        button.textContent = Cart.CONSTANTS.addToCart;
+        button.removeAttribute(Cart.ATTRIBUTES.disabled);
+      }, 2000);  
+    },
+
+    //Handles any errors adding an item to the cart
+    handleProductAddedToCartError() {
+      const desktopProductAddToCartButtonError = document.querySelector(Cart.SELECTORS.desktopProductAddToCartButtonError);
+      const mobileProductAddToCartButtonError = document.querySelector(Cart.SELECTORS.mobileProductAddToCartButtonError);
+
+      if (desktopProductAddToCartButtonError) {
+        Cart.handleProductAddedToCartButtonErrorStyling(desktopProductAddToCartButtonError);
+      }
+
+      if (mobileProductAddToCartButtonError) {
+        Cart.handleProductAddedToCartButtonErrorStyling(mobileProductAddToCartButtonError);
+      }
+    },
+
+    //Shows text below the Add to Cart button, indicating that the customer was not able to add that item to their cart
+    handleProductAddedToCartButtonErrorStyling(button: Element) {
+      button.classList.remove("AddToCartContainer__error-message--inactive");
+      button.classList.add("AddToCartContainer__error-message--active");
+      
+      setTimeout(() => {
+        button.classList.remove("AddToCartContainer__error-message--active");
+        button.classList.add("AddToCartContainer__error-message--inactive");
+      }, 4000);  
+    },
+
   };
 
   Cart.init();
