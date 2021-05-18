@@ -20,11 +20,12 @@ export default(function() {
       );
 
       const tabsWrapper: HTMLElement = document.querySelector(ProductDescription.SELECTORS.tabsWrapper);
+
       const navs = [].slice.call(
         document.querySelectorAll(ProductDescription.SELECTORS.nav)
       );
 
-			if (!tabs && !tabbedContent && !tabsWrapper && !navs) return;
+			if (!tabs || !tabbedContent || !tabsWrapper || !navs) return;
 
       let height = ProductDescription.getStickyHeight(tabsWrapper, navs);
       window.addEventListener('resize', () => {
