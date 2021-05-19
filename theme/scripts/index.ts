@@ -17,6 +17,7 @@ Sentry.init({
 
 import "../styles/index.scss";
 import "./productImagesSlider";
+import "./productDescription";
 import "./cart";
 import "./activatable";
 import "./cookieConsent";
