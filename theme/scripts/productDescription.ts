@@ -1,10 +1,14 @@
+// Pixel value that's added to the height of the sticky header
+// and used to check which section is within the page that lead to best experience
+const STICKY_HEIGHT_BUFFER = 16;
+
 export default(function() {
 	const ProductDescription = {
 		SELECTORS: {
 			tab: "[data-product-description-tab]",
       content: "[data-product-description-content]",
-      tabsWrapper: ".ProductDescription__tabs",
-      nav: ".Nav"
+      tabsWrapper: "[data-product-description-tabs-wrapper]",
+      nav: "[data-nav]"
 		},
     CLASSES: {
       activeTab: "ProductDescription__button--active"
@@ -44,7 +48,7 @@ export default(function() {
       const activeNav = navs.find((elem) => {
         if (elem.offsetHeight !== 0) return elem;
       })
-      return tabsWrapperHeight + activeNav.offsetHeight + 16;
+      return tabsWrapperHeight + activeNav.offsetHeight + STICKY_HEIGHT_BUFFER;
     },
 
     toggleActiveStyling(isActive: boolean, tab: HTMLElement) {
@@ -71,7 +75,7 @@ export default(function() {
         } else if (index == tabbedContent.length - 1) {
           isActive = window.scrollY >= tabbedContent[index-1].offsetTop + tabbedContent[index-1].offsetHeight - height
         } else {
-          isActive = window.scrollY >= offsetTop - 16 && window.scrollY < offsetBottom - height
+          isActive = window.scrollY >= offsetTop - STICKY_HEIGHT_BUFFER && window.scrollY < offsetBottom - height
         }
 
         ProductDescription.toggleActiveStyling(isActive, tabs[index]);

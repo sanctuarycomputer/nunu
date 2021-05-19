@@ -1,7 +1,7 @@
 .ProductDescription {
   padding-bottom: 3.125rem;
 
-  h1 {
+  &__content-title {
     font-family: $serif;
     @extend %serif-xl;
 
@@ -40,6 +40,14 @@
 
     @include media('md-up') {
       top: $nav-height-md;
+    }
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    /* Chrome and Safari */
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
 

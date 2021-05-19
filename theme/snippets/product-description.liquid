@@ -6,7 +6,7 @@
 {% endif %}
 
 {% if is_course %}
-  <div class="ProductDescription__tabs sticky pt1_25 pb_5 site-padding-x z-description flex flex-row items flex-nowrap overflow-x-auto overflow-y-hidden w100">
+  <div data-product-description-tabs-wrapper class="ProductDescription__tabs sticky pt1_25 pb_5 site-padding-x z-description flex flex-row items flex-nowrap overflow-x-auto overflow-y-hidden w100">
     {% for title in product.metafields.accentuate.title %}
       <a 
         data-product-description-tab 
@@ -21,7 +21,7 @@
         {% assign id = product.metafields.accentuate.title[forloop.index0] | handleize %}
         <div id="{{ id }}" class="ProductDescription__content" data-product-description-content>
           {% if forloop.index0 != 0 %}
-            <h1>{{ product.metafields.accentuate.title[forloop.index0] }}</h1>
+            <h1 class="ProductDescription__content-title">{{ product.metafields.accentuate.title[forloop.index0] }}</h1>
           {% endif %}
           {% render 'markdown' markdown: markdown.html, classes: "ProductDescription__markdown" %}
         </div>
