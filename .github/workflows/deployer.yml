@@ -1,7 +1,5 @@
 name: Deployer
-on:
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
+on: [push, pull_request]
 
 jobs:
   build:
