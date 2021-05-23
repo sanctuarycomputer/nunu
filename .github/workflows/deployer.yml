@@ -39,11 +39,12 @@ jobs:
       # Invoke Themegit
       - name: Invoke Themegit
         id: themegit
-        uses: in-house-dot-dev/themegit@v6
+        uses: in-house-dot-dev/themegit@v7
         with:
           BUILT_THEME_DIR: './theme'
           SHOPIFY_STORE_DOMAIN: 'nunu-school.myshopify.com'
           SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PASSWORD }}
+          PINNED_BRANCHES: ['main']
 
       # Set short SHA
       - name: Set outputs
