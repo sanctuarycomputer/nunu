@@ -37,7 +37,7 @@ jobs:
       # Invoke Themegit
       - name: Invoke Themegit
         id: themegit
-        uses: in-house-dot-dev/themegit@v12
+        uses: in-house-dot-dev/themegit@v13
         with:
           BUILT_THEME_DIR: './theme'
           SHOPIFY_STORE_DOMAIN: 'nunu-school.myshopify.com'
