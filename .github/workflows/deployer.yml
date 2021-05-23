@@ -44,7 +44,7 @@ jobs:
           BUILT_THEME_DIR: './theme'
           SHOPIFY_STORE_DOMAIN: 'nunu-school.myshopify.com'
           SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PASSWORD }}
-          PINNED_BRANCHES: ['main']
+          PINNED_BRANCHES: 'main, production'
 
       # Set short SHA
       - name: Set outputs
