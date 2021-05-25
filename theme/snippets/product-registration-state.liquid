@@ -1,4 +1,4 @@
-{% assign registration_state = "UPCOMING" %}
+{% assign registration_state = 'snippets.product_registration_state.upcoming' | t %}
 
 {% if product.price != 0 %}
   {% assign registration_state = product.price | money_without_trailing_zeros %}
@@ -18,11 +18,11 @@
 {% endif %}
 
 {% if todays_date > ends_at %}
-  {% assign registration_state = "PAST" %}
+  {% assign registration_state = 'snippets.product_registration_state.past' | t %}
 {% elsif todays_date > starts_at %}
-  {% assign registration_state = "REGISTRATION CLOSED" %}
+  {% assign registration_state = 'snippets.product_registration_state.registration_closed' | t %}
 {% elsif todays_date < starts_at and current_variant.available != true %}
-  {% assign registration_state = "SOLD OUT" %}
+  {% assign registration_state = 'snippets.product_registration_state.sold_out' | t %}
 {% endif %}
 
-<span class="ProductGridItem__price uppercase">{{ registration_state }}</span>
+<span class="ProductGridItem__price text-left pl1_5 uppercase">{{ registration_state }}</span>

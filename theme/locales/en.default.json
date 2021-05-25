@@ -104,6 +104,12 @@
         "aria_label": "Navigate to the product page."
       }
     },
+    "product_registration_state": {
+      "upcoming": "Upcoming",
+      "past": "Past",
+      "sold_out": "Sold out",
+      "registrated_closed": "Registration closed"
+    },
     "cookie_consent": {
       "alt": "Yellow circle cookie consent pop up",
       "aria_label": "Cookie Consent pop up"
