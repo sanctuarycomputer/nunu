@@ -27,7 +27,7 @@
           {% if lowercase_product_type == "course" or lowercase_product_type == "event" %}
             {% render 'product-registration-state' product: current_product, product_type: lowercase_product_type %}
           {% else %}
-            <span class="ProductGridItem__price text-left pl1_5 uppercase">{{current_product.price | money_without_trailing_zeros }}</span>
+            <span class="ProductGridItem__price text-right pl1_5 uppercase">{{current_product.price | money_without_trailing_zeros }}</span>
           {% endif %}
         </div>
         {% render 'product-vendor' product: current_product, display_variant: 'grid-item' %}

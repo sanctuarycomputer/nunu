@@ -108,7 +108,7 @@
       "upcoming": "Upcoming",
       "past": "Past",
       "sold_out": "Sold out",
-      "registrated_closed": "Registration closed"
+      "registration_closed": "Registration closed"
     },
     "cookie_consent": {
       "alt": "Yellow circle cookie consent pop up",
