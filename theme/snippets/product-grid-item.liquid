@@ -2,8 +2,8 @@
 
 <!-- Get product type -->
 {% assign current_product_type = "" %}
-{% if current_product.first_available_variant.metafields.bookings != blank %}
-  {% assign current_product_type = current_product.first_available_variant.metafields.bookings.bookable_type %}
+{% if current_product.variants[0].metafields.bookings != blank %}
+  {% assign current_product_type = current_product.variants[0].metafields.bookings.bookable_type %}
 {% else %}
   {% assign current_product_type = current_product.type %}
 {% endif %}
@@ -23,7 +23,12 @@
       <span class="flex flex-col uppercase">
         <div class="flex justify-between">
           <span class="ProductGridItem__title">{{current_product.title}}</span>
-          <span class="ProductGridItem__price uppercase">{{current_product.price | money_without_trailing_zeros }}</span>
+          {% assign lowercase_product_type = current_product_type | downcase %}
+          {% if lowercase_product_type == "course" or lowercase_product_type == "event" %}
+            {% render 'product-registration-state' product: current_product, product_type: lowercase_product_type %}
+          {% else %}
+            <span class="ProductGridItem__price text-right pl1_5 uppercase">{{current_product.price | money_without_trailing_zeros }}</span>
+          {% endif %}
         </div>
         {% render 'product-vendor' product: current_product, display_variant: 'grid-item' %}
       </span>

@@ -1,0 +1,28 @@
+{% assign registration_state = 'snippets.product_registration_state.upcoming' | t %}
+
+{% if product.price != 0 %}
+  {% assign registration_state = product.price | money_without_trailing_zeros %}
+{% endif %}
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign bookings_metafields = current_variant.metafields.bookings %}
+{% assign todays_date = 'now' | date: '%s' %}
+
+{% if product_type == "course" %}
+  {% assign sessions_sorted = bookings_metafields.sessions | sort: 'starts_at' %}
+  {% assign starts_at = sessions_sorted.first.starts_at | date: '%s' %}
+  {% assign ends_at = sessions_sorted.last.ends_at | date: '%s' %}
+{% elsif product_type == "event" %}
+  {% assign starts_at = bookings_metafields.starts_at | date: '%s' %}
+  {% assign ends_at = bookings_metafields.ends_at | date: '%s' %}
+{% endif %}
+
+{% if todays_date > ends_at %}
+  {% assign registration_state = 'snippets.product_registration_state.past' | t %}
+{% elsif todays_date > starts_at %}
+  {% assign registration_state = 'snippets.product_registration_state.registration_closed' | t %}
+{% elsif todays_date < starts_at and current_variant.available != true %}
+  {% assign registration_state = 'snippets.product_registration_state.sold_out' | t %}
+{% endif %}
+
+<span class="ProductGridItem__price text-right pl1_5 uppercase">{{ registration_state }}</span>
