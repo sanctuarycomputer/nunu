@@ -1,4 +1,8 @@
 {% assign brief_product_description = product.metafields.accentuate.brief_product_description %}
+{% assign product_price = product.price | money_without_trailing_zeros %}
+{% if product.price == 0 %}
+  {% assign product_price = 'snippets.product_info.free' | t %}
+{% endif %}
 
 <!-- Check if product already exists in cart -->
 {% for item in cart.items %}
@@ -18,11 +22,11 @@
   {% assign product_type = product.type %}
 {% endif %}
 
-<div class="ProductInfo flex flex-col z-1 col-12 md:col-3 md:pr2_5 px_625 md:pl_75">
+<div class="ProductInfo flex flex-col z-1 col-12 md:col-4 xl:col-3 md:pr2_5 px_625 md:pl_75">
   <span class="ProductInfo__product-details flex flex-col sans-light-sm color-black">
     <div class="serif flex flex-row justify-between">
-      <h1 class="ProductInfo__title md:pr_5">{{ product.title }}</h1>
-      <span class="ProductInfo__price text-right">{{ product.price | money_without_trailing_zeros }}</span>
+      <h1 class="ProductInfo__title md:pr1_5">{{ product.title }}</h1>
+      <span class="ProductInfo__price text-right uppercase">{{ product_price }}</span>
     </div>
     <span class="sans-xs pt_625 pb1_5 md:pt1_5 md:pb1_125">
       {{ brief_product_description }}
