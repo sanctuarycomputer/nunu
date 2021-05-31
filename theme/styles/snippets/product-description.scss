@@ -20,17 +20,17 @@
       padding-bottom: 0;
     }
 
-    padding-top: calc(#{$nav-height} + #{$product-tabs-height} + 0.5rem); 
-    margin-top: calc(-#{$nav-height} - #{$product-tabs-height} - 0.5rem); 
+    padding-top: calc(#{$nav-height} + #{$product-tabs-height}); 
+    margin-top: calc(-#{$nav-height} - #{$product-tabs-height}); 
 
     @include media('md-up') {
-      padding-top: calc(#{$nav-height-md} + #{$product-tabs-height-md} + 0.5rem);
-      margin-top: calc(-#{$nav-height-md} - #{$product-tabs-height-md} - 0.5rem);
+      padding-top: calc(#{$nav-height-md} + #{$product-tabs-height-md});
+      margin-top: calc(-#{$nav-height-md} - #{$product-tabs-height-md});
     }
   
     @include media('lg-xl-up') {
-      padding-top: calc(#{$nav-height-lg-xl} + #{$product-tabs-height-lg-xl} + 0.5rem);
-      margin-top: calc(-#{$nav-height-lg-xl} - #{$product-tabs-height-lg-xl} - 0.5rem);
+      padding-top: calc(#{$nav-height-lg-xl} + #{$product-tabs-height-lg-xl});
+      margin-top: calc(-#{$nav-height-lg-xl} - #{$product-tabs-height-lg-xl});
     }
   }
 
