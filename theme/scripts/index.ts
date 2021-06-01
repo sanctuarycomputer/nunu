@@ -1,6 +1,7 @@
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
 import 'what-input'
+import "zenscroll"
 
 declare global {
   interface Window {

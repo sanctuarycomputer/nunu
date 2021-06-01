@@ -42,6 +42,10 @@
       top: $nav-height-md;
     }
 
+    @include media('lg-xl-up') {
+      top: $nav-height-lg-xl;
+    }
+
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 

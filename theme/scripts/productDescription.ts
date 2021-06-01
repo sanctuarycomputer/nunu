@@ -1,6 +1,6 @@
 // Pixel value that's added to the height of the sticky header
 // and used to check which section is within the page that lead to best experience
-const STICKY_HEIGHT_BUFFER = 16;
+const STICKY_HEIGHT_BUFFER = 24;
 
 export default (function () {
   const ProductDescription = {
