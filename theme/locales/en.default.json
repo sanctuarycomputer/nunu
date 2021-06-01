@@ -146,7 +146,7 @@
       },
       "registration_closed_btn": {
         "aria_label": "Registration is closed",
-        "text": "Registration closed"
+        "text": "Closed"
       },
       "sold_out_btn": {
         "aria_label": "Product is sold out",

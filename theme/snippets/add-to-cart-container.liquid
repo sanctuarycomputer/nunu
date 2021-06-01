@@ -7,6 +7,9 @@
 {% endif %}
 {% assign lowercase_product_type = product_type | downcase %}
 
+{% capture button_label %}{{"snippets.add_to_cart_container.add_to_cart_btn.text" | t }}{% endcapture %}
+{% assign button_disabled = false %}
+
 <!-- Assign label and disabled state to add to cart button -->
 {% if lowercase_product_type == "event" or lowercase_product_type == "course" %}
 
@@ -24,9 +27,6 @@
     {% assign ends_at = bookings_metafields.ends_at | date: '%s' %}
   {% endif %}
 
-  {% capture button_label %}{{"snippets.add_to_cart_container.add_to_cart_btn.text" | t }}{% endcapture %}
-  {% assign button_disabled = false %}
-
   {% if todays_date > ends_at %}
     {% capture button_label %}{{"snippets.add_to_cart_container.past_btn.text" | t }}{% endcapture %}
     {% assign button_disabled = true %}
@@ -41,8 +41,6 @@
 {% else %}
 
   <!-- For regular products (non bookings) -->
-  {% capture button_label %}{{"snippets.add_to_cart_container.add_to_cart_btn.text" | t }}{% endcapture %}
-  {% assign button_disabled = false %}
   {% if product.available != true %}
     {% capture button_label %}{{"snippets.add_to_cart_container.sold_out_btn.text" | t }}{% endcapture %}
     {% assign button_disabled = true %}
