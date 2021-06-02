@@ -110,6 +110,9 @@
       "sold_out": "Sold out",
       "registration_closed": "Registration closed"
     },
+    "product_info": {
+      "free": "Free"
+    },
     "cookie_consent": {
       "alt": "Yellow circle cookie consent pop up",
       "aria_label": "Cookie Consent pop up"
@@ -137,9 +140,13 @@
       "add_to_cart_btn_error": {
         "text": "This item could not be added to your cart."
       },
+      "past_btn": {
+        "aria_label": "This offering occured in the past.",
+        "text": "Past"
+      },
       "registration_closed_btn": {
         "aria_label": "Registration is closed",
-        "text": "Registration closed"
+        "text": "Closed"
       },
       "sold_out_btn": {
         "aria_label": "Product is sold out",

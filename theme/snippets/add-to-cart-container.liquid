@@ -1,9 +1,51 @@
-<!-- Assign label and disabled state to add to cart button -->
+<!-- Get product type -->
+{% assign product_type = "" %}
+{% if product.variants[0].metafields.bookings != blank %}
+  {% assign product_type = product.variants[0].metafields.bookings.bookable_type %}
+{% else %}
+  {% assign product_type = product.type %}
+{% endif %}
+{% assign lowercase_product_type = product_type | downcase %}
+
 {% capture button_label %}{{"snippets.add_to_cart_container.add_to_cart_btn.text" | t }}{% endcapture %}
 {% assign button_disabled = false %}
-{% if product.available != true %}
-  {% capture button_label %}{{"snippets.add_to_cart_container.sold_out_btn.text" | t }}{% endcapture %}
-  {% assign button_disabled = true %}
+
+<!-- Assign label and disabled state to add to cart button -->
+{% if lowercase_product_type == "event" or lowercase_product_type == "course" %}
+
+  <!-- For bookings products -->
+  {% assign current_variant = product.selected_or_first_available_variant %}
+  {% assign bookings_metafields = current_variant.metafields.bookings %}
+  {% assign todays_date = 'now' | date: '%s' %}
+
+  {% if lowercase_product_type == "course" %}
+    {% assign sessions_sorted = bookings_metafields.sessions | sort: 'starts_at' %}
+    {% assign starts_at = sessions_sorted.first.starts_at | date: '%s' %}
+    {% assign ends_at = sessions_sorted.last.ends_at | date: '%s' %}
+  {% elsif lowercase_product_type == "event" %}
+    {% assign starts_at = bookings_metafields.starts_at | date: '%s' %}
+    {% assign ends_at = bookings_metafields.ends_at | date: '%s' %}
+  {% endif %}
+
+  {% if todays_date > ends_at %}
+    {% capture button_label %}{{"snippets.add_to_cart_container.past_btn.text" | t }}{% endcapture %}
+    {% assign button_disabled = true %}
+  {% elsif todays_date > starts_at %}
+    {% capture button_label %}{{"snippets.add_to_cart_container.registration_closed_btn.text" | t }}{% endcapture %}
+    {% assign button_disabled = true %}
+  {% elsif todays_date < starts_at and current_variant.available != true %}
+    {% capture button_label %}{{"snippets.add_to_cart_container.sold_out_btn.text" | t }}{% endcapture %}
+    {% assign button_disabled = true %}
+  {% endif %}
+
+{% else %}
+
+  <!-- For regular products (non bookings) -->
+  {% if product.available != true %}
+    {% capture button_label %}{{"snippets.add_to_cart_container.sold_out_btn.text" | t }}{% endcapture %}
+    {% assign button_disabled = true %}
+  {% endif %}
+
 {% endif %}
 
 <div class="AddToCartContainer px_625 md:px0">
