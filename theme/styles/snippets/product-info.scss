@@ -10,7 +10,12 @@
     }
   }
 
-  &__text-fields div {
-    letter-spacing: 0.0275rem;
+  &__text-fields {
+
+    padding-bottom: 0.65rem;
+
+    div {
+      letter-spacing: 0.0275rem;
+    }
   }
 }
