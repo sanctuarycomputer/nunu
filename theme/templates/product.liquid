@@ -11,7 +11,7 @@
       {% include 'product-images-slider' %}
     {% else %}
       <div class="Product__hero-image-outer-container px_625 md:px0 col-12 md:col-9">
-        <div class="Product__hero-image-container radius-xl flex items-center justify-center w100 h100 overflow-hidden bg-color-black">
+        <div class="Product__hero-image-container radius-xl flex items-center justify-center w100 h100 overflow-hidden">
           <img src="{{ featured_image | img_url: '1200x' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" class="fit-contain w100">
         </div>
       </div>
