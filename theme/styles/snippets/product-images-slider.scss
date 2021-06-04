@@ -1,10 +1,10 @@
 .ProductImagesSlider {
   &__img {
-    max-height: 25rem;
+    height: 25rem;
     border-radius: radius('sm');
 
     @include media('md-up') {
-      max-height: 50rem;
+      height: 50rem;
       border-radius: radius('xl');
     }
   }
