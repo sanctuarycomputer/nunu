@@ -4,12 +4,8 @@
     border-radius: radius('sm');
 
     @include media('md-up') {
-      max-height: 35rem;
+      max-height: 50rem;
       border-radius: radius('xl');
-    }
-
-    @include media('xl-up') {
-      max-height: 40rem;
     }
   }
 
