@@ -6,7 +6,7 @@
         pointer-events: none; /* ▼ click triggers dropdown */
         position: absolute;
         right: 1.125rem;
-        top: 0.6rem;
+        top: 1.125rem;
         z-index: 1;
     }
   }
@@ -21,6 +21,12 @@
       opacity: 1;
       transform: translate3d(0, 0, 0);
     };
+  }
+
+  &__button {
+    font-size: 1.875rem;
+    line-height: 1.6875rem;
+    letter-spacing: 0.0275rem;
   }
 
   select {

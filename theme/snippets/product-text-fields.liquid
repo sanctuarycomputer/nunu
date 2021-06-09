@@ -1,9 +1,23 @@
 {% if product.metafields.accentuate.product_text_field_text %}
-<div class="ProductInfo__text-fields sans-xs">
-  {% for value in product.metafields.accentuate.product_text_field_text %} 
-    <div class="pb1_25">
-      {{ value }}
-    </div>
-  {% endfor %}
-</div>
+  <div class="ProductInfo__text-fields sans-xs">
+    {% if product.metafields.accentuate.product_text_field_icon %}
+      {% for value in product.metafields.accentuate.product_text_field_text %}
+        <div class="pb1_25 flex items-center">
+          {% assign icon = product.metafields.accentuate.product_text_field_icon[forloop.index0].first %}
+          <img 
+            src="{{ icon.src }}"
+            alt="{%- if icon.alt != "" -%} {{- icon.alt -}} {%- else -%} {{- value -}} {%- endif -%}"
+            class="hauto mr_5"
+          />
+          {{- value -}}
+        </div>
+      {% endfor %}
+    {% else %}
+      {% for value in product.metafields.accentuate.product_text_field_text %}
+        <div class="pb1_25 flex items-center">
+          {{ value }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
 {% endif %}
