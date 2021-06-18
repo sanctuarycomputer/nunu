@@ -25,6 +25,7 @@ export default(function() {
 				pagination: false,
 				arrows: false,
 				autoWidth: true,
+				waitForTransition: false,
 			}).mount();
 		}
 	};
