@@ -16,10 +16,6 @@ export default(function() {
 
 		setup(slider: HTMLElement) {
 			new Splide(slider, {
-				classes: {
-					arrows: 'splide__arrows--override',
-					arrow : 'splide__arrow--override',
-				},
 				speed: 800,
 				type: 'loop',
 				pagination: false,
