@@ -24,13 +24,15 @@
 
 <div class="ProductInfo flex flex-col z-1 col-12 md:col-4 xl:col-3 md:pr2_5 px_625 md:pl_75">
   <span class="ProductInfo__product-details flex flex-col sans-light-sm color-black">
-    <div class="serif flex flex-row justify-between">
+    <div class="serif flex flex-row justify-between {% if brief_product_description == blank %} pb1_25 {% endif %}">
       <h1 class="ProductInfo__title md:pr1_5">{{ product.title }}</h1>
       <span class="ProductInfo__price text-right uppercase">{{ product_price }}</span>
     </div>
-    <span class="sans-xs pt_625 pb1_5 md:pb1_875">
-      {{ brief_product_description }}
-    </span>
+    {% if brief_product_description != blank %}
+      <span class="sans-xs pt1_25 pb1_25 md:pb1_875">
+        {{ brief_product_description }}
+      </span>
+    {% endif %}
     <div class="none md:flex md:flex-col">
       {% render 'product-instructor' product: product %}
       {% render 'product-text-fields' product: product %}
