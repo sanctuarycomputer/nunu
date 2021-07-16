@@ -45,7 +45,7 @@
       @extend %serif-xl;
     }
   
-    h3, p, ol, ul  {
+    h3, p, ol, ul, span {
       font-family: $serif;
       font-size: 2rem;
       line-height: 2.1rem;
