@@ -1,12 +1,26 @@
+<!-- 
+  Products created by Shopify Bookings are created with one variant that the user purchases, regardless of how many sessions a course or event has. 
+
+  The variant's title is equal to the Course or Event title in Shopify Bookings. Changing a product's variant's title in Shopify will also change the Course or Event title in Shopify Bookings.
+  
+  For Bookings products, in the Cart we assign the title to equal item.product.title to show the product title without the variant title, to avoid duplicate titles like "Bird Watching - Bird Watching".
+-->
+{% assign item_title = "" %}
+{% if item.product.first_available_variant.metafields.bookings != blank %}
+  {% assign item_title = item.product.title %}
+{% else %}
+  {% assign item_title = item.title %}
+{% endif %}
+
 <div class="CartItem bg-color-black color-white relative p_625 mb_125">
   <div class="CartItem__inner-container bg-color-black h100">
     <div class="flex justify-between">
-      <span class="CartItem__title serif-xs uppercase">{{ item.title }}</span>
+      <span class="CartItem__title serif-xs uppercase">{{ item_title }}</span>
       <span class="CartItem__price serif-xs uppercase">{{ item.price | money_without_trailing_zeros }}</span>
     </div>
     <span class="CartItem__vendor sans-xs">{{ item.vendor }}</span>
     <div class="CartItem__image-container flex items-center justify-center absolute t0 r0 h100 w100">
-      <img class="CartItem__image w100 h100 fit-contain xs:py1" src={{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+      <img class="CartItem__image w100 h100 fit-contain xs:py1" src={{ item | img_url: 'medium' }}" alt="{{ item_title | escape }}">
     </div>
     <div class="CartItem__details absolute r0 b0 p_625 w100 flex justify-between">
       <button data-line-item-variant-id={{item.variant_id}} data-line-item-quantity={{item.quantity}} data-remove-from-cart-button aria-label={{ 'snippets.cart.remove_button.aria_label' | t }} class="button--style-no-style sans-xs color-white uppercase">{{ 'snippets.cart.remove_button.text' | t }} </button>
