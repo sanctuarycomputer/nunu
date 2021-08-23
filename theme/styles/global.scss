@@ -27,9 +27,8 @@
   }
 }
 
-/* Global site border and offset for Nav height */
+/* Offset for Nav height */
 body {
-  border: solid $site-border color('white');
   padding-top: $nav-height;
 
   @include media('md-up') {
