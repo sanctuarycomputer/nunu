@@ -1,0 +1,61 @@
+<!-- Get product type -->
+{% assign product_type = "" %}
+{% if product.variants[0].metafields.bookings != blank %}
+  {% assign product_type = product.variants[0].metafields.bookings.bookable_type %}
+{% else %}
+  {% assign product_type = product.type %}
+{% endif %}
+{% assign lowercase_product_type = product_type | downcase %}
+
+<!-- Assign different date formats for courses and events.
+  
+A course's format is "Apr 18, 2021 Thursdays from 5:30 - 7:30pm EDT" 
+An event's format is "Apr 18, 2021 5:30 - 7:30pm EDT"
+
+-->
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign bookings_metafields = current_variant.metafields.bookings %}
+
+{% if lowercase_product_type == "course" %}
+  {% assign sessions_sorted = bookings_metafields.sessions | sort: 'starts_at' %}
+  {% assign starts_at_date = sessions_sorted.first.starts_at | date: "%b %e, %Y" %}
+  {% assign ends_at_date = sessions_sorted.last.starts_at | date: "%b %e, %Y" %}
+  {% assign starts_at_time = sessions_sorted.first.starts_at | date: "%l:%M " %}
+  {% assign ends_at_time = sessions_sorted.last.ends_at | date: "%l:%M %P %Z" %}
+  {% assign day_of_week = sessions_sorted.first.starts_at | date: "%A" %}
+
+{% elsif lowercase_product_type == "event" %}
+  {% assign starts_at_date = bookings_metafields.starts_at | date: "%b %e, %Y" %}
+  {% assign ends_at_date = bookings_metafields.ends_at | date: "%b %e, %Y" %}
+  {% assign starts_at_time = bookings_metafields.starts_at | date: "%l:%M" %}
+  {% assign ends_at_time = bookings_metafields.ends_at | date: "%l:%M%P %Z" %}
+{% endif %}
+
+{% if starts_at_date and ends_at_date %}
+  <div class="ProductDate sans-xs">
+    <div class="pb1_25 flex items-start">
+      <img 
+        src={{ 'calendar-illustration.png' | asset_url }}
+        alt=alt={{ 'snippets.product_date.calendar_icon.alt' | t }} 
+        class="ProductDate__icon hauto mr_5"
+      />
+      <div class="flex flex-col">
+        {% if lowercase_product_type == "course" %}
+        <p>
+          {{ starts_at_date }} — {{ ends_at_date }}
+        </p>
+        <p>
+          {{ day_of_week | append: 's'}} {{ 'snippets.product_date.from' | t }}{{ starts_at_time }} — {{ ends_at_time }}
+        </p>
+        {% elsif lowercase_product_type == "event" %}
+        <p>
+          {{ starts_at_date }}
+        </p>
+        <p>
+          {{ starts_at_time }} — {{ ends_at_time }}
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}

@@ -113,6 +113,12 @@
     "product_info": {
       "free": "Free"
     },
+    "product_date": {
+      "calendar_icon": {
+        "alt": "Hand drawn calendar illustration"
+      },
+      "from": "from"
+    },
     "cookie_consent": {
       "alt": "Yellow circle cookie consent pop up",
       "aria_label": "Cookie Consent pop up"

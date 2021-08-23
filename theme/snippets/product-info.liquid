@@ -35,6 +35,9 @@
     {% endif %}
     <div class="none md:flex md:flex-col">
       {% render 'product-instructor' product: product %}
+      {% if product.variants[0].metafields.bookings != blank %}
+        {% render 'product-date' product: product %}
+      {% endif %}
       {% render 'product-text-fields' product: product %}
     </div>
   </span>
