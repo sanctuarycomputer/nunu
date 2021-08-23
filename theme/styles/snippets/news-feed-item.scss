@@ -3,8 +3,8 @@
     @extend .transition;
     background-color: color('transparent');
     border-radius: radius('sm');
-    top: -#{$site-border};
-    bottom: -#{$site-border};
+    top: -#{$border-offset};
+    bottom: -#{$border-offset};
     left: -#{$margin-offset-sm};
     right: -#{$margin-offset-sm};
 
