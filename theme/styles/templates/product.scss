@@ -1,9 +1,16 @@
 .Product {
-  &__hero-image-container img {
-    height: 25rem;
+  &__hero-image-container {
+    position: relative;
+    width: 100%;
+    /* 4:3 aspect ratio */
+    padding-top: 75%;
 
-    @include media('md-up') {
-      height: 50rem;
+    img {
+      position: absolute;
+      top: 0; 
+      bottom: 0; 
+      left: 0; 
+      right: 0;
     }
   }
   
