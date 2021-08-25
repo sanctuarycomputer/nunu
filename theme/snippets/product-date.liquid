@@ -1,3 +1,6 @@
+<!-- Get Product Date Icon -->
+{% assign date_icon = shop.metafields.accentuate.product_date_icon | first %}
+
 <!-- Get product type -->
 {% assign product_type = "" %}
 {% if product.variants[0].metafields.bookings != blank %}
@@ -35,8 +38,8 @@ An event's format is "Apr 18, 2021 5:30 - 7:30pm EDT"
   <div class="ProductDate sans-xs">
     <div class="pb1_25 flex items-start">
       <img 
-        src={{ 'sun.svg' | asset_url }}
-        alt=alt={{ 'snippets.product_date.sun_icon.alt' | t }} 
+        src="{{ date_icon.src }}"
+        alt="{{ date_icon.alt }}"
         class="ProductDate__icon hauto mr_5"
       />
       <div class="flex flex-col">
