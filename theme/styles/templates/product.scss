@@ -1,13 +1,16 @@
 .Product {
-  &__hero-image-container img {
-    max-height: 16rem;
+  &__hero-image-container {
+    position: relative;
+    width: 100%;
+    /* 4:3 aspect ratio */
+    padding-top: 75%;
 
-    @include media('sm-up') {
-      max-height: 30rem;
-    }
-
-    @include media('md-up') {
-      max-height: 40rem;
+    img {
+      position: absolute;
+      top: 0; 
+      bottom: 0; 
+      left: 0; 
+      right: 0;
     }
   }
   
