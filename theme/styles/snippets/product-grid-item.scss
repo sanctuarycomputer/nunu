@@ -18,33 +18,6 @@
 
   &__image {
     width: 130%;
-    max-width: 90vw;
-    max-height: 25rem;
-
-    @include media('xs-up') {
-      max-height: 40rem;
-    }
-
-    @include media('sm-up') {
-      width: 130%;
-      max-width: 20rem;
-      max-height: 30rem;
-    }
-
-    @include media('md-up') {
-      max-height: 24rem;
-      max-width: 18rem;
-    }
-
-    @include media('lg-up') {
-      max-height: 24rem;
-      max-width: 21rem;
-    }
-
-    @include media('xl-up') {
-      max-height: 26rem;
-      max-width: 30rem;
-    }
   }
 
   &__title, &__price {
