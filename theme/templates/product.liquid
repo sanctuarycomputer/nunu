@@ -19,6 +19,9 @@
     <div class="flex flex-col md:none">
       {% render 'product-instructor' product: product %}
       <div class="px_625 pt1_875">
+        {% if product.variants[0].metafields.bookings != blank %}
+          {% render 'product-date' product: product %}
+        {% endif %}
         {% render 'product-text-fields' product: product %}
       </div>
       {% render 'add-to-cart-container' data_selector: 'data-mobile-product-add-to-cart-button' product: product %}
