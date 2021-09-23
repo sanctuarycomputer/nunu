@@ -28,7 +28,13 @@
     {% endif %}
     <span class="flex flex-col">
       <span class="flex flex-col content-center">
-        <span class="sans-xxxs pb_25">{{ 'snippets.product_vendor.instructor' | t }}</span>
+        <span class="sans-xxxs pb_25">
+          {% if product.metafields.accentuate.resource_role %}
+            {{ product.metafields.accentuate.resource_role }}
+          {% else %}
+            {{ 'snippets.product_vendor.instructor' | t }}
+          {% endif %}
+        </span>
         <span class="ProductInstructor__name">{{ vendor_name }}</span>
       </span>
     </span>
