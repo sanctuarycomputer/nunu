@@ -1,8 +1,12 @@
 $text-max-width: 65rem;
 
 .Markdown {
-  h1, h2, h3, p, ol, ul {
+  h1, h2, h3, p, ol, ul, em {
     font-family: $serif;
+  }
+
+  em {
+    font-style: italic;
   }
 
   /* Bold class used for Dingbats Font in Home Page Intro */
