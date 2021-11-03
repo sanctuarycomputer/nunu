@@ -1,6 +1,27 @@
 @import "~nouislider/dist/nouislider.css";
 
 $noUi-css-prefix: noUi;
+$slider-height: 16px;
+
+$handle-diameter: (
+  xs-up: 80px,
+  md-up: 160px
+);
+
+$handle-radius: (
+  xs-up: map-get($handle-diameter, xs-up) / 2,
+  md-up: map-get($handle-diameter, md-up) / 2
+);
+
+$slider-padding: (
+  xs-up: 0 map-get($handle-diameter, xs-up) / 2,
+  md-up: 0 map-get($handle-diameter, md-up) / 2
+);
+
+$pips-container-width: (
+  xs-up: calc(100% - #{map-get($handle-diameter, xs-up)}),
+  md-up: calc(100% - #{map-get($handle-diameter, md-up)})
+);
 
 .patron-information {
   background: color("black");
@@ -62,13 +83,13 @@ $noUi-css-prefix: noUi;
 }
 
 .patron-slider-container {
-  height: 100px;
+  height: map-get($handle-diameter, xs-up);
   width: 100%;
   display: flex;
   align-items: center;
 
   @include media('md-up') {
-    height: 160px;
+    height: map-get($handle-diameter, md-up);
   }
 
   @include media('lg-xl-up') {
@@ -78,12 +99,12 @@ $noUi-css-prefix: noUi;
 
 .#{$noUi-css-prefix}-target {
   border-radius: 2rem;
-  padding: 0 50px;
+  padding: map-get($slider-padding, xs-up);
   border: none;
   box-shadow: none;
 
   @include media('md-up') {
-    padding: 0 80px;
+    padding: map-get($slider-padding, md-up);
   }
 }
 
@@ -92,16 +113,17 @@ $noUi-css-prefix: noUi;
 }
 
 .#{$noUi-css-prefix}-pips {
-  // padding-left: 70px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   top: -32px;
-  left: 80px !important;
-  width: calc(100% - 160px) !important;
+  left: map-get($handle-radius, xs-up) !important;
+  width: map-get($pips-container-width, xs-up) !important;
 
-  // @include media('md-up') {
-  //   padding-left: 140px;
-  // }
+  @include media('md-up') {
+    left: map-get($handle-radius, md-up) !important;
+    width: map-get($pips-container-width, md-up) !important;
+  }
 }
 
 .#{$noUi-css-prefix}-marker-normal {
@@ -109,11 +131,10 @@ $noUi-css-prefix: noUi;
 }
 
 .#{$noUi-css-prefix}-marker, .#{$noUi-css-prefix}-marker  {
-  width: 16px !important;
-  height: 16px !important;
+  width: $slider-height / 3 !important;
+  height: $slider-height !important;
   margin-left: -8px !important;
-  border-radius: 100%;
-  background: color('emerald');
+  background: color('black');
 }
 
 .#{$noUi-css-prefix}-value {
@@ -122,11 +143,11 @@ $noUi-css-prefix: noUi;
 
 .#{$noUi-css-prefix}-slider {
   width: 100%;
-  height: 100px;
+  height: map-get($handle-diameter, xs-up);
   border-radius: 2rem;
 
   @include media('md-up') {
-    height: 160px;
+    height: map-get($handle-diameter, md-up);
   }
 }
 
@@ -136,10 +157,11 @@ $noUi-css-prefix: noUi;
   background: color("emerald");
   overflow: hidden;
   border-radius: 100%;
-  right: -50px !important;
+  cursor: pointer;
+  right: map-get($handle-radius, xs-up) * -1 !important;
 
   @include media('md-up') {
-    right: -80px !important;
+    right: map-get($handle-radius, md-up) * -1 !important;
   }
 }
 
@@ -147,14 +169,22 @@ $noUi-css-prefix: noUi;
   width: 100%;
 
   .#{$noUi-css-prefix}-handle {
-    width: 100px;
-    height: 100px;
-    top: -42px;
+    width: map-get($handle-diameter, xs-up);
+    height: map-get($handle-diameter, xs-up);
+    top: ((map-get($handle-diameter, xs-up) - $slider-height) * -1) / 2;
+
+
 
     @include media('md-up') {
-      top: -72px;
-      width: 160px;
-      height: 160px;
+      top: ((map-get($handle-diameter, md-up) - $slider-height) * -1) / 2;
+      width: map-get($handle-diameter, md-up);
+      height: map-get($handle-diameter, md-up);
+      transition: transform $transition-duration-shorter linear;
+      zoom: 1;
+
+      &:hover {
+        transform: rotate(30deg);
+      }
     }
   }
 }
@@ -176,8 +206,13 @@ $noUi-css-prefix: noUi;
   right: 0;
   bottom: 50%;
 
-  font-size: 1.875rem;
-  line-height: 1.6875rem;
+  font-size: 1.25rem;
+  line-height: 1;
+
+  @include media('md-up') {
+    font-size: 1.875rem;
+    line-height: 1;
+  }
 }
 
 .#{$noUi-css-prefix}-handle::after {
@@ -195,11 +230,12 @@ $noUi-css-prefix: noUi;
   top: 50%;
   right: 0;
   bottom: 0;
-  padding-top: 0.5rem;
+  padding-top: 0;
 
   @extend .sans-xxs;
 
   @include media('md-up') {
+    padding-top: 0.5rem;
     font-size: 1rem;
     line-height: 1.171875rem;
     letter-spacing: 0.0275rem;

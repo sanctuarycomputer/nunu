@@ -7,7 +7,8 @@ export default (function () {
       handle: ".noUi-handle",
       patreonLink: "[data-patreon-link]",
       copy: "[data-patreon-copy]",
-      patreonTier: "[data-patreon-tier]"
+      patreonTier: "[data-patreon-tier]",
+      pips: ".noUi-marker"
     },
     START_VALUE: 15,
     PATREON_LEVELS: {
@@ -38,6 +39,20 @@ export default (function () {
       },
     },
 
+    getNextSibling(elem, selector) {
+      var sibling = elem.nextElementSibling;
+
+      // If there's no selector, return the first sibling
+      if (!selector) return sibling;
+
+      // If the sibling matches our selector, use it
+      // If not, jump to the next sibling and continue the loop
+      while (sibling) {
+        if (sibling.matches(selector)) return sibling;
+        sibling = sibling.nextElementSibling
+      }
+    },
+
     init() {
       const slider = rangeSlider.create(
         document.querySelector(PatronSlider.SELECTORS.sliderContainer),
@@ -55,12 +70,20 @@ export default (function () {
                 return 1;
               }
               return -1
-
             }
           }
         }
       )
 
+      const pips = document.querySelectorAll(PatronSlider.SELECTORS.pips)
+
+      const handlePipClick = (e) => {
+        console.log(e);
+
+        const valueEl = PatronSlider.getNextSibling(e.target, '.noUi-value')
+        var value = Number(valueEl.getAttribute('data-value'));
+        slider.set(value);
+      }
 
       document
         .querySelector(PatronSlider.SELECTORS.handle)
@@ -97,6 +120,10 @@ export default (function () {
           .querySelector(PatronSlider.SELECTORS.patreonLink)
           .setAttribute("href", PatronSlider.PATREON_LEVELS[value].href);
       });
+
+      for (var i = 0; i < pips.length; i++) {
+        pips[i].addEventListener('click', (e) => handlePipClick(e));
+      }
     },
 
     bindEventListeners() {},
