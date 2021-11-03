@@ -30,9 +30,6 @@ $noUi-css-prefix: noUi;
   }
 
   p {
-    font-family: $sans-serif;
-    padding-bottom: 3.625rem;
-    line-height: 1.5rem;
     max-width: 100%;
 
     @include media('md-up') {
@@ -45,13 +42,30 @@ $noUi-css-prefix: noUi;
   }
 }
 
+.tier-info {
+  font-size: 2rem;
+    line-height: 2.1rem;
+    letter-spacing: 0.0275rem;
+
+    @include media('lg-up') {
+      font-size: 2.5rem;
+      line-height: 2.625rem;
+    }
+}
+
+.tier-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 260px;
+  justify-content: center;
+}
+
 .patron-slider-container {
   height: 100px;
   width: 100%;
   display: flex;
   align-items: center;
-  margin-bottom: 4rem;
-  margin-top: 4rem;
 
   @include media('md-up') {
     height: 160px;
@@ -64,11 +78,46 @@ $noUi-css-prefix: noUi;
 
 .#{$noUi-css-prefix}-target {
   border-radius: 2rem;
-  padding-left: 70px;
+  padding: 0 50px;
+  border: none;
+  box-shadow: none;
 
   @include media('md-up') {
-    padding-left: 140px;
+    padding: 0 80px;
   }
+}
+
+.#{$noUi-css-prefix}-horizontal {
+  height: 16px;
+}
+
+.#{$noUi-css-prefix}-pips {
+  // padding-left: 70px;
+  display: flex;
+  align-items: center;
+  top: -32px;
+  left: 80px !important;
+  width: calc(100% - 160px) !important;
+
+  // @include media('md-up') {
+  //   padding-left: 140px;
+  // }
+}
+
+.#{$noUi-css-prefix}-marker-normal {
+  display: none;
+}
+
+.#{$noUi-css-prefix}-marker, .#{$noUi-css-prefix}-marker  {
+  width: 16px !important;
+  height: 16px !important;
+  margin-left: -8px !important;
+  border-radius: 100%;
+  background: color('emerald');
+}
+
+.#{$noUi-css-prefix}-value {
+  display: none;
 }
 
 .#{$noUi-css-prefix}-slider {
@@ -83,11 +132,15 @@ $noUi-css-prefix: noUi;
 
 .#{$noUi-css-prefix}-handle {
   border: none;
-  cursor: col-resize;
   box-shadow: none;
   background: color("emerald");
   overflow: hidden;
   border-radius: 100%;
+  right: -50px !important;
+
+  @include media('md-up') {
+    right: -80px !important;
+  }
 }
 
 .#{$noUi-css-prefix}-horizontal {

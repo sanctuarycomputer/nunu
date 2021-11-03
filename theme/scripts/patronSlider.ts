@@ -6,29 +6,35 @@ export default (function () {
       sliderContainer: "[data-patron-slider-container]",
       handle: ".noUi-handle",
       patreonLink: "[data-patreon-link]",
-      copy: "[data-patreon-copy]"
+      copy: "[data-patreon-copy]",
+      patreonTier: "[data-patreon-tier]"
     },
-    START_VALUE: 5,
+    START_VALUE: 15,
     PATREON_LEVELS: {
-      5: {
+      '5': {
         href: 'https://www.patreon.com/join/index_space/checkout?rid=7795091',
-        copy: "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public."
+        copy: "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public.",
+        patreonTier: "Community Member"
       },
-      10: {
+      '10': {
         href: 'https://www.patreon.com/join/index_space/checkout?rid=7795092',
-        copy: "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public. You'll also support our ongoing programming at Index."
+        copy: "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public. You'll also support our ongoing programming at Index.",
+        patreonTier: "Supporter Member"
       },
-      15: {
+      '15': {
         href: 'https://www.patreon.com/join/index_space/checkout?rid=7849151',
-        copy: "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public. You'll also support our ongoing programming at Index."
+        copy: "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public. You'll also support our ongoing programming at Index.",
+        patreonTier: "Supporter Member+"
       },
-      20: {
+      '20': {
         href: 'https://www.patreon.com/join/index_space/checkout?rid=7836923',
-        copy: "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public. You'll also help sustain our programming at Index."
+        copy: "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public. You'll also help sustain our programming at Index.",
+        patreonTier: "Sustaining Member"
       },
-      25: {
+      '25': {
         href: 'https://www.patreon.com/join/index_space/checkout?rid=7849152',
-        copy: "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public. You'll also help sustain our programming at Index."
+        copy: "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public. You'll also help sustain our programming at Index.",
+        patreonTier: "Sustaining Member+"
       },
     },
 
@@ -37,12 +43,21 @@ export default (function () {
         document.querySelector(PatronSlider.SELECTORS.sliderContainer),
         {
           start: [PatronSlider.START_VALUE],
-          connect: true,
+          step: 5,
           range: {
-            min: PatronSlider.START_VALUE,
+            min: 5,
             max: 25,
           },
-          step: 5,
+          pips: {
+            mode: rangeSlider.PipsMode.Steps,
+            filter: (value) => {
+              if ([5,10,15,20,25].indexOf(value) > -1) {
+                return 1;
+              }
+              return -1
+
+            }
+          }
         }
       )
 
@@ -59,6 +74,9 @@ export default (function () {
         .querySelector(PatronSlider.SELECTORS.copy).textContent = PatronSlider.PATREON_LEVELS[PatronSlider.START_VALUE].copy
 
       document
+        .querySelector(PatronSlider.SELECTORS.patreonTier).textContent = PatronSlider.PATREON_LEVELS[PatronSlider.START_VALUE].patreonTier
+
+      document
         .querySelector(PatronSlider.SELECTORS.handle)
         .setAttribute("data-after", `Monthly`);
 
@@ -71,6 +89,9 @@ export default (function () {
 
         document
           .querySelector(PatronSlider.SELECTORS.copy).textContent = PatronSlider.PATREON_LEVELS[value].copy
+
+        document
+          .querySelector(PatronSlider.SELECTORS.patreonTier).textContent = PatronSlider.PATREON_LEVELS[value].patreonTier
 
         document
           .querySelector(PatronSlider.SELECTORS.patreonLink)
