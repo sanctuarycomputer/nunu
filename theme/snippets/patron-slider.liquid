@@ -1,9 +1,22 @@
-<section class="patron-information text-center">
-  <h1>The Index Patronage program is a pay-what-you-can sliding scale.</h1>
+<section
+  class="
+    PatronSlider
+    text-center
+    items-center
+    bg-color-black
+    color-white
+    flex flex-col
+    p2
+    w100
+  "
+>
+  <h1 class="serif-xl pb1_5">
+    {{ "snippets.patron_slider.title" | t }}
+  </h1>
+
   <div
     class="
-      patron-slider-container
-      sans-serif sans-serif-light
+      PatronSlider__SliderContainer
       uppercase
       sans-light-sm
       text-center
@@ -11,15 +24,19 @@
       mb2
     "
   >
-    <div id="patron-slider slider-fit" data-patron-slider-container></div>
+    <div data-patron-slider></div>
   </div>
 
-  <div class="tier-info-container">
-    <p data-patreon-tier class="tier-info serif pb1"></p>
-    <p data-patreon-copy class="sans-light-xs sans-serif-light pb4"></p>
+  <div class="PatronSlider__TierInfo flex flex-col items-center justify-center">
+    <p
+      data-patron-tier-name
+      class="PatronSlider__TierInfo__TierName serif-sm-md pb1"
+    ></p>
+    <p data-patron-tier-description class="sans-light-xs sans-serif-light pb4"></p>
   </div>
 
   <a
+    data-patron-tier-link
     class="
       w100
       border-white
@@ -32,11 +49,11 @@
       pb_5
       pt_625
     "
+    href="{{ 'snippets.patron_slider.button_href' | t }}"
     target="_blank"
     rel="noopener noreferrer"
-    data-patreon-link
-    href="https://www.patreon.com/index_space"
+    aria-label="{{ 'snippets.patron_slider.button_aria_label' | t }}"
   >
-    BECOME A PATRON
+    {{ "snippets.patron_slider.button_text" | t }}
   </a>
 </section>

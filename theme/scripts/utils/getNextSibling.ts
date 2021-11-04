@@ -1,11 +1,13 @@
+/**
+ * Given a DOM element and a selector, returns the next
+ * sibling of the given element which matches the selector.
+ * If no selector is provided, returns the next sibling element
+ * without checking for a selector match.
+ */
 export default (elem, selector) => {
   var sibling = elem.nextElementSibling;
-
-  // If there's no selector, return the first sibling
   if (!selector) return sibling;
 
-  // If the sibling matches our selector, use it
-  // If not, jump to the next sibling and continue the loop
   while (sibling) {
     if (sibling.matches(selector)) return sibling;
     sibling = sibling.nextElementSibling

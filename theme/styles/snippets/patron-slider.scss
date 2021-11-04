@@ -5,237 +5,201 @@ $slider-height: 16px;
 
 $handle-diameter: (
   xs-up: 80px,
-  md-up: 160px
+  md-up: 160px,
 );
 
 $handle-radius: (
   xs-up: map-get($handle-diameter, xs-up) / 2,
-  md-up: map-get($handle-diameter, md-up) / 2
+  md-up: map-get($handle-diameter, md-up) / 2,
 );
 
 $slider-padding: (
   xs-up: 0 map-get($handle-diameter, xs-up) / 2,
-  md-up: 0 map-get($handle-diameter, md-up) / 2
+  md-up: 0 map-get($handle-diameter, md-up) / 2,
 );
 
 $pips-container-width: (
   xs-up: calc(100% - #{map-get($handle-diameter, xs-up)}),
-  md-up: calc(100% - #{map-get($handle-diameter, md-up)})
+  md-up: calc(100% - #{map-get($handle-diameter, md-up)}),
 );
 
-.patron-information {
-  background: color("black");
-  color: color("white");
+.PatronSlider {
   border-radius: radius("sm");
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  width: 100%;
-  min-height: 200px;
 
-  @include media('md-up') {
+  @include media("md-up") {
     padding: 2rem 8rem;
-  }
-
-  h1 {
-    padding-bottom: 1.5rem;
-    font-family: $serif;
-    font-size: 2rem;
-    line-height: 2.1rem;
-
-    @include media('lg-up') {
-      font-size: 4.6875rem;
-      line-height: 4.6875rem;
-    }
   }
 
   p {
     max-width: 100%;
 
-    @include media('md-up') {
+    @include media("md-up") {
+      max-width: 60%;
+    }
+
+    @include media("lg-xl-up") {
+      max-width: 40%;
+    }
+  }
+
+  &__TierInfo {
+    min-height: 260px; // Prevent container height jump
+  }
+
+  &__SliderContainer {
+    align-items: center;
+    display: flex;
+    height: map-get($handle-diameter, xs-up);
+    width: 100%;
+
+    @include media("md-up") {
+      height: map-get($handle-diameter, md-up);
+    }
+
+    @include media("lg-xl-up") {
       width: 60%;
     }
-
-    @include media('lg-xl-up') {
-      width: 40%;
-    }
-  }
-}
-
-.tier-info {
-  font-size: 2rem;
-    line-height: 2.1rem;
-    letter-spacing: 0.0275rem;
-
-    @include media('lg-up') {
-      font-size: 2.5rem;
-      line-height: 2.625rem;
-    }
-}
-
-.tier-info-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 260px;
-  justify-content: center;
-}
-
-.patron-slider-container {
-  height: map-get($handle-diameter, xs-up);
-  width: 100%;
-  display: flex;
-  align-items: center;
-
-  @include media('md-up') {
-    height: map-get($handle-diameter, md-up);
-  }
-
-  @include media('lg-xl-up') {
-    width: 60%;
-  }
-}
-
-.#{$noUi-css-prefix}-target {
-  border-radius: 2rem;
-  padding: map-get($slider-padding, xs-up);
-  border: none;
-  box-shadow: none;
-
-  @include media('md-up') {
-    padding: map-get($slider-padding, md-up);
   }
 }
 
 .#{$noUi-css-prefix}-horizontal {
   height: 16px;
-}
-
-.#{$noUi-css-prefix}-pips {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  top: -32px;
-  left: map-get($handle-radius, xs-up) !important;
-  width: map-get($pips-container-width, xs-up) !important;
-
-  @include media('md-up') {
-    left: map-get($handle-radius, md-up) !important;
-    width: map-get($pips-container-width, md-up) !important;
-  }
-}
-
-.#{$noUi-css-prefix}-marker-normal {
-  display: none;
-}
-
-.#{$noUi-css-prefix}-marker, .#{$noUi-css-prefix}-marker  {
-  width: $slider-height / 3 !important;
-  height: $slider-height !important;
-  margin-left: -8px !important;
-  background: color('black');
-}
-
-.#{$noUi-css-prefix}-value {
-  display: none;
-}
-
-.#{$noUi-css-prefix}-slider {
-  width: 100%;
-  height: map-get($handle-diameter, xs-up);
-  border-radius: 2rem;
-
-  @include media('md-up') {
-    height: map-get($handle-diameter, md-up);
-  }
-}
-
-.#{$noUi-css-prefix}-handle {
-  border: none;
-  box-shadow: none;
-  background: color("emerald");
-  overflow: hidden;
-  border-radius: 100%;
-  cursor: pointer;
-  right: map-get($handle-radius, xs-up) * -1 !important;
-
-  @include media('md-up') {
-    right: map-get($handle-radius, md-up) * -1 !important;
-  }
-}
-
-.#{$noUi-css-prefix}-horizontal {
   width: 100%;
 
-  .#{$noUi-css-prefix}-handle {
-    width: map-get($handle-diameter, xs-up);
+  &.#{$noUi-css-prefix}-target {
+    border: none;
+    border-radius: radius("md");
+    box-shadow: none;
+    padding: map-get($slider-padding, xs-up);
+
+    @include media("md-up") {
+      padding: map-get($slider-padding, md-up);
+    }
+  }
+
+  .#{$noUi-css-prefix}-pips,
+  .#{$noUi-css-prefix}-pips-horizontal {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    left: map-get($handle-radius, xs-up);
+    top: -32px;
+    width: map-get($pips-container-width, xs-up);
+
+    @include media("md-up") {
+      left: map-get($handle-radius, md-up);
+      width: map-get($pips-container-width, md-up);
+    }
+  }
+
+  .#{$noUi-css-prefix}-marker,
+  .#{$noUi-css-prefix}-marker-horizontal.#{$noUi-css-prefix}-marker,
+  .#{$noUi-css-prefix}-marker-horizontal.#{$noUi-css-prefix}-marker-large {
+    background: color("black");
+    height: $slider-height;
+    margin-left: $slider-height / 2;
+    width: $slider-height / 3;
+
+    &-normal {
+      display: none;
+    }
+  }
+
+  .#{$noUi-css-prefix}-value {
+    display: none;
+  }
+
+  .#{$noUi-css-prefix}-slider {
     height: map-get($handle-diameter, xs-up);
-    top: ((map-get($handle-diameter, xs-up) - $slider-height) * -1) / 2;
+    width: 100%;
 
-    @include media('md-up') {
+    @include media("md-up") {
+      height: map-get($handle-diameter, md-up);
+    }
+  }
+
+  .#{$noUi-css-prefix}-handle,
+  .#{$noUi-css-prefix}-horizontal .#{$noUi-css-prefix}-handle {
+    background: color("emerald");
+    border: none;
+    border-radius: 100%;
+    box-shadow: none;
+    cursor: pointer;
+    height: map-get($handle-diameter, xs-up);
+    overflow: hidden;
+    right: map-get($handle-radius, xs-up) * -1;
+    top: ((map-get($handle-diameter, xs-up) - $slider-height) * -1) / 2;
+    width: map-get($handle-diameter, xs-up);
+
+    @include media("md-up") {
+      height: map-get($handle-diameter, md-up);
       top: ((map-get($handle-diameter, md-up) - $slider-height) * -1) / 2;
       width: map-get($handle-diameter, md-up);
-      height: map-get($handle-diameter, md-up);
-      transition: transform $transition-duration-shorter $transition-cubic-bezier;
+      transition: transform $transition-duration-shorter
+        $transition-cubic-bezier;
       zoom: 1;
 
       &:hover {
         transform: rotate(30deg);
       }
     }
-  }
-}
 
-.#{$noUi-css-prefix}-handle::before {
-  content: attr(data-before);
-  display: block;
-  position: absolute;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  border: none;
-  border-radius: 100%;
-  background: #2cad60;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 50%;
+    @include media("md-up") {
+      right: map-get($handle-radius, md-up) * -1;
+    }
 
-  font-size: 1.25rem;
-  line-height: 1;
+    &::before {
+      content: attr(data-before);
 
-  @include media('md-up') {
-    font-size: 1.875rem;
-    line-height: 1;
-  }
-}
+      position: absolute;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 50%;
 
-.#{$noUi-css-prefix}-handle::after {
-  content: attr(data-after);
-  position: absolute;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  border: none;
-  border-radius: 100%;
-  background: transparent;
-  left: 0;
-  top: 50%;
-  right: 0;
-  bottom: 0;
-  padding-top: 0;
+      border: none;
+      border-radius: 100%;
+      background: #2cad60;
 
-  @extend .sans-xxs;
+      font-size: 1.25rem;
+      line-height: 1;
 
-  @include media('md-up') {
-    padding-top: 0.5rem;
-    font-size: 1rem;
-    line-height: 1.171875rem;
-    letter-spacing: 0.0275rem;
+      @include media("md-up") {
+        font-size: 1.875rem;
+        line-height: 1;
+      }
+    }
+
+    &::after {
+      content: attr(data-after);
+      position: absolute;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+      border: none;
+      border-radius: 100%;
+      background: transparent;
+      left: 0;
+      top: 50%;
+      right: 0;
+      bottom: 0;
+      padding-top: 0;
+
+      @extend .sans-xxs;
+
+      @include media("md-up") {
+        padding-top: 0.5rem;
+        font-size: 1rem;
+        line-height: 1.171875rem;
+        letter-spacing: 0.0275rem;
+      }
+    }
   }
 }
