@@ -173,13 +173,11 @@ $pips-container-width: (
     height: map-get($handle-diameter, xs-up);
     top: ((map-get($handle-diameter, xs-up) - $slider-height) * -1) / 2;
 
-
-
     @include media('md-up') {
       top: ((map-get($handle-diameter, md-up) - $slider-height) * -1) / 2;
       width: map-get($handle-diameter, md-up);
       height: map-get($handle-diameter, md-up);
-      transition: transform $transition-duration-shorter linear;
+      transition: transform $transition-duration-shorter $transition-cubic-bezier;
       zoom: 1;
 
       &:hover {
