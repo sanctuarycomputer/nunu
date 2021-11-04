@@ -60,6 +60,13 @@ $pips-container-width: (
       width: 60%;
     }
   }
+
+  &__PatronLink {
+    &:hover {
+      background-color: color('white');
+      color: color('black');
+    }
+  }
 }
 
 .#{$noUi-css-prefix}-horizontal {
