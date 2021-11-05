@@ -3,7 +3,6 @@
 
 <div
   class="Page site-padding-x {% if variant == 'black-bg' %}Page--style-black-bg color-white bg-color-black {% else %} Page--style-white-bg {% endif %}">
-  <h1 class="page-heading uppercase serif-mega">{{ page.title }}</h1>
   <div class="Page__content pb2 {% if variant == 'black-bg' %}col-12 md:col-9 {% endif %}">
     {% for module in content_modules %}
     {% assign referenced_fields = shop.metafields.acf_settings.global.fields | where: "section_name", module.section %}
@@ -15,6 +14,8 @@
     {% render 'image-caption-module' module: module styling: variant %}
     {% when 'patreon_pricing_module' %}
     {% render 'patron-slider' %}
+    {% when 'patrons_page_custom_title' %}
+    {% render 'page-title' title: page.title %}
     {% endcase %}
     {% endfor %}
   </div>
