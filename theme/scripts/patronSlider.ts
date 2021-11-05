@@ -18,32 +18,32 @@ export default (function () {
       "5": {
         href: "https://www.patreon.com/join/index_space/checkout?rid=7795091",
         description:
-          "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public.",
-        name: "Community Member",
+          "You'll get access to our community Discord, Arena, Time Exchange, patron-only events, and our archived talks earlier than the public.",
+        name: "Community Patron",
       },
       "10": {
         href: "https://www.patreon.com/join/index_space/checkout?rid=7795092",
         description:
-          "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public. You'll also support our ongoing programming at Index.",
-        name: "Supporter Member",
+          "You'll get access to our community Discord, Arena, Time Exchange, patron-only events, and our archived talks earlier than the public. You'll also support our ongoing programming at Index.",
+        name: "Supporter Patron",
       },
       "15": {
         href: "https://www.patreon.com/join/index_space/checkout?rid=7849151",
         description:
-          "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public. You'll also support our ongoing programming at Index.",
-        name: "Supporter Member+",
+          "You'll get access to our community Discord, Arena, Time Exchange, patron-only events, and our archived talks earlier than the public. You'll also support our ongoing programming at Index.",
+        name: "Supporter Patron+",
       },
       "20": {
         href: "https://www.patreon.com/join/index_space/checkout?rid=7836923",
         description:
-          "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public. You'll also help sustain our programming at Index.",
-        name: "Sustaining Member",
+          "You'll get access to our community Discord, Arena, Time Exchange, patron-only events, and our archived talks earlier than the public. You'll also help sustain our programming at Index.",
+        name: "Sustaining Patron",
       },
       "25": {
         href: "https://www.patreon.com/join/index_space/checkout?rid=7849152",
         description:
-          "You'll get access to our community Discord, Arena, Time Exchange, member-only events, and our archived talks earlier than the public. You'll also help sustain our programming at Index.",
-        name: "Sustaining Member+",
+          "You'll get access to our community Discord, Arena, Time Exchange, patron-only events, and our archived talks earlier than the public. You'll also help sustain our programming at Index.",
+        name: "Sustaining Patron+",
       },
     },
 
