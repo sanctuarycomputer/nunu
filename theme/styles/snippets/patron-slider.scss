@@ -224,36 +224,3 @@ $pips-container-width: (
     }
   }
 }
-
-
-.AllPatrons {
-  &__ListItem {
-    &__inner {
-      border-bottom: solid 1px color('black');
-      margin-left: $margin-offset-sm;
-      margin-right: $margin-offset-sm;
-
-      @include media('md-up') {
-        margin-left: $margin-offset-md;
-        margin-right: $margin-offset-md;
-      }
-    }
-
-    &:first-of-type {
-      &__inner {
-        border-top: solid 1px color('black');
-      }
-    }
-
-    &__image {
-      width: 3.4375rem;
-      height: 3.4375rem;
-      background-color: #2dac61;
-
-      @include media('md-up') {
-        width: 4rem;
-        height: 4rem;
-      }
-    }
-  }
-}

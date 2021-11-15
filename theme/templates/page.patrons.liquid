@@ -15,8 +15,9 @@
           {% render 'patron-slider' %}
         {% when 'patrons_page_custom_title' %}
           {% render 'page-title' title: page.title %}
+        {% when 'patrons_page_patrons_list' %}
+          {% render 'patrons-list' %}
       {% endcase %}
     {% endfor %}
-    <ul class="AllPatrons list-style-none" data-patrons-list></ul>
   </div>
 </div>
