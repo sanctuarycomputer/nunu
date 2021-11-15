@@ -3,6 +3,8 @@ import getNextSibling from "./utils/getNextSibling";
 import handleFetchJSONResponse from "./utils/handleFetchJSONResponse";
 import jsonp from "./utils/jsonp";
 
+const TIER_PRICES = [5, 10, 15, 20, 25];
+
 export default (function () {
   const PatronSlider = {
     SELECTORS: {
@@ -70,12 +72,12 @@ export default (function () {
             filter: (value) => {
               // If a slider value is not in our list of values,
               // do not render a pip for that value.
-              if ([5, 10, 15, 20, 25].indexOf(value) > -1) {
+              if (TIER_PRICES.includes(value)) {
                 return 1;
+              } else {
+                // Render a pip.
+                return -1;
               }
-
-              // Render a pip.
-              return -1;
             },
           },
         }
@@ -92,6 +94,26 @@ export default (function () {
         PatronSlider.SELECTORS.patronTierName
       );
 
+      PatronSlider.initializeCopy({
+        handle,
+        patronTierLink,
+        tierCopywriting,
+        patronTierName,
+      });
+      PatronSlider.bindEventListeners({
+        handle,
+        patronTierLink,
+        tierCopywriting,
+        patronTierName,
+      });
+    },
+
+    initializeCopy({
+      handle,
+      patronTierLink,
+      tierCopywriting,
+      patronTierName,
+    }) {
       // Used to set the content of our slider handle
       handle.setAttribute("data-before", `$${PatronSlider.START_VALUE}`);
       // Used to set the content of our drag handle.
@@ -107,38 +129,15 @@ export default (function () {
 
       patronTierName.textContent =
         PatronSlider.PATRON_TIERS[PatronSlider.START_VALUE].name;
-
-      PatronSlider.bindEventListeners();
-
-
-
-      const patrons = await PatronSlider.fetchPatrons()
-
-      console.log(patrons);
     },
 
-    bindEventListeners() {
+    bindEventListeners({
+      handle,
+      patronTierLink,
+      tierCopywriting,
+      patronTierName,
+    }) {
       const pips = document.querySelectorAll(PatronSlider.SELECTORS.pips);
-      const handle = document.querySelector(PatronSlider.SELECTORS.handle);
-      const patronTierLink = document.querySelector(
-        PatronSlider.SELECTORS.patronTierLink
-      );
-      const tierCopywriting = document.querySelector(
-        PatronSlider.SELECTORS.patronTierDescription
-      );
-      const patronTierName = document.querySelector(
-        PatronSlider.SELECTORS.patronTierName
-      );
-
-      // Handle clicks on "pips", or notches, on the slider.
-      const handlePipClick = (e) => {
-        const valueEl = getNextSibling(
-          e.target,
-          PatronSlider.SELECTORS.pipsValue
-        );
-        var value = Number(valueEl.getAttribute("data-value"));
-        PatronSlider.SLIDER.set(value);
-      };
 
       // When the slider hits a notch, even before the mouse click is released.
       PatronSlider.SLIDER.on("update", function (event) {
@@ -159,9 +158,19 @@ export default (function () {
       });
 
       // Listen for clicks on our pips
-      for (var i = 0; i < pips.length; i++) {
-        pips[i].addEventListener("click", (e) => handlePipClick(e));
-      }
+      pips.forEach(pip => {
+        pip.addEventListener("click", PatronSlider.handlePipClick)
+      });
+    },
+
+    // Handle clicks on "pips", or notches, on the slider.
+    handlePipClick(e) {
+      const valueEl = getNextSibling(
+        e.target,
+        PatronSlider.SELECTORS.pipsValue
+      );
+      let value = Number(valueEl.getAttribute("data-value"));
+      PatronSlider.SLIDER.set(value);
     },
 
     async fetchPatrons() {
