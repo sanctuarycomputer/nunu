@@ -9,8 +9,8 @@ $noUi-css-prefix: noUi;
 $slider-height: 1rem;
 
 $handle-diameter: (
-  xs-up: 80px,
-  md-up: 160px,
+  xs-up: 5rem,
+  md-up: 10rem,
 );
 
 $handle-radius: (
@@ -68,7 +68,7 @@ $pips-container-width: (
     }
 
     @include media("lg-xl-up") {
-      width: 60%;
+      width: 50rem;
     }
   }
 
@@ -119,7 +119,6 @@ $pips-container-width: (
   .#{$noUi-css-prefix}-marker-horizontal.#{$noUi-css-prefix}-marker-large {
     background: color("black");
     height: $slider-height;
-    margin-left: $slider-height / 2;
     width: $slider-height / 3;
 
     &-normal {
