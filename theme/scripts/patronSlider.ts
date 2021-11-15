@@ -1,7 +1,6 @@
 import * as rangeSlider from "nouislider";
 import getNextSibling from "./utils/getNextSibling";
 import handleFetchJSONResponse from "./utils/handleFetchJSONResponse";
-import jsonp from "./utils/jsonp";
 
 const TIER_PRICES = [5, 10, 15, 20, 25];
 
@@ -94,12 +93,16 @@ export default (function () {
         PatronSlider.SELECTORS.patronTierName
       );
 
+      const allPatrons = await PatronSlider.fetchPatrons();
+
       PatronSlider.initializeCopy({
         handle,
         patronTierLink,
         tierCopywriting,
         patronTierName,
+        allPatrons
       });
+
       PatronSlider.bindEventListeners({
         handle,
         patronTierLink,
@@ -113,6 +116,7 @@ export default (function () {
       patronTierLink,
       tierCopywriting,
       patronTierName,
+      allPatrons
     }) {
       // Used to set the content of our slider handle
       handle.setAttribute("data-before", `$${PatronSlider.START_VALUE}`);
@@ -129,6 +133,9 @@ export default (function () {
 
       patronTierName.textContent =
         PatronSlider.PATRON_TIERS[PatronSlider.START_VALUE].name;
+
+      console.log(allPatrons);
+
     },
 
     bindEventListeners({
@@ -174,23 +181,12 @@ export default (function () {
     },
 
     async fetchPatrons() {
-
-      jsonp('https://api.index-space.org/api/pals', "c", (err, data) => {
-        if (err) {
-          console.error(err);
-          return;
-        } else {
-          console.log(data);
-        }
-      });
-
-      // return fetch("https://api.index-space.org/api/pals", {
-      //   method: "GET",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     "Access-Control-Allow-Origin": "*"
-      //   },
-      // }).then(handleFetchJSONResponse).then((val) => console.log(val)).catch(() => console.log("error"))
+      return fetch("https://api.index-space.org/api/pals", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then(handleFetchJSONResponse)
     },
   };
 
