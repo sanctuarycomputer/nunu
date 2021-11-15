@@ -1,7 +1,12 @@
 @import "~nouislider/dist/nouislider.css";
 
+/**
+ * This prefix must match the noUi `cssPrefix` option.
+ * https://refreshless.com/nouislider/more/#section-styling
+ */
+
 $noUi-css-prefix: noUi;
-$slider-height: 16px;
+$slider-height: 1rem;
 
 $handle-diameter: (
   xs-up: 80px,
@@ -13,15 +18,21 @@ $handle-radius: (
   md-up: map-get($handle-diameter, md-up) / 2,
 );
 
+// Adds padding so that slider handles do not overflow the container.
 $slider-padding: (
   xs-up: 0 map-get($handle-diameter, xs-up) / 2,
   md-up: 0 map-get($handle-diameter, md-up) / 2,
 );
 
+// Coerce the pips into alignment with the slider handle.
 $pips-container-width: (
   xs-up: calc(100% - #{map-get($handle-diameter, xs-up)}),
   md-up: calc(100% - #{map-get($handle-diameter, md-up)}),
 );
+
+/**
+ * Basic styles for the Patron Slider container and content.
+ */
 
 .PatronSlider {
   border-radius: radius("sm");
@@ -30,20 +41,20 @@ $pips-container-width: (
     padding: 2rem 8rem;
   }
 
-  p {
-    max-width: 100%;
-
-    @include media("md-up") {
-      max-width: 60%;
-    }
-
-    @include media("lg-xl-up") {
-      max-width: 40%;
-    }
-  }
-
   &__TierInfo {
-    min-height: 260px; // Prevent container height jump
+    min-height: 18rem; // Prevent container height jump
+
+    &__Paragraph {
+      max-width: 100%;
+
+      @include media("md-up") {
+        max-width: 60%;
+      }
+
+      @include media("lg-xl-up") {
+        max-width: 40%;
+      }
+    }
   }
 
   &__SliderContainer {
@@ -69,8 +80,12 @@ $pips-container-width: (
   }
 }
 
+/**
+ * Styles for the noUi slider.
+ */
+
 .#{$noUi-css-prefix}-horizontal {
-  height: 16px;
+  height: $slider-height;
   width: 100%;
 
   &.#{$noUi-css-prefix}-target {
@@ -90,7 +105,7 @@ $pips-container-width: (
     cursor: pointer;
     display: flex;
     left: map-get($handle-radius, xs-up);
-    top: -32px;
+    top: $slider-height * -2;
     width: map-get($pips-container-width, xs-up);
 
     @include media("md-up") {
