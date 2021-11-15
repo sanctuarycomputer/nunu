@@ -1,6 +1,5 @@
 import * as rangeSlider from "nouislider";
 import getNextSibling from "./utils/getNextSibling";
-import handleFetchJSONResponse from "./utils/handleFetchJSONResponse";
 
 const TIER_PRICES = [5, 10, 15, 20, 25];
 
