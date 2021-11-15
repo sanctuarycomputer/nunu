@@ -1,12 +1,16 @@
 .ImageCaptionModule {
+  // Break out of site padding on the container.
   &--style-full-bleed {
-    left: 50%;
-    margin-left: -50%;
-    margin-right: -50%;
-    max-width: 100vw;
+    margin-left: -$site-padding-x-mobile;
+    margin-right: -$site-padding-x-mobile;
+    width: 100vw;
     position: relative;
-    right: 50%;
-    width: 100%;
+    max-width: 100vw;
+
+    @include media('md-up') {
+      margin-left: -$site-padding-x-desktop;
+      margin-right: -$site-padding-x-desktop;
+    }
   }
 
   &__images {
