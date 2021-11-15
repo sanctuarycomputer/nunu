@@ -82,6 +82,7 @@ export default (function () {
         }
       );
 
+      // Selectors for copywriting elements.
       const handle = document.querySelector(PatronSlider.SELECTORS.handle);
       const patronTierLink = document.querySelector(
         PatronSlider.SELECTORS.patronTierLink
@@ -93,14 +94,11 @@ export default (function () {
         PatronSlider.SELECTORS.patronTierName
       );
 
-      const allPatrons = await PatronSlider.fetchPatrons();
-
-      PatronSlider.initializeCopy({
+      await PatronSlider.initializeCopy({
         handle,
         patronTierLink,
         tierCopywriting,
         patronTierName,
-        allPatrons
       });
 
       PatronSlider.bindEventListeners({
@@ -111,12 +109,14 @@ export default (function () {
       });
     },
 
-    initializeCopy({
+    /**
+     * Initialize copywriting elements.
+     */
+    async initializeCopy({
       handle,
       patronTierLink,
       tierCopywriting,
       patronTierName,
-      allPatrons
     }) {
       // Used to set the content of our slider handle
       handle.setAttribute("data-before", `$${PatronSlider.START_VALUE}`);
@@ -133,9 +133,6 @@ export default (function () {
 
       patronTierName.textContent =
         PatronSlider.PATRON_TIERS[PatronSlider.START_VALUE].name;
-
-      console.log(allPatrons);
-
     },
 
     bindEventListeners({
@@ -178,15 +175,6 @@ export default (function () {
       );
       let value = Number(valueEl.getAttribute("data-value"));
       PatronSlider.SLIDER.set(value);
-    },
-
-    async fetchPatrons() {
-      return fetch("https://api.index-space.org/api/pals", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then(handleFetchJSONResponse)
     },
   };
 
