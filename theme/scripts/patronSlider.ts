@@ -1,5 +1,7 @@
 import * as rangeSlider from "nouislider";
 import getNextSibling from "./utils/getNextSibling";
+import handleFetchJSONResponse from "./utils/handleFetchJSONResponse";
+import jsonp from "./utils/jsonp";
 
 export default (function () {
   const PatronSlider = {
@@ -49,7 +51,7 @@ export default (function () {
 
     SLIDER: null,
 
-    init() {
+    init: async () => {
       // Initialize noUiSlider instance.
       PatronSlider.SLIDER = rangeSlider.create(
         document.querySelector(PatronSlider.SELECTORS.slider),
@@ -107,6 +109,12 @@ export default (function () {
         PatronSlider.PATRON_TIERS[PatronSlider.START_VALUE].name;
 
       PatronSlider.bindEventListeners();
+
+
+
+      const patrons = await PatronSlider.fetchPatrons()
+
+      console.log(patrons);
     },
 
     bindEventListeners() {
@@ -154,6 +162,26 @@ export default (function () {
       for (var i = 0; i < pips.length; i++) {
         pips[i].addEventListener("click", (e) => handlePipClick(e));
       }
+    },
+
+    async fetchPatrons() {
+
+      jsonp('https://api.index-space.org/api/pals', "c", (err, data) => {
+        if (err) {
+          console.error(err);
+          return;
+        } else {
+          console.log(data);
+        }
+      });
+
+      // return fetch("https://api.index-space.org/api/pals", {
+      //   method: "GET",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     "Access-Control-Allow-Origin": "*"
+      //   },
+      // }).then(handleFetchJSONResponse).then((val) => console.log(val)).catch(() => console.log("error"))
     },
   };
 
