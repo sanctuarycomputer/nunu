@@ -1,0 +1,18 @@
+<section class="PatronSlider text-center items-center bg-color-black color-white flex flex-col p2 mb3 w100">
+  <h1 class="serif-xl pb1_5">
+    {{ "snippets.patron_slider.title" | t }}
+  </h1>
+
+  <div class="PatronSlider__SliderContainer uppercase sans-light-sm text-center mt4 mb2">
+    <div data-patron-slider></div>
+  </div>
+
+  <div class="PatronSlider__TierInfo flex flex-col items-center justify-center">
+    <p class="PatronSlider__TierInfo__TierName PatronSlider__TierInfo__Paragraph serif-sm-md pb1" data-patron-tier-name></p>
+    <p class="PatronSlider__TierInfo__Paragraph sans-light-xs sans-serif-light pb4" data-patron-tier-description></p>
+  </div>
+
+  <a data-patron-tier-link class="PatronSlider__PatronLink transition-short w100 border-white color-white uppercase text-center sans-light-sm radius-xs bg-color-black pb_5 pt_625" href="{{ 'snippets.patron_slider.button_href' | t }}" target="_blank" rel="noopener noreferrer" aria-label="{{ 'snippets.patron_slider.button_aria_label' | t }}">
+    {{ "snippets.patron_slider.button_text" | t }}
+  </a>
+</section>

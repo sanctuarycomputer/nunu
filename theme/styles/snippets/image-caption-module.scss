@@ -1,4 +1,18 @@
 .ImageCaptionModule {
+  // Break out of site padding on the container.
+  &--style-full-bleed {
+    margin-left: -$site-padding-x-mobile;
+    margin-right: -$site-padding-x-mobile;
+    width: 100vw;
+    position: relative;
+    max-width: 100vw;
+
+    @include media('md-up') {
+      margin-left: -$site-padding-x-desktop;
+      margin-right: -$site-padding-x-desktop;
+    }
+  }
+
   &__images {
     &--style-two-up {
       max-height: 10rem;

@@ -1,0 +1,21 @@
+{% assign variant = page.metafields.accentuate.page_styling_variant %}
+{% assign content_modules = page.metafields.accentuate.page_content.references %}
+
+<div class="Page site-padding-x {% if variant == 'black-bg' %}Page--style-black-bg color-white bg-color-black {% else %} Page--style-white-bg {% endif %}">
+  <div class="Page__content pb2 {% if variant == 'black-bg' %}col-12 md:col-9 {% endif %}">
+    {% for module in content_modules %}
+      {% assign referenced_fields = shop.metafields.acf_settings.global.fields | where: "section_name", module.section %}
+      {% assign section = module.section %}
+      {% case section %}
+        {% when 'page_markdown' %}
+          {% render 'markdown' variant: variant markdown: shop.metafields.globals['page_markdown'][module.index].html %}
+        {% when 'image_module' %}
+          {% render 'image-caption-module' module: module styling: variant %}
+        {% when 'patreon_pricing_module' %}
+          {% render 'patron-slider' %}
+        {% when 'patrons_page_custom_title' %}
+          {% render 'page-title' title: page.title %}
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>

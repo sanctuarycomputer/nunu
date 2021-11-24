@@ -1,0 +1,226 @@
+@import "~nouislider/dist/nouislider.css";
+
+/**
+ * This prefix must match the noUi `cssPrefix` option.
+ * https://refreshless.com/nouislider/more/#section-styling
+ */
+
+$noUi-css-prefix: noUi;
+$slider-height: 1rem;
+
+$handle-diameter: (
+  xs-up: 5rem,
+  md-up: 10rem,
+);
+
+$handle-radius: (
+  xs-up: map-get($handle-diameter, xs-up) / 2,
+  md-up: map-get($handle-diameter, md-up) / 2,
+);
+
+// Adds padding so that slider handles do not overflow the container.
+$slider-padding: (
+  xs-up: 0 map-get($handle-diameter, xs-up) / 2,
+  md-up: 0 map-get($handle-diameter, md-up) / 2,
+);
+
+// Coerce the pips into alignment with the slider handle.
+$pips-container-width: (
+  xs-up: calc(100% - #{map-get($handle-diameter, xs-up)}),
+  md-up: calc(100% - #{map-get($handle-diameter, md-up)}),
+);
+
+/**
+ * Basic styles for the Patron Slider container and content.
+ */
+
+.PatronSlider {
+  border-radius: radius("sm");
+
+  @include media("md-up") {
+    padding: 2rem 8rem;
+  }
+
+  &__TierInfo {
+    min-height: 18rem; // Prevent container height jump
+
+    &__Paragraph {
+      max-width: 100%;
+
+      @include media("md-up") {
+        max-width: 60%;
+      }
+
+      @include media("lg-xl-up") {
+        max-width: 40%;
+      }
+    }
+  }
+
+  &__SliderContainer {
+    align-items: center;
+    display: flex;
+    height: map-get($handle-diameter, xs-up);
+    width: 100%;
+
+    @include media("md-up") {
+      height: map-get($handle-diameter, md-up);
+    }
+
+    @include media("lg-xl-up") {
+      width: 50rem;
+    }
+  }
+
+  &__PatronLink {
+    &:hover {
+      background-color: color('white');
+      color: color('black');
+    }
+  }
+}
+
+/**
+ * Styles for the noUi slider.
+ */
+
+.#{$noUi-css-prefix}-horizontal {
+  height: $slider-height;
+  width: 100%;
+
+  &.#{$noUi-css-prefix}-target {
+    border: none;
+    border-radius: radius("md");
+    box-shadow: none;
+    padding: map-get($slider-padding, xs-up);
+
+    @include media("md-up") {
+      padding: map-get($slider-padding, md-up);
+    }
+  }
+
+  .#{$noUi-css-prefix}-pips,
+  .#{$noUi-css-prefix}-pips-horizontal {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    left: map-get($handle-radius, xs-up);
+    top: $slider-height * -2;
+    width: map-get($pips-container-width, xs-up);
+
+    @include media("md-up") {
+      left: map-get($handle-radius, md-up);
+      width: map-get($pips-container-width, md-up);
+    }
+  }
+
+  .#{$noUi-css-prefix}-marker,
+  .#{$noUi-css-prefix}-marker-horizontal.#{$noUi-css-prefix}-marker,
+  .#{$noUi-css-prefix}-marker-horizontal.#{$noUi-css-prefix}-marker-large {
+    background: color("black");
+    height: $slider-height;
+    width: $slider-height / 3;
+
+    &-normal {
+      display: none;
+    }
+  }
+
+  .#{$noUi-css-prefix}-value {
+    display: none;
+  }
+
+  .#{$noUi-css-prefix}-slider {
+    height: map-get($handle-diameter, xs-up);
+    width: 100%;
+
+    @include media("md-up") {
+      height: map-get($handle-diameter, md-up);
+    }
+  }
+
+  .#{$noUi-css-prefix}-handle,
+  .#{$noUi-css-prefix}-horizontal .#{$noUi-css-prefix}-handle {
+    background: color("emerald");
+    border: none;
+    border-radius: 100%;
+    box-shadow: none;
+    cursor: pointer;
+    height: map-get($handle-diameter, xs-up);
+    overflow: hidden;
+    right: map-get($handle-radius, xs-up) * -1;
+    top: ((map-get($handle-diameter, xs-up) - $slider-height) * -1) / 2;
+    width: map-get($handle-diameter, xs-up);
+
+    @include media("md-up") {
+      height: map-get($handle-diameter, md-up);
+      top: ((map-get($handle-diameter, md-up) - $slider-height) * -1) / 2;
+      width: map-get($handle-diameter, md-up);
+      transition: transform $transition-duration-shorter
+        $transition-cubic-bezier;
+      zoom: 1;
+
+      &:hover {
+        transform: rotate(30deg);
+      }
+    }
+
+    @include media("md-up") {
+      right: map-get($handle-radius, md-up) * -1;
+    }
+
+    &::before {
+      content: attr(data-before);
+
+      position: absolute;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 50%;
+
+      border: none;
+      border-radius: 100%;
+      background: #2cad60;
+
+      font-size: 1.25rem;
+      line-height: 1;
+
+      @include media("md-up") {
+        font-size: 1.875rem;
+        line-height: 1;
+      }
+    }
+
+    &::after {
+      content: attr(data-after);
+      position: absolute;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+      border: none;
+      border-radius: 100%;
+      background: transparent;
+      left: 0;
+      top: 50%;
+      right: 0;
+      bottom: 0;
+      padding-top: 0;
+
+      @extend .sans-xxs;
+
+      @include media("md-up") {
+        padding-top: 0.5rem;
+        font-size: 1rem;
+        line-height: 1.171875rem;
+        letter-spacing: 0.0275rem;
+      }
+    }
+  }
+}

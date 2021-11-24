@@ -33,7 +33,7 @@
         "alt": "Close icon"
       }
     },
-    "home_header": { 
+    "home_header": {
       "links": {
         "offerings_link": {
           "aria_label": "View Offerings",
@@ -182,6 +182,12 @@
         "text": "Sign Up",
         "icon": "&#x2710;"
       }
+    },
+    "patron_slider": {
+      "title": "The Index Patronage program is a pay-what-you-can sliding scale.",
+      "button_text": "Become a Patron",
+      "button_href": "https://www.patreon.com/index_space",
+      "button_aria_label": "Navigate to Patreon.com to become a patron"
     }
   }
 }
