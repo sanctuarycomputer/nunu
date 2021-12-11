@@ -55,9 +55,11 @@ export default (function () {
     SLIDER: null,
 
     init() {
+      const slider = document.querySelector(PatronSlider.SELECTORS.slider);
+      if (!slider) return;
       // Initialize noUiSlider instance.
       PatronSlider.SLIDER = rangeSlider.create(
-        document.querySelector(PatronSlider.SELECTORS.slider),
+        slider,
         {
           // Start with the slider at this value.
           start: [START_VALUE],

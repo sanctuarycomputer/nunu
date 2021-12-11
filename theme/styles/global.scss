@@ -30,6 +30,7 @@
 /* Offset for Nav height */
 body {
   padding-top: $nav-height;
+  padding-bottom: 50px;
 
   @include media('md-up') {
     padding-top: $nav-height-md;
