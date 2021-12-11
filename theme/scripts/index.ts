@@ -27,4 +27,5 @@ import "./logo";
 import "./pageTransition";
 import "./fadeIn";
 import "./magicMouse";
+import "./radio";
 import "./patronSlider";
