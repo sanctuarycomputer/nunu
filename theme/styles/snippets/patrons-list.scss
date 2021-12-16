@@ -10,7 +10,8 @@
   @include media("md-up") {
     max-width: 65rem;
     width: 75%;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     grid-template-columns: repeat(3, 1fr);
   }
 
