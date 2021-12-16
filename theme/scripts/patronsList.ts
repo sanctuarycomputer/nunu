@@ -7,22 +7,29 @@ export default (function () {
     },
 
     init: async () => {
-      await PatronsList.initializeCopy();
-    },
-
-    async initializeCopy() {
-      const allPatronsData = await PatronsList.fetchPatrons();
-
-      console.log(allPatronsData);
-
       const patronsList = document.querySelector(
         PatronsList.SELECTORS.patronsList
       );
 
+      if (!patronsList) return;
+
+      await PatronsList.initializeCopy(patronsList);
+    },
+
+    async initializeCopy(patronsList: Element) {
+      const allPatronsData = await PatronsList.fetchPatrons();
+
+      allPatronsData.map(({ name }) => {
+        const element = document.createElement("li");
+        element.className = "ListItem sans-light-sm sans-serif";
+        element.innerText = name;
+        patronsList.appendChild(element);
+      });
+
       // Map patrons data and render the list item template for each.
-      patronsList.innerHTML = allPatronsData
-        .map(PatronsList.renderPatronListItem)
-        .join("");
+      // patronsList.innerHTML = allPatronsData
+      //   .map(PatronsList.renderPatronListItem)
+      //   .join("");
     },
 
     async fetchPatrons() {
@@ -43,10 +50,10 @@ export default (function () {
      * HTML templates without the complexity of the shadow DOM.
      */
     renderPatronListItem({ name }) {
-      return `
-        <li class="ListItem sans-light-sm sans-serif">
-          ${name}
-        </li>`;
+      const element = document.createElement("li");
+      element.className = "ListItem sans-light-sm sans-serif";
+      element.innerText = name;
+      return element;
     },
   };
 

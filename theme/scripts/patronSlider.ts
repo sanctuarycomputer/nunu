@@ -52,34 +52,34 @@ export default (function () {
     SLIDER: null,
 
     init: async () => {
+      const slider = document.querySelector(PatronSlider.SELECTORS.slider);
+      if (!slider) return;
+
       // Initialize noUiSlider instance.
-      PatronSlider.SLIDER = rangeSlider.create(
-        document.querySelector(PatronSlider.SELECTORS.slider),
-        {
-          // Start with the slider at this value.
-          start: [PatronSlider.START_VALUE],
-          // Add this many notches along the slider.
-          step: Object.keys(PatronSlider.PATRON_TIERS).length,
-          range: {
-            min: 5,
-            max: 25,
+      PatronSlider.SLIDER = rangeSlider.create(slider as HTMLElement, {
+        // Start with the slider at this value.
+        start: [PatronSlider.START_VALUE],
+        // Add this many notches along the slider.
+        step: Object.keys(PatronSlider.PATRON_TIERS).length,
+        range: {
+          min: 5,
+          max: 25,
+        },
+        // Options for notches along the slider, called "pips"
+        pips: {
+          mode: rangeSlider.PipsMode.Steps,
+          filter: (value) => {
+            // If a slider value is not in our list of values,
+            // do not render a pip for that value.
+            if (TIER_PRICES.includes(value)) {
+              return 1;
+            } else {
+              // Render a pip.
+              return -1;
+            }
           },
-          // Options for notches along the slider, called "pips"
-          pips: {
-            mode: rangeSlider.PipsMode.Steps,
-            filter: (value) => {
-              // If a slider value is not in our list of values,
-              // do not render a pip for that value.
-              if (TIER_PRICES.includes(value)) {
-                return 1;
-              } else {
-                // Render a pip.
-                return -1;
-              }
-            },
-          },
-        }
-      );
+        },
+      });
 
       // Selectors for copywriting elements.
       const handle = document.querySelector(PatronSlider.SELECTORS.handle);
@@ -161,8 +161,8 @@ export default (function () {
       });
 
       // Listen for clicks on our pips
-      pips.forEach(pip => {
-        pip.addEventListener("click", PatronSlider.handlePipClick)
+      pips.forEach((pip) => {
+        pip.addEventListener("click", PatronSlider.handlePipClick);
       });
     },
 
