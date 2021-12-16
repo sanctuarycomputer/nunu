@@ -17,7 +17,23 @@ export default (function () {
     },
 
     async initializeCopy(patronsList: Element) {
-      const allPatronsData = await PatronsList.fetchPatrons();
+      let allPatronsData = await PatronsList.fetchPatrons();
+
+      allPatronsData = [
+        ...allPatronsData,
+        ...allPatronsData,
+        ...allPatronsData,
+        ...allPatronsData,
+        ...allPatronsData,
+        ...allPatronsData,
+        ...allPatronsData,
+        ...allPatronsData,
+        ...allPatronsData,
+        ...allPatronsData,
+        ...allPatronsData,
+        ...allPatronsData,
+        ...allPatronsData,
+      ];
 
       allPatronsData.map(({ name }) => {
         const element = document.createElement("li");
@@ -34,7 +50,7 @@ export default (function () {
 
     async fetchPatrons() {
       return fetch(
-        "https://cors-anywhere.herokuapp.com/https://api.index-space.org/api/pals",
+        "https://cors-anywhere-devin.herokuapp.com/https://api.index-space.org/api/pals",
         {
           method: "GET",
           headers: {
