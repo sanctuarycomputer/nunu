@@ -12,7 +12,7 @@
         {% when 'image_module' %}
           {% render 'image-caption-module' module: module styling: variant %}
         {% when 'patreon_pricing_module' %}
-          {% render 'patron-slider' %}
+          {% render 'patron-slider' title: page.metafields.accentuate.patrons_slider_h1 button_text: page.metafields.accentuate.patrons_slider_button_text %}
         {% when 'patrons_page_custom_title' %}
           {% render 'page-title' title: page.title %}
         {% when 'patrons_page_patrons_list' %}
