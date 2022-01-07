@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/browser";
 import handleFetchJSONResponse from "./utils/handleFetchJSONResponse";
 
 export default (function () {
@@ -28,12 +29,17 @@ export default (function () {
     },
 
     async fetchPatrons() {
-      return fetch("https://api.index-space.org/api/pals", {
+      return fetch("https://api.index-space.org/api/pal", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
-      }).then(handleFetchJSONResponse);
+      })
+        .then(handleFetchJSONResponse)
+        .catch((err) => {
+          Sentry.captureException(err);
+          return [];
+        });
     },
 
     /**
