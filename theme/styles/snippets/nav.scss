@@ -1,23 +1,29 @@
 .Nav {
-  @include media('md-up') {
+  @include media("md-up") {
     height: $nav-height-md;
   }
 
-  @include media('lg-xl-up') {
+  @include media("lg-xl-up") {
     height: $nav-height-lg-xl;
   }
-  
-  &__button  {
-    @extend %transition-short; 
 
-    &:hover, &--active {
-      background-color: color('black');
-      color: color('white');
+  &__button {
+    @extend %transition-short;
+
+    &:hover,
+    &--active {
+      background-color: color("black");
+      color: color("white");
     }
   }
 }
 
 .MobileNav {
+  &__icon {
+    display: flex;
+    align-items: center;
+  }
+
   &__icon img {
     width: 1.8125rem;
     height: 1.3125rem;
@@ -25,14 +31,12 @@
 
   &__close-icon {
     position: relative;
-    top: 4px;
   }
 
   &__open-icon {
     position: relative;
-    top: 4px;
   }
-  
+
   &__menu {
     @extend .transition;
     opacity: 0;
@@ -57,7 +61,7 @@
     .MobileNav__menu-links {
       a {
         @include stagger-nav-transition;
-        pointer-events: all!important;
+        pointer-events: all !important;
 
         &:not(:last-of-type) {
           margin-bottom: 1.875rem;
