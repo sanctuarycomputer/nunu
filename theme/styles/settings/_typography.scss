@@ -2,6 +2,11 @@
 .logo {
   font-family: $logo;
   font-weight: 300;
+
+  @include media("lg-xl-up") {
+    font-size: 3.125rem;
+    line-height: 2.8125rem;
+  }
 }
 
 .serif {
@@ -9,7 +14,8 @@
   font-weight: 300;
 }
 
-.sans-serif, .sans-serif-light {
+.sans-serif,
+.sans-serif-light {
   font-family: $sans-serif;
 }
 
@@ -22,15 +28,26 @@
 }
 
 /** Sizes */
-.serif-mega, .serif-xl, .serif-lg, .serif-md, .serif-sm-md, .serif-sm, .serif-xs {
+.serif-mega,
+.serif-xl,
+.serif-lg,
+.serif-md,
+.serif-sm-md,
+.serif-sm,
+.serif-xs {
   @extend .serif;
 }
 
-.sans-xs, .sans-xxs, .sans-xxxs {
+.sans-xs,
+.sans-xxs,
+.sans-xxxs {
   @extend .sans-serif;
 }
 
-.sans-light-mega, .sans-light-xxl, .sans-light-md, .sans-light-sm {
+.sans-light-mega,
+.sans-light-xxl,
+.sans-light-md,
+.sans-light-sm {
   @extend .sans-serif-light;
 }
 
@@ -40,7 +57,7 @@
   font-size: 4.6875rem;
   line-height: 4.6875rem;
 
-  @include media('lg-up') {
+  @include media("lg-up") {
     font-size: 9.375rem;
     line-height: 9.375rem;
   }
@@ -51,7 +68,7 @@
   font-size: 2.5rem;
   line-height: 2.625rem;
 
-  @include media('lg-up') {
+  @include media("lg-up") {
     font-size: 4.6875rem;
     line-height: 4.6875rem;
   }
@@ -63,7 +80,7 @@
   line-height: 1.35rem;
   letter-spacing: 0.0275rem;
 
-  @include media('lg-up') {
+  @include media("lg-up") {
     font-size: 3.125rem;
     line-height: 2.8125rem;
   }
@@ -75,7 +92,7 @@
   line-height: 1.35rem;
   letter-spacing: 0.0275rem;
 
-  @include media('lg-up') {
+  @include media("lg-up") {
     font-size: 2.5rem;
     line-height: 2.625rem;
   }
@@ -86,7 +103,7 @@
   font-size: 2rem;
   line-height: 2.1rem;
 
-  @include media('lg-up') {
+  @include media("lg-up") {
     font-size: 3.125rem;
     line-height: 3.125rem;
   }
@@ -97,7 +114,7 @@
   font-size: 2rem;
   line-height: 2.1rem;
 
-  @include media('lg-up') {
+  @include media("lg-up") {
     font-size: 2.5rem;
     line-height: 2.625rem;
   }
@@ -146,7 +163,7 @@
   font-size: 3.125rem;
   line-height: 2.8125rem;
 
-  @include media('lg-up') {
+  @include media("lg-up") {
     font-size: 4.0625rem;
     line-height: 3.65625rem;
   }
@@ -157,7 +174,7 @@
   font-size: 1.875rem;
   line-height: 1.6875rem;
 
-  @include media('lg-up') {
+  @include media("lg-up") {
     font-size: 3.125rem;
     line-height: 2.8125rem;
   }
@@ -169,7 +186,7 @@
   line-height: 1.171875rem;
   letter-spacing: 0.0275rem;
 
-  @include media('lg-up') {
+  @include media("lg-up") {
     font-size: 1.875rem;
     line-height: 1.6875rem;
   }
@@ -179,14 +196,9 @@
   font-size: 1.875rem;
   line-height: 1.6875rem;
   font-weight: 300;
-
-  @include media('lg-xl-up') {
-    font-size: 3.125rem;
-    line-height: 2.8125rem;
-  }
 }
 
 ::selection {
-  background: color('black');
-  color: color('white');
-} 
+  background: color("black");
+  color: color("white");
+}
