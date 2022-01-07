@@ -184,10 +184,8 @@
       }
     },
     "patron_slider": {
-      "title": "The Index Patronage program is a pay-what-you-can sliding scale.",
-      "button_text": "Become a Patron",
-      "button_href": "https://www.patreon.com/index_space",
-      "button_aria_label": "Navigate to Patreon.com to become a patron"
+      "button_aria_label": "Navigate to Patreon.com to become an Index Pal",
+      "button_href": "https://www.patreon.com/index_space"
     }
   }
 }
