@@ -129,7 +129,7 @@ $pips-container-width: (
     border: none;
     border-radius: 100%;
     box-shadow: none;
-    cursor: pointer;
+    cursor: grab;
     height: map-get($handle-diameter, xs-up);
     overflow: hidden;
     right: map-get($handle-radius, xs-up) * -1;
@@ -151,6 +151,10 @@ $pips-container-width: (
 
     @include media("md-up") {
       right: map-get($handle-radius, md-up) * -1;
+    }
+
+    &:active {
+      cursor: grabbing;
     }
 
     &::before {
