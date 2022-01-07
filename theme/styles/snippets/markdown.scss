@@ -90,6 +90,12 @@ $text-max-width: 65rem;
         }
       }
     }
+
+    button a {
+      &:after {
+        display: none;
+      }
+    }
   }
 
   table {
@@ -182,7 +188,7 @@ $text-max-width: 65rem;
       }
     }
 
-    h3, h4, h5, h6, p, ol, ul {
+    h3, h4, h5, h6, p, ol, ul,  {
       @include media('lg-up') {
         max-width: $text-max-width;
         width: 75%;
