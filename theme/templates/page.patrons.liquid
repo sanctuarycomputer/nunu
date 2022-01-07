@@ -8,7 +8,7 @@
       {% assign section = module.section %}
       {% case section %}
         {% when 'page_markdown' %}
-          {% render 'markdown' variant: variant markdown: shop.metafields.globals['page_markdown'][module.index].html %}
+          {% render 'markdown' variant: variant markdown: shop.metafields.globals['page_markdown'][module.index].html classes: 'md:my2' %}
         {% when 'image_module' %}
           {% render 'image-caption-module' module: module styling: variant %}
         {% when 'patreon_pricing_module' %}
