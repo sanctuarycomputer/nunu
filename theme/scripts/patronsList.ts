@@ -29,7 +29,7 @@ export default (function () {
     },
 
     async fetchPatrons() {
-      return fetch("https://api.index-space.org/api/pal", {
+      return fetch("https://api.index-space.org/api/pals", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
