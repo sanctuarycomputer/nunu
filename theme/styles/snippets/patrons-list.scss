@@ -1,0 +1,43 @@
+.AllPatrons {
+  max-height: 600px;
+  overflow-y: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: minmax(min-content, max-content);
+  grid-gap: 2rem;
+
+  @include media("md-up") {
+    max-width: 65rem;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    bottom: -1rem;
+    left: 0;
+    pointer-events: none;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 1) 90%
+    );
+    width: 100%;
+    height: 4em;
+  }
+
+  .ListItem {
+    line-height: normal;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-transform: uppercase;
+    text-align: left;
+  }
+}

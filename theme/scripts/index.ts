@@ -28,3 +28,4 @@ import "./pageTransition";
 import "./fadeIn";
 import "./magicMouse";
 import "./patronSlider";
+import "./patronsList";

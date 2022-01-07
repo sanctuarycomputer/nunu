@@ -7,7 +7,7 @@
     position: relative;
     max-width: 100vw;
 
-    @include media('md-up') {
+    @include media("md-up") {
       margin-left: -$site-padding-x-desktop;
       margin-right: -$site-padding-x-desktop;
     }
@@ -20,20 +20,20 @@
       div:not(:last-of-type) {
         margin-right: 0.6875rem;
 
-        @include media('md-up') {
+        @include media("md-up") {
           margin-right: 1.9375rem;
         }
       }
 
-      @include media('xs-up') {
+      @include media("xs-up") {
         max-height: 15rem;
       }
 
-      @include media('md-up') {
+      @include media("md-up") {
         max-height: 20rem;
       }
 
-      @include media('lg-up') {
+      @include media("lg-up") {
         max-height: 30rem;
       }
     }

@@ -54,7 +54,10 @@ export default (function () {
 
     SLIDER: null,
 
-    init() {
+    init: async () => {
+      const slider = document.querySelector(PatronSlider.SELECTORS.slider);
+      if (!slider) return;
+
       // Initialize noUiSlider instance.
       PatronSlider.SLIDER = rangeSlider.create(
         document.querySelector(PatronSlider.SELECTORS.slider),
@@ -79,6 +82,7 @@ export default (function () {
         }
       );
 
+      // Selectors for copywriting elements.
       const handle = document.querySelector(PatronSlider.SELECTORS.handle);
       const patronTierLink = document.querySelector(
         PatronSlider.SELECTORS.patronTierLink
@@ -90,12 +94,13 @@ export default (function () {
         PatronSlider.SELECTORS.patronTierName
       );
 
-      PatronSlider.initializeCopy({
+      await PatronSlider.initializeCopy({
         handle,
         patronTierLink,
         tierCopywriting,
         patronTierName,
       });
+
       PatronSlider.bindEventListeners({
         handle,
         patronTierLink,
@@ -104,7 +109,10 @@ export default (function () {
       });
     },
 
-    initializeCopy({
+    /**
+     * Initialize copywriting elements.
+     */
+    async initializeCopy({
       handle,
       patronTierLink,
       tierCopywriting,
