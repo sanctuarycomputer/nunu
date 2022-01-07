@@ -184,8 +184,8 @@
       }
     },
     "patron_slider": {
-      "button_href": "https://www.patreon.com/index_space",
-      "button_aria_label": "Navigate to Patreon.com to become an Index Pal"
+      "button_aria_label": "Navigate to Patreon.com to become an Index Pal",
+      "button_href": "https://www.patreon.com/index_space"
     }
   }
 }
