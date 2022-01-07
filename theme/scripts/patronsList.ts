@@ -20,6 +20,8 @@ export default (function () {
     async initializeCopy(patronsList: Element) {
       let allPatronsData = await PatronsList.fetchPatrons();
 
+      if (!allPatronsData.length) return;
+
       allPatronsData.map(({ name }) => {
         const element = document.createElement("li");
         element.className = "ListItem sans-light-sm sans-serif";
