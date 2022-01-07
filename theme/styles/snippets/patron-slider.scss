@@ -41,22 +41,6 @@ $pips-container-width: (
     padding: 2rem 8rem;
   }
 
-  &__TierInfo {
-    min-height: 18rem; // Prevent container height jump
-
-    &__Paragraph {
-      max-width: 100%;
-
-      @include media("md-up") {
-        max-width: 60%;
-      }
-
-      @include media("lg-xl-up") {
-        max-width: 40%;
-      }
-    }
-  }
-
   &__SliderContainer {
     align-items: center;
     display: flex;
