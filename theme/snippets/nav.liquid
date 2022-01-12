@@ -6,11 +6,11 @@
 
 <nav data-nav class="Nav none md:flex {% if show_border_bottom %} border-bottom-black {% endif %} uppercase sans-serif py_5 px_625 md:px_75 text-nav flex items-center justify-between bg-color-white w100 fixed t0 r0 l0 z-nav">
   <div class="flex flex-row items-center justify-center">
-    <a data-logo-text class="Nav__button lowercase logo radius-xs nav-button-padding--lowercase {% if request.path == '/' %} Nav__button--active" {% endif %}" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}">{{ 'snippets.nav.links.index_link.text' | t }}</a>
+    <a data-logo-text class="Nav__button flex items-center justify-center lowercase logo radius-xs nav-button-padding--lowercase {% if request.path == '/' %} Nav__button--active" {% endif %}" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}"><span>{{ 'snippets.nav.links.index_link.text' | t }}</span></a>
     <span class="mx_75">{{ 'snippets.nav.hyphen' | t }}</span>
     {% for link in linklists.main-menu.links %}
-      <a class="Nav__button radius-xs nav-button-padding mr1_875 {% if request.path == link.url %} Nav__button--active {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
-    {% endfor %}  
+      <a class="Nav__button radius-xs nav-button-padding mr_75 {% if request.path == link.url %} Nav__button--active {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+    {% endfor %}
   </div>
   {% render 'nav-cart' %}
 </nav>
@@ -36,7 +36,7 @@
       <a class="opacity-0 events-none hover-lighten-black uppercase" href="/" aria-label="{{ 'snippets.nav.links.home_link.aria_label' | t }}">{{ 'snippets.nav.links.home_link.text' | t }}</a>
       {% for link in linklists.main-menu.links %}
         <a class="opacity-0 events-none hover-lighten-black uppercase" href="{{ link.url }}" aria-label="{{ 'snippets.nav.links.offerings_link.aria_label' | t }}">{{ link.title }}</a>
-      {% endfor %}  
+      {% endfor %}
     </div>
   </div>
 </nav>
