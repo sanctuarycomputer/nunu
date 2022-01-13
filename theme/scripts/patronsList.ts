@@ -20,9 +20,24 @@ export default (function () {
     async initializeCopy(patronsList: Element) {
       let allPatronsData = await PatronsList.fetchPatrons();
 
+      allPatronsData = [
+        ...allPatronsData,
+        { name: "Jake Hobart" },
+        { name: "Sam Taylor" },
+        { name: "Megumi Tanaka" },
+        { name: "Angeline Meitzler" },
+        { name: "Jacob Heftmann" },
+        { name: "Udit Desai" },
+        { name: "Manhattan Hydraulics" },
+        { name: "XXIX" },
+        { name: "Elie Anderson" },
+      ];
+
       if (!allPatronsData.length) return;
 
       allPatronsData.map(({ name }) => {
+        if (!name) return;
+
         const element = document.createElement("li");
         element.className = "ListItem sans-light-sm sans-serif";
         element.innerText = name;
