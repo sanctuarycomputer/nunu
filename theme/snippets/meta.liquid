@@ -2,6 +2,7 @@
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
 {% assign product_description = product.metafields.accentuate.product_description_seo %}
 {% assign page_description = page.metafields.accentuate.page_description_seo %}
+{% assign page_share_card_image = page.metafields.accentuate.share_card_image | first %}
 {% assign collection_description = collection.metafields.accentuate.collection_description_seo %}
 
 <meta charset="utf-8">
@@ -36,7 +37,12 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ 'seo.default_title' | t }} — {{ page.title | escape }}">
   <meta name="twitter:description" content="{{ page_description | escape }}">
-  <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
+  {% if page_share_card_image.src %}
+    <meta property="og:image" content="{{ page_share_card_image.src }}">
+  {% else %}
+    <meta property="og:image" content="https:{{ 'index-share-card.jpg' |  asset_url }}">
+  {% endif %}
+
 
 {% else %}
   <title>{{ 'seo.default_title' | t }} — {{ page.title | escape }}</title>
