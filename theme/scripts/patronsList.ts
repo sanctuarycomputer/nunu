@@ -30,7 +30,7 @@ export default (function () {
         { name: "Udit Desai" },
         { name: "Manhattan Hydraulics" },
         { name: "XXIX" },
-        { name: "Elie Anderson" },
+        { name: "Elie Andersen" },
       ];
 
       if (!allPatronsData.length) return;
