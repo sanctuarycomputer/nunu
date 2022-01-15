@@ -1,13 +1,7 @@
 $text-max-width: 65rem;
 
 .Markdown {
-  h1,
-  h2,
-  h3,
-  p,
-  ol,
-  ul,
-  em {
+  h1, h2, h3, p, ol, ul, em {
     font-family: $serif;
   }
 
@@ -16,40 +10,25 @@ $text-max-width: 65rem;
   }
 
   mark {
-    background: color("yellow");
+    background: color('yellow');
   }
 
   /* Bold class used for Dingbats Font in Home Page Intro */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ol,
-  ul {
+  h1, h2, h3, h4, h5, h6, p, ol, ul {
     strong {
       font-family: $logo;
     }
   }
 
-  h4,
-  h5,
-  h6 {
+  h4, h5, h6 {
     font-family: $sans-serif;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     padding-bottom: 1.5rem;
     padding-top: 2rem;
 
-    @include media("lg-up") {
+    @include media('lg-up') {
       padding-top: 0;
       padding-bottom: 2.8125rem;
     }
@@ -63,9 +42,7 @@ $text-max-width: 65rem;
     @extend %serif-lg;
   }
 
-  h4,
-  h5,
-  h6 {
+  h4, h5, h6 {
     text-transform: uppercase;
   }
 
@@ -73,8 +50,7 @@ $text-max-width: 65rem;
     @extend %sans-light-md;
   }
 
-  h5,
-  h6 {
+  h5, h6 {
     @extend %sans-light-sm;
   }
 
@@ -87,26 +63,23 @@ $text-max-width: 65rem;
     padding-left: 0.625rem;
 
     li {
-      list-style-type: "-";
+      list-style-type: '-';
       padding-inline-start: 1ch;
     }
   }
 
   hr {
-    border-top: 2px solid color("black");
+    border-top: 2px solid color('black');
   }
 
-  p,
-  ol,
-  ul,
-  td {
+  p, ol, ul, td {
     /* Adds bottom border to links with additional padding between text and border */
     a {
       text-decoration: none;
       position: relative;
 
       &:after {
-        content: "";
+        content: '';
         width: 100%;
         position: absolute;
         left: 0;
@@ -115,7 +88,7 @@ $text-max-width: 65rem;
         border-style: solid;
         border-color: currentColor;
 
-        @include media("lg-up") {
+        @include media('lg-up') {
           bottom: 0.3rem;
         }
       }
@@ -131,24 +104,24 @@ $text-max-width: 65rem;
   table {
     width: calc(100vw - #{$site-padding-x-mobile-double});
 
-    @include media("md-up") {
+    @include media('md-up') {
       width: calc(100vw - #{$site-padding-x-desktop-double});
     }
 
     border-collapse: collapse;
-    border-top: 1px solid color("black");
-    border-bottom: 1px solid color("black");
+    border-top: 1px solid color('black');
+    border-bottom: 1px solid color('black');
 
     tr {
       &:not(:last-of-type) {
-        border-bottom: 1px solid color("black");
+        border-bottom: 1px solid color('black');
       }
 
       td {
         vertical-align: middle;
         padding: 1.25rem 0;
 
-        @include media("lg-up") {
+        @include media('lg-up') {
           padding: 1.6875rem 0;
         }
 
@@ -159,7 +132,7 @@ $text-max-width: 65rem;
           line-height: 1.35rem;
           letter-spacing: 0.0275rem;
 
-          @include media("lg-up") {
+          @include media('lg-up') {
             font-size: 3.125rem;
             line-height: 2.8125rem;
           }
@@ -169,7 +142,7 @@ $text-max-width: 65rem;
           font-family: $sans-serif;
           @extend %sans-xs;
 
-          @include media("lg-up") {
+          @include media('lg-up') {
             font-size: 1.875rem;
             line-height: 1.6875rem;
           }
@@ -182,12 +155,7 @@ $text-max-width: 65rem;
 
   /* White Background Pages are usually used for the About Page and have larger text and different button styling than the Black Background pages. */
   &--style-white-bg {
-    h1,
-    h2,
-    h3,
-    p,
-    ul,
-    ol {
+    h1, h2, h3, p, ul, ol {
       font-family: $serif;
     }
 
@@ -195,58 +163,48 @@ $text-max-width: 65rem;
       @extend %serif-xl;
     }
 
-    h1,
-    h2 {
+    h1, h2 {
       a {
         @extend %button--style-rounded-border-sm;
         font-family: $sans-serif;
         font-size: 1.9rem;
         line-height: 2.25rem;
 
-        @include media("lg-up") {
+        @include media('lg-up') {
           font-size: 4.0625rem;
           line-height: 3.65625rem;
         }
       }
 
-      @include media("lg-up") {
+      @include media('lg-up') {
         width: 91.667%;
       }
     }
 
-    h2,
-    h3 {
+    h2, h3 {
       font-size: 2rem;
       line-height: 2.1rem;
 
-      @include media("lg-up") {
+      @include media('lg-up') {
         font-size: 4.6875rem;
         line-height: 4.6875rem;
       }
     }
 
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    ol,
-    ul {
-      @include media("lg-up") {
+    h3, h4, h5, h6, p, ol, ul {
+      @include media('lg-up') {
         max-width: $text-max-width;
         width: 75%;
         margin: 0 auto;
       }
     }
 
-    p,
-    ol,
-    ul {
+    p, ol, ul {
       font-size: 2rem;
       line-height: 2.1rem;
       padding-bottom: 1.5rem;
 
-      @include media("lg-up") {
+      @include media('lg-up') {
         font-size: 2.5rem;
         line-height: 2.625rem;
         padding-bottom: 2.625rem;
@@ -267,21 +225,18 @@ $text-max-width: 65rem;
       font-size: 1.7rem;
       line-height: 1.8rem;
 
-      @include media("lg-up") {
+      @include media('lg-up') {
         font-size: 2.5rem;
         line-height: 2.625rem;
       }
     }
 
-    p,
-    ol,
-    ul,
-    td {
+    p, ol, ul, td {
       font-size: 1.7rem;
       line-height: 1.8rem;
       margin-bottom: 1.5rem;
 
-      @include media("lg-up") {
+      @include media('lg-up') {
         margin-bottom: 5.625rem;
         font-size: 2.5rem;
         line-height: 2.625rem;
@@ -289,12 +244,12 @@ $text-max-width: 65rem;
     }
 
     table {
-      border-top: 1px solid color("white");
-      border-bottom: 1px solid color("white");
+      border-top: 1px solid color('white');
+      border-bottom: 1px solid color('white');
 
       tr {
         &:not(:last-of-type) {
-          border-bottom: 1px solid color("white");
+          border-bottom: 1px solid color('white');
         }
       }
     }
