@@ -57,7 +57,6 @@ export default (function () {
           pips: {
             mode: rangeSlider.PipsMode.Steps,
             format: {
-              // 'to' the formatted value. Receives a number.
               to: function (value) {
                 return `$${value}`;
               },
