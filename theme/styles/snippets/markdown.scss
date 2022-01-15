@@ -87,11 +87,8 @@ $text-max-width: 65rem;
     padding-left: 0.625rem;
 
     li {
-      padding-left: 0.625rem;
-
-      &::marker {
-        content: "-";
-      }
+      list-style-type: "-";
+      padding-inline-start: 1ch;
     }
   }
 
