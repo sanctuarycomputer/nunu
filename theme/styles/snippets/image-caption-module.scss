@@ -1,4 +1,21 @@
 .ImageCaptionModule {
+  &--style-full-width-rounded {
+    margin-top: $site-padding-x-mobile;
+    margin-bottom: $site-padding-x-mobile;
+    padding-bottom: $site-padding-x-mobile;
+
+    img {
+      border-radius: radius("sm");
+      overflow: hidden;
+    }
+
+    @include media("md-up") {
+      margin-top: $site-padding-x-desktop;
+      margin-bottom: $site-padding-x-desktop;
+      padding-bottom: 3rem;
+    }
+  }
+
   // Break out of site padding on the container.
   &--style-full-bleed {
     margin-left: -$site-padding-x-mobile;

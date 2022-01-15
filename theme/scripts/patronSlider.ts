@@ -56,6 +56,11 @@ export default (function () {
           // Options for notches along the slider, called "pips"
           pips: {
             mode: rangeSlider.PipsMode.Steps,
+            format: {
+              to: function (value) {
+                return `$${value}`;
+              },
+            },
             filter: (value) => {
               // If a slider value is not in our list of values,
               // do not render a pip for that value.
@@ -96,6 +101,9 @@ export default (function () {
 
     bindEventListeners({ handle, patronTierLink }) {
       const pips = document.querySelectorAll(PatronSlider.SELECTORS.pips);
+      const pipsValues = document.querySelectorAll(
+        PatronSlider.SELECTORS.pipsValue
+      );
 
       // When the slider hits a notch, even before the mouse click is released.
       PatronSlider.SLIDER.on("update", function (event) {
@@ -110,6 +118,10 @@ export default (function () {
       pips.forEach((pip) => {
         pip.addEventListener("click", PatronSlider.handlePipClick);
       });
+
+      pipsValues.forEach((pip) => {
+        pip.addEventListener("click", PatronSlider.handlePipValueClick);
+      });
     },
 
     // Handle clicks on "pips", or notches, on the slider.
@@ -119,6 +131,12 @@ export default (function () {
         PatronSlider.SELECTORS.pipsValue
       );
       let value = Number(valueEl.getAttribute("data-value"));
+      PatronSlider.SLIDER.set(value);
+    },
+
+    // Handle clicks on "pip values", or marks, below the slider.
+    handlePipValueClick(e) {
+      let value = Number(e.target.getAttribute("data-value"));
       PatronSlider.SLIDER.set(value);
     },
   };

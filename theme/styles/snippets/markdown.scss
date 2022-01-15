@@ -9,6 +9,10 @@ $text-max-width: 65rem;
     font-style: italic;
   }
 
+  mark {
+    background: color('yellow');
+  }
+
   /* Bold class used for Dingbats Font in Home Page Intro */
   h1, h2, h3, h4, h5, h6, p, ol, ul {
     strong {
@@ -30,11 +34,11 @@ $text-max-width: 65rem;
     }
   }
 
-  h1  {
+  h1 {
     @extend %serif-xl;
   }
 
-  h2  {
+  h2 {
     @extend %serif-lg;
   }
 
@@ -50,21 +54,20 @@ $text-max-width: 65rem;
     @extend %sans-light-sm;
   }
 
-  ul, ol {
+  ol {
     list-style-position: inside;
   }
-  
+
   ul {
-    list-style-type: none;
+    list-style: none;
+    padding-left: 0.625rem;
 
     li {
-      &::before {
-        content: "-";
-        margin-right: 0.625rem;
-      }
+      list-style-type: '-';
+      padding-inline-start: 1ch;
     }
   }
-  
+
   hr {
     border-top: 2px solid color('black');
   }
@@ -147,7 +150,7 @@ $text-max-width: 65rem;
       }
     }
   }
-  
+
   /* Pages Styling */
 
   /* White Background Pages are usually used for the About Page and have larger text and different button styling than the Black Background pages. */
@@ -156,7 +159,7 @@ $text-max-width: 65rem;
       font-family: $serif;
     }
 
-    h1  {
+    h1 {
       @extend %serif-xl;
     }
 
@@ -166,7 +169,7 @@ $text-max-width: 65rem;
         font-family: $sans-serif;
         font-size: 1.9rem;
         line-height: 2.25rem;
-        
+
         @include media('lg-up') {
           font-size: 4.0625rem;
           line-height: 3.65625rem;
@@ -177,25 +180,25 @@ $text-max-width: 65rem;
         width: 91.667%;
       }
     }
-  
+
     h2, h3 {
       font-size: 2rem;
       line-height: 2.1rem;
-    
+
       @include media('lg-up') {
         font-size: 4.6875rem;
         line-height: 4.6875rem;
       }
     }
 
-    h3, h4, h5, h6, p, ol, ul,  {
+    h3, h4, h5, h6, p, ol, ul {
       @include media('lg-up') {
         max-width: $text-max-width;
         width: 75%;
         margin: 0 auto;
       }
     }
-  
+
     p, ol, ul {
       font-size: 2rem;
       line-height: 2.1rem;
@@ -218,10 +221,10 @@ $text-max-width: 65rem;
       @extend %serif-lg;
     }
 
-    h3  {
+    h3 {
       font-size: 1.7rem;
       line-height: 1.8rem;
-  
+
       @include media('lg-up') {
         font-size: 2.5rem;
         line-height: 2.625rem;

@@ -1,6 +1,6 @@
 {% comment %}
-With Accentuate.io, even if only one image is uploaded, the metafield
-is always an array.
+With Accentuate.io, even if only one image is uploaded, the metafield is always
+an array. You should use the `first` filter if it's a single image input.
 {% endcomment %}
 {% assign image_module_images = shop.metafields.globals['image_module_image'][module.index] %}
 {% assign image_module_first_image = shop.metafields.globals['image_module_image'][module.index].first %}
@@ -17,7 +17,12 @@ is always an array.
     {% if variant == 'centered' %}
       col-12 md:col-6 mxauto py5 md:py10
     {% elsif variant == 'full-width' %}
-      col-12 py3
+      col-12
+      {% if rounded %}
+        pt0 pb3 ImageCaptionModule--style-full-width-rounded
+      {% else %}
+        py3
+      {% endif %}
     {% elsif variant == 'left' %}
       sm:flex-row py3 col-12
     {% elsif variant == 'full-bleed' %}
