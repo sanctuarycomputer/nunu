@@ -15,6 +15,10 @@ $text-max-width: 65rem;
     font-style: italic;
   }
 
+  mark {
+    background: color("yellow");
+  }
+
   /* Bold class used for Dingbats Font in Home Page Intro */
   h1,
   h2,
