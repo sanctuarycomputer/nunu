@@ -20,6 +20,10 @@ export default (function () {
     async initializeCopy(patronsList: Element) {
       let allPatronsData = await PatronsList.fetchPatrons();
 
+      // TODO: Remove this when Hugh can adjust the API to return
+      // Patrons in reverse-chron order.
+      allPatronsData = allPatronsData.reverse();
+
       allPatronsData = [
         ...allPatronsData,
         { name: "Jake Hobart" },
