@@ -29,3 +29,4 @@ import "./fadeIn";
 import "./magicMouse";
 import "./patronSlider";
 import "./patronsList";
+import "./accountResetRedirect";
