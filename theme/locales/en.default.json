@@ -90,6 +90,10 @@
         "instagram_link": {
           "aria_label": "Navigate to our Instagram.",
           "text": "Instagram"
+        },
+        "discord_link": {
+          "aria_label": "Navigate to our Discord Server.",
+          "text": "Discord"
         }
       }
     },
