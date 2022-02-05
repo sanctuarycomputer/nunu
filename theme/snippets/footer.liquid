@@ -1,22 +1,29 @@
   <footer class="Footer w100 serif-xl site-padding-x">
     <p class="serif-xl">
-      {% if shop.metafields.accentuate.contact_us %} 
+      {% if shop.metafields.accentuate.contact_us %}
         <a class="Footer__button button--style-rounded-border-xs" href="mailto:{{ shop.metafields.accentuate.contact_us }}" target="_blank" rel="noreferrer noopener" aria-label="{{ 'snippets.footer.social_links.contact_us.aria_label' | t }}">
           {{ 'snippets.footer.social_links.contact_us.text' | t }}
         </a>
       {% endif %}
-      if you’d like to teach a workshop, propose an event, feature a product or get involved in any other way. You can also {% render 'email-subscribe' %} and follow us on 
+      if you’d like to teach a workshop, propose an event, feature a product or get involved in any other way. You can also {% render 'email-subscribe' %} follow us on
       {% if shop.metafields.accentuate.instagram %}
         <a class="Footer__button button--style-rounded-border-xs" href="{{ shop.metafields.accentuate.instagram }}" target="_blank" rel="noreferrer noopener" aria-label="{{ 'snippets.footer.social_links.instagram_link.aria_label' | t }}">
           {{ 'snippets.footer.social_links.instagram_link.text' | t }}
         </a>
       {% endif %}
       and
-      {% if shop.metafields.accentuate.twitter %} 
+      {% if shop.metafields.accentuate.twitter %}
         <a class="Footer__button button--style-rounded-border-xs" href="{{ shop.metafields.accentuate.twitter }}" target="_blank" rel="noreferrer noopener" aria-label="{{ 'snippets.footer.social_links.twitter_link.aria_label' | t }}">
           {{ 'snippets.footer.social_links.twitter_link.text' | t }}
         </a>
       {% endif %}
       to stay up to date.
+      {% if shop.metafields.accentuate.discord %}
+      Join our
+        <a class="Footer__button button--style-rounded-border-xs" href="{{ shop.metafields.accentuate.discord }}" target="_blank" rel="noreferrer noopener" aria-label="{{ 'snippets.footer.social_links.discord_link.aria_label' | t }}">
+          {{ 'snippets.footer.social_links.discord_link.text' | t }}
+        </a>
+      to discuss, share interests, hang out, help, listen, and play.
+      {% endif %}
     </p>
   </footer>
