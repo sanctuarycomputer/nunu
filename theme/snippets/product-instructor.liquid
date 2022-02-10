@@ -21,10 +21,19 @@
   {% endcase %}
 {% endif %}
 
-{% if current_variant.metafields.bookings != blank and vendor_name != blank and vendor_avatar != blank %}
+{% if product.metafields.accentuate.resource_name %}
+  {% assign vendor_name = product.metafields.accentuate.resource_name  %}
+{% endif %}
+
+{% if product.metafields.accentuate.resource_avatar %}
+  {% assign avatar_image = product.metafields.accentuate.resource_avatar | first %}
+  {% assign vendor_avatar = avatar_image.cloudinary_src | append: 'w_200,h_200' %}
+{% endif %}
+
+{% if vendor_name != blank and vendor_avatar != blank %}
   <span class="ProductInstructor color-black uppercase flex flex-row items-center pt1_25 md:pt0 pl_625 md:pl0 md:pb1_875">
     {% if vendor_avatar != blank %}
-      <img class="ProductInstructor__avatar radius-xs lg:radius-sm w100 fit-cover" alt={{ 'snippets.product_vendor.avatar.alt' | t }} src={{vendor_avatar}} >
+      <img class="ProductInstructor__avatar radius-xs lg:radius-sm w100 fit-cover" alt={{ 'snippets.product_vendor.avatar.alt' | t }} src={{vendor_avatar}} />
     {% endif %}
     <span class="flex flex-col">
       <span class="flex flex-col content-center">

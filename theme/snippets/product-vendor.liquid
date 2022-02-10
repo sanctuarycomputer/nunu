@@ -30,6 +30,15 @@
   {% assign vendor_name = product.vendor %}
 {% endif %}
 
+{% if product.metafields.accentuate.resource_name %}
+  {% assign vendor_name = product.metafields.accentuate.resource_name  %}
+{% endif %}
+
+{% if product.metafields.accentuate.resource_avatar %}
+  {% assign avatar_image = product.metafields.accentuate.resource_avatar | first %}
+  {% assign vendor_avatar = avatar_image.cloudinary_src | append: 'w_200,h_200' %}
+{% endif %}
+
 <span class="ProductVendor ProductVendor--{{display_variant}} flex items-center color-white uppercase">
   {% if vendor_avatar != blank %}
     <img class="ProductVendor__avatar radius-xs lg:radius-sm w100 fit-cover" alt={{ 'snippets.product_vendor.avatar.alt' | t }} src={{vendor_avatar}} >
