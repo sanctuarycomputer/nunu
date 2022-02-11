@@ -1,9 +1,13 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
 
 <!-- Display Variants include: 'grid-item', 'featured-grid-item', default: 'grid-item'-->
-{% if display_variant == blank %}
-  {% assign display_variant = "grid-item" %}
-{% endif %}
+{% assign display_variant_class = "ProductVendor--grid-item" %}
+{% case display_variant %}
+  {% when "grid-item" %}
+    {% assign display_variant_class = "ProductVendor--grid-item" %}
+  {% when "featured-grid-item" %}
+    {% assign display_variant_class = "ProductVendor--featured-grid-item" %}
+{% endcase %}
 
 <!-- Vendor attributes -->
 {% assign product_type = "" %}
@@ -39,7 +43,7 @@
   {% assign vendor_avatar = avatar_image.cloudinary_src | append: 'w_200,h_200' %}
 {% endif %}
 
-<span class="ProductVendor ProductVendor--{{display_variant}} flex items-center color-white uppercase">
+<span class="ProductVendor {{display_variant_class}} flex items-center color-white uppercase">
   {% if vendor_avatar != blank %}
     <img class="ProductVendor__avatar radius-xs lg:radius-sm w100 fit-cover" alt={{ 'snippets.product_vendor.avatar.alt' | t }} src={{vendor_avatar}} >
   {% endif %}
