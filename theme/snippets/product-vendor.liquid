@@ -40,7 +40,7 @@
 
 {% if product.metafields.accentuate.resource_avatar %}
   {% assign avatar_image = product.metafields.accentuate.resource_avatar | first %}
-  {% assign vendor_avatar = avatar_image.cloudinary_src | append: 'w_200,h_200' %}
+  {% assign vendor_avatar = avatar_image.cloudinary_src | append: 'w_200,h_200,c_fill' %}
 {% endif %}
 
 <span class="ProductVendor {{display_variant_class}} flex items-center color-white uppercase">
