@@ -17,6 +17,11 @@
   {% assign ends_at = bookings_metafields.ends_at | date: '%s' %}
 {% endif %}
 
+{% if product.metafields.accentuate.starts_at and product.metafields.accentuate.end_at %}
+  {% assign starts_at = product.metafields.accentuate.starts_at | date: '%s' %}
+  {% assign ends_at = product.metafields.accentuate.ends_at | date: '%s' %}
+{% endif %}
+
 {% if todays_date > ends_at %}
   {% assign registration_state = 'snippets.product_registration_state.past' | t %}
 {% elsif todays_date > starts_at %}

@@ -24,7 +24,7 @@
         <div class="flex justify-between">
           <span class="ProductGridItem__title">{{current_product.title}}</span>
           {% assign lowercase_product_type = current_product_type | downcase %}
-          {% if lowercase_product_type == "course" or lowercase_product_type == "event" %}
+          {% if lowercase_product_type == "course" or lowercase_product_type == "event" or lowercase_product_type == "workshop" %}
             {% render 'product-registration-state' product: current_product, product_type: lowercase_product_type %}
           {% else %}
             <span class="ProductGridItem__price text-right pl1_5 uppercase">{{current_product.price | money_without_trailing_zeros }}</span>
