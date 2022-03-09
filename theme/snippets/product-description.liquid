@@ -1,11 +1,18 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
-{% assign is_course = false %}
+{% assign show_detailed_description = false %}
 
 {% if current_variant.metafields.bookings != blank and current_variant.metafields.bookings.bookable_type == "Course" %}
-  {% assign is_course = true %}
+  {% assign show_detailed_description = true %}
 {% endif %}
 
-{% if is_course %}
+{% assign lowercase_product_type = product.type | downcase %}
+{% if lowercase_product_type == "event" or lowercase_product_type == "course" or lowercase_product_type == "workshop" %}
+  {% if product.metafields.accentuate.title and product.metafields.accentuate.markdown %}
+    {% assign show_detailed_description = true %}
+  {% endif %}
+{% endif %}
+
+{% if show_detailed_description %}
   <div data-product-description-tabs-wrapper class="ProductDescription__tabs border-bottom-black sticky pt_5 pb_5 site-padding-x z-description flex flex-row items flex-nowrap overflow-x-auto overflow-y-hidden w100">
     {% for title in product.metafields.accentuate.title %}
       <a 
