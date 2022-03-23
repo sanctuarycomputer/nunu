@@ -159,6 +159,10 @@
         "aria_label": "Product is sold out",
         "text": "Sold out"
       },
+      "upcoming_btn": {
+        "aria_label": "Registration has not started yet.",
+        "text": "Upcoming"
+      },
       "quantity_spinner": {
         "label": "Quantity"
       },

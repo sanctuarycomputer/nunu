@@ -10,26 +10,19 @@
 
 {% if product_type == "course" %}
   {% assign sessions_sorted = bookings_metafields.sessions | sort: 'starts_at' %}
-  {% assign registration_starts_at = sessions_sorted.first.starts_at | date: '%s' %}
   {% assign registration_ends_at = sessions_sorted.first.starts_at | date: '%s' %}
   {% assign starts_at = sessions_sorted.first.starts_at | date: '%s' %}
   {% assign ends_at = sessions_sorted.last.ends_at | date: '%s' %}
 {% elsif product_type == "event" %}
-  {% assign registration_starts_at = bookings_metafields.starts_at | date: '%s' %}
   {% assign registration_ends_at = bookings_metafields.starts_at | date: '%s' %}
   {% assign starts_at = bookings_metafields.starts_at | date: '%s' %}
   {% assign ends_at = bookings_metafields.ends_at | date: '%s' %}
 {% endif %}
 
 {% if product.metafields.accentuate.starts_at and product.metafields.accentuate.ends_at %}
-  {% assign registration_starts_at = product.metafields.accentuate.starts_at | date: '%s' %}
   {% assign registration_ends_at = product.metafields.accentuate.starts_at | date: '%s' %}
   {% assign starts_at = product.metafields.accentuate.starts_at | date: '%s' %}
   {% assign ends_at = product.metafields.accentuate.ends_at | date: '%s' %}
-{% endif %}
-
-{% if product.metafields.accentuate.registration_starts_at %}
-  {% assign registration_starts_at = product.metafields.accentuate.registration_starts_at | date: '%s' %}
 {% endif %}
 
 {% if product.metafields.accentuate.registration_ends_at %}
@@ -40,7 +33,7 @@
   {% assign registration_state = 'snippets.product_registration_state.past' | t %}
 {% elsif todays_date > registration_ends_at %}
   {% assign registration_state = 'snippets.product_registration_state.registration_closed' | t %}
-{% elsif todays_date < starts_at and current_variant.available != true %}
+{% elsif todays_date < registration_ends_at and current_variant.available != true %}
   {% assign registration_state = 'snippets.product_registration_state.sold_out' | t %}
 {% endif %}
 
