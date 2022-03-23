@@ -17,28 +17,43 @@
   {% assign current_variant = product.selected_or_first_available_variant %}
   {% assign bookings_metafields = current_variant.metafields.bookings %}
   {% assign todays_date = 'now' | date: '%s' %}
+  {% assign registration_starts_at = todays_date %}
 
   {% if lowercase_product_type == "course" %}
     {% assign sessions_sorted = bookings_metafields.sessions | sort: 'starts_at' %}
+    {% assign registration_ends_at = sessions_sorted.first.starts_at | date: '%s' %}
     {% assign starts_at = sessions_sorted.first.starts_at | date: '%s' %}
     {% assign ends_at = sessions_sorted.last.ends_at | date: '%s' %}
   {% elsif lowercase_product_type == "event" %}
+    {% assign registration_ends_at = bookings_metafields.starts_at | date: '%s' %}
     {% assign starts_at = bookings_metafields.starts_at | date: '%s' %}
     {% assign ends_at = bookings_metafields.ends_at | date: '%s' %}
   {% endif %}
 
   {% if product.metafields.accentuate.starts_at and product.metafields.accentuate.ends_at %}
+    {% assign registration_ends_at = product.metafields.accentuate.starts_at | date: '%s' %}
     {% assign starts_at = product.metafields.accentuate.starts_at | date: '%s' %}
     {% assign ends_at = product.metafields.accentuate.ends_at | date: '%s' %}
+  {% endif %}
+
+  {% if product.metafields.accentuate.registration_starts_at %}
+    {% assign registration_starts_at = product.metafields.accentuate.registration_starts_at | date: '%s' %}
+  {% endif %}
+
+  {% if product.metafields.accentuate.registration_ends_at %}
+    {% assign registration_ends_at = product.metafields.accentuate.registration_ends_at | date: '%s' %}
   {% endif %}
 
   {% if todays_date > ends_at %}
     {% capture button_label %}{{"snippets.add_to_cart_container.past_btn.text" | t }}{% endcapture %}
     {% assign button_disabled = true %}
-  {% elsif todays_date > starts_at %}
+  {% elsif todays_date < registration_starts_at %}
+    {% capture button_label %}{{"snippets.add_to_cart_container.upcoming_btn.text" | t }}{% endcapture %}
+    {% assign button_disabled = true %}
+  {% elsif todays_date > registration_ends_at %}
     {% capture button_label %}{{"snippets.add_to_cart_container.registration_closed_btn.text" | t }}{% endcapture %}
     {% assign button_disabled = true %}
-  {% elsif todays_date < starts_at and current_variant.available != true %}
+  {% elsif todays_date < registration_ends_at and current_variant.available != true %}
     {% capture button_label %}{{"snippets.add_to_cart_container.sold_out_btn.text" | t }}{% endcapture %}
     {% assign button_disabled = true %}
   {% endif %}
