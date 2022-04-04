@@ -1,0 +1,48 @@
+.CollectionSubnav {
+  &__tabs {
+    top: $nav-height;
+    background: color('white');
+
+    @include media('md-up') {
+      top: $nav-height-md;
+    }
+
+    @include media('lg-xl-up') {
+      top: $nav-height-lg-xl;
+    }
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    /* Chrome and Safari */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__button {
+    @extend %transition-short;
+    margin-right: 1.5rem;
+    border: 1px solid color('transparent');
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    font-size: 1.875rem;
+    line-height: 1.6875rem;
+
+    @include media('lg-xl-up') {
+      font-size: 3.125rem;
+      line-height: 2.8125rem;
+      margin-right: 2rem;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover,
+    &--active {
+      border: 1px solid color('black');
+    }
+  }
+}

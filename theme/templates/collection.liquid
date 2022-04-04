@@ -1,12 +1,27 @@
-{% assign show_featured_product = collection.metafields.accentuate.show_featured_product %}
+{% assign show_featured_product =
+collection.metafields.accentuate.show_featured_product %}
+
+<nav
+  data-nav
+  class="CollectionSubnav__tabs overflow-x-scroll border-top-black border-bottom-black uppercase sans-serif sticky py_5 px_625 md:px_75 text-nav bg-color-white w100 z-nav flex flex-row items-center"
+>
+  {% for link in linklists.collections-menu.links %}
+  <a
+    class="CollectionSubnav__button radius-xs nav-button-padding {% if forloop.last == false %} mr_75 {% endif %} {% if request.path == link.url %} CollectionSubnav__button--active {% endif %}"
+    href="{{ link.url }}"
+    >{{ link.title }}</a
+  >
+  {% endfor %}
+</nav>
 
 <h1 class="safe-visibility-hidden">{{ collection.title }}</h1>
-<div class="grid {% if show_featured_product %} grid--style-first-cell-enlarged  {% endif %}">
+<div
+  class="grid {% if show_featured_product %} grid--style-first-cell-enlarged {% endif %}"
+>
   <!-- this liquid logic allows us to show more than 50 products in a collection page without pagination -->
   <!-- 1000 is an arbitrary large number used so we won't run into a limit in the future -->
-  {% paginate collection.products by 1000 %}
-    {% for product in collection.products %}
-      {% render 'product-grid-item', current_product: product, show_featured_product: show_featured_product %}  
-    {% endfor %}
-  {% endpaginate %}
+  {% paginate collection.products by 1000 %} {% for product in
+  collection.products %} {% render 'product-grid-item', current_product:
+  product, show_featured_product: show_featured_product %} {% endfor %} {%
+  endpaginate %}
 </div>
