@@ -1,23 +1,35 @@
 {% assign show_featured_product =
 collection.metafields.accentuate.show_featured_product %}
+{% assign active_links = linklists.main-menu.links | where_exp: "levels > 0" %}
 
-<nav
-  data-nav
-  class="CollectionSubnav__tabs overflow-x-scroll border-top-black border-bottom-black uppercase sans-serif sticky py_5 px_625 md:px_75 text-nav bg-color-white w100 z-nav flex flex-row items-center"
->
-  {% for link in linklists.shop-collections-menu.links %}
-    {% if link.handle == collection.handle %}
-    {% assign sub_links = link.links %}
-    {% for sub_link in sub_links %}
-    <a
-      class="CollectionSubnav__button radius-xs nav-button-padding {% if forloop.last == false %} mr_75 {% endif %} {% if collection.handle == link.handle %} CollectionSubnav__button--active {% endif %}"
-      href="{{ sub_link.url }}">
-      {{ sub_link.title }}
-    </a>
-    {% endfor %}
+{% assign display_subnav = false %}
+
+{% for link in linklists.main-menu.links %}
+  {% if link.active or link.child_active %}
+    {% if link.levels > 0 %}
+      {% assign display_subnav = true %}
     {% endif %}
-  {% endfor %}
-</nav>
+  {% endif %}
+{% endfor %}
+
+{% if display_subnav %}
+  <nav
+    data-nav
+    class="CollectionSubnav__tabs flex-wrap border-top-black uppercase sans-serif sticky py_5 px_625 md:px_75 text-nav bg-color-white w100 z-nav flex flex-row items-center"
+  >
+    {% for link in linklists.main-menu.links %}
+      {% if link.active or link.child_active %}
+        {% for child_link in link.links %}
+        <a
+          class="CollectionSubnav__button radius-xs nav-button-padding {% if forloop.last == false %} mr_75 {% endif %} {% if child_link.active %} CollectionSubnav__button--active {% endif %}"
+          href="{{ child_link.url }}">
+          {{ child_link.title }}
+        </a>
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endif %}
 
 <h1 class="safe-visibility-hidden">{{ collection.title }}</h1>
 <div
