@@ -9,7 +9,7 @@
     <a data-logo-text class="Nav__button flex items-center justify-center lowercase logo radius-xs nav-button-padding--lowercase {% if request.path == '/' %} Nav__button--active" {% endif %}" href="/" aria-label="{{ 'snippets.nav.links.index_link.aria_label' | t }}"><span>{{ 'snippets.nav.links.index_link.text' | t }}</span></a>
     <span class="mx_75">{{ 'snippets.nav.hyphen' | t }}</span>
     {% for link in linklists.main-menu.links %}
-      <a class="Nav__button radius-xs nav-button-padding mr_75 {% if request.path == link.url %} Nav__button--active {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+      <a class="Nav__button radius-xs nav-button-padding mr_75 {% if link.active or link.child_active %} Nav__button--active {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
     {% endfor %}
   </div>
   {% render 'nav-cart' %}
