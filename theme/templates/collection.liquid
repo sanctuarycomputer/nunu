@@ -5,12 +5,17 @@ collection.metafields.accentuate.show_featured_product %}
   data-nav
   class="CollectionSubnav__tabs overflow-x-scroll border-top-black border-bottom-black uppercase sans-serif sticky py_5 px_625 md:px_75 text-nav bg-color-white w100 z-nav flex flex-row items-center"
 >
-  {% for link in linklists.collections-menu.links %}
-  <a
-    class="CollectionSubnav__button radius-xs nav-button-padding {% if forloop.last == false %} mr_75 {% endif %} {% if request.path == link.url %} CollectionSubnav__button--active {% endif %}"
-    href="{{ link.url }}"
-    >{{ link.title }}</a
-  >
+  {% for link in linklists.shop-collections-menu.links %}
+    {% if link.handle == collection.handle %}
+    {% assign sub_links = link.links %}
+    {% for sub_link in sub_links %}
+    <a
+      class="CollectionSubnav__button radius-xs nav-button-padding {% if forloop.last == false %} mr_75 {% endif %} {% if collection.handle == link.handle %} CollectionSubnav__button--active {% endif %}"
+      href="{{ sub_link.url }}">
+      {{ sub_link.title }}
+    </a>
+    {% endfor %}
+    {% endif %}
   {% endfor %}
 </nav>
 
