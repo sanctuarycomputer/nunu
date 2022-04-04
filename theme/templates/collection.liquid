@@ -1,14 +1,12 @@
 {% assign show_featured_product =
 collection.metafields.accentuate.show_featured_product %}
-{% assign active_links = linklists.main-menu.links | where_exp: "levels > 0" %}
 
 {% assign display_subnav = false %}
 
+{% comment %} Do not show subnav if the active link has no children. {% endcomment %}
 {% for link in linklists.main-menu.links %}
-  {% if link.active or link.child_active %}
-    {% if link.levels > 0 %}
-      {% assign display_subnav = true %}
-    {% endif %}
+  {% if link.active or link.child_active and link.levels > 0 %}
+    {% assign display_subnav = true %}
   {% endif %}
 {% endfor %}
 
@@ -18,6 +16,7 @@ collection.metafields.accentuate.show_featured_product %}
     class="CollectionSubnav__tabs flex-wrap border-top-black uppercase sans-serif sticky py_5 px_625 md:px_75 text-nav bg-color-white w100 z-nav flex flex-row items-center"
   >
     {% for link in linklists.main-menu.links %}
+      {% comment %} If the current link or its parent are active. {% endcomment %}
       {% if link.active or link.child_active %}
         {% for child_link in link.links %}
         <a
@@ -32,13 +31,15 @@ collection.metafields.accentuate.show_featured_product %}
 {% endif %}
 
 <h1 class="safe-visibility-hidden">{{ collection.title }}</h1>
+
 <div
   class="grid {% if show_featured_product %} grid--style-first-cell-enlarged {% endif %}"
 >
   <!-- this liquid logic allows us to show more than 50 products in a collection page without pagination -->
   <!-- 1000 is an arbitrary large number used so we won't run into a limit in the future -->
-  {% paginate collection.products by 1000 %} {% for product in
-  collection.products %} {% render 'product-grid-item', current_product:
-  product, show_featured_product: show_featured_product %} {% endfor %} {%
-  endpaginate %}
+  {% paginate collection.products by 1000 %}
+    {% for product in collection.products %}
+      {% render 'product-grid-item', current_product: product, show_featured_product: show_featured_product %}
+    {% endfor %}
+  {% endpaginate %}
 </div>

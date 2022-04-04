@@ -2,6 +2,7 @@
   &__tabs {
     top: $nav-height;
     background: color('white');
+    row-gap: 0.5rem;
 
     @include media('md-up') {
       top: $nav-height-md;
