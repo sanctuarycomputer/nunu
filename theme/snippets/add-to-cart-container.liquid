@@ -10,6 +10,11 @@
 {% capture button_label %}{{"snippets.add_to_cart_container.add_to_cart_btn.text" | t }}{% endcapture %}
 {% assign button_disabled = false %}
 
+{% assign add_to_cart_form_id = 'AddToCartForm--desktop' %}
+{% unless isDesktop %}
+  {% assign add_to_cart_form_id = 'AddToCartForm--mobile' %}
+{% endunless %}
+
 <!-- Assign label and disabled state to add to cart button -->
 {% if lowercase_product_type == "event" or lowercase_product_type == "course" or lowercase_product_type == "workshop" %}
 
@@ -69,7 +74,7 @@
 {% endif %}
 
 <div class="AddToCartContainer px_625 md:px0">
-  <form data-product-add-to-cart-form data-product-type={{product_type}} action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+  <form data-product-add-to-cart-form data-product-type={{product_type}} action="/cart/add" method="post" enctype="multipart/form-data" id={{add_to_cart_form_id}}>
     <div class="AddToCartContainer__quantity-select-wrapper overflow-hidden relative {% if product.variants.size <= 1 %} mb1_875 {% endif %}">
       <label for="quantity" type="number" name="quantity" aria-label={{"snippets.add_to_cart_container.quantity_spinner.label" | t }}></label>
       <select class="sans-xs uppercase radius-xs border-black w100 pl1_125 pb_875 pt1" name="quantity" id="Quantity" >
